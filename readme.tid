@@ -13,7 +13,7 @@ click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the side
 
 !!Tips
 * before pick a fishpond, you can choice a tag below fishpond to review tiddly which has the tag.
-* you can click blank space in tag area below fishpond to exit fishing forcibly.
+* you can click blank space in tag area below fishpond to exit fishing compulsorily.
 * you can click the unfold-icon in the tiddly to show its content (answer). because the caughted tiddly is folded, showing only titles (question) .
 * you an add field `caition`  with question to a tiddly to change the showing title. it is useful for cloze question.
 
