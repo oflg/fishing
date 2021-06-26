@@ -30,10 +30,10 @@ returns newdue as tiddlywiki's date
     */
     exports.run = function () {
         var title = this.getVariable("currentTiddler");
-        var tiddly = this.wiki.getTiddler(title);
+        var tiddler = this.wiki.getTiddler(title);
 
-        if (tiddly && tiddly.hasField("interval")) {
-            var interval = tiddly.getFieldString("interval");
+        if (tiddler && tiddler.hasField("interval")) {
+            var interval = tiddler.getFieldString("interval");
         } else {
             var interval = 0;
         }

@@ -1,21 +1,21 @@
 !Fising
-A [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]] plugin fishing tiddly with [[Anki|https://github.com/ankitects/anki]] algorithm.
+A [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]] plugin fishing tiddler with [[Anki|https://github.com/ankitects/anki]] algorithm.
 
 !!Install
 Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
 
 !!Usage
 !!!Add tag 
-add tag `Fish` to tiddly you would like to remember.  (freeing tiddly  to memory fishpond).
+add tag `Fish` to tiddler you would like to remember.  (freeing tiddler  to memory fishpond).
 
-!!!Review tiddly 
-click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar, then pick a fishpond. (fishing tiddly frome memory fishpond).
+!!!Review tiddler 
+click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar, then pick a fishpond. (fishing tiddler frome memory fishpond).
 
 !!Tips
-* before pick a fishpond, you can choice a tag below fishpond to review tiddly which has the tag.
+* you can choice a tag below fishpond to review tiddler which has the tag before pick a fishpond.
 * you can click blank space in tag area below fishpond to exit fishing compulsorily.
-* you can click the unfold-icon in the tiddly to show its content (answer). because the caughted tiddly is folded, showing only titles (question) .
-* you an add field `caition`  with question to a tiddly to change the showing title. it is useful for cloze question.
+* you can click the unfold-icon in the tiddler to show its content (answer). because the caughted tiddler is folded, showing only titles (question) .
+* you can add field `caption`  with question to a tiddler to change the showing title. it is useful for cloze question.
 
 !!TODO
 may be choice question?

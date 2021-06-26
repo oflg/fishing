@@ -37,7 +37,7 @@ easyEase={{{ [<ease>add[150]max<minEase>] }}}
 >
 
 
-<!-- set new anki  variables to current tiddly then navigate to next tiddly -->
+<!-- set new anki  variables to current tiddler then navigate to next tiddler -->
 <$vars 
 today=<<now "YYYY0MM0DD">>
 fishpond={{{ [[$:/temp/fishing]get[fishpond]] }}}

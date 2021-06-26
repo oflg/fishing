@@ -26,10 +26,10 @@ Macro to calculate the day from now to due.
     */
     exports.run = function () {
         var title = this.getVariable("currentTiddler");
-        var tiddly = this.wiki.getTiddler(title);
+        var tiddler = this.wiki.getTiddler(title);
 
-        if (tiddly && tiddly.hasField("due")) {
-            var modified = tiddly.getFieldString("due");
+        if (tiddler && tiddler.hasField("due")) {
+            var modified = tiddler.getFieldString("due");
 
             var year = modified.slice(0, 4);
             var month = modified.slice(4, 6);
