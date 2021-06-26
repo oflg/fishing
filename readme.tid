@@ -1,0 +1,38 @@
+!Fising
+A [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]] plugin fishing tiddly with [[Anki|https://github.com/ankitects/anki]] algorithm.
+
+!!Install
+Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
+
+!!Usage
+!!!Add tag 
+add tag `Fish` to tiddly you would like to remember.  (freeing tiddly  to memory fishpond).
+
+!!!Review tiddly 
+click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar, then pick a fishpond. (fishing tiddly frome memory fishpond).
+
+!!Tips
+* before pick a fishpond, you can choice a tag below fishpond to review tiddly which has the tag.
+* you can click blank space in tag area below fishpond to exit fishing forcibly.
+* you can click the unfold-icon in the tiddly to show its content (answer). because the caughted tiddly is folded, showing only titles (question) .
+* you an add field `caition`  with question to a tiddly to change the showing title. it is useful for cloze question.
+
+!!TODO
+may be choice question?
+
+!!Related
+
+* [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]] - A non-linear personal web notebook that anyone can use and keep forever, independently of any corporation.
+* [[Anki|https://github.com/ankitects/anki]] - A program which makes remembering things easy. 
+* [[Likeword|https://github.com/oflg/likeword]] - A [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]] plugin including english vocabulary for china postgraduate entrance exam which can be used with [[Fishing|https://github.com/oflg/fishing]].
+
+!! Maintainers
+
+[[@oflg|https://github.com/oflg]]
+
+!! Source code
+[[Github repository|https://github.com/oflg/fishing]]
+
+!! License
+
+[[MIT|https://github.com/oflg/fishing/blob/master/LICENSE]] © oflg

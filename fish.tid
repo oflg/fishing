@@ -1,0 +1,400 @@
+<$reveal state=<<folded-state>> type="match" text="show" animate="yes">
+<$reveal default={{{ [[$:/temp/fishing]get[fish]] }}} type="match" text={{{ [all[current]] }}} animate="yes">
+
+
+<!-- set anki algorithm-->
+<!-- set anki arguments -->
+<$vars 
+m={{$:/plugins/oflg/fishing/config/m}}  
+mAgain={{$:/plugins/oflg/fishing/config/mAgain}}  
+mEasy={{$:/plugins/oflg/fishing/config/mEasy}}  
+minEase={{$:/plugins/oflg/fishing/config/minEase}}
+>
+<!-- set anki  variables -->
+<$vars 
+ease={{{ [<currentTiddler>get[ease]else[0]] }}}
+interval={{{ [<currentTiddler>get[interval]else[0]] }}}
+>
+<!-- calculate new interval -->
+<$vars 
+againInterval={{{ [<mAgain>multiply<interval>] }}}  
+>
+<$vars 
+hardInterval={{{ [<interval>add[1]] =[<delay>divide[4]add<interval>multiply[1.2]multiply<m>] +[maxall[]] }}}  
+>
+<$vars 
+goodInterval={{{ [<hardInterval>add[1]] =[<delay>divide[2]add<interval>multiply<ease>divide[1000]multiply<m>] +[maxall[]] }}} 
+>
+<$vars 
+easyInterval={{{ [<goodInterval>add[1]] =[<delay>add<interval>multiply<ease>divide[1000]multiply<m>multiply<mEasy>] +[maxall[]] }}} 
+>
+<!-- calculate new ease -->
+<$vars 
+againEase={{{ [<ease>subtract[200]max<minEase>] }}}
+hardEase={{{ [<ease>subtract[150]max<minEase>] }}}
+goodEase={{{ [<ease>max<minEase>] }}}
+easyEase={{{ [<ease>add[150]max<minEase>] }}}
+>
+
+
+<!-- set new anki  variables to current tiddly then navigate to next tiddly -->
+<$vars 
+today=<<now "YYYY0MM0DD">>
+fishpond={{{ [[$:/temp/fishing]get[fishpond]] }}}
+fishtag={{{ [[$:/temp/fishing]get[fishtag]else[Fish]] }}}
+>
+<$reveal default=<<fishpond>> type="match" text="overdue" animate="yes">
+<$vars
+fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]!days:due[-1]count[]] }}}
+fish={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]!days:due[-1]sort[modified]rest[]first[]] }}}
+fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]!days:due[-1]sort[modified]rest[]first[]addprefix[$:/state/folded/]] }}}
+>
+<div style="float:left;color:grey;">
+<<fishpond>> : <<fishtag>> : <<fishcount>>
+</div>
+<div style="float:right">
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="again" style="color:red;margin-left:10px;">
+<$action-setfield $field="interval" $value=<<againInterval>> />
+<$action-setfield $field="ease" $value=<<againEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+🙀
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="hard" style="color:gery;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<hardInterval>> />
+<$action-setfield $field="ease" $value=<<hardEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😿
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="good" style="color:blue;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<goodInterval>> />
+<$action-setfield $field="ease" $value=<<goodEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😸
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="easy" style="color:green;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<easyInterval>> />
+<$action-setfield $field="ease" $value=<<easyEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😻
+</$button>
+</div>
+</$vars>
+</$reveal>
+
+<$reveal default=<<fishpond>> type="match" text="due" animate="yes">
+<$log />
+<$vars
+fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sameday:due<today>count[]] }}}
+fish={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sameday:due<today>sort[modified]rest[]first[]] }}}
+fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sameday:due<today>sort[modified]rest[]first[]addprefix[$:/state/folded/]] }}}
+>
+<div style="float:left;color:grey;">
+<<fishpond>> : <<fishtag>> : <<fishcount>>
+</div>
+<div style="float:right">
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="again" style="color:red;margin-left:10px;">
+<$action-setfield $field="interval" $value=<<againInterval>> />
+<$action-setfield $field="ease" $value=<<againEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+🙀<$log />
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="hard" style="color:gery;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<hardInterval>> />
+<$action-setfield $field="ease" $value=<<hardEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😿
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="good" style="color:blue;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<goodInterval>> />
+<$action-setfield $field="ease" $value=<<goodEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😸
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="easy" style="color:green;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<easyInterval>> />
+<$action-setfield $field="ease" $value=<<easyEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😻
+</$button>
+</div>
+</$vars>
+</$reveal>
+
+<$reveal default=<<fishpond>> type="match" text="undue" animate="yes">
+<$vars
+fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]!days:due[1]count[]] }}}
+fish={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]!days:due[1]sort[modified]rest[]first[]] }}}
+fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]!days:due[1]sort[modified]rest[]first[]addprefix[$:/state/folded/]] }}}
+>
+<div style="float:left;color:grey;">
+<<fishpond>> : <<fishtag>> : <<fishcount>>
+</div>
+<div style="float:right">
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="again" style="color:red;margin-left:10px;">
+<$action-setfield $field="interval" $value=<<againInterval>> />
+<$action-setfield $field="ease" $value=<<againEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+🙀
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="hard" style="color:gery;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<hardInterval>> />
+<$action-setfield $field="ease" $value=<<hardEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😿
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="good" style="color:blue;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<goodInterval>> />
+<$action-setfield $field="ease" $value=<<goodEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😸
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="easy" style="color:green;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<easyInterval>> />
+<$action-setfield $field="ease" $value=<<easyEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😻
+</$button>
+</div>
+</$vars>
+</$reveal>
+
+<$reveal default=<<fishpond>> type="match" text="old" animate="yes">
+<$vars
+fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]count[]] }}}
+fish={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sort[modified]rest[]first[]] }}}
+fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sort[modified]rest[]first[]addprefix[$:/state/folded/]] }}}
+>
+<div style="float:left;color:grey;">
+<<fishpond>> : <<fishtag>> : <<fishcount>>
+</div>
+<div style="float:right">
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="again" style="color:red;margin-left:10px;">
+<$action-setfield $field="interval" $value=<<againInterval>> />
+<$action-setfield $field="ease" $value=<<againEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+🙀
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="hard" style="color:gery;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<hardInterval>> />
+<$action-setfield $field="ease" $value=<<hardEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😿
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="good" style="color:blue;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<goodInterval>> />
+<$action-setfield $field="ease" $value=<<goodEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😸
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="easy" style="color:green;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<easyInterval>> />
+<$action-setfield $field="ease" $value=<<easyEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😻
+</$button>
+</div>
+</$vars>
+</$reveal>
+
+<$reveal default=<<fishpond>> type="match" text="new" animate="yes">
+<$vars
+fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]count[]] }}}
+fish={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[modified]rest[]first[]] }}}
+fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[modified]rest[]first[]addprefix[$:/state/folded/]] }}}
+>
+<div style="float:left;color:grey;">
+<<fishpond>> : <<fishtag>> : <<fishcount>>
+</div>
+<div style="float:right">
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="again" style="color:red;margin-left:10px;">
+<$action-setfield $field="interval" $value=<<againInterval>> />
+<$action-setfield $field="ease" $value=<<againEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+🙀
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="hard" style="color:gery;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<hardInterval>> />
+<$action-setfield $field="ease" $value=<<hardEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😿
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="good" style="color:blue;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<goodInterval>> />
+<$action-setfield $field="ease" $value=<<goodEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😸
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="easy" style="color:green;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<easyInterval>> />
+<$action-setfield $field="ease" $value=<<easyEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😻
+</$button>
+</div>
+</$vars>
+</$reveal>
+
+<$reveal default=<<fishpond>> type="match" text="all" animate="yes">
+<$vars
+fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>count[]] }}}
+fish={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>sort[modified]rest[]first[]] }}}
+fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>sort[modified]rest[]first[]addprefix[$:/state/folded/]] }}}
+>
+<div style="float:left;color:grey;">
+<<fishpond>> : <<fishtag>> : <<fishcount>>
+</div>
+<div style="float:right">
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="again" style="color:red;margin-left:10px;">
+<$action-setfield $field="interval" $value=<<againInterval>> />
+<$action-setfield $field="ease" $value=<<againEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+🙀
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="hard" style="color:gery;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<hardInterval>> />
+<$action-setfield $field="ease" $value=<<hardEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😿
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="good" style="color:blue;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<goodInterval>> />
+<$action-setfield $field="ease" $value=<<goodEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😸
+</$button>
+
+<$button class="tc-btn-invisible tc-tiddlylink" tooltip="easy" style="color:green;margin-left:20px;">
+<$action-setfield $field="interval" $value=<<easyInterval>> />
+<$action-setfield $field="ease" $value=<<easyEase>> />
+<$action-setfield $field="due" $value=<<newdue>>/>
+<$action-setfield $tiddler="$:/temp/fishing" fish=<<fish>> fishfold=<<fishfold>> />
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+<$action-sendmessage $message="tm-close-tiddler" />
+😻
+</$button>
+</div>
+</$vars>
+</$reveal>
+
+</$vars>
+
+</$vars>
+</$vars>
+</$vars>
+</$vars>
+</$vars>
+</$vars>
+</$vars>
+
+</$reveal>
+</$reveal>

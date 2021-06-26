@@ -1,0 +1,49 @@
+created: 20210623131302720
+creator: oflg
+modified: 20210623171650690
+modifier: oflg
+module-type: macro
+tags: 
+title: $:/plugins/oflg/fishing/newdue.js
+type: application/javascript
+
+/*\
+title: $:/plugins/oflg/fishing/newdue.js
+type: application/javascript
+module-type: macro
+
+returns newdue as tiddlywiki's date
+
+\*/
+(function () {
+
+    /*jslint node: true, browser: true */
+    /*global $tw: false */
+    "use strict";
+
+    exports.name = "newdue";
+
+    exports.params = [];
+
+    /*
+    Run the macro
+    */
+    exports.run = function () {
+        var title = this.getVariable("currentTiddler");
+        var tiddly = this.wiki.getTiddler(title);
+
+        if (tiddly && tiddly.hasField("interval")) {
+            var interval = tiddly.getFieldString("interval");
+        } else {
+            var interval = 0;
+        }
+
+        var dateTime = new Date();
+        dateTime = dateTime.setDate(dateTime.getDate() + parseInt(interval));
+        dateTime = new Date(dateTime);
+        var result = dateTime.toISOString().split('T')[0].replace(/-/g, "") + "000000000";
+
+        return result;
+    };
+
+})();
