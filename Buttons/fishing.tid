@@ -1,4 +1,12 @@
-<!-- interval that due&undue from today and tomorrow -->
+caption: {{$:/plugins/oflg/fishing/icon}} fishing
+created: 20210621034242678
+creator: oflg
+description: fishing tiddler with anki algorithm
+modified: 20210627053817638
+modifier: oflg
+tags: $:/tags/PageControls
+title: $:/plugins/oflg/fishing/Buttons/fishing
+
 <$vars
 today=<<now "YYYY0MM0DD">>
 fishpond={{{ [[$:/temp/fishing]get[fishpond]else[all]] }}}
