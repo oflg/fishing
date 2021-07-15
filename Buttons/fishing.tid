@@ -2,7 +2,7 @@ caption: {{$:/plugins/oflg/fishing/icon}} fishing
 created: 20210621034242678
 creator: oflg
 description: fishing tiddler with anki algorithm
-modified: 20210627053817638
+modified: 20210715093157546
 modifier: oflg
 tags: $:/tags/PageControls
 title: $:/plugins/oflg/fishing/Buttons/fishing
@@ -12,8 +12,9 @@ today=<<now "YYYY0MM0DD">>
 fishpond={{{ [[$:/temp/fishing]get[fishpond]else[all]] }}}
 fishtag={{{ [[$:/temp/fishing]get[fishtag]else[Fish]] }}}
 >
-<$button popup=<<qualify "$:/state/popup/more">> tooltip="fishing" aria-label="fishing" class=<<tv-config-toolbar-class>> selectedClass="tc-selected">
-{{$:/plugins/oflg/fishing/icon}}<span style="font-size:5px;color:red;"><$text text={{{ [all[shadows+tiddlers]tag[Fish]has[due]!days:due[-1]count[]] }}}/></span>.<span style="font-size:5px;color:orange;"><$text text={{{ [tag[Fish]has[due]sameday:due<today>count[]] }}}/></span>.<span style="font-size:5px;color:green;"><$text text={{{ [all[shadows+tiddlers]tag[Fish]has[due]!days:due[1]count[]] }}}/></span>.<span style="font-size:5px;color:blue;"><$text text={{{ [tag[Fish]has[due]count[]] }}}/></span>.<span style="font-size:5px;"><$text text={{{ [all[shadows+tiddlers]tag[Fish]!has[due]count[]] }}}/></span>.<span style="font-size:5px;color:grey;"><$text text={{{  [all[shadows+tiddlers]tag[Fish]count[]] }}}/></span>
+<$button popup=<<qualify "$:/state/popup/more">> tooltip="fishing" aria-label="fishing" class=<<tv-config-toolbar-class>>  selectedClass="tc-selected">
+{{$:/plugins/oflg/fishing/icon}}<$reveal default={{{ [all[shadows+tiddlers]tag[Fish]has[due]!days:due[-1]count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:red;"><$text text={{{ [all[shadows+tiddlers]tag[Fish]has[due]!days:due[-1]count[]] }}}/></span></$reveal><$reveal default={{{ [all[shadows+tiddlers]tag[Fish]has[due]sameday:due<today>count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:green
+;"><$text text={{{ [all[shadows+tiddlers]tag[Fish]has[due]sameday:due<today>count[]] }}}/></span></$reveal>
 </$button>
 
 <$reveal state=<<qualify "$:/state/popup/more">> type="popup" position="below" animate="yes">
@@ -78,8 +79,8 @@ fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sort[modified]fi
 <$vars
 fishpond="new"
 fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]count[]] }}}
-fish={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[modified]first[]] }}}
-fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[modified]first[]addprefix[$:/state/folded/]] }}}
+fish={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[created]first[]] }}}
+fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[created]first[]addprefix[$:/state/folded/]] }}}
 >
 <<fishpond>> : <<fishcount>>
 <$action-setfield $tiddler="$:/temp/fishing" fishpond=<<fishpond>> fish=<<fish>> fishfold=<<fishfold>> />

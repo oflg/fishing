@@ -1,38 +1,28 @@
-!Fising
+created: 20210623154032949
+creator: oflg
+modified: 20210715095158994
+modifier: oflg
+tags: 
+title: $:/plugins/oflg/fishing/readme
+
+! Fising
 A [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]] plugin fishing tiddler with [[Anki|https://github.com/ankitects/anki]] algorithm.
 
-!!Install
+!! Install
 Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
 
-!!Usage
-!!!Add tag 
-add tag `Fish` to tiddler you would like to remember.  (freeing tiddler  to memory fishpond).
+!! Usage
+# add tag `Fish` to tiddler you would like to remember.
+# click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar, then pick a fishpond (overdue, due, undue, old, new, all).
 
-!!!Review tiddler 
-click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar, then pick a fishpond. (fishing tiddler frome memory fishpond).
-
-!!Tips
-* you can choice a tag below fishpond to review tiddler which has the tag before pick a fishpond.
+!! Tips
+* you can choice a tag below fishpond to remember tiddler which has the tag.
 * you can click blank space in tag area below fishpond to exit fishing compulsorily.
-* you can click the unfold-icon in the tiddler to show its content (answer). because the caughted tiddler is folded, showing only titles (question) .
-* you can add field `caption`  with question to a tiddler to change the showing title. it is useful for cloze question.
+* you can click the unfold-icon in the tiddler to show its content (answer). Because the caughted tiddler is folded, showing only titles (question) .
+* you can add field `caption`  with question to a tiddler to change the showing title. It is useful for cloze question.
 
-!!TODO
-may be choice question?
+!! Related
+* [[Anki algorithm|https://gist.github.com/fasiha/31ce46c36371ff57fdbc1254af424174]] - How Anki calculates intervals.
 
-!!Related
-
-* [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]] - A non-linear personal web notebook that anyone can use and keep forever, independently of any corporation.
-* [[Anki|https://github.com/ankitects/anki]] - A program which makes remembering things easy. 
-* [[Likeword|https://github.com/oflg/likeword]] - A [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]] plugin including english vocabulary for china postgraduate entrance exam which can be used with [[Fishing|https://github.com/oflg/fishing]].
-
-!! Maintainers
-
-[[@oflg|https://github.com/oflg]]
-
-!! Source code
-[[Github repository|https://github.com/oflg/fishing]]
-
-!! License
-
-[[MIT|https://github.com/oflg/fishing/blob/master/LICENSE]] © oflg
+!! Feedback
+Remember to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help us to improve future versions of Fishing. 

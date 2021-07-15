@@ -1,13 +1,13 @@
 created: 20210624061234416
 creator: oflg
-modified: 20210624074048312
+modified: 20210715095929907
 modifier: oflg
 tags: 
 title: $:/plugins/oflg/fishing/config
 
-|argument|config|h
-|m| <$edit-text tiddler="$:/plugins/oflg/fishing/config/m" default="1.0" tag="input"/>|
-|mAgain| <$edit-text tiddler="$:/plugins/oflg/fishing/config/mAgain" default="0" tag="input"/>|
-|mEasy| <$edit-text tiddler="$:/plugins/oflg/fishing/config/mEasy" default="1.3" tag="input"/>|
-|minEase| <$edit-text tiddler="$:/plugins/oflg/fishing/config/minEase" default="1300" tag="input"/>|
-|dont't modify them unless understand anki algorithm|<|<|f
+|Argument|Value|h
+|[[m|$:/plugins/oflg/fishing/config/m]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/m" default="1.0" tag="input"/>|
+|[[mAgain|$:/plugins/oflg/fishing/config/mAgain]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/mAgain" default="0" tag="input"/>|
+|[[mEasy|$:/plugins/oflg/fishing/config/mEasy]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/mEasy" default="1.3" tag="input"/>|
+|[[minEase|$:/plugins/oflg/fishing/config/minEase]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/minEase" default="1300" tag="input"/>|
+|Dont't modify them unless you understand [[Anki algorithm|https://gist.github.com/fasiha/31ce46c36371ff57fdbc1254af424174]]|<|<|f
