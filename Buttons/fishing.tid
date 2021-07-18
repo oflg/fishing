@@ -1,9 +1,4 @@
-caption: {{$:/plugins/oflg/fishing/icon}} fishing
-created: 20210621034242678
-creator: oflg
-description: fishing tiddler with anki algorithm
-modified: 20210715093157546
-modifier: oflg
+description: Flash cards for Tiddlywiki, fishing with Anki algorithm.
 tags: $:/tags/PageControls
 title: $:/plugins/oflg/fishing/Buttons/fishing
 

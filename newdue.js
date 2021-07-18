@@ -1,12 +1,3 @@
-created: 20210623131302720
-creator: oflg
-modified: 20210623171650690
-modifier: oflg
-module-type: macro
-tags: 
-title: $:/plugins/oflg/fishing/newdue.js
-type: application/javascript
-
 /*\
 title: $:/plugins/oflg/fishing/newdue.js
 type: application/javascript

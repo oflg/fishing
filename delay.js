@@ -1,11 +1,3 @@
-created: 20210620163326407
-creator: oflg
-modified: 20210623132801054
-modifier: oflg
-module-type: macro
-title: $:/plugins/oflg/fishing/delay.js
-type: application/javascript
-
 /*\
 title: $:/plugins/oflg/fishing/delay.js
 type: application/javascript
@@ -43,10 +35,10 @@ Macro to calculate the day from now to due.
             var dateNow = (new Date()).toISOString().split('T')[0];
             var diffTime = Math.abs(new Date(dateNow) - new Date(dateDue));
 
-            var result= Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            var result = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
         } else {
-            var result= "0";
+            var result = "0";
         }
         return result;
     };

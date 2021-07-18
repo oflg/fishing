@@ -10838,7 +10838,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <pre>&lt;&lt;tabs &quot;[[$:/plugins/ahahn/tinka/pluginManagement]] [[$:/plugins/ahahn/tinka/createDialog]] [[$:/plugins/ahahn/tinka/backupList]]&quot; &quot;$:/plugins/ahahn/tinka/pluginManagement&quot; &quot;$:/temp/tinka/cpTabs&quot;&gt;&gt;
 </pre>
 </div>
-<div author="oflg" created="20210623154437503" creator="oflg" description="Fishing tiddly with anki algorithm" list="readme config" modified="20210626060929328" modifier="oflg" name="Fishing" plugin-type="plugin" source="https://github.com/oflg/fishing" title="$:/plugins/oflg/fishing" type="application/json" version="0.6.12">
+<div author="oflg" created="20210623154437503" creator="oflg" description="Flash cards for Tiddlywiki, fishing with Anki algorithm." list="readme config" modified="20210718100104422" modifier="oflg" name="Fishing" plugin-type="plugin" source="https://github.com/oflg/fishing" title="$:/plugins/oflg/fishing" type="application/json" version="0.6.20">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/oflg/fishing/Buttons/fishing&quot;: {
@@ -10848,8 +10848,8 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
             &quot;title&quot;: &quot;$:/plugins/oflg/fishing/Buttons/fishing&quot;,
             &quot;tags&quot;: &quot;$:/tags/PageControls&quot;,
             &quot;modifier&quot;: &quot;oflg&quot;,
-            &quot;modified&quot;: &quot;20210715093157546&quot;,
-            &quot;description&quot;: &quot;fishing tiddler with anki algorithm&quot;,
+            &quot;modified&quot;: &quot;20210718100037733&quot;,
+            &quot;description&quot;: &quot;Flash cards for Tiddlywiki, fishing with Anki algorithm.&quot;,
             &quot;caption&quot;: &quot;{{$:/plugins/oflg/fishing/icon}} fishing&quot;
         },
         &quot;$:/plugins/oflg/fishing/config/m&quot;: {
@@ -10921,11 +10921,11 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
         &quot;$:/plugins/oflg/fishing/readme&quot;: {
             &quot;created&quot;: &quot;20210623154032949&quot;,
             &quot;creator&quot;: &quot;oflg&quot;,
-            &quot;text&quot;: &quot;! Fising\nA [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]] plugin fishing tiddler with [[Anki|https://github.com/ankitects/anki]] algorithm.\n\n!! Install\nDrag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.\n\n!! Usage\n# add tag `Fish` to tiddler you would like to remember.\n# click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar, then pick a fishpond (overdue, due, undue, old, new, all).\n\n!! Tips\n* you can choice a tag below fishpond to remember tiddler which has the tag.\n* you can click blank space in tag area below fishpond to exit fishing compulsorily.\n* you can click the unfold-icon in the tiddler to show its content (answer). Because the caughted tiddler is folded, showing only titles (question) .\n* you can add field `caption`  with question to a tiddler to change the showing title. It is useful for cloze question.\n\n!! Related\n* [[Anki algorithm|https://gist.github.com/fasiha/31ce46c36371ff57fdbc1254af424174]] - How Anki calculates intervals.\n\n!! Feedback\nRemember to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help us to improve future versions of Fishing. &quot;,
+            &quot;text&quot;: &quot;! Fising\nFlash cards for [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]], fishing with [[Anki|https://apps.ankiweb.net/]] algorithm.\n\n!! Install\nDrag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.\n\n!! Usage\n# add tag `Fish` to tiddler you would like to catch.\n# click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar, then pick a fishpond (overdue, due, undue, old, new, all).\n\n!! Tips\n* Caughted tiddler shows only title (question). You can click its unfold-icon to show content (answer).\n* you can add field `caption` with question to tiddler to change the showing title.\n* you can choice a tag below fishpond to catch tiddlers have the tag.\n* you can click blank space in the tag area to exit fishing.\n\n!! Related\n* [[Anki algorithm|https://gist.github.com/fasiha/31ce46c36371ff57fdbc1254af424174]] - How Anki calculates intervals.\n\n!! Feedback\nRemember to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help us to improve future versions of Fishing.&quot;,
             &quot;title&quot;: &quot;$:/plugins/oflg/fishing/readme&quot;,
             &quot;tags&quot;: &quot;&quot;,
             &quot;modifier&quot;: &quot;oflg&quot;,
-            &quot;modified&quot;: &quot;20210715095158994&quot;
+            &quot;modified&quot;: &quot;20210718091529268&quot;
         },
         &quot;$:/core/ui/ViewTemplate/title&quot;: {
             &quot;text&quot;: &quot;\\whitespace trim\n\\define title-styles()\nfill:$(foregroundColor)$;\n\\end\n\\define config-title()\n$:/config/ViewToolbarButtons/Visibility/$(listItem)$\n\\end\n&lt;div class=\&quot;tc-tiddler-title\&quot;&gt;\n&lt;div class=\&quot;tc-titlebar\&quot;&gt;\n&lt;span class=\&quot;tc-tiddler-controls\&quot;&gt;\n&lt;$list filter=\&quot;[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]\&quot; variable=\&quot;listItem\&quot;&gt;&lt;$reveal type=\&quot;nomatch\&quot; state=&lt;&lt;config-title&gt;&gt; text=\&quot;hide\&quot;&gt;&lt;$set name=\&quot;tv-config-toolbar-class\&quot; filter=\&quot;[&lt;tv-config-toolbar-class&gt;] [&lt;listItem&gt;encodeuricomponent[]addprefix[tc-btn-]]\&quot;&gt;&lt;$transclude tiddler=&lt;&lt;listItem&gt;&gt;/&gt;&lt;/$set&gt;&lt;/$reveal&gt;&lt;/$list&gt;\n&lt;/span&gt;\n&lt;$set name=\&quot;tv-wikilinks\&quot; value={{$:/config/Tiddlers/TitleLinks}}&gt;\n&lt;$link&gt;\n&lt;$set name=\&quot;foregroundColor\&quot; value={{!!color}}&gt;\n&lt;$list filter=\&quot;[all[current]has[icon]]~[[$:/config/DefaultTiddlerIcon]has[text]]\&quot;&gt;\n&lt;span class=\&quot;tc-tiddler-title-icon\&quot; style=&lt;&lt;title-styles&gt;&gt;&gt;\n&lt;$transclude tiddler={{!!icon}}&gt;\n&lt;$transclude tiddler={{$:/config/DefaultTiddlerIcon}}/&gt;\n&lt;/$transclude&gt;\n&lt;/span&gt;\n&lt;/$list&gt;\n&lt;/$set&gt;\n&lt;$list filter=\&quot;[all[current]removeprefix[$:/]]\&quot;&gt;\n&lt;h2 class=\&quot;tc-title\&quot; title={{$:/language/SystemTiddler/Tooltip}}&gt;\n&lt;span class=\&quot;tc-system-title-prefix\&quot;&gt;$:/&lt;/span&gt;&lt;$text text=&lt;&lt;currentTiddler&gt;&gt;/&gt;\n&lt;/h2&gt;\n&lt;/$list&gt;\n&lt;$list filter=\&quot;[all[current]!prefix[$:/]]\&quot;&gt;\n&lt;h2 class=\&quot;tc-title\&quot;&gt;\n&lt;&lt;toc-caption&gt;&gt;\n&lt;/h2&gt;\n&lt;/$list&gt;\n&lt;/$link&gt;\n&lt;/$set&gt;\n&lt;/div&gt;\n\n&lt;$reveal type=\&quot;nomatch\&quot; text=\&quot;\&quot; default=\&quot;\&quot; state=&lt;&lt;tiddlerInfoState&gt;&gt; class=\&quot;tc-tiddler-info tc-popup-handle\&quot; animate=\&quot;yes\&quot; retain=\&quot;yes\&quot;&gt;\n\n&lt;$list filter=\&quot;[all[shadows+tiddlers]tag[$:/tags/TiddlerInfoSegment]!has[draft.of]] [[$:/core/ui/TiddlerInfo]]\&quot; variable=\&quot;listItem\&quot;&gt;&lt;$transclude tiddler=&lt;&lt;listItem&gt;&gt; mode=\&quot;block\&quot;/&gt;&lt;/$list&gt;\n\n&lt;/$reveal&gt;\n&lt;/div&gt;&quot;,
@@ -11181,7 +11181,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20210618143423741" creator="oflg" modified="20210618143424488" modifier="oflg" title="$:/state/folded/$:/plugins/oflg/catchtiddly/catch clone">
 <pre>show</pre>
 </div>
-<div created="20210624162722400" creator="oflg" modified="20210624162724734" modifier="oflg" title="$:/state/folded/$:/plugins/oflg/fishing">
+<div created="20210624162722400" creator="oflg" modified="20210718091049936" modifier="oflg" title="$:/state/folded/$:/plugins/oflg/fishing">
 <pre>show</pre>
 </div>
 <div created="20210621080433110" creator="oflg" modified="20210624162724735" modifier="oflg" title="$:/state/folded/$:/plugins/oflg/fishing/Buttons/fishing">
@@ -11343,7 +11343,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20210624074449534" creator="oflg" modified="20210624074458274" modifier="oflg" title="$:/state/plugin-info--753970242-$:/plugins/oflg/fishing">
 <pre>yes</pre>
 </div>
-<div created="20210623154456084" creator="oflg" modified="20210715100008119" modifier="oflg" title="$:/state/plugin-info--753970242-$:/plugins/oflg/fishing---586527060">
+<div created="20210623154456084" creator="oflg" modified="20210718100219885" modifier="oflg" title="$:/state/plugin-info--753970242-$:/plugins/oflg/fishing---586527060">
 <pre>readme</pre>
 </div>
 <div created="20210623161052901" creator="oflg" modified="20210623161429638" modifier="oflg" title="$:/state/plugin-info--896887961-$:/core">
@@ -11409,8 +11409,8 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20210621151400684" creator="oflg" modified="20210621151400684" modifier="oflg" title="$:/state/tab--729627771">
 <pre>$:/core/ui/TiddlerInfo/Tools</pre>
 </div>
-<div created="20210618050748205" creator="oflg" modified="20210715091604881" modifier="oflg" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Plugins</pre>
+<div created="20210618050748205" creator="oflg" modified="20210718100030263" modifier="oflg" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
 <div created="20210621044907642" creator="oflg" modified="20210621044907642" modifier="oflg" title="$:/state/tab-551551537">
 <pre>$:/core/ui/TiddlerInfo/Tools</pre>
@@ -11424,7 +11424,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20210618051631331" creator="oflg" modified="20210625135100037" modifier="oflg" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/Explorer</pre>
 </div>
-<div created="20210619053439360" creator="oflg" modified="20210715100015857" modifier="oflg" title="$:/state/tab/sidebar--595412856">
+<div created="20210619053439360" creator="oflg" modified="20210718100214152" modifier="oflg" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div created="20210621041426488" creator="oflg" modified="20210629104650764" modifier="oflg" title="$:/state/tabs/controlpanel/toolbars-1345989671">
@@ -11493,7 +11493,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20210618050845511" creator="o" modified="20210618050845913" modifier="ofl" title="$:/status/UserName">
 <pre>oflg</pre>
 </div>
-<div created="20210715095447639" creator="oflg" list="$:/plugins/oflg/fishing" modified="20210715095648002" modifier="oflg" title="$:/StoryList">
+<div created="20210718100010929" creator="oflg" list="$:/plugins/oflg/fishing" modified="20210718100029028" modifier="oflg" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210621045413725" creator="oflg" list="$:/core/ui/Buttons/home $:/core/ui/Buttons/close-all $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/refresh $:/core/ui/Buttons/more-page-actions $:/plugins/oflg/catchtiddly/Buttons/fish" modified="20210621045425576" modifier="oflg" title="$:/tags/PageControls">

@@ -1,28 +1,22 @@
-created: 20210623154032949
-creator: oflg
-modified: 20210715095158994
-modifier: oflg
-tags: 
 title: $:/plugins/oflg/fishing/readme
 
 ! Fising
-A [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]] plugin fishing tiddler with [[Anki|https://github.com/ankitects/anki]] algorithm.
+Flash cards for [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]], fishing with [[Anki|https://apps.ankiweb.net/]] algorithm.
 
 !! Install
 Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
 
 !! Usage
-# add tag `Fish` to tiddler you would like to remember.
-# click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar, then pick a fishpond (overdue, due, undue, old, new, all).
+# add tag `Fish` to tiddler you would like to catch.
+# click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar, then pick a fishpond from overdue, due, undue, old, new and all.
 
 !! Tips
-* you can choice a tag below fishpond to remember tiddler which has the tag.
-* you can click blank space in tag area below fishpond to exit fishing compulsorily.
-* you can click the unfold-icon in the tiddler to show its content (answer). Because the caughted tiddler is folded, showing only titles (question) .
-* you can add field `caption`  with question to a tiddler to change the showing title. It is useful for cloze question.
+* you can add field `caption` with question to tiddler to change the showing title.
+* you can choice a tag below fishpond to catch tiddlers have the tag.
+* you can click blank space in the tag area to exit fishing.
 
 !! Related
 * [[Anki algorithm|https://gist.github.com/fasiha/31ce46c36371ff57fdbc1254af424174]] - How Anki calculates intervals.
 
 !! Feedback
-Remember to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help us to improve future versions of Fishing. 
+Remember to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help us to improve future versions of Fishing.

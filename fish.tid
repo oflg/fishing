@@ -1,3 +1,5 @@
+title: $:/plugins/oflg/fishing/fish
+
 <$reveal state=<<folded-state>> type="match" text="show" animate="yes">
 <$reveal default={{{ [[$:/temp/fishing]get[fish]] }}} type="match" text={{{ [all[current]] }}} animate="yes">
 
@@ -275,8 +277,8 @@ fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sort[modified]re
 <$reveal default=<<fishpond>> type="match" text="new" animate="yes">
 <$vars
 fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]count[]] }}}
-fish={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[modified]rest[]first[]] }}}
-fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[modified]rest[]first[]addprefix[$:/state/folded/]] }}}
+fish={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[created]rest[]first[]] }}}
+fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[created]rest[]first[]addprefix[$:/state/folded/]] }}}
 >
 <div style="float:left;color:grey;">
 <<fishpond>> : <<fishtag>> : <<fishcount>>
