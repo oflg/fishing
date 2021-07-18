@@ -7,8 +7,9 @@ Flash cards for [[Tiddlywiki|https://github.com/Jermolene/TiddlyWiki5]], fishing
 Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
 
 !! Usage
-# add tag `Fish` to tiddler you would like to catch.
-# click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar, then pick a fishpond from overdue, due, undue, old, new and all.
+# Add tag `Fish` to tiddler you would like to catch.
+# Click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar.
+# Pick a fishpond from overdue, due, undue, old, new and all.
 
 !! Tips
 * you can add field `caption` with question to tiddler to change the showing title.
