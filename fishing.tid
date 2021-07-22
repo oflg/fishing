@@ -1,8 +1,8 @@
+tags: $:/tags/ViewTemplate
 title: $:/plugins/oflg/fishing/fish
 
+<$reveal default={{{ [[$:/temp/fishing]get[fish]] }}} type="match" text=<<currentTiddler>> animate="yes">
 <$reveal state=<<folded-state>> type="match" text="show" animate="yes">
-<$reveal default={{{ [[$:/temp/fishing]get[fish]] }}} type="match" text={{{ [all[current]] }}} animate="yes">
-
 
 <!-- set anki algorithm-->
 <!-- set anki arguments -->

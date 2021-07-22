@@ -1,4 +1,0 @@
-tags: $:/tags/ViewTemplate
-title: Fish
-
-{{||$:/plugins/oflg/fishing/fish}}
