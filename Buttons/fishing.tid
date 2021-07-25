@@ -70,7 +70,7 @@ fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sort[modified]fi
 </$vars>
 </$button>
 
-<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="catch tiddler in old fishpond">
+<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="catch tiddler in new fishpond">
 <$vars
 fishpond="new"
 fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]count[]] }}}
