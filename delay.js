@@ -21,21 +21,20 @@ Macro to calculate the day from now to due.
         var tiddler = this.wiki.getTiddler(title);
 
         if (tiddler && tiddler.hasField("due")) {
-            var modified = tiddler.getFieldString("due");
+            var due = tiddler.getFieldString("due");
 
-            var year = modified.slice(0, 4);
-            var month = modified.slice(4, 6);
-            var day = modified.slice(6, 8);
-            var arr = new Array(3);
-            arr[0] = year;
-            arr[1] = month;
-            arr[2] = day;
-            var dateDue = arr.join("-");
+            var Y = due.slice(0, 4);
+            var M = due.slice(4, 6);
+            var D = due.slice(6, 8);
+            var h = due.slice(8, 10);
+            var m = due.slice(10, 12);
+            var s = due.slice(12, 14);
+            var x = due.slice(14, 17);
 
-            var dateNow = (new Date()).toISOString().split('T')[0];
-            var diffTime = Math.abs(new Date(dateNow) - new Date(dateDue));
+            var dateDue = Y + "-" + M + "-" + D + "T" + h + ":" + m + ":" + s + "." + x + "Z";
+            var diffTime = Math.abs(new Date() - new Date(dateDue));
 
-            var result = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            var result = diffTime / (1000 * 60 * 60 * 24);
 
         } else {
             var result = "0";
