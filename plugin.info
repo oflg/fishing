@@ -1,10 +1,10 @@
 {
     "author": "oflg",
-    "description": "Flash cards for Tiddlywiki, fishing with Anki algorithm.",
+    "description": "ActiveRecall and SpacedRepetition for TiddlyWiki, fishing with Anki algorithm.",
     "list": "readme config",
     "name": "Fishing",
     "plugin-type": "plugin",
     "source": "https://github.com/oflg/fishing",
     "title": "$:/plugins/oflg/fishing",
-    "version": "0.7.1"
+    "version": "0.7.6"
 }

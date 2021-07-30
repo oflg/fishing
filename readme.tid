@@ -1,7 +1,7 @@
 title: $:/plugins/oflg/fishing/readme
 
 ! Fising
-Flash cards for [[Tiddlywiki|https://tiddlywiki.com/]], fishing with [[Anki|https://apps.ankiweb.net/]] algorithm.
+[[ActiveRecall and SpacedRepetition|https://docs.ankiweb.net/background.html]] for [[TiddlyWiki|https://tiddlywiki.com/]], fishing with [[Anki algorithm|https://gist.github.com/fasiha/31ce46c36371ff57fdbc1254af424174]].
 
 !! Install
 Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
@@ -15,9 +15,6 @@ Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
 * you can add field `caption` with question to tiddler to change the showing title.
 * you can choice a tag below fishpond to catch tiddlers have the tag.
 * you can click blank space in the tag area to exit fishing.
-
-!! Related
-* [[Anki algorithm|https://gist.github.com/fasiha/31ce46c36371ff57fdbc1254af424174]] - How Anki calculates intervals.
 
 !! Feedback
 Remember to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help us to improve future versions of Fishing.
