@@ -7,14 +7,13 @@ title: $:/plugins/oflg/fishing/readme
 Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
 
 !! Usage
-# Add tag `Fish` to tiddler you would like to catch.
-# Click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar.
-# Pick a fishpond from overdue, due, undue, old, new and all.
+# Add tag `Fish` to tiddler you would like to revise.
+# Click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar and select a revise group (fishpond).
 
 !! Tips
 * you can add field `caption` with question to tiddler to change the showing title.
-* you can choice a tag below fishpond to catch tiddlers have the tag.
+* you can choice a tag below the fishponds to catch tiddlers have the tag.
 * you can click blank space in the tag area to exit fishing.
 
 !! Feedback
-Remember to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help us to improve future versions of Fishing.
+Feel free to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help me to improve future versions of Fishing.

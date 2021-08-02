@@ -14,7 +14,7 @@ fishtag={{{ [[$:/temp/fishing]get[fishtag]else[Fish]] }}}
 
 <$reveal state=<<qualify "$:/state/popup/more">> type="popup" position="below" animate="yes">
 <div class="tc-drop-down">
-<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="catch tiddler in overdue fishpond">
+<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="revise overdue tiddlers">
 <$vars
 fishpond="overdue"
 fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]!days:due[-1]count[]] }}}
@@ -28,7 +28,7 @@ fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]!days:due[-1]sor
 </$vars>
 </$button>
 
-<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="catch tiddler in due fishpond">
+<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="revise due tiddlers">
 <$vars
 fishpond="due"
 fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sameday:due<today>count[]] }}}
@@ -42,7 +42,7 @@ fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sameday:due<toda
 </$vars>
 </$button>
 
-<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="catch tiddler in undue fishpond">
+<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="revise undue tiddlers">
 <$vars
 fishpond="undue"
 fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]!days:due[1]count[]] }}}
@@ -56,7 +56,7 @@ fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]!days:due[1]sort
 </$vars>
 </$button>
 
-<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="catch tiddler in old fishpond">
+<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="revise tiddlers that have been revised">
 <$vars
 fishpond="old"
 fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]count[]] }}}
@@ -70,7 +70,7 @@ fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>has[due]sort[modified]fi
 </$vars>
 </$button>
 
-<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="catch tiddler in new fishpond">
+<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="revise tiddlers that have not been revised">
 <$vars
 fishpond="new"
 fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]count[]] }}}
@@ -84,7 +84,7 @@ fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>!has[due]sort[created]fi
 </$vars>
 </$button>
 
-<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="catch tiddler in all fishpond">
+<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip="revise all tiddlers">
 <$vars
 fishpond="all"
 fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>count[]] }}}
@@ -104,7 +104,7 @@ fishfold={{{ [all[shadows+tiddlers]tag[Fish]tag<fishtag>sort[modified]first[]add
 fishcount={{{  [all[shadows+tiddlers]tag[Fish]tag<fishtag>count[]] }}}
 style={{{ [[$:/temp/fishing]get[fishtag]compare:string:eq<fishtag>then[margin: 4px 2px;width:auto;height:auto;display:inline-block;float: left;color:white;]else[margin: 4px 2px;width:auto;height:auto;display:inline-block;float: left;]] }}}
 >
-<$button class="tc-tag-label tc-tag-list-item tc-btn-invisible" style=<<style>> tooltip="catch tiddler with tag">
+<$button class="tc-tag-label tc-tag-list-item tc-btn-invisible" style=<<style>> tooltip="revise tiddlers with this tag">
 <<fishtag>>
 <$action-setfield $tiddler="$:/temp/fishing" fishtag=<<fishtag>> />
 </$button>
