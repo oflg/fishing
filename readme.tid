@@ -8,12 +8,11 @@ Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
 
 !! Usage
 # Add tag `Fish` to tiddler you would like to revise.
-# Click the fishing button {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar and select a revise group (fishpond).
+# Click {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar and select a revise group.
 
-!! Tips
-* you can add field `caption` with question to tiddler to change the showing title.
-* you can choice a tag below the fishponds to catch tiddlers have the tag.
-* you can click blank space in the tag area to exit fishing.
+!!! Advanced Tips
+* You can add field `caption` with question to tiddler to change it's showing title and shape it into Q&A, Cloze and Choice Question.
+* You can revise complex group of tiddlers by inputing a filter expression in {{$:/core/ui/SideBarSegments/search}} on the sidebar. For example, `[tag[tag1]tag[tag2]]` -- only tiddlers with tag1 and tag2 will be revised, `[sort[created]]` -- tiddlers will be revised by created time.
 
 !! Feedback
 Feel free to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help me to improve future versions of Fishing.
