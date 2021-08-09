@@ -13,18 +13,18 @@ today=<<now "YYYY0MM0DD">>
 <!-- creat fishpond -->
 <$reveal state=<<qualify "$:/state/popup/more">> type="popup" position="below" animate="yes">
 <div class="tc-drop-down">
-<$set name="extraFilter" value={{$:/temp/search}} emptyValue="[tag[Fish]]">
+<$set name="extrafilter" value={{$:/temp/fishing!!extrafilter}} emptyValue="[tag[Fish]]">
 <$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue old new all]]" variable="fishpond">
 <$vars
-fishFilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
+fishfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
 >
 <$vars
 tooltip={{{ [<fishpond>addprefix[revise ]addsuffix[ tiddlers]] }}}
-fishcount={{{ [subfilter<fishFilter>subfilter<extraFilter>count[]] }}}
-fish={{{ [subfilter<fishFilter>subfilter<extraFilter>first[]] }}}
-fishfold={{{ [subfilter<fishFilter>subfilter<extraFilter>first[]addprefix[$:/state/folded/]] }}}
+fishcount={{{ [subfilter<fishfilter>subfilter<extrafilter>count[]] }}}
+fish={{{ [subfilter<fishfilter>subfilter<extrafilter>first[]] }}}
+fishfold={{{ [subfilter<fishfilter>subfilter<extrafilter>first[]addprefix[$:/state/folded/]] }}}
 >
-<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip=<<tooltip>> >
+<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip=<<tooltip>>>
 <<fishpond>> : <<fishcount>>
 <$action-setfield $tiddler="$:/temp/fishing" fishpond=<<fishpond>> fish=<<fish>> fishfold=<<fishfold>>/>
 <$action-setfield $tiddler=<<fishfold>> text="hide"/>
@@ -34,6 +34,9 @@ fishfold={{{ [subfilter<fishFilter>subfilter<extraFilter>first[]addprefix[$:/sta
 </$vars>
 </$list>
 </$set>
+<div class="tc-btn-invisible tc-tiddlylink" style="padding:10px 15px;">
+<$edit-text tiddler="$:/temp/fishing" field="extrafilter" tag="input" focus="yes"/>
+</div>
 </div>
 </$reveal>
 

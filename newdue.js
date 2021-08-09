@@ -29,9 +29,9 @@ returns newdue as tiddlywiki's date
             var interval = 0;
         }
 
-        var intervalTime = Number(interval) * 24 * 60 * 60 * 1000;
+        var intervalTime = Number(interval) * (1000 * 60 * 60 * 24);
         var dateTime = new Date().getTime() + intervalTime;
-        var result = new Date(dateTime).toISOString().replace(/-|T|:|\.|Z/g, "");
+        var result = new Date(dateTime).toISOString().split("T")[0].replace(/-/g, "") + "000000000";
 
         return result;
     };

@@ -12,7 +12,10 @@ Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
 
 !!! Advanced Tips
 * You can add field `caption` with question to tiddler to change it's showing title and shape it into Q&A, Cloze and Choice Question.
-* You can revise complex group of tiddlers by inputing a filter expression in {{$:/core/ui/SideBarSegments/search}} on the sidebar. For example, `[tag[tag1]tag[tag2]]` -- only tiddlers with tag1 and tag2 will be revised, `[sort[created]]` -- tiddlers will be revised by created time.
+* You can type filter expression in the input box below the revise group to revise complex group of tiddlers. 
+**  `[tag[tag1]]` — tiddlers with tag 'tag1' will be filtered out from tiddlers with tag 'Fish' .
+**  `[all[tiddlers][title1]]` (also written as `title1`) — 'title1' tiddler will be filtered out from all tiddlers and added tag 'Fish' after revision.
+**  `[all[tiddlers]tag[tag1]sort[modified]]` — tiddlers with tag 'tag1' will be filtered out from all tiddlers and added tag 'Fish' after revision by modified time.
 
 !! Feedback
 Feel free to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help me to improve future versions of Fishing.
