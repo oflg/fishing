@@ -59,10 +59,11 @@ nextfish={{{ [subfilter<fishfilter>subfilter<extrafilter>rest[]first[]] }}}
 nextfishfold={{{ [subfilter<fishfilter>subfilter<extrafilter>rest[]first[]addprefix[$:/state/folded/]] }}}
 >
 
-<div style="float:left;color:grey;">
+<div style="display:flex;justify-content:space-between;">
+<div style="color:grey;">
 <<selectedfishpond>> : <<extrafilter>> : <<fishcount>>
 </div>
-<div style="float:right">
+<div>
 <$fieldmangler>
 <$button tooltip="again" class="tc-btn-invisible tc-tiddlylink" style="color:red;margin-left:10px;">
 <$action-setfield $tiddler="$:/temp/fishing" interval=<<againInterval>> ease=<<againEase>>/>
@@ -109,6 +110,8 @@ easy
 </$button>
 </$fieldmangler>
 </div>
+</div>
+
 </$vars>
 </$reveal>
 </$vars>
