@@ -1,9 +1,9 @@
 title: $:/plugins/oflg/fishing/fishpond
 type: application/x-tiddler-dictionary
 
-overdue:[all[shadows+tiddlers]tag[Fish]has[due]!days:due[-1]sort[modified]]
-due:[all[shadows+tiddlers]tag[Fish]has[due]sameday:due<today>sort[modified]]
-undue:[all[shadows+tiddlers]tag[Fish]has[due]!days:due[1]sort[modified]]
-old:[all[shadows+tiddlers]tag[Fish]has[due]sort[modified]]
-new:[all[shadows+tiddlers]tag[Fish]!has[due]sort[created]]
-all:[all[shadows+tiddlers]tag[Fish]sort[modified]]
+overdue:[has[due]!days:due[-1]sort[modified]]
+due:[has[due]sameday:due<today>sort[modified]]
+undue:[has[due]!days:due[1]sort[modified]]
+old:[has[due]sort[modified]]
+new:[!has[due]sort[created]]
+all:[sort[modified]]

@@ -7,7 +7,7 @@ today=<<now "YYYY0MM0DD">>
 >
 <!-- creat fishingButton and countReminder -->
 <$button popup=<<qualify "$:/state/popup/more">> tooltip="fishing" aria-label="fishing" class=<<tv-config-toolbar-class>>  selectedClass="tc-selected">
-{{$:/plugins/oflg/fishing/icon}}<$reveal default={{{ [all[shadows+tiddlers]tag[Fish]has[due]!days:due[-1]count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:red;"><$text text={{{ [all[shadows+tiddlers]tag[Fish]has[due]!days:due[-1]count[]] }}}/></span></$reveal><$reveal default={{{ [all[shadows+tiddlers]tag[Fish]has[due]sameday:due<today>count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:green;"><$text text={{{ [all[shadows+tiddlers]tag[Fish]has[due]sameday:due<today>count[]] }}}/></span></$reveal>
+{{$:/plugins/oflg/fishing/icon}}<$reveal default={{{ [tag[Fish]has[due]!days:due[-1]count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:red;"><$text text={{{ [tag[Fish]has[due]!days:due[-1]count[]] }}}/></span></$reveal><$reveal default={{{ [tag[Fish]has[due]sameday:due<today>count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:green;"><$text text={{{ [tag[Fish]has[due]sameday:due<today>count[]] }}}/></span></$reveal>
 </$button>
 
 <!-- creat fishpond -->
@@ -19,10 +19,10 @@ today=<<now "YYYY0MM0DD">>
 fishfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
 >
 <$vars
-tooltip={{{ [<fishpond>addprefix[revise ]addsuffix[ tiddlers]] }}}
-fishcount={{{ [subfilter<fishfilter>subfilter<extrafilter>count[]] }}}
-fish={{{ [subfilter<fishfilter>subfilter<extrafilter>first[]] }}}
-fishfold={{{ [subfilter<fishfilter>subfilter<extrafilter>first[]addprefix[$:/state/folded/]] }}}
+tooltip={{{ [<fishpond>addprefix[revise ]addsuffix[ tiddlers with ]addsuffix<extrafilter>] }}}
+fishcount={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>count[]] }}}
+fish={{{ [all[shadows+tiddlers]tag[Fish]subfilter<extrafilter>subfilter<fishfilter>first[]] }}}
+fishfold={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>first[]addprefix[$:/state/folded/]] }}}
 >
 <$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip=<<tooltip>>>
 <<fishpond>> : <<fishcount>>
@@ -35,7 +35,7 @@ fishfold={{{ [subfilter<fishfilter>subfilter<extrafilter>first[]addprefix[$:/sta
 </$list>
 </$set>
 <div class="tc-btn-invisible tc-tiddlylink" style="padding:10px 15px;">
-<$edit-text tiddler="$:/temp/fishing" field="extrafilter" tag="input" focus="yes"/>
+<$edit-text tiddler="$:/temp/fishing" field="extrafilter" tag="input" focus="yes" placeholder="[tag[Fish]]"/>
 </div>
 </div>
 </$reveal>
