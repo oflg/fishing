@@ -7,30 +7,30 @@ title: $:/plugins/oflg/fishing/fishing
 <!-- set anki algorithm https://gist.github.com/fasiha/31ce46c36371ff57fdbc1254af424174 -->
 <!-- set anki parameters https://docs.ankiweb.net/deck-options.html#advanced -->
 <$vars 
-maxinterval={{$:/plugins/oflg/fishing/config!!maxinterval}}
-startease={{$:/plugins/oflg/fishing/config!!startease}}
-measy={{$:/plugins/oflg/fishing/config!!measy}}  
-m={{$:/plugins/oflg/fishing/config!!m}} 
-mhard={{$:/plugins/oflg/fishing/config!!mhard}} 
-magain={{$:/plugins/oflg/fishing/config!!magain}}
+maximuminterval={{$:/plugins/oflg/fishing/config!!maximuminterval}}
+startingease={{$:/plugins/oflg/fishing/config!!startingease}}
+easybonus={{$:/plugins/oflg/fishing/config!!easybonus}}  
+intervalmodifier={{$:/plugins/oflg/fishing/config!!intervalmodifier}} 
+hardinterval={{$:/plugins/oflg/fishing/config!!hardinterval}} 
+newinterval={{$:/plugins/oflg/fishing/config!!newinterval}}
 >
 <!-- set anki  variables -->
 <$vars 
-ease={{{ [<currentTiddler>get[ease]else<startease>] }}}
+ease={{{ [<currentTiddler>get[ease]else<startingease>] }}}
 interval={{{ [<currentTiddler>get[interval]else[0]] }}}
 >
 <!-- calculate new interval -->
 <$vars 
-againInterval={{{ [<magain>multiply<interval>min<maxinterval>] }}}  
+againInterval={{{ [<newinterval>multiply<interval>min<maximuminterval>] }}}  
 >
 <$vars 
-hardInterval={{{ [<interval>add[1]] =[<delay>divide[4]floor[]add<interval>multiply<mhard>multiply<m>] +[maxall[]min<maxinterval>] }}}  
+hardInterval={{{ [<interval>add[1]] =[<delay>divide[4]floor[]add<interval>multiply<hardinterval>multiply<intervalmodifier>] +[maxall[]min<maximuminterval>] }}}  
 >
 <$vars 
-goodInterval={{{ [<hardInterval>add[1]] =[<delay>divide[2]floor[]add<interval>multiply<ease>divide[1000]multiply<m>] +[maxall[]min<maxinterval>] }}} 
+goodInterval={{{ [<hardInterval>add[1]] =[<delay>divide[2]floor[]add<interval>multiply<ease>divide[1000]multiply<intervalmodifier>] +[maxall[]min<maximuminterval>] }}} 
 >
 <$vars 
-easyInterval={{{ [<goodInterval>add[1]] =[<delay>add<interval>multiply<ease>divide[1000]multiply<m>multiply<measy>] +[maxall[]min<maxinterval>] }}} 
+easyInterval={{{ [<goodInterval>add[1]] =[<delay>add<interval>multiply<ease>divide[1000]multiply<intervalmodifier>multiply<easybonus>] +[maxall[]min<maximuminterval>] }}} 
 >
 <!-- calculate new ease -->
 <$vars 
@@ -66,9 +66,10 @@ nextfishfold={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>rest[]firs
 <div>
 <$fieldmangler>
 <$button tooltip="again" class="tc-btn-invisible tc-tiddlylink" style="color:red;margin-left:10px;">
-<$action-setfield $tiddler="$:/temp/fishing" text="" interval=<<againInterval>> ease=<<againEase>>/>
+<$action-setfield $field="interval" $value=<<againInterval>>/>
+<$action-setfield $field="ease" $value=<<againEase>>/>
 <$action-setfield $field="due" $value=<<newdue>>/>
-<$action-setfield $tiddler="$:/temp/fishing" fish=<<nextfish>> fishfold=<<nextfishfold>>/>
+<$action-setfield $tiddler="$:/temp/fishing" text="" fish=<<nextfish>> fishfold=<<nextfishfold>>/>
 <$action-setfield $tiddler=<<nextfishfold>> text="hide"/>
 <$action-navigate $to=<<nextfish>>/>
 <$action-sendmessage $message="tm-add-tag" $param="Fish"/>
@@ -77,9 +78,10 @@ again
 </$button>
 
 <$button tooltip="hard" class="tc-btn-invisible tc-tiddlylink" style="color:grey;margin-left:10px;">
-<$action-setfield $tiddler="$:/temp/fishing" text="" interval=<<hardInterval>> ease=<<hardEase>>/>
+<$action-setfield $field="interval" $value=<<againInterval>>/>
+<$action-setfield $field="ease" $value=<<againEase>>/>
 <$action-setfield $field="due" $value=<<newdue>>/>
-<$action-setfield $tiddler="$:/temp/fishing" fish=<<nextfish>> fishfold=<<nextfishfold>>/>
+<$action-setfield $tiddler="$:/temp/fishing" text="" fish=<<nextfish>> fishfold=<<nextfishfold>>/>
 <$action-setfield $tiddler=<<nextfishfold>> text="hide"/>
 <$action-navigate $to=<<nextfish>>/>
 <$action-sendmessage $message="tm-add-tag" $param="Fish"/>
@@ -88,9 +90,10 @@ hard
 </$button>
 
 <$button tooltip="good" class="tc-btn-invisible tc-tiddlylink" style="color:green;margin-left:10px;">
-<$action-setfield $tiddler="$:/temp/fishing" text="" interval=<<goodInterval>> ease=<<goodEase>>/>
+<$action-setfield $field="interval" $value=<<againInterval>>/>
+<$action-setfield $field="ease" $value=<<againEase>>/>
 <$action-setfield $field="due" $value=<<newdue>>/>
-<$action-setfield $tiddler="$:/temp/fishing" fish=<<nextfish>> fishfold=<<nextfishfold>>/>
+<$action-setfield $tiddler="$:/temp/fishing" text="" fish=<<nextfish>> fishfold=<<nextfishfold>>/>
 <$action-setfield $tiddler=<<nextfishfold>> text="hide"/>
 <$action-navigate $to=<<nextfish>>/>
 <$action-sendmessage $message="tm-add-tag" $param="Fish"/>
@@ -99,9 +102,10 @@ good
 </$button>
 
 <$button tooltip="easy" class="tc-btn-invisible tc-tiddlylink" style="color:blue;margin-left:10px;">
-<$action-setfield $tiddler="$:/temp/fishing" text="" interval=<<easyInterval>> ease=<<easyEase>>/>
+<$action-setfield $field="interval" $value=<<againInterval>>/>
+<$action-setfield $field="ease" $value=<<againEase>>/>
 <$action-setfield $field="due" $value=<<newdue>>/>
-<$action-setfield $tiddler="$:/temp/fishing" fish=<<nextfish>> fishfold=<<nextfishfold>>/>
+<$action-setfield $tiddler="$:/temp/fishing" text="" fish=<<nextfish>> fishfold=<<nextfishfold>>/>
 <$action-setfield $tiddler=<<nextfishfold>> text="hide"/>
 <$action-navigate $to=<<nextfish>>/>
 <$action-sendmessage $message="tm-add-tag" $param="Fish"/>

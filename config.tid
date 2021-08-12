@@ -1,16 +1,16 @@
-m: 1.0
-magain: 0
-maxinterval: 36500
-measy: 1.3
-mhard: 1.2
-startease: 2500
+maximuminterval: 36500
+startingease: 2500
+easybonus: 1.3
+intervalmodifier: 1.0
+hardinterval: 1.2
+newinterval: 0
 title: $:/plugins/oflg/fishing/config
 
 |Parameter|Value|h
-|Maximum Interval|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="maxinterval" tag="input"/>|
-|Starting Ease|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="startease" tag="input"/>|
-|Easy Bonus|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="measy" tag="input"/>|
-|Interval Modifier|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="m" tag="input"/>|
-|Hard Interval|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="mhard" tag="input"/>|
-|New Interval|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="magain" tag="input"/>|
+|Maximum Interval|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="maximuminterval" tag="input"/>|
+|Starting Ease|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="startingease" tag="input"/>|
+|Easy Bonus|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="easybonus" tag="input"/>|
+|Interval Modifier|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="intervalmodifier" tag="input"/>|
+|Hard Interval|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="hardinterval" tag="input"/>|
+|New Interval|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="newinterval" tag="input"/>|
 |Do't modify them unless you understand [[Anki Manual|https://docs.ankiweb.net/deck-options.html#advanced]]|<|<|f
