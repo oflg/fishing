@@ -24,20 +24,20 @@ interval={{{ [<currentTiddler>get[interval]else<newinterval>] }}}
 againinterval={{{ [<newinterval>multiply<interval>min<maximuminterval>] }}}
 >
 <$vars
-hardinterval={{{ [<interval>add[1]] =[<delay>divide[4]floor[]add<interval>multiply<hardinterval>multiply<intervalmodifier>] +[maxall[]min<maximuminterval>] }}}
+hardinterval={{{ [<interval>add[1]] =[<delay>divide[4]floor[]add<interval>multiply<intervalmodifier>multiply<hardinterval>] +[maxall[]min<maximuminterval>] }}}
 >
 <$vars
-goodinterval={{{ [<hardinterval>add[1]] =[<delay>divide[2]floor[]add<interval>multiply<ease>divide[1000]multiply<intervalmodifier>] +[maxall[]min<maximuminterval>] }}} 
+goodinterval={{{ [<hardinterval>add[1]] =[<delay>divide[2]floor[]add<interval>multiply<ease>multiply<intervalmodifier>] +[maxall[]min<maximuminterval>] }}} 
 >
 <$vars
-easyinterval={{{ [<goodinterval>add[1]] =[<delay>add<interval>multiply<ease>divide[1000]multiply<intervalmodifier>multiply<easybonus>] +[maxall[]min<maximuminterval>] }}} 
+easyinterval={{{ [<goodinterval>add[1]] =[<delay>add<interval>multiply<ease>multiply<intervalmodifier>multiply<easybonus>] +[maxall[]min<maximuminterval>] }}} 
 >
 <!-- calculate new ease -->
 <$vars
-againease={{{ [<ease>subtract[200]max[1300]] }}}
-hardease={{{ [<ease>subtract[150]max[1300]] }}}
-goodease={{{ [<ease>max[1300]] }}}
-easyease={{{ [<ease>add[150]max[1300]] }}}
+againease={{{ [<ease>subtract[0.2]max[1.3]] }}}
+hardease={{{ [<ease>subtract[0.15]max[1.3]] }}}
+goodease={{{ [<ease>max[1.3]] }}}
+easyease={{{ [<ease>add[0.15]max[1.3]] }}}
 >
 
 <!-- set new interval, ease, due to current tiddler then navigate to next tiddler -->
