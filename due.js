@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/oflg/fishing/newdue.js
+title: $:/plugins/oflg/fishing/due.js
 type: application/javascript
 module-type: macro
 
@@ -12,7 +12,7 @@ returns newdue as tiddlywiki's date
     /*global $tw: false */
     "use strict";
 
-    exports.name = "newdue";
+    exports.name = "due";
 
     exports.params = [];
 
@@ -24,16 +24,16 @@ returns newdue as tiddlywiki's date
         var tiddler = this.wiki.getTiddler(title);
 
         if (tiddler && tiddler.hasField("interval")) {
-            var interval = tiddler.getFieldString("interval");
+            var lastinterval = tiddler.getFieldString("interval");
         } else {
-            var interval = 0;
+            var lastinterval = 0;
         }
 
-        var intervalTime = Number(interval) * (1000 * 60 * 60 * 24);
-        var dateTime = new Date().getTime() + intervalTime;
-        var result = new Date(dateTime).toISOString().split("T")[0].replace(/-/g, "") + "000000000";
+        var lastintervalTime = Number(lastinterval) * 86400000;
+        var dateTime = new Date().getTime() + lastintervalTime;
+        var due = new Date(dateTime).toISOString().split("T")[0].replace(/-/g, "") + "000000000";
 
-        return result;
+        return due;
     };
 
 })();
