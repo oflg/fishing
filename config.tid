@@ -1,13 +1,13 @@
 maximuminterval: 36500
-startingease: 2.5
-easybonus: 1.3
-intervalmodifier: 1.0
-hardinterval: 1.2
-newinterval: 0
+startingease: 2.50
+easybonus: 1.30
+intervalmodifier: 1.00
+hardinterval: 1.20
+newinterval: 0.00
 title: $:/plugins/oflg/fishing/config
 
 |Anki Parameter|Value|h
-|Maximum Interval|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="maximuminterval" tag="input"/>|
+|Maximum Interval|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="maximuminterval" tag="input"/> days|
 |Starting Ease|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="startingease" tag="input"/>|
 |Easy Bonus|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="easybonus" tag="input"/>|
 |Interval Modifier|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="intervalmodifier" tag="input"/>|
