@@ -13,32 +13,27 @@ easybonus={{$:/plugins/oflg/fishing/config!!easybonus}}
 intervalmodifier={{$:/plugins/oflg/fishing/config!!intervalmodifier}}
 hardinterval={{$:/plugins/oflg/fishing/config!!hardinterval}} 
 newinterval={{$:/plugins/oflg/fishing/config!!newinterval}}
+lastfactor={{{ [<currentTiddler>get[factor]else<startingease>] }}}
+lastinterval={{{ [<currentTiddler>get[interval]else<newinterval>] }}}
 >
-<!-- set anki variables -->
+<!-- get lastfactor and lastinterval -->
 <$vars
 lastfactor={{{ [<currentTiddler>get[factor]else<startingease>] }}}
 lastinterval={{{ [<currentTiddler>get[interval]else<newinterval>] }}}
 >
-<!-- calculate factor -->
-<$vars
-againfactor={{{ [<lastfactor>subtract[0.2]max[1.3]] }}}
-hardfactor={{{ [<lastfactor>subtract[0.15]max[1.3]] }}}
-goodfactor={{{ [<lastfactor>max[1.3]] }}}
-easyfactor={{{ [<lastfactor>add[0.15]max[1.3]] }}}
->
 <!-- calculate interval -->
-<$vars
-againinterval={{{ [<newinterval>multiply<lastinterval>min<maximuminterval>] }}}
->
 <!-- delay is in delay.js -->
 <$vars
-hardinterval={{{ [<lastinterval>add[1]] =[<delay>divide[4]floor[]add<lastinterval>multiply<intervalmodifier>multiply<hardinterval>] +[maxall[]min<maximuminterval>] }}}
+againivl={{{ [<newinterval>multiply<lastinterval>min<maximuminterval>] }}}
 >
 <$vars
-goodinterval={{{ [<hardinterval>add[1]] =[<delay>divide[2]floor[]add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>] +[maxall[]min<maximuminterval>] }}} 
+hardivl={{{ [<lastinterval>add[1]] =[<delay>divide[4]floor[]add<lastinterval>multiply<intervalmodifier>multiply<hardinterval>] +[maxall[]min<maximuminterval>] }}}
 >
 <$vars
-easyinterval={{{ [<goodinterval>add[1]] =[<delay>add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>multiply<easybonus>] +[maxall[]min<maximuminterval>] }}} 
+goodivl={{{ [<hardivl>add[1]] =[<delay>divide[2]floor[]add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>] +[maxall[]min<maximuminterval>] }}} 
+>
+<$vars
+easyivl={{{ [<goodivl>add[1]] =[<delay>add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>multiply<easybonus>] +[maxall[]min<maximuminterval>] }}} 
 >
 
 <!-- set factor, interval, due to current tiddler, then navigate to next tiddler -->
@@ -47,7 +42,7 @@ easyinterval={{{ [<goodinterval>add[1]] =[<delay>add<lastinterval>multiply<lastf
 today=<<now "YYYY0MM0DD">>
 selectedfishpond={{$:/temp/fishing!!fishpond}}
 >
-<$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue old new all]]" variable="fishpond">
+<$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue revised unrevised all]]" variable="fishpond">
 <$vars
 fishfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
 >
@@ -64,8 +59,8 @@ nextfishfold={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>rest[]firs
 <div>
 <$list filter="=again =hard =good =easy" variable="ease">
 <$vars
-factor={{{ [<ease>match[again]then<againfactor>] ~[<ease>match[hard]then<hardfactor>] ~[<ease>match[good]then<goodfactor>] ~[<ease>match[easy]then<easyfactor>] }}}
-interval={{{ [<ease>match[again]then<againinterval>] ~[<ease>match[hard]then<hardinterval>] ~[<ease>match[good]then<goodinterval>] ~[<ease>match[easy]then<easyinterval>] }}}
+factor={{{ [<ease>match[again]then<lastfactor>subtract[0.2]max[1.3]] ~[<ease>match[hard]then<lastfactor>subtract[0.15]max[1.3]] ~[<ease>match[good]then<lastfactor>max[1.3]] ~[<ease>match[easy]then<lastfactor>add[0.15]max[1.3]] +[fixed[2]] }}}
+interval={{{ [<ease>match[again]then<againinterval>] ~[<ease>match[hard]then<hardinterval>] ~[<ease>match[good]then<goodinterval>] ~[<ease>match[easy]then<easyinterval>] +[fixed[2]] }}}
 style={{{ [<ease>match[again]then[margin-left:10px;color:red;]] ~[<ease>match[hard]then[margin-left:10px;color:black;]] ~[<ease>match[good]then[margin-left:10px;color:green;]] ~[<ease>match[easy]then[margin-left:10px;color:blue;]] }}}
 >
 <$fieldmangler>
@@ -92,7 +87,6 @@ style={{{ [<ease>match[again]then[margin-left:10px;color:red;]] ~[<ease>match[ha
 </$vars>
 </$set>
 
-</$vars>
 </$vars>
 </$vars>
 </$vars>

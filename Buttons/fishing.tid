@@ -14,7 +14,7 @@ today=<<now "YYYY0MM0DD">>
 <$reveal state=<<qualify "$:/state/popup/more">> type="popup" position="below" animate="yes">
 <div class="tc-drop-down">
 <$set name="extrafilter" value={{$:/temp/fishing!!extrafilter}} emptyValue="[tag[Fish]]">
-<$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue old new all]]" variable="fishpond">
+<$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue revised unrevised all]]" variable="fishpond">
 <$vars
 fishfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
 >

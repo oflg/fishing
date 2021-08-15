@@ -6,7 +6,7 @@ hardinterval: 1.2
 newinterval: 0
 title: $:/plugins/oflg/fishing/config
 
-|Parameter|Value|h
+|Anki Parameter|Value|h
 |Maximum Interval|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="maximuminterval" tag="input"/>|
 |Starting Ease|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="startingease" tag="input"/>|
 |Easy Bonus|<$edit-text tiddler="$:/plugins/oflg/fishing/config" field="easybonus" tag="input"/>|
