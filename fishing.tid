@@ -11,10 +11,8 @@ maximuminterval={{$:/plugins/oflg/fishing/config!!maximuminterval}}
 startingease={{$:/plugins/oflg/fishing/config!!startingease}}
 easybonus={{$:/plugins/oflg/fishing/config!!easybonus}}
 intervalmodifier={{$:/plugins/oflg/fishing/config!!intervalmodifier}}
-hardinterval={{$:/plugins/oflg/fishing/config!!hardinterval}} 
+hardinterval={{$:/plugins/oflg/fishing/config!!hardinterval}}
 newinterval={{$:/plugins/oflg/fishing/config!!newinterval}}
-lastfactor={{{ [<currentTiddler>get[factor]else<startingease>] }}}
-lastinterval={{{ [<currentTiddler>get[interval]else<newinterval>] }}}
 >
 <!-- get lastfactor and lastinterval -->
 <$vars
