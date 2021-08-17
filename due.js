@@ -31,7 +31,7 @@ returns newdue as tiddlywiki's date
 
         var lastintervalTime = Number(lastinterval) * 86400000;
         var dateTime = new Date().getTime() + lastintervalTime;
-        var due = new Date(dateTime).toISOString().split("T")[0].replace(/-/g, "") + "000000000";
+        var due = new Date(dateTime).toISOString().replace(/-|T|:|\.|Z/g, "");
 
         return due;
     };
