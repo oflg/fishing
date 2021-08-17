@@ -52,7 +52,7 @@ nextfishfold={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>rest[]firs
 >
 <div style="display:flex;justify-content:space-between;">
 <div style="color:grey;">
-<<extrafilter>> : <<selectedfishpond>> : <<fishcount>>
+<$text text=<<extrafilter>>/> : <<selectedfishpond>> : <<fishcount>>
 </div>
 <div>
 <$list filter="=again =hard =good =easy" variable="ease">
