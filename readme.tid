@@ -4,19 +4,11 @@ title: $:/plugins/oflg/fishing/readme
 [[ActiveRecall and SpacedRepetition System|https://docs.ankiweb.net/background.html]] in [[TiddlyWiki|https://tiddlywiki.com/]], fishing with [[Anki algorithm|https://github.com/oflg/anki-algorithm]].
 
 !! Install
-Drag [[this|$:/plugins/oflg/fishing]] to your TiddlyWiki.
+Drag [[this plugin|$:/plugins/oflg/fishing]] to your TiddlyWiki.
 
 !! Usage
 # Add tag `Fish` to tiddler you would like to revise.
 # Click {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar and select a revise group.
-
-!!! Advanced Tips
-* You can add field `caption` with  `question?` or `{{||questionTemplate}}` to tiddler to change it's showing title and shape it into Q&A, Cloze or Choice Question.
-** A [[Q&A question template|qaTemplate]] is used in [[this tiddler|Tips 1]], more templates are available and shared [[here|https://github.com/oflg/fishing/issues]].
-* You can type filter expression in the input box below the revise group to revise complex group of tiddlers.
-** `[tag[Advanced Tips]]` — tiddlers with tag `Advanced Tips` will be filtered out from tiddlers with tag `Fish`.
-** `[all[tiddlers]tag[Advanced Tips]]` — tiddlers with tag `Advanced Tips` will be filtered out from all tiddlers and added tag `Fish` after revision.
-** `[all[tiddlers][newTiddler]]` (also written as `newTiddler`) — `newTiddler` will be filtered out from all tiddlers and added tag `Fish` after revision.
 
 !! Feedback
 Feel free to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]], which will help me to improve future versions of Fishing.
