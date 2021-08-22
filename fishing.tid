@@ -62,7 +62,7 @@ interval={{{ [<ease>match[again]then<againivl>] ~[<ease>match[hard]then<hardivl>
 style={{{ [<ease>match[again]then[margin-left:10px;color:red;]] ~[<ease>match[hard]then[margin-left:10px;color:black;]] ~[<ease>match[good]then[margin-left:10px;color:green;]] ~[<ease>match[easy]then[margin-left:10px;color:blue;]] }}}
 >
 <$fieldmangler>
-<$button tooltip=<<ease>> class="tc-btn-invisible tc-tiddlylink" style=<<style>> message="tm-add-tag" param="Fish">
+<$button message="tm-add-tag" param="Fish" tooltip=<<ease>> aria-label=<<ease>> style=<<style>> class="tc-btn-invisible tc-tiddlylink">
 <$action-setfield factor=<<factor>> interval=<<interval>>/>
 <!-- due must be saved after interval in due.js -->
 <$action-setfield $field="due" $value=<<due>>/>

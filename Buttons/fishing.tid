@@ -6,7 +6,7 @@ title: $:/plugins/oflg/fishing/Buttons/fishing
 today=<<now "YYYY0MM0DD">>
 >
 <!-- creat fishingButton and countReminder -->
-<$button popup=<<qualify "$:/state/popup/more">> tooltip="fishing" aria-label="fishing" class=<<tv-config-toolbar-class>>  selectedClass="tc-selected">
+<$button popup=<<qualify "$:/state/popup/more">> tooltip="Revise tiddlers" aria-label="Revise tiddlers" class=<<tv-config-toolbar-class>> selectedClass="tc-selected">
 {{$:/plugins/oflg/fishing/icon}}<$reveal default={{{ [tag[Fish]has[due]!days:due[-1]count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:red;"><$text text={{{ [tag[Fish]has[due]!days:due[-1]count[]] }}}/></span></$reveal><$reveal default={{{ [tag[Fish]has[due]sameday:due<today>count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:green;"><$text text={{{ [tag[Fish]has[due]sameday:due<today>count[]] }}}/></span></$reveal>
 </$button>
 
@@ -24,7 +24,7 @@ fishcount={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>count[]] }}}
 fish={{{ [all[shadows+tiddlers]tag[Fish]subfilter<extrafilter>subfilter<fishfilter>first[]] }}}
 fishfold={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>first[]addprefix[$:/state/folded/]] }}}
 >
-<$button class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;" tooltip=<<tooltip>>>
+<$button tooltip=<<tooltip>> aria-label=<<tooltip>> class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;">
 <<fishpond>> : <<fishcount>>
 <$action-setfield $tiddler="$:/temp/fishing" fishpond=<<fishpond>> fish=<<fish>> fishfold=<<fishfold>>/>
 <$action-setfield $tiddler=<<fishfold>> text="hide"/>
