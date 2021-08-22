@@ -1,4 +1,4 @@
-description: ActiveRecall and SpacedRepetition System in TiddlyWiki, fishing with Anki algorithm.
+description: ActiveRecall and SpacedRepetition system in TiddlyWiki, fishing with Anki algorithm.
 tags: $:/tags/PageControls
 title: $:/plugins/oflg/fishing/Buttons/fishing
 
@@ -16,13 +16,13 @@ today=<<now "YYYY0MM0DD">>
 <$set name="extrafilter" value={{$:/temp/fishing!!extrafilter}} emptyValue="[tag[Fish]]">
 <$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue revised unrevised all]]" variable="fishpond">
 <$vars
-fishfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
+pondfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
 >
 <$vars
 tooltip={{{ [<fishpond>addprefix[revise ]addsuffix[ tiddlers with ]addsuffix<extrafilter>] }}}
-fishcount={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>count[]] }}}
-fish={{{ [all[shadows+tiddlers]tag[Fish]subfilter<extrafilter>subfilter<fishfilter>first[]] }}}
-fishfold={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>first[]addprefix[$:/state/folded/]] }}}
+fishcount={{{ [subfilter<extrafilter>subfilter<pondfilter>count[]] }}}
+fish={{{ [subfilter<extrafilter>subfilter<pondfilter>first[]] }}}
+fishfold={{{ [subfilter<extrafilter>subfilter<pondfilter>first[]addprefix[$:/state/folded/]] }}}
 >
 <$button tooltip=<<tooltip>> aria-label=<<tooltip>> class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;">
 <<fishpond>> : <<fishcount>>

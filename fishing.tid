@@ -42,13 +42,13 @@ selectedfishpond={{$:/temp/fishing!!fishpond}}
 >
 <$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue revised unrevised all]]" variable="fishpond">
 <$vars
-fishfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
+pondfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
 >
 <$reveal default=<<fishpond>> type="match" text=<<selectedfishpond>> animate="yes">
 <$vars
-fishcount={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>count[]] }}}
-nextfish={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>rest[]first[]] }}}
-nextfishfold={{{ [tag[Fish]subfilter<extrafilter>subfilter<fishfilter>rest[]first[]addprefix[$:/state/folded/]] }}}
+fishcount={{{ [subfilter<extrafilter>subfilter<pondfilter>count[]] }}}
+nextfish={{{ [subfilter<extrafilter>subfilter<pondfilter>rest[]first[]] }}}
+nextfishfold={{{ [subfilter<extrafilter>subfilter<pondfilter>rest[]first[]addprefix[$:/state/folded/]] }}}
 >
 <div style="display:flex;justify-content:space-between;">
 <div style="color:grey;">
