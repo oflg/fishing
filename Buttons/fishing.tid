@@ -1,4 +1,5 @@
-description: ActiveRecall and SpacedRepetition system in TiddlyWiki, fishing with Anki algorithm.
+caption: {{$:/plugins/oflg/fishing/icon}} fishing
+description: Active Recall and Spaced Repetition system in TiddlyWiki, fishing with Anki algorithm.
 tags: $:/tags/PageControls
 title: $:/plugins/oflg/fishing/Buttons/fishing
 
@@ -7,13 +8,13 @@ today=<<now "YYYY0MM0DD">>
 >
 <!-- creat fishingButton and countReminder -->
 <$button popup=<<qualify "$:/state/popup/more">> tooltip="Revise tiddlers" aria-label="Revise tiddlers" class=<<tv-config-toolbar-class>> selectedClass="tc-selected">
-{{$:/plugins/oflg/fishing/icon}}<$reveal default={{{ [tag[Fish]has[due]!days:due[-1]count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:red;"><$text text={{{ [tag[Fish]has[due]!days:due[-1]count[]] }}}/></span></$reveal><$reveal default={{{ [tag[Fish]has[due]sameday:due<today>count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:green;"><$text text={{{ [tag[Fish]has[due]sameday:due<today>count[]] }}}/></span></$reveal>
+{{$:/plugins/oflg/fishing/icon}}<$reveal default={{{ [tag[?]has[due]!days:due[-1]count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:red;"><$text text={{{ [tag[?]has[due]!days:due[-1]count[]] }}}/></span></$reveal><$reveal default={{{ [tag[?]has[due]sameday:due<today>count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:green;"><$text text={{{ [tag[?]has[due]sameday:due<today>count[]] }}}/></span></$reveal>
 </$button>
 
 <!-- creat fishpond -->
 <$reveal state=<<qualify "$:/state/popup/more">> type="popup" position="below" animate="yes">
 <div class="tc-drop-down">
-<$set name="extrafilter" value={{$:/temp/fishing!!extrafilter}} emptyValue="[tag[Fish]]">
+<$set name="extrafilter" value={{$:/temp/fishing!!extrafilter}} emptyValue="[tag[?]]">
 <$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue revised unrevised all]]" variable="fishpond">
 <$vars
 pondfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
@@ -35,7 +36,7 @@ fishfold={{{ [subfilter<extrafilter>subfilter<pondfilter>first[]addprefix[$:/sta
 </$list>
 </$set>
 <div class="tc-btn-invisible tc-tiddlylink" style="padding:10px 15px;">
-<$edit-text tiddler="$:/temp/fishing" field="extrafilter" tag="input" focus="yes" placeholder="[tag[Fish]]"/>
+<$edit-text tiddler="$:/temp/fishing" field="extrafilter" tag="input" focus="yes" placeholder="[tag[?]]"/>
 </div>
 </div>
 </$reveal>

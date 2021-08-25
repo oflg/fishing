@@ -7,12 +7,12 @@ title: $:/plugins/oflg/fishing/fishing
 <!-- set anki algorithm https://github.com/oflg/anki-algorithm -->
 <!-- set anki parameters https://docs.ankiweb.net/deck-options.html#advanced -->
 <$vars
-maximuminterval={{$:/plugins/oflg/fishing/config!!maximuminterval}}
-startingease={{$:/plugins/oflg/fishing/config!!startingease}}
-easybonus={{$:/plugins/oflg/fishing/config!!easybonus}}
-intervalmodifier={{$:/plugins/oflg/fishing/config!!intervalmodifier}}
-hardinterval={{$:/plugins/oflg/fishing/config!!hardinterval}}
-newinterval={{$:/plugins/oflg/fishing/config!!newinterval}}
+maximuminterval={{$:/plugins/oflg/fishing/config/maximuminterval}}
+startingease={{$:/plugins/oflg/fishing/config/startingease}}
+easybonus={{$:/plugins/oflg/fishing/config/easybonus}}
+intervalmodifier={{$:/plugins/oflg/fishing/config/intervalmodifier}}
+hardinterval={{$:/plugins/oflg/fishing/config/hardinterval}}
+newinterval={{$:/plugins/oflg/fishing/config/newinterval}}
 >
 <!-- get lastfactor and lastinterval -->
 <$vars
@@ -35,7 +35,7 @@ easyivl={{{ [<goodivl>add[1]] =[<delay>add<lastinterval>multiply<lastfactor>mult
 >
 
 <!-- set factor, interval, due to current tiddler, then navigate to next tiddler -->
-<$set name="extrafilter" value={{$:/temp/fishing!!extrafilter}} emptyValue="[tag[Fish]]">
+<$set name="extrafilter" value={{$:/temp/fishing!!extrafilter}} emptyValue="[tag[?]]">
 <$vars
 today=<<now "YYYY0MM0DD">>
 selectedfishpond={{$:/temp/fishing!!fishpond}}
@@ -62,7 +62,7 @@ interval={{{ [<ease>match[again]then<againivl>] ~[<ease>match[hard]then<hardivl>
 style={{{ [<ease>match[again]then[margin-left:10px;color:red;]] ~[<ease>match[hard]then[margin-left:10px;color:black;]] ~[<ease>match[good]then[margin-left:10px;color:green;]] ~[<ease>match[easy]then[margin-left:10px;color:blue;]] }}}
 >
 <$fieldmangler>
-<$button message="tm-add-tag" param="Fish" tooltip=<<ease>> aria-label=<<ease>> style=<<style>> class="tc-btn-invisible tc-tiddlylink">
+<$button message="tm-add-tag" param="?" tooltip=<<ease>> aria-label=<<ease>> style=<<style>> class="tc-btn-invisible tc-tiddlylink">
 <$action-setfield factor=<<factor>> interval=<<interval>>/>
 <!-- due must be saved after interval in due.js -->
 <$action-setfield $field="due" $value=<<due>>/>
