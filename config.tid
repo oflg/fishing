@@ -1,7 +1,7 @@
 title: $:/plugins/oflg/fishing/config
 
 |Anki Parameter|Value|h
-|[[Maximum Interva|$:/plugins/oflg/fishing/config/maximuminterval]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/maximuminterval" tag="input"/> day|
+|[[Maximum Interval|$:/plugins/oflg/fishing/config/maximuminterval]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/maximuminterval" tag="input"/> day|
 |[[Starting Ease|$:/plugins/oflg/fishing/config/startingease]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/startingease" tag="input"/>|
 |[[Easy Bonus|$:/plugins/oflg/fishing/config/easybonus]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/easybonus" tag="input"/>|
 |[[Interval Modifier|$:/plugins/oflg/fishing/config/intervalmodifier]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/intervalmodifier" tag="input"/>|
