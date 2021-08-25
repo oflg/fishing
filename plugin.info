@@ -1,10 +1,10 @@
 {
     "author": "oflg",
-    "description": "ActiveRecall and SpacedRepetition system in TiddlyWiki, fishing with Anki algorithm.",
+    "description": "Active Recall and Spaced Repetition system in TiddlyWiki, fishing with Anki algorithm.",
     "list": "readme config",
     "name": "Fishing",
     "plugin-type": "plugin",
     "source": "https://oflg.github.io/fishing/#%24%3A%2Fplugins%2Foflg%2Ffishing",
     "title": "$:/plugins/oflg/fishing",
-    "version": "1.0.5"
+    "version": "1.1.0"
 }
