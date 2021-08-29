@@ -1,10 +1,14 @@
 title: $:/plugins/oflg/fishing/config
 
-|Anki Parameter|Value|h
-|[[Maximum Interval|$:/plugins/oflg/fishing/config/maximuminterval]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/maximuminterval" tag="input"/> day|
-|[[Starting Ease|$:/plugins/oflg/fishing/config/startingease]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/startingease" tag="input"/>|
-|[[Easy Bonus|$:/plugins/oflg/fishing/config/easybonus]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/easybonus" tag="input"/>|
-|[[Interval Modifier|$:/plugins/oflg/fishing/config/intervalmodifier]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/intervalmodifier" tag="input"/>|
-|[[Hard Interval|$:/plugins/oflg/fishing/config/hardinterval]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/hardinterval" tag="input"/>|
-|[[New Interval|$:/plugins/oflg/fishing/config/newinterval]]|<$edit-text tiddler="$:/plugins/oflg/fishing/config/newinterval" tag="input"/>|
-|Do't modify them unless you understand [[Anki Manual|https://docs.ankiweb.net/deck-options.html#advanced]]|<|<|f
+<$list filter="[all[shadows]prefix[$:/plugins/oflg/fishing/config/]]">
+
+@@display:flex;justify-content:space-between;
+<$link to=<<<currentTiddler>> ><$text text={{{ [<currentTiddler>removeprefix[$:/plugins/oflg/fishing/config/]] }}}/></$link>
+<$edit-text tiddler=<<currentTiddler>> tag="input"/>
+@@
+
+</$list>
+
+@@background-color:grey;color:white;
+Don't modify them unless you understand [[how they work|https://docs.ankiweb.net/deck-options.html#advanced]].
+@@
