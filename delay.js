@@ -33,7 +33,7 @@ Macro to calculate the day from now to due.
             var delay = Math.abs(diffTime / 86400000);
 
         } else {
-            var delay = "0";
+            var delay = 0;
         }
         return delay;
     };
