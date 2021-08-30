@@ -11,29 +11,35 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div class="tc-tiddler-title">
 <div class="tc-titlebar">
 <span class="tc-tiddler-controls">
-<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$set name="tv-config-toolbar-class" filter="[<tv-config-toolbar-class>] [<listItem>encodeuricomponent[]addprefix[tc-btn-]]"><$transclude tiddler=<<listItem>>/></$set></$reveal></$list>
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem">
+<$reveal type="nomatch" state=<<config-title>> text="hide">
+<$set name="tv-config-toolbar-class" filter="[<tv-config-toolbar-class>] [<listItem>encodeuricomponent[]addprefix[tc-btn-]]">
+<$transclude tiddler=<<listItem>>/>
+</$set>
+</$reveal>
+</$list>
+<$reveal default={{$:/temp/fishing!!fish}} text=<<currentTiddler>> type="match">
+<$reveal state="$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/fold" type="nomatch" text="show">
+<$set name="tv-config-toolbar-class" filter="[<tv-config-toolbar-class>] [[$:/core/ui/Buttons/fold]encodeuricomponent[]addprefix[tc-btn-]]">
+<$transclude tiddler="$:/core/ui/Buttons/fold"/>
+</$set>
+</$reveal>
+</$reveal>
 </span>
 <$set name="tv-wikilinks" value={{$:/config/Tiddlers/TitleLinks}}>
 <$link>
 <$set name="foregroundColor" value={{!!color}}>
-<$list filter="[all[current]has[icon]]~[[$:/config/DefaultTiddlerIcon]has[text]]">
-<span class="tc-tiddler-title-icon" style=<<title-styles>>>
+<$list filter="[all[current]has[icon]] ~[[$:/config/DefaultTiddlerIcon]has[text]]">
+<span style=<<title-styles>> class="tc-tiddler-title-icon">
 <$transclude tiddler={{!!icon}}>
 <$transclude tiddler={{$:/config/DefaultTiddlerIcon}}/>
 </$transclude>
 </span>
 </$list>
 </$set>
-<$list filter="[all[current]removeprefix[$:/]]">
-<h2 class="tc-title" title={{$:/language/SystemTiddler/Tooltip}}>
-<span class="tc-system-title-prefix">$:/</span><$text text=<<currentTiddler>>/>
-</h2>
-</$list>
-<$list filter="[all[current]!prefix[$:/]]">
-<h2 class="tc-title">
+<h2 class="tc-title" title={{{ [all[current]prefix[$:/]then{$:/language/SystemTiddler/Tooltip}] }}}>
 <<toc-caption>>
 </h2>
-</$list>
 </$link>
 </$set>
 </div>
