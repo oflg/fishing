@@ -9,6 +9,4 @@ title: $:/plugins/oflg/fishing/config
 
 </$list>
 
-@@background-color:grey;color:white;
 Don't modify them unless you understand [[how they work|https://docs.ankiweb.net/deck-options.html#advanced]].
-@@

@@ -1,14 +1,3 @@
 title: $:/plugins/oflg/fishing/readme
 
-! Fising
-[[Active Recall and Spaced Repetition system|https://docs.ankiweb.net/background.html]] in [[TiddlyWiki|https://tiddlywiki.com/]], fishing with [[Anki algorithm|https://github.com/oflg/anki-algorithm]].
-
-!! Installation
-Drag [[me|$:/plugins/oflg/fishing]] to your TiddlyWiki.
-
-!! Usage
-# Add tag `?` to tiddler you would like to revise.
-# Click {{$:/plugins/oflg/fishing/Buttons/fishing}} on the sidebar and select a revision group.
-
-!! Feedback
-Feel free to [[send feedback and suggestions|https://github.com/oflg/fishing/issues]] for better features.
+Usage document is available at https://oflg.github.io/fishing/
