@@ -7,7 +7,7 @@ title: $:/plugins/oflg/fishing/Buttons/fishing
 today=<<now "YYYY0MM0DD">>
 >
 <!-- creat fishingButton and countReminder -->
-<$button popup=<<qualify "$:/state/popup/more">> tooltip="Revise tiddlers" aria-label="Revise tiddlers" class=<<tv-config-toolbar-class>> selectedClass="tc-selected">
+<$button popup=<<qualify "$:/state/popup/more">> tooltip="Review tiddlers" aria-label="Review tiddlers" class=<<tv-config-toolbar-class>> selectedClass="tc-selected">
 {{$:/plugins/oflg/fishing/icon}}<$reveal default={{{ [tag[?]has[due]!days:due[-1]count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:red;"><$text text={{{ [tag[?]has[due]!days:due[-1]count[]] }}}/></span></$reveal><$reveal default={{{ [tag[?]has[due]sameday:due<today>count[]] }}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:green;"><$text text={{{ [tag[?]has[due]sameday:due<today>count[]] }}}/></span></$reveal>
 </$button>
 
@@ -15,12 +15,12 @@ today=<<now "YYYY0MM0DD">>
 <$reveal state=<<qualify "$:/state/popup/more">> type="popup" position="below" animate="yes">
 <div class="tc-drop-down">
 <$set name="extrafilter" value={{$:/temp/fishing!!extrafilter}} emptyValue="[tag[?]]">
-<$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue revised unrevised all]]" variable="fishpond">
+<$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue reviewed unreviewed all]]" variable="fishpond">
 <$vars
 pondfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
 >
 <$vars
-tooltip={{{ [<fishpond>addprefix[revise ]addsuffix[ tiddlers with ]addsuffix<extrafilter>] }}}
+tooltip={{{ [<fishpond>addprefix[Review ]addsuffix[ tiddlers filtered out by ]addsuffix<extrafilter>] }}}
 fishcount={{{ [subfilter<extrafilter>subfilter<pondfilter>count[]] }}}
 fish={{{ [subfilter<extrafilter>subfilter<pondfilter>first[]] }}}
 fishfold={{{ [subfilter<extrafilter>subfilter<pondfilter>first[]addprefix[$:/state/folded/]] }}}

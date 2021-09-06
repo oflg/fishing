@@ -40,7 +40,7 @@ easyivl={{{ [<goodivl>add[1]] =[<delay>add<lastinterval>multiply<lastfactor>mult
 today=<<now "YYYY0MM0DD">>
 selectedfishpond={{$:/temp/fishing!!fishpond}}
 >
-<$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue revised unrevised all]]" variable="fishpond">
+<$list filter="[[$:/plugins/oflg/fishing/fishpond]indexes[]sortby[overdue due undue reviewed unreviewed all]]" variable="fishpond">
 <$vars
 pondfilter={{{ [[$:/plugins/oflg/fishing/fishpond]getindex<fishpond>] }}}
 >
@@ -68,8 +68,8 @@ style={{{ [<ease>match[again]then[margin-left:10px;color:red;]] ~[<ease>match[ha
 <$action-setfield $field="due" $value=<<due>>/>
 <$action-setfield $tiddler="$:/temp/fishing" text="" fish=<<nextfish>> fishfold=<<nextfishfold>>/>
 <$action-setfield $tiddler=<<nextfishfold>> text="hide"/>
-<$action-navigate $to=<<nextfish>>/>
 <$action-sendmessage $message="tm-close-tiddler"/>
+<$action-navigate $to=<<nextfish>>/>
 <<ease>>
 </$button>
 </$fieldmangler>

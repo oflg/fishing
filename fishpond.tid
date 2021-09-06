@@ -4,6 +4,6 @@ type: application/x-tiddler-dictionary
 overdue:[has[due]!days:due[-1]sort[due]]
 due:[has[due]sameday:due<today>sort[due]]
 undue:[has[due]!days:due[1]sort[due]]
-revised:[has[due]sort[due]]
-unrevised:[!has[due]sort[created]]
+reviewed:[has[due]sort[due]]
+unreviewed:[!has[due]sort[created]]
 all:[sort[modified]]
