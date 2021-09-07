@@ -58,7 +58,7 @@ nextfishfold={{{[subfilter<fishrod>subfilter<pondfilter>rest[]first[]addprefix[$
 >
 <div style="display:flex;justify-content:space-between;">
 <div style="color:grey;">
-<$text text={{{[[$:/plugins/oflg/fishing/fishrod]getindex<fishrod>]}}}/> : <<selectedfishpond>> : <<fishcount>>
+<$text text={{{[[$:/plugins/oflg/fishing/fishrod]getindex<fishrod>else<defaultfilter>]}}}/> : <<selectedfishpond>> : <<fishcount>>
 </div>
 <div>
 <$list filter="=again =hard =good =easy" variable="ease">
