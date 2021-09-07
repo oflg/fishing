@@ -1,9 +1,29 @@
 title: $:/plugins/oflg/fishing/fishpond
-type: application/x-tiddler-dictionary
 
-overdue:[has[due]!days:due[-1]sort[due]]
-due:[has[due]sameday:due<today>sort[due]]
-undue:[has[due]!days:due[1]sort[due]]
-reviewed:[has[due]sort[due]]
-unreviewed:[!has[due]sort[created]]
-all:[sort[modified]]
+<$set name="fishrod" value={{$:/temp/fishing!!fishrod}} emptyValue="[tag[?]]">
+<$vars
+due=[has[due]]-[!days:due[1]]+[sort[due]]
+unreviewed=[!has[due]sort[created]]
+all=[sort[modified]]
+>
+<$list filter="=due =unreviewed =all" variable="fishpond">
+<$vars
+pondfilter={{{[<fishpond>match[due]then<due>]~[<fishpond>match[due]then<due>]~[<fishpond>match[unreviewed]then<unreviewed>]~[<fishpond>match[all]then<all>]}}}
+>
+<$vars
+tooltip={{{[<fishpond>addprefix[Review ]addsuffix[ tiddlers filtered by the filter input box]]}}}
+fishcount={{{[subfilter<fishrod>subfilter<pondfilter>count[]]}}}
+fish={{{[subfilter<fishrod>subfilter<pondfilter>first[]]}}}
+fishfold={{{[subfilter<fishrod>subfilter<pondfilter>first[]addprefix[$:/state/folded/]]}}}
+>
+<$button tooltip=<<tooltip>> aria-label=<<tooltip>> class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;">
+<<fishpond>> : <<fishcount>>
+<$action-setfield $tiddler="$:/temp/fishing" fishpond=<<fishpond>> fish=<<fish>> fishfold=<<fishfold>>/>
+<$action-setfield $tiddler=<<fishfold>> text="hide"/>
+<$action-navigate $to=<<fish>>/>
+</$button>
+</$vars>
+</$vars>
+</$list>
+</$vars>
+</$set>

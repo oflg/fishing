@@ -1,12 +1,13 @@
 title: $:/plugins/oflg/fishing/config
 
+<$vars defaultfilter="[tag[?]]">
+<$set name="fishrod" value={{$:/temp/fishing!!fishrod}} emptyValue="[tag[?]]">
 <$list filter="[all[shadows]prefix[$:/plugins/oflg/fishing/config/]]">
 
 @@display:flex;justify-content:space-between;
-<$link to=<<<currentTiddler>> ><$text text={{{ [<currentTiddler>removeprefix[$:/plugins/oflg/fishing/config/]] }}}/></$link>
-<$edit-text tiddler=<<currentTiddler>> tag="input"/>
+<$text text={{{[<currentTiddler>removeprefix[$:/plugins/oflg/fishing/config/]]}}}/>
+<$edit-text tiddler=<<currentTiddler>> index=<<fishrod>> placeholder={{{[<currentTiddler>getindex<defaultfilter>]}}} tag="input"/>
 @@
-
 </$list>
-
-Don't modify them unless you understand [[how they work|https://docs.ankiweb.net/deck-options.html#advanced]].
+</$set>
+</$vars>
