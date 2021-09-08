@@ -10,7 +10,7 @@ Macro to calculate the day from now to due.
 
     "use strict";
 
-    exports.name = "delay";
+    exports.name = "delayjs";
     exports.params = [];
 
     /*

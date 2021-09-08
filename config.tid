@@ -1,13 +1,11 @@
 title: $:/plugins/oflg/fishing/config
 
-<$vars defaultfilter="[tag[?]]">
-<$set name="fishrod" value={{$:/temp/fishing!!fishrod}} emptyValue="[tag[?]]">
+<$vars defaultfishrod="[tag[?]]">
 <$list filter="[all[shadows]prefix[$:/plugins/oflg/fishing/config/]]">
 
 @@display:flex;justify-content:space-between;
 <$text text={{{[<currentTiddler>removeprefix[$:/plugins/oflg/fishing/config/]]}}}/>
-<$edit-text tiddler=<<currentTiddler>> index=<<fishrod>> placeholder={{{[<currentTiddler>getindex<defaultfilter>]}}} tag="input"/>
+<$edit-text tiddler=<<currentTiddler>> index={{{[{$:/temp/fishing!!fishrod}else<defaultfishrod>]}}} placeholder={{{[<currentTiddler>getindex<defaultfishrod>]}}} tag="input"/>
 @@
 </$list>
-</$set>
 </$vars>

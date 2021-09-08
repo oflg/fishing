@@ -10,19 +10,12 @@ all=[sort[modified]]
 <$vars
 pondfilter={{{[<fishpond>match[due]then<due>]~[<fishpond>match[due]then<due>]~[<fishpond>match[unreviewed]then<unreviewed>]~[<fishpond>match[all]then<all>]}}}
 >
-<$vars
-tooltip={{{[<fishpond>addprefix[Review ]addsuffix[ tiddlers filtered by the filter input box]]}}}
-fishcount={{{[subfilter<fishrod>subfilter<pondfilter>count[]]}}}
-fish={{{[subfilter<fishrod>subfilter<pondfilter>first[]]}}}
-fishfold={{{[subfilter<fishrod>subfilter<pondfilter>first[]addprefix[$:/state/folded/]]}}}
->
-<$button tooltip=<<tooltip>> aria-label=<<tooltip>> class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;">
-<<fishpond>> : <<fishcount>>
-<$action-setfield $tiddler="$:/temp/fishing" fishpond=<<fishpond>> fish=<<fish>> fishfold=<<fishfold>>/>
-<$action-setfield $tiddler=<<fishfold>> text="hide"/>
-<$action-navigate $to=<<fish>>/>
+<$button tooltip={{{[<fishpond>addprefix[Review ]addsuffix[ tiddlers filtered by the filter input box]]}}} aria-label={{{[<fishpond>addprefix[Review ]addsuffix[ tiddlers filtered by the filter input box]]}}} class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;">
+<$action-setfield $tiddler="$:/temp/fishing" fishrod=<<fishrod>> fishpond=<<fishpond>> fish={{{[subfilter<fishrod>subfilter<pondfilter>first[]]}}} fishfold=<<fishfold>>/>
+<$action-setfield $tiddler={{{[subfilter<fishrod>subfilter<pondfilter>first[]addprefix[$:/state/folded/]]}}} text="hide"/>
+<$action-navigate $to={{{[subfilter<fishrod>subfilter<pondfilter>first[]]}}}/>
+<<fishpond>> : <$text text={{{[subfilter<fishrod>subfilter<pondfilter>count[]]}}}/>
 </$button>
-</$vars>
 </$vars>
 </$list>
 </$vars>

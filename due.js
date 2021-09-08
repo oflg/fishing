@@ -12,7 +12,7 @@ returns newdue as tiddlywiki's date
     /*global $tw: false */
     "use strict";
 
-    exports.name = "due";
+    exports.name = "duejs";
 
     exports.params = [];
 
