@@ -3,94 +3,57 @@ title: $:/plugins/oflg/fishing/fishing
 
 <$reveal default={{$:/temp/fishing!!fish}} type="match" text=<<currentTiddler>> animate="yes">
 <$reveal state=<<folded-state>> type="match" text="show" animate="yes">
+
 <!-- set anki algorithm https://github.com/oflg/anki-algorithm -->
 <!-- set anki parameters https://docs.ankiweb.net/deck-options.html#advanced -->
-<$vars
-defaultfilter="[tag[?]]"
->
-<$set name="fishrod" value={{$:/temp/fishing!!fishrod}} emptyValue="[tag[?]]">
-<$vars
-maximuminterval={{{[[$:/plugins/oflg/fishing/config/maximuminterval]getindex<fishrod>]~[[$:/plugins/oflg/fishing/config/maximuminterval]getindex<defaultfilter>]}}}
-startingease={{{[[$:/plugins/oflg/fishing/config/startingease]getindex<fishrod>]~[[$:/plugins/oflg/fishing/config/startingease]getindex<defaultfilter>]}}}
-easybonus={{{[[$:/plugins/oflg/fishing/config/easybonus]getindex<fishrod>]~[[$:/plugins/oflg/fishing/config/easybonus]getindex<defaultfilter>]}}}
-intervalmodifier={{{[[$:/plugins/oflg/fishing/config/intervalmodifier]getindex<fishrod>]~[[$:/plugins/oflg/fishing/config/intervalmodifier]getindex<defaultfilter>]}}}
-hardinterval={{{[[$:/plugins/oflg/fishing/config/hardinterval]getindex<fishrod>]~[[$:/plugins/oflg/fishing/config/hardinterval]getindex<defaultfilter>]}}}
-newinterval={{{[[$:/plugins/oflg/fishing/config/newinterval]getindex<fishrod>]~[[$:/plugins/oflg/fishing/config/newinterval]getindex<defaultfilter>]}}}
->
+<$vars defaultfishrod="[tag[?]]">
+<$vars maximuminterval={{{[[$:/plugins/oflg/fishing/config/maximuminterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/maximuminterval]getindex<defaultfishrod>]}}} startingease={{{[[$:/plugins/oflg/fishing/config/startingease]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/startingease]getindex<defaultfishrod>]}}} easybonus={{{[[$:/plugins/oflg/fishing/config/easybonus]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/easybonus]getindex<defaultfishrod>]}}} intervalmodifier={{{[[$:/plugins/oflg/fishing/config/intervalmodifier]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/intervalmodifier]getindex<defaultfishrod>]}}} hardinterval={{{[[$:/plugins/oflg/fishing/config/hardinterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/hardinterval]getindex<defaultfishrod>]}}} newinterval={{{[[$:/plugins/oflg/fishing/config/newinterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/newinterval]getindex<defaultfishrod>]}}}>
 <!-- get lastfactor and lastinterval -->
-<$vars
-lastfactor={{{[<currentTiddler>get[factor]else<startingease>]}}}
-lastinterval={{{[<currentTiddler>get[interval]else<newinterval>]}}}
->
+<$vars lastfactor={{{[<currentTiddler>get[factor]else<startingease>]}}} lastinterval={{{[<currentTiddler>get[interval]else<newinterval>]}}}>
 <!-- calculate interval -->
 <!-- delay is in delay.js -->
-<$vars
-againivl={{{[<newinterval>multiply<lastinterval>min<maximuminterval>]}}}
+<$vars againivl={{{[<newinterval>multiply<lastinterval>min<maximuminterval>]}}}>
+<$vars hardivl={{{[<lastinterval>add[1]] =[<delayjs>divide[4]floor[]add<lastinterval>multiply<intervalmodifier>multiply<hardinterval>]+[maxall[]min<maximuminterval>]}}}>
+<$vars goodivl={{{[<hardivl>add[1]] =[<delayjs>divide[2]floor[]add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>]+[maxall[]min<maximuminterval>]}}} 
 >
-<$vars
-hardivl={{{[<lastinterval>add[1]] =[<delay>divide[4]floor[]add<lastinterval>multiply<intervalmodifier>multiply<hardinterval>]+[maxall[]min<maximuminterval>]}}}
->
-<$vars
-goodivl={{{[<hardivl>add[1]] =[<delay>divide[2]floor[]add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>]+[maxall[]min<maximuminterval>]}}} 
->
-<$vars
-easyivl={{{[<goodivl>add[1]] =[<delay>add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>multiply<easybonus>]+[maxall[]min<maximuminterval>]}}} 
+<$vars easyivl={{{[<goodivl>add[1]] =[<delayjs>add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>multiply<easybonus>]+[maxall[]min<maximuminterval>]}}} 
 >
 
 <!-- set factor, interval, due to current tiddler, then navigate to next tiddler -->
-<$vars
-selectedfishpond={{$:/temp/fishing!!fishpond}}
->
-<$vars
-due=[has[due]]-[!days:due[1]]+[sort[due]]
+<$vars due=[has[due]]-[!days:due[1]]+[sort[due]]
 unreviewed=[!has[due]sort[created]]
 all=[sort[modified]]
 >
 <$list filter="=due =unreviewed =all" variable="fishpond">
-<$vars
-pondfilter={{{[<fishpond>match[due]then<due>]~[<fishpond>match[due]then<due>]~[<fishpond>match[unreviewed]then<unreviewed>]~[<fishpond>match[all]then<all>]}}}
->
-<$reveal default=<<fishpond>> type="match" text=<<selectedfishpond>> animate="yes">
-<$vars
-fishcount={{{[subfilter<fishrod>subfilter<pondfilter>count[]]}}}
-nextfish={{{[subfilter<fishrod>subfilter<pondfilter>rest[]first[]]}}}
-nextfishfold={{{[subfilter<fishrod>subfilter<pondfilter>rest[]first[]addprefix[$:/state/folded/]]}}}
->
+<$vars pondfilter={{{[<fishpond>match[due]then<due>]~[<fishpond>match[due]then<due>]~[<fishpond>match[unreviewed]then<unreviewed>]~[<fishpond>match[all]then<all>]}}}>
+<$reveal default=<<fishpond>> type="match" text={{$:/temp/fishing!!fishpond}} animate="yes">
+<$vars nextfish={{{[subfilter{$:/temp/fishing!!fishrod}subfilter<pondfilter>rest[]first[]]}}} nextfishfold={{{[subfilter{$:/temp/fishing!!fishrod}subfilter<pondfilter>rest[]first[]addprefix[$:/state/folded/]]}}}>
 <div style="display:flex;justify-content:space-between;">
 <div style="color:grey;">
-<$text text={{{[[$:/plugins/oflg/fishing/fishrod]getindex<fishrod>else<defaultfilter>]}}}/> : <<selectedfishpond>> : <<fishcount>>
+<$text text={{{[[$:/plugins/oflg/fishing/fishrod]getindex{$:/temp/fishing!!fishrod}else<defaultfishrod>]}}}/> : <$text text={{$:/temp/fishing!!fishpond}}/> : <$text text={{{[subfilter{$:/temp/fishing!!fishrod}subfilter<pondfilter>count[]]}}}/>
 </div>
 <div>
 <$list filter="=again =hard =good =easy" variable="ease">
-<$vars
-factor={{{[<ease>match[again]then<lastfactor>subtract[0.2]max[1.3]]~[<ease>match[hard]then<lastfactor>subtract[0.15]max[1.3]]~[<ease>match[good]then<lastfactor>max[1.3]]~[<ease>match[easy]then<lastfactor>add[0.15]max[1.3]]+[fixed[2]]}}}
-interval={{{[<ease>match[again]then<againivl>]~[<ease>match[hard]then<hardivl>]~[<ease>match[good]then<goodivl>]~[<ease>match[easy]then<easyivl>]+[fixed[2]]}}}
-style={{{[<ease>match[again]then[margin-left:10px;color:red;]]~[<ease>match[hard]then[margin-left:10px;color:black;]]~[<ease>match[good]then[margin-left:10px;color:green;]]~[<ease>match[easy]then[margin-left:10px;color:blue;]]}}}
->
 <$fieldmangler>
-<$button message="tm-add-tag" param="?" tooltip=<<ease>> aria-label=<<ease>> style=<<style>> class="tc-btn-invisible tc-tiddlylink">
-<$action-setfield factor=<<factor>> interval=<<interval>>/>
+<$button message="tm-add-tag" param="?" tooltip=<<ease>> aria-label=<<ease>> class="tc-btn-invisible tc-tiddlylink" style={{{[<ease>match[again]then[margin-left:10px;color:red;]]~[<ease>match[hard]then[margin-left:10px;color:black;]]~[<ease>match[good]then[margin-left:10px;color:green;]]~[<ease>match[easy]then[margin-left:10px;color:blue;]]}}}>
+<$action-setfield factor={{{[<ease>match[again]then<lastfactor>subtract[0.2]max[1.3]]~[<ease>match[hard]then<lastfactor>subtract[0.15]max[1.3]]~[<ease>match[good]then<lastfactor>max[1.3]]~[<ease>match[easy]then<lastfactor>add[0.15]max[1.3]]+[fixed[2]]}}} interval={{{[<ease>match[again]then<againivl>]~[<ease>match[hard]then<hardivl>]~[<ease>match[good]then<goodivl>]~[<ease>match[easy]then<easyivl>]+[fixed[2]]}}}/>
 <!-- due must be saved after interval in due.js -->
-<$action-setfield $field="due" $value=<<due>>/>
-<$action-setfield $tiddler="$:/temp/fishing" text="" fish=<<nextfish>> fishfold=<<nextfishfold>>/>
-<$action-setfield $tiddler=<<nextfishfold>> text="hide"/>
+<$action-setfield $field="due" $value=<<duejs>>/>
+<$action-setfield $tiddler="$:/temp/fishing" text="" fish={{{[subfilter{$:/temp/fishing!!fishrod}subfilter<pondfilter>rest[]first[]]}}} fishfold={{{[subfilter{$:/temp/fishing!!fishrod}subfilter<pondfilter>rest[]first[]addprefix[$:/state/folded/]]}}}/>
+<$action-setfield $tiddler={{{[subfilter{$:/temp/fishing!!fishrod}subfilter<pondfilter>rest[]first[]addprefix[$:/state/folded/]]}}} text="hide"/>
 <$action-sendmessage $message="tm-close-tiddler"/>
-<$action-navigate $to=<<nextfish>>/>
+<$action-navigate $to={{{[subfilter{$:/temp/fishing!!fishrod}subfilter<pondfilter>rest[]first[]]}}}/>
 <<ease>>
 </$button>
 </$fieldmangler>
-</$vars>
 </$list>
 </div>
 </div>
-
 </$vars>
 </$reveal>
 </$vars>
 </$list>
 </$vars>
-</$vars>
-
 
 </$vars>
 </$vars>
@@ -98,7 +61,6 @@ style={{{[<ease>match[again]then[margin-left:10px;color:red;]]~[<ease>match[hard
 </$vars>
 </$vars>
 </$vars>
-</$set>
 </$vars>
 
 </$reveal>
