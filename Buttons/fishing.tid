@@ -9,7 +9,7 @@ title: $:/plugins/oflg/fishing/Buttons/fishing
 </$button>
 <!-- creat fishing deck -->
 <$reveal state=<<qualify "$:/state/popup/more">> type="popup" position="below" animate="yes">
-<div class="tc-drop-down tc-popup-keep" style="width:380px;">
+<div class="tc-drop-down tc-popup-keep">
 <!-- creat fishpond -->
 {{$:/plugins/oflg/fishing/fishpond}}
 <!-- creat fishrod -->
@@ -33,6 +33,7 @@ title: $:/plugins/oflg/fishing/Buttons/fishing
 <div style="display:flex;align-items:center;">
 <$button tooltip="Unpin this filter" aria-label="Unpin this filter" class="tc-btn-invisible" style="margin:0;padding:0 5px;">
 <$action-setfield $tiddler="$:/plugins/oflg/fishing/fishrod" $index={{$:/temp/fishing!!fishrod}}/>
+<$action-setfield $tiddler="$:/temp/fishing" fishrod=""/>
 {{$:/core/images/close-button}}
 </$button>
 <$button popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/config">> tooltip="Adjust review schedule of this filter" aria-label="Adjust review schedule of this filter" class="tc-btn-invisible" style="margin:0;padding:0 5px;">
