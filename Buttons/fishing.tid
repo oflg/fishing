@@ -5,7 +5,7 @@ title: $:/plugins/oflg/fishing/Buttons/fishing
 
 <!-- creat fishingButton and countReminder -->
 <$button popup=<<qualify "$:/state/popup/more">> tooltip="Review tiddlers" aria-label="Review tiddlers" class=<<tv-config-toolbar-class>> selectedClass="tc-selected">
-{{$:/plugins/oflg/fishing/icon}}<$reveal default={{{[has[due]]-[!days:due[1]]+[count[]]}}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:green;"><$text text={{{[has[due]]-[!days:due[1]]+[count[]]}}}/></span></$reveal>
+{{$:/plugins/oflg/fishing/icon}}<$reveal default={{{tag[?]has[due]]-[!days:due[1]]+[count[]]}}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:green;"><$text text={{{[tag[?]has[due]]-[!days:due[1]]+[count[]]}}}/></span></$reveal>
 </$button>
 <!-- creat fishpond -->
 <$reveal state=<<qualify "$:/state/popup/more">> type="popup" position="below" animate="yes">
