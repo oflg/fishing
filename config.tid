@@ -1,5 +1,6 @@
 title: $:/plugins/oflg/fishing/config
 
+<$reveal default={{$:/temp/fishing!!fishrod}} type="nomatch" text="">
 <$vars defaultfishrod="[tag[?]]">
 <$list filter="[all[shadows]prefix[$:/plugins/oflg/fishing/config/]]">
 
@@ -9,3 +10,4 @@ title: $:/plugins/oflg/fishing/config
 @@
 </$list>
 </$vars>
+</$reveal>

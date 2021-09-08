@@ -1,20 +1,17 @@
-/*\
+module-type: macro
 title: $:/plugins/oflg/fishing/delay.js
 type: application/javascript
-module-type: macro
-Macro to calculate the day from now to due.
-\*/
+
 (function () {
     /*jslint node: true, browser: true */
     /*global $tw: false */
-
     "use strict";
 
     exports.name = "delayjs";
     exports.params = [];
 
     /*
-    Run the macro
+    Run the macro to calculate delay.
     */
     exports.run = function () {
         var title = this.getVariable("currentTiddler");

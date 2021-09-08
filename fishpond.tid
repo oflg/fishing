@@ -1,20 +1,14 @@
 title: $:/plugins/oflg/fishing/fishpond
 
 <$set name="fishrod" value={{$:/temp/fishing!!fishrod}} emptyValue="[tag[?]]">
-<$vars
-due=[has[due]]-[!days:due[1]]+[sort[due]]
-unreviewed=[!has[due]sort[created]]
-all=[sort[modified]]
->
-<$list filter="=due =unreviewed =all" variable="fishpond">
-<$vars
-pondfilter={{{[<fishpond>match[due]then<due>]~[<fishpond>match[due]then<due>]~[<fishpond>match[unreviewed]then<unreviewed>]~[<fishpond>match[all]then<all>]}}}
->
-<$button tooltip={{{[<fishpond>addprefix[Review ]addsuffix[ tiddlers filtered by the filter input box]]}}} aria-label={{{[<fishpond>addprefix[Review ]addsuffix[ tiddlers filtered by the filter input box]]}}} class="tc-btn-invisible tc-tiddlylink" style="padding:0 15px;">
-<$action-setfield $tiddler="$:/temp/fishing" fishrod=<<fishrod>> fishpond=<<fishpond>> fish={{{[subfilter<fishrod>subfilter<pondfilter>first[]]}}} fishfold=<<fishfold>>/>
-<$action-setfield $tiddler={{{[subfilter<fishrod>subfilter<pondfilter>first[]addprefix[$:/state/folded/]]}}} text="hide"/>
-<$action-navigate $to={{{[subfilter<fishrod>subfilter<pondfilter>first[]]}}}/>
-<<fishpond>> : <$text text={{{[subfilter<fishrod>subfilter<pondfilter>count[]]}}}/>
+<$vars due="[has[due]]-[!days:due[1]]+[sort[due]]" new="[!has[due]sort[created]]">
+<$list filter="due new" variable="fishpondname">
+<$vars fishpond={{{[<fishpondname>match[due]then<due>]~[<fishpondname>match[due]then<due>]~[<fishpondname>match[new]then<new>]}}}>
+<$button tooltip="Review tiddlers of this group" aria-label="Review tiddlers of this group" class="tc-btn-invisible tc-tiddlylink" style="padding-right:2px;">
+<$action-setfield $tiddler="$:/temp/fishing" text="" fishrod=<<fishrod>> fishpond=<<fishpond>> fish={{{[subfilter<fishrod>subfilter<fishpond>first[]]}}}/>
+<$action-setfield $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}} text="hide"/>
+<$action-navigate $to={{$:/temp/fishing!!fish}}/>
+<<fishpondname>>: <$text text={{{[subfilter<fishrod>subfilter<fishpond>count[]]}}}/>
 </$button>
 </$vars>
 </$list>

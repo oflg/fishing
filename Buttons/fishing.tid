@@ -7,67 +7,48 @@ title: $:/plugins/oflg/fishing/Buttons/fishing
 <$button popup=<<qualify "$:/state/popup/more">> tooltip="Review tiddlers" aria-label="Review tiddlers" class=<<tv-config-toolbar-class>> selectedClass="tc-selected">
 {{$:/plugins/oflg/fishing/icon}}<$reveal default={{{tag[?]has[due]]-[!days:due[1]]+[count[]]}}} type="gt" text="0" animate="yes"><span style="font-size:5px;color:green;"><$text text={{{[tag[?]has[due]]-[!days:due[1]]+[count[]]}}}/></span></$reveal>
 </$button>
-<!-- creat fishpond -->
+<!-- creat fishing deck -->
 <$reveal state=<<qualify "$:/state/popup/more">> type="popup" position="below" animate="yes">
 <div class="tc-drop-down tc-popup-keep" style="width:380px;">
+<!-- creat fishpond -->
 {{$:/plugins/oflg/fishing/fishpond}}
+<!-- creat fishrod -->
 <div style="margin:5px 15px;display:flex;align-items:center;">
-<$edit-text tiddler="$:/temp/fishing" field="fishrod" tag="input" focus="true" placeholder="[tag[?]]"/>
-<div style="display:flex;align-items:center;justify-content:flex-end;width:100%;">
-<$reveal default={{$:/temp/fishing!!fishrod}} type="nomatch" text="" animate="yes">
+<$edit-text tiddler="$:/temp/fishing" field="fishrod" tag="input" focus="true" placeholder="[tag[?]]" size="42"/>
+</div>
+<div style="display:flex;margin:0 15px;flex-flow:wrap;align-items:center;">
+<$list filter="[{$:/temp/fishing!!fishrod}][[$:/plugins/oflg/fishing/fishrod]indexes[]]+[sort[]]" variable="fishrod">
+<$reveal default=<<fishrod>> type="nomatch" text="" animate="yes">
+<$button tooltip="Fill in the input box with this filter" aria-label="Fill in the input box with this filter"  style="display:flex;width:auto;height:auto;margin:4px 2px;padding:1px;border:none;font-size:8pt;align-items:center;">
+<$action-setfield $tiddler="$:/temp/fishing" fishrod=<<fishrod>>/>
+<div style="max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><$text text={{{[[$:/plugins/oflg/fishing/fishrod]getindex<fishrod>else{$:/temp/fishing!!fishrod}]}}}/></div> : <$text text={{{[subfilter<fishrod>count[]]}}}/>
+<$reveal default={{$:/temp/fishing!!fishrod}} type="match" text=<<fishrod>> animate="yes">
 <$reveal default={{{[[$:/plugins/oflg/fishing/fishrod]has:index{$:/temp/fishing!!fishrod}]}}} type="match" text="" animate="yes">
-<$button setTitle="$:/plugins/oflg/fishing/fishrod" setIndex={{$:/temp/fishing!!fishrod}}  setTo={{$:/temp/fishing!!fishrod}} tooltip="Pin this filter" aria-label="Pin this filter" class="tc-btn-invisible" style="display:flex;width:auto;height:22px;margin:0 1px;align-items:center;">
+<$button tooltip="Pin this filter" aria-label="Pin this filter" class="tc-btn-invisible" style="margin:0;padding:0 5px;">
+<$action-setfield $tiddler="$:/plugins/oflg/fishing/fishrod" $index={{$:/temp/fishing!!fishrod}} $value={{$:/temp/fishing!!fishrod}}/>
 {{$:/core/images/new-button}}
 </$button>
 </$reveal>
-</$reveal>
 <$reveal default={{{[[$:/plugins/oflg/fishing/fishrod]has:index{$:/temp/fishing!!fishrod}]}}} type="nomatch" text="" animate="yes">
-<$button  tooltip="Unpin this filter" aria-label="Unpin this filter" class="tc-btn-invisible" style="display: flex;width:auto;height:22px;margin:0 1px;align-items: center;">
+<div style="display:flex;align-items:center;">
+<$button tooltip="Unpin this filter" aria-label="Unpin this filter" class="tc-btn-invisible" style="margin:0;padding:0 5px;">
 <$action-setfield $tiddler="$:/plugins/oflg/fishing/fishrod" $index={{$:/temp/fishing!!fishrod}}/>
-<$list filter="[all[shadows]prefix[$:/plugins/oflg/fishing/config/]]">
-<$reveal default={{{[<currentTiddler>has:index{$:/temp/fishing!!fishrod}]}}} type="nomatch" text="">
-<$action-setfield $tiddler=<<currentTiddler>> $index={{$:/temp/fishing!!fishrod}}/>
+{{$:/core/images/close-button}}
+</$button>
+<$button popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/config">> tooltip="Adjust review schedule of this filter" aria-label="Adjust review schedule of this filter" class="tc-btn-invisible" style="margin:0;padding:0 5px;">
+{{$:/core/images/options-button}}
+</$button>
+</div>
 </$reveal>
-<$action-setfield $tiddler="$:/temp/fishing" fishrod=""/>
+</$reveal>
+</$button>
+</$reveal>
 </$list>
-{{$:/core/images/delete-button}}
-</$button>
-</$reveal>
-<$reveal default={{{[[$:/plugins/oflg/fishing/fishrod]has:index{$:/temp/fishing!!fishrod}]}}} type="nomatch" text="" animate="yes">
-<$button popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishrod">>  tooltip="Name this filter" aria-label="Name this filter" class="tc-btn-invisible" style="display: flex;width:auto;height:22px;margin:0 1px;align-items: center;">
-{{$:/core/images/edit-button}}
-</$button>
-</$reveal>
-<$reveal state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishrod">> type="popup" position="above" animate="yes">
-<div class="tc-popup-keep tc-drop-down" style="margin-left:0;min-width:0;margin:0;padding:0;font-size:8pt;">
-<$edit-text tiddler="$:/plugins/oflg/fishing/fishrod" index={{$:/temp/fishing!!fishrod}} tag="input" size="12"/>
-<!--<$action-setfield $tiddler="$:/plugins/oflg/fishing/fishrod" $index={{$:/temp/fishing!!fishrod}} $value="test"/>-->
-</div>
-</$reveal>
-<$reveal default={{{[[$:/plugins/oflg/fishing/fishrod]has:index{$:/temp/fishing!!fishrod}]}}} type="nomatch" text="" animate="yes">
-<$button popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/config">> tooltip="Adjust review schedule of tiddler group filtered by this filter" aria-label="Adjust review schedule of tiddler group filtered by this filter" class="tc-btn-invisible" style="display:flex;width:auto;height:22px;align-items: center;margin:0 1px;">
-{{$:/core/images/options-button}}
-</$button>
-</$reveal>
-<$reveal default={{$:/temp/fishing!!fishrod}} type="match" text="" animate="yes">
-<$button popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/config">> tooltip="Adjust default review schedule" aria-label="Adjust default review schedule" class="tc-btn-invisible" style="display:flex;width:auto;height:22px;align-items:center;margin:0 1px;">
-{{$:/core/images/options-button}}
-</$button>
-</$reveal>
-</div>
 <$reveal state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/config">> type="popup" position="belowleft" animate="yes">
 <div class="tc-popup-keep tc-drop-down" style="margin-left:0;">
 {{$:/plugins/oflg/fishing/config}}
 </div>
 </$reveal>
-</div>
-<div style="display:flex;margin:0 15px;flex-flow:wrap;">
-<$list filter="[[$:/plugins/oflg/fishing/fishrod]indexes[]sort[]]" variable="fishrod">
-<$button tooltip={{{[[Set filter to ]addsuffix<fishrod>]}}} aria-label={{{[[Set filter to ]addsuffix<fishrod>]}}} style="float:left;width:auto;height:auto;margin:4px 2px;overflow:hidden;text-overflow: ellipsis;padding:1px;font-size:8pt;border:none;">
-<$text text={{{[[$:/plugins/oflg/fishing/fishrod]getindex<fishrod>]}}}/>
-<$action-setfield $tiddler="$:/temp/fishing" fishrod=<<fishrod>>/>
-</$button>
-</$list>
 </div>
 </div>
 </$reveal>

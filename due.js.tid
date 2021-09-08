@@ -1,23 +1,17 @@
-/*\
+module-type: macro
 title: $:/plugins/oflg/fishing/due.js
 type: application/javascript
-module-type: macro
 
-returns newdue as tiddlywiki's date
-
-\*/
 (function () {
-
     /*jslint node: true, browser: true */
     /*global $tw: false */
     "use strict";
 
     exports.name = "duejs";
-
     exports.params = [];
 
     /*
-    Run the macro
+    Run the macro to calculate the newdue.
     */
     exports.run = function () {
         var title = this.getVariable("currentTiddler");
@@ -35,5 +29,4 @@ returns newdue as tiddlywiki's date
 
         return due;
     };
-
 })();
