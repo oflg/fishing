@@ -1,4 +1,6 @@
 title: $:/plugins/oflg/fishing/config/startingease
-type: application/x-tiddler-dictionary
+type: application/json
 
-[tag[?]]: 2.50
+{
+    "[tag[?]]": "2.50"
+}

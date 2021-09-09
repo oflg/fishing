@@ -6,7 +6,7 @@ title: $:/plugins/oflg/fishing/config
 
 @@display:flex;justify-content:space-between;
 <$text text={{{[<currentTiddler>removeprefix[$:/plugins/oflg/fishing/config/]]}}}/>
-<$edit-text tiddler=<<currentTiddler>> index={{{[{$:/temp/fishing!!fishrod}else<defaultfishrod>]}}} placeholder={{{[<currentTiddler>getindex<defaultfishrod>]}}} tag="input"/>
+<$edit-text tiddler=<<currentTiddler>> index={{{[{$:/temp/fishing!!fishrod}else<defaultfishrod>]}}} placeholder={{{[<currentTiddler>getindex<defaultfishrod>]}}} tag="input" size="3"/>
 @@
 </$list>
 </$vars>

@@ -1,4 +1,6 @@
 title: $:/plugins/oflg/fishing/config/newinterval
-type: application/x-tiddler-dictionary
+type: application/json
 
-[tag[?]]: 0.00
+{
+    "[tag[?]]": "0.00"
+}

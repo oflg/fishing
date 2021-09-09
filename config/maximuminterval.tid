@@ -1,4 +1,6 @@
 title: $:/plugins/oflg/fishing/config/maximuminterval
-type: application/x-tiddler-dictionary
+type: application/json
 
-[tag[?]]: 36500
+{
+    "[tag[?]]": "36500"
+}

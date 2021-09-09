@@ -1,4 +1,6 @@
 title: $:/plugins/oflg/fishing/config/intervalmodifier
-type: application/x-tiddler-dictionary
+type: application/json
 
-[tag[?]]: 1.00
+{
+    "[tag[?]]": "1.00"
+}

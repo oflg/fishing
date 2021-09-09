@@ -1,2 +1,6 @@
 title: $:/plugins/oflg/fishing/fishrod
-type: application/x-tiddler-dictionary
+type: application/json
+
+{
+    "[tag[?]]": "[tag[?]]"
+}

@@ -1,4 +1,6 @@
 title: $:/plugins/oflg/fishing/config/easybonus
-type: application/x-tiddler-dictionary
+type: application/json
 
-[tag[?]]: 1.30
+{
+    "[tag[?]]": "1.30"
+}
