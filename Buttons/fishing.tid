@@ -45,11 +45,11 @@ title: $:/plugins/oflg/fishing/Buttons/fishing
 </$button>
 </$reveal>
 </$list>
+</div>
+</div>
 <$reveal state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/config">> type="popup" position="belowleft" animate="yes">
 <div class="tc-popup-keep tc-drop-down" style="margin-left:0;">
 {{$:/plugins/oflg/fishing/config}}
 </div>
 </$reveal>
-</div>
-</div>
 </$reveal>
