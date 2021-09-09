@@ -47,8 +47,8 @@ title: $:/plugins/oflg/fishing/Buttons/fishing
 </$list>
 </div>
 </div>
-<$reveal state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/config">> type="popup" position="belowleft" animate="yes">
-<div class="tc-popup-keep tc-drop-down" style="margin-left:0;">
+<$reveal state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/config">> type="popup" position="below" animate="yes">
+<div class="tc-popup-keep tc-drop-down" style="min-width:250px;">
 {{$:/plugins/oflg/fishing/config}}
 </div>
 </$reveal>
