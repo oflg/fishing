@@ -1,0 +1,24 @@
+title: $:/plugins/oflg/fishing/languages/zh-Hans
+type: application/json
+
+{
+    "fishingbuttontip": "复习条目",
+    "fillfiltertip": "填入此筛选器到输入框",
+    "pinfiltertip": "固定此筛选器",
+    "unpinfiltertip": "解除此筛选器",
+    "adjustscheduletip": "调整此筛选器的复习计划",
+    "easybonus": "简单参数",
+    "graduatinginterval": "初始间隔（天）",
+    "hardinterval": "困难参数",
+    "intervalmodifier": "间隔系数",
+    "maximuminterval": "最大间隔（天）",
+    "newinterval": "重来参数",
+    "startingease": "初始难度",
+    "again": "重来",
+    "hard": "困难",
+    "good": "良好",
+    "easy": "容易",
+    "fishpondtip": "复习此组条目",
+    "due": "已到期：",
+    "new": "新添加："
+}

@@ -1,0 +1,24 @@
+title: $:/plugins/oflg/fishing/languages/en-GB
+type: application/json
+
+{
+    "fishingbuttontip": "Review tiddlers",
+    "fillfiltertip": "Fill in the input box with this filter",
+    "pinfiltertip": "Pin this filter",
+    "unpinfiltertip": "Unpin this filter",
+    "adjustscheduletip": "Adjust review schedule of this filter",
+    "easybonus": "Easy Parameter",
+    "graduatinginterval": "Starting Interval (day)",
+    "hardinterval": "Hard Parameter",
+    "intervalmodifier": "Interval Modifier",
+    "maximuminterval": "Maximum Interval (day)",
+    "newinterval": "Again Parameter",
+    "startingease": "Starting Ease",
+    "again": "again",
+    "hard": "hard",
+    "good": "good",
+    "easy": "easy",
+    "fishpondtip": "Review tiddlers of this group",
+    "due": "due:",
+    "new": "new:"
+}

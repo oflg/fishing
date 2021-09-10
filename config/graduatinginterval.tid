@@ -1,0 +1,6 @@
+title: $:/plugins/oflg/fishing/config/graduatinginterval
+type: application/json
+
+{
+    "[tag[?]]": "1"
+}

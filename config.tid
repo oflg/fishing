@@ -1,13 +1,15 @@
 title: $:/plugins/oflg/fishing/config
 
+<$vars languagetiddler={{{[{$:/language!!text}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]]}}}>
 <$reveal default={{$:/temp/fishing!!fishrod}} type="nomatch" text="">
 <$vars defaultfishrod="[tag[?]]">
-<$list filter="[all[shadows]prefix[$:/plugins/oflg/fishing/config/]]">
+<$list filter="[all[shadows]prefix[$:/plugins/oflg/fishing/config/]removeprefix[$:/plugins/oflg/fishing/config/]sortby[startingease intervalmodifier newinterval hardinterval easybonus graduatinginterval maximuminterval]]" variable="parameter">
 
-@@display:flex;justify-content:space-between;
-<$text text={{{[<currentTiddler>removeprefix[$:/plugins/oflg/fishing/config/]]}}}/>
-<$edit-text tiddler=<<currentTiddler>> index={{{[{$:/temp/fishing!!fishrod}else<defaultfishrod>]}}} placeholder={{{[<currentTiddler>getindex<defaultfishrod>]}}} tag="input" size="3"/>
+@@display:flex;justify-content:space-between;font-size:8pt;
+<$text text={{{[<languagetiddler>getindex<parameter>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<parameter>]}}}/>
+<$edit-text tiddler={{{[<parameter>addprefix[$:/plugins/oflg/fishing/config/]]}}} index={{{[{$:/temp/fishing!!fishrod}else<defaultfishrod>]}}} placeholder={{{[<parameter>addprefix[$:/plugins/oflg/fishing/config/]getindex<defaultfishrod>]}}} tag="input" size="3"/>
 @@
 </$list>
 </$vars>
 </$reveal>
+</$vars>
