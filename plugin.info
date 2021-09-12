@@ -4,7 +4,7 @@
     "list": "readme config",
     "name": "Fishing",
     "plugin-type": "plugin",
-    "source": "https://oflg.github.io/fishing/#%24%3A%2Fplugins%2Foflg%2Ffishing",
+    "source": "https://github.com/oflg/fishing",
     "title": "$:/plugins/oflg/fishing",
     "version": "1.2.4"
 }
