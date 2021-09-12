@@ -1,11 +1,10 @@
 tags: $:/tags/ViewTemplate
 title: $:/plugins/oflg/fishing/fishing
 
-<$vars languagetiddler={{{[{$:/language!!text}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]]}}}>
 <$reveal default={{$:/temp/fishing!!fish}} type="match" text=<<currentTiddler>> animate="yes">
 <$reveal state=<<folded-state>> type="match" text="show" animate="yes">
 
-<!-- set anki algorithm https://github.com/oflg/anki-algorithm -->
+<!-- set anki algorithm https://gist.github.com/oflg/6c9cc15bbe2172688a0b4bd817b12bd7 -->
 <!-- set anki parameters https://docs.ankiweb.net/deck-options.html#advanced -->
 <$vars defaultfishrod="[tag[?]]">
 <$vars maximuminterval={{{[[$:/plugins/oflg/fishing/config/maximuminterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/maximuminterval]getindex<defaultfishrod>]}}} startingease={{{[[$:/plugins/oflg/fishing/config/startingease]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/startingease]getindex<defaultfishrod>]}}} easybonus={{{[[$:/plugins/oflg/fishing/config/easybonus]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/easybonus]getindex<defaultfishrod>]}}} intervalmodifier={{{[[$:/plugins/oflg/fishing/config/intervalmodifier]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/intervalmodifier]getindex<defaultfishrod>]}}} hardinterval={{{[[$:/plugins/oflg/fishing/config/hardinterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/hardinterval]getindex<defaultfishrod>]}}} newinterval={{{[[$:/plugins/oflg/fishing/config/newinterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/newinterval]getindex<defaultfishrod>]}}} graduatinginterval={{{[[$:/plugins/oflg/fishing/config/graduatinginterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/graduatinginterval]getindex<defaultfishrod>]}}}>
@@ -27,7 +26,7 @@ title: $:/plugins/oflg/fishing/fishing
 <div>
 <$list filter="again hard good easy" variable="ease">
 <$fieldmangler>
-<$button message="tm-add-tag" param="?" tooltip=<<ease>> aria-label=<<ease>> class="tc-btn-invisible tc-tiddlylink" style={{{[<ease>match[again]then[margin-left:10px;color:red;]]~[<ease>match[hard]then[margin-left:10px;color:black;]]~[<ease>match[good]then[margin-left:10px;color:green;]]~[<ease>match[easy]then[margin-left:10px;color:blue;]]}}}>
+<$button message="tm-add-tag" param="?" tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<ease>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>]}}} aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<ease>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>]}}} class="tc-btn-invisible tc-tiddlylink" style={{{[<ease>match[again]then[margin-left:10px;color:red;]]~[<ease>match[hard]then[margin-left:10px;color:black;]]~[<ease>match[good]then[margin-left:10px;color:green;]]~[<ease>match[easy]then[margin-left:10px;color:blue;]]}}}>
 <$action-setfield factor={{{[<ease>match[again]then<lastfactor>subtract[0.2]max[1.3]]~[<ease>match[hard]then<lastfactor>subtract[0.15]max[1.3]]~[<ease>match[good]then<lastfactor>max[1.3]]~[<ease>match[easy]then<lastfactor>add[0.15]max[1.3]]+[fixed[2]]}}} interval={{{[<ease>match[again]then<againivl>]~[<ease>match[hard]then<hardivl>]~[<ease>match[good]then<goodivl>]~[<ease>match[easy]then<easyivl>]+[fixed[2]]}}}/>
 <!-- due must be saved after interval in due.js -->
 <$action-setfield $field="due" $value=<<duejs>>/>
@@ -35,7 +34,7 @@ title: $:/plugins/oflg/fishing/fishing
 <$action-setfield $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}} text="hide"/>
 <$action-sendmessage $message="tm-close-tiddler"/>
 <$action-navigate $to={{$:/temp/fishing!!fish}}/>
-<$text text={{{[<languagetiddler>getindex<ease>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>]}}}/>
+<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<ease>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>]}}}/>
 </$button>
 </$fieldmangler>
 </$list>
@@ -52,4 +51,3 @@ title: $:/plugins/oflg/fishing/fishing
 
 </$reveal>
 </$reveal>
-</$vars>
