@@ -14,7 +14,7 @@ type: application/json
     "intervalmodifier": "间隔系数",
     "maximuminterval": "最大间隔（天）",
     "newinterval": "重来参数",
-    "startingease": "初始难度",
+    "startingease": "初始易度",
     "again": "重来",
     "hard": "困难",
     "good": "良好",
