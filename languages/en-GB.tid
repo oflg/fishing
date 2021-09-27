@@ -19,6 +19,13 @@ type: application/json
     "hard": "hard",
     "good": "good",
     "easy": "easy",
+    "moretip": "More",
+    "reset": "reset",
+    "resettip": "Reset this tiddler's review review schedule",
+    "tomorrow": "tomorrow",
+    "tomorrowtip": "Review this tiddler tomorrow",
+    "remove": "remove",
+    "removetip": "No more review of this tiddler",
     "fishpondtip": "Review tiddlers of this group",
     "due": "due:",
     "new": "new:"
