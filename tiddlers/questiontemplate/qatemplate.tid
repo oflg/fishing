@@ -1,0 +1,14 @@
+title: QaTemplate
+
+<div style={{{[{$:/themes/tiddlywiki/vanilla/metrics/fontsize}addprefix[font-size:]addsuffix[!important;]]}}}>
+Q: {{!!title}}
+<br>
+A: 
+<br>
+<$edit tiddler="$:/temp/fishing" placeholder="type your answer" minHeight="15px" class="tc-edit-texteditor"/>
+<$reveal default={{$:/temp/fishing}} type="nomatch" text="" animate="yes">
+<$reveal state=<<folded-state>> type="match" text="show" animate="yes">
+<$diff-text source={{$:/temp/fishing}} dest={{!!text}}/>
+</$reveal>
+</$reveal>
+</div>

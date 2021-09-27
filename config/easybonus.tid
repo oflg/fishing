@@ -1,6 +1,0 @@
-title: $:/plugins/oflg/fishing/config/easybonus
-type: application/json
-
-{
-    "[tag[?]]": "1.30"
-}

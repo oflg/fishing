@@ -1,6 +1,0 @@
-title: $:/plugins/oflg/fishing/config/startingease
-type: application/json
-
-{
-    "[tag[?]]": "2.50"
-}

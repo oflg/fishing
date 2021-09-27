@@ -6,8 +6,7 @@ title: $:/plugins/oflg/fishing/fishing
 
 <!-- set anki algorithm https://gist.github.com/oflg/6c9cc15bbe2172688a0b4bd817b12bd7 -->
 <!-- set anki parameters https://docs.ankiweb.net/deck-options.html#advanced -->
-<$vars defaultfishrod="[tag[?]]">
-<$vars maximuminterval={{{[[$:/plugins/oflg/fishing/config/maximuminterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/maximuminterval]getindex<defaultfishrod>]}}} startingease={{{[[$:/plugins/oflg/fishing/config/startingease]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/startingease]getindex<defaultfishrod>]}}} easybonus={{{[[$:/plugins/oflg/fishing/config/easybonus]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/easybonus]getindex<defaultfishrod>]}}} intervalmodifier={{{[[$:/plugins/oflg/fishing/config/intervalmodifier]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/intervalmodifier]getindex<defaultfishrod>]}}} hardinterval={{{[[$:/plugins/oflg/fishing/config/hardinterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/hardinterval]getindex<defaultfishrod>]}}} newinterval={{{[[$:/plugins/oflg/fishing/config/newinterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/newinterval]getindex<defaultfishrod>]}}} graduatinginterval={{{[[$:/plugins/oflg/fishing/config/graduatinginterval]getindex{$:/temp/fishing!!fishrod}]~[[$:/plugins/oflg/fishing/config/graduatinginterval]getindex<defaultfishrod>]}}}>
+<$vars easybonus={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[easybonus]else{$:/plugins/oflg/fishing/fishrod!!easybonus}]}}} graduatinginterval={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[graduatinginterval]else{$:/plugins/oflg/fishing/fishrod!!graduatinginterval}]}}} hardinterval={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[hardinterval]else{$:/plugins/oflg/fishing/fishrod!!hardinterval}]}}} intervalmodifier={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[intervalmodifier]else{$:/plugins/oflg/fishing/fishrod!!intervalmodifier}]}}} maximuminterval={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[maximuminterval]else{$:/plugins/oflg/fishing/fishrod!!maximuminterval}]}}} newinterval={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[newinterval]else{$:/plugins/oflg/fishing/fishrod!!newinterval}]}}} startingease={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[startingease]else{$:/plugins/oflg/fishing/fishrod!!startingease}]}}}>
 <!-- get lastfactor and lastinterval -->
 <$vars lastfactor={{{[<currentTiddler>get[factor]else<startingease>]}}} lastinterval={{{[<currentTiddler>get[interval]else<graduatinginterval>]}}}>
 <!-- calculate interval -->
@@ -51,16 +50,6 @@ title: $:/plugins/oflg/fishing/fishing
 <$action-navigate $to={{$:/temp/fishing!!fish}}/>
 <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[reset]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[reset]]}}}/>
 </$button>
-<$button tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[tomorrowtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[tomorrowtip]]}}} aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[tomorrowtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[tomorrowtip]]}}} class="tc-btn-invisible tc-tiddlylink" style="padding:5px 10px;">
-<$action-setfield interval="1"/>
-<!-- due must be saved after interval in due.js -->
-<$action-setfield $field="due" $value=<<duejs>>/>
-<$action-setfield $tiddler="$:/temp/fishing" text="" fish={{{[subfilter{$:/temp/fishing!!fishrod}subfilter{$:/temp/fishing!!fishpond}first[]]}}}/>
-<$action-setfield $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}} text="hide"/>
-<$action-sendmessage $message="tm-close-tiddler"/>
-<$action-navigate $to={{$:/temp/fishing!!fish}}/>
-<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[tomorrow]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[tomorrow]]}}}/>
-</$button>
 <$button message="tm-remove-tag" param="?" tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[removetip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[removetip]]}}} aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[removetip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[removetip]]}}} class="tc-btn-invisible tc-tiddlylink" style="padding:5px 10px;">
 <$action-setfield $tiddler="$:/temp/fishing" text="" fish={{{[subfilter{$:/temp/fishing!!fishrod}subfilter{$:/temp/fishing!!fishpond}rest[]first[]]}}}/>
 <$action-setfield $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}} text="hide"/>
@@ -74,7 +63,6 @@ title: $:/plugins/oflg/fishing/fishing
 </div>
 </div>
 
-</$vars>
 </$vars>
 </$vars>
 </$vars>

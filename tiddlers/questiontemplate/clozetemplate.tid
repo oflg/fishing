@@ -1,0 +1,29 @@
+title: ClozeTemplate
+
+<div style={{{[{$:/themes/tiddlywiki/vanilla/metrics/fontsize}addprefix[font-size:]addsuffix[;]]}}}>
+<$reveal default={{{[{!!title}search:title[::]]}}} type="nomatch" text="" animate="yes">
+<$vars thisTiddler={{!!title}}>
+<$list filter="[{!!title}search-replace:g[((],[???]search-replace:g[))],[???]split[???]]" variable="titleitem">
+<$reveal default={{{[<titleitem>search[::]]}}} type="nomatch" text="">
+<$vars clozeid={{{[<titleitem>split[::]first[]]}}} clozecontent={{{[<titleitem>split[::]rest[]]}}}>
+<$button class="tc-btn-invisible tc-tiddlylink">
+<$reveal state={{{[<thisTiddler>addprefix[$:/state/folded/]]}}} type="nomatch" text="show" animate="yes">
+<$action-setfield $tiddler="$:/temp/fishing" $index=<<clozeid>> $value={{{[[$:/temp/fishing]getindex<clozeid>match[show]then[]else[show]]}}}/>
+<$text text={{{[[$:/temp/fishing]getindex<clozeid>match[show]then<clozecontent>else[(...)]]}}}/>
+</$reveal>
+<$reveal state={{{[<thisTiddler>addprefix[$:/state/folded/]]}}} type="match" text="show" animate="yes">
+<$text text=<<clozecontent>>/>
+</$reveal>
+</$button>
+</$vars>
+</$reveal>
+<$reveal default={{{[<titleitem>search[::]]}}} type="match" text="">
+<<titleitem>>
+</$reveal>
+</$list>
+</$vars>
+</$reveal>
+<$reveal default={{{[{!!title}search:title[::]]}}} type="match" text="" animate="yes">
+{{!!title}}
+</$reveal>
+</div>

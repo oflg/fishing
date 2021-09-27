@@ -1,6 +1,0 @@
-title: $:/plugins/oflg/fishing/config/newinterval
-type: application/json
-
-{
-    "[tag[?]]": "0.00"
-}

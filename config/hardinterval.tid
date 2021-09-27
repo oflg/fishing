@@ -1,6 +1,0 @@
-title: $:/plugins/oflg/fishing/config/hardinterval
-type: application/json
-
-{
-    "[tag[?]]": "1.20"
-}
