@@ -3,11 +3,10 @@ description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/
 tags: $:/tags/PageControls
 title: $:/plugins/oflg/fishing/Buttons/fishingdeck
 
-<!-- creat fishing button and count reminder -->
+<!-- creat fishfloat -->
 <$button popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/Buttons/fishingdeck">> tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingbuttontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingbuttontip]]}}} aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingbuttontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingbuttontip]]}}} class=<<tv-config-toolbar-class>> selectedClass="tc-selected">
 {{$:/plugins/oflg/fishing/icon}}<$reveal default={{{[tag[?]has[due]]-[!days:due[1]]+[count[]]}}} type="gt" text="0" animate="yes" style="font-size:5px;color:green;"><$text text={{{[tag[?]has[due]]-[!days:due[1]]+[count[]]}}}/></$reveal>
 </$button>
-<!-- creat fishing deck -->
 <$reveal state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/Buttons/fishingdeck">> type="popup" position="below" animate="yes">
 <div class="tc-drop-down tc-popup-keep" style="min-width:0;">
 <!-- creat fishpond -->
