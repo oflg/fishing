@@ -1,6 +1,6 @@
 title: ClozeTemplate
 
-<div style={{{[{$:/themes/tiddlywiki/vanilla/metrics/fontsize}addprefix[font-size:]addsuffix[;]]}}}>
+<div class="tc-tiddler-body">
 <$reveal default={{{[{!!title}search:title[::]]}}} type="nomatch" text="" animate="yes">
 <$vars thisTiddler={{!!title}}>
 <$list filter="[{!!title}search-replace:g[((],[???]search-replace:g[))],[???]split[???]]" variable="titleitem">

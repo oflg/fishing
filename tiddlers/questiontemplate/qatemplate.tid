@@ -1,6 +1,6 @@
 title: QaTemplate
 
-<div style={{{[{$:/themes/tiddlywiki/vanilla/metrics/fontsize}addprefix[font-size:]addsuffix[!important;]]}}}>
+<div class="tc-tiddler-body">
 Q: {{!!title}}
 <br>
 A: 
