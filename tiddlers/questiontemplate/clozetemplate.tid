@@ -1,5 +1,6 @@
 title: ClozeTemplate
 
+<$reveal default={{$:/temp/fishing!!fish}} type="match" text=<<currentTiddler>> animate="yes">
 <div class="tc-tiddler-body">
 <$reveal default={{{[{!!title}search:title[::]]}}} type="nomatch" text="" animate="yes">
 <$vars thisTiddler={{!!title}}>
@@ -27,3 +28,7 @@ title: ClozeTemplate
 {{!!title}}
 </$reveal>
 </div>
+</$reveal>
+<$reveal default={{$:/temp/fishing!!fish}} type="nomatch" text=<<currentTiddler>> animate="yes">
+{{!!title}}
+</$reveal>
