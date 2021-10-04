@@ -2,11 +2,9 @@ title: QaTemplate
 
 <$reveal default={{$:/temp/fishing!!fish}} type="match" text=<<currentTiddler>> animate="yes">
 <div class="tc-tiddler-body">
-Q: {{!!title}}
+{{!!title}}
 <br>
-A: 
-<br>
-<$edit tiddler="$:/temp/fishing" placeholder="type your answer" minHeight="15px" class="tc-edit-texteditor"/>
+<$edit-text tiddler="$:/temp/fishing" placeholder={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[typeanswer]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[typeanswer]]}}} focus="true" minHeight="15px" class="tc-edit-texteditor tc-edit-texteditor-body"/>
 <$reveal default={{$:/temp/fishing}} type="nomatch" text="" animate="yes">
 <$reveal state=<<folded-state>> type="match" text="show" animate="yes">
 <$diff-text source={{$:/temp/fishing}} dest={{!!text}}/>

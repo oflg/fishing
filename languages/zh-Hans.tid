@@ -30,5 +30,6 @@ type: application/json
     "removetip": "不再复习此条目",
     "fishpondtip": "复习此组条目",
     "due": "已到期：",
-    "new": "新添加："
+    "new": "新添加：",
+    "typeanswer": "输入答案..."
 }

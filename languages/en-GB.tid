@@ -30,5 +30,6 @@ type: application/json
     "removetip": "No more review of this tiddler",
     "fishpondtip": "Review tiddlers of this group",
     "due": "due:",
-    "new": "new:"
+    "new": "new:",
+    "typeanswer": "Type your answer..."
 }
