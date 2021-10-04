@@ -5,7 +5,9 @@ Q: {{!!title}}
 <br>
 A: 
 <br>
+<$reveal default={{{[$:/temp/fishing]is[missing]}}} type="nomatch" text="" animate="yes">
 <$edit tiddler="$:/temp/fishing" placeholder="type your answer" minHeight="15px" class="tc-edit-texteditor"/>
+</$reveal>
 <$reveal default={{$:/temp/fishing}} type="nomatch" text="" animate="yes">
 <$reveal state=<<folded-state>> type="match" text="show" animate="yes">
 <$diff-text source={{$:/temp/fishing}} dest={{!!text}}/>
