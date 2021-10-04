@@ -2,7 +2,12 @@ title: ChoiceTemplate
 
 <$reveal default={{$:/temp/fishing!!fish}} type="match" text=<<currentTiddler>> animate="yes">
 <div class="tc-tiddler-body">
-{{!!title}}
+<$reveal default={{{[{!!answer}split[||]count[]]}}} type="match" text="1" animate="yes">
+<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[singlechoice]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[singlechoice]]}}}/>{{!!title}}
+</$reveal>
+<$reveal default={{{[{!!answer}split[||]count[]]}}} type="gt" text="1" animate="yes">
+<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[multiplechoice]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[multiplechoice]]}}}/>{{!!title}}
+</$reveal>
 <br>
 <$list filter="[{!!option}split[||]]" counter="counter" variable="optionitem">
 <$reveal state=<<folded-state>> type="nomatch" text="show" animate="yes">

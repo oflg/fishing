@@ -31,5 +31,7 @@ type: application/json
     "fishpondtip": "Review tiddlers of this group",
     "due": "due:",
     "new": "new:",
-    "typeanswer": "Type your answer..."
+    "typeanswer": "Type your answer...",
+    "singlechoice": "[Single Choice]",
+    "multiplechoice": "[Multiple Choice]"
 }

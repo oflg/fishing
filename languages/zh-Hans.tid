@@ -31,5 +31,7 @@ type: application/json
     "fishpondtip": "复习此组条目",
     "due": "已到期：",
     "new": "新添加：",
-    "typeanswer": "输入答案..."
+    "typeanswer": "输入答案...",
+    "singlechoice": "【单选】",
+    "multiplechoice": "【多选】"
 }
