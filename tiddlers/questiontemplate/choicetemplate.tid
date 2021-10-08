@@ -5,7 +5,7 @@ title: ChoiceTemplate
 {{!!title}}
 <br>
 <$list filter="[{!!option}split[||]]" counter="counter" variable="optionitem">
-<$vars answerindex={{{[{!!answer}split[||]count[]match[1]then[answer]else<counter>]}}}>
+<$vars answerindex={{{[{!!answer}split[||]count[]match[1]then[0]else<counter>]}}}>
 
 <$reveal state=<<folded-state>> type="nomatch" text="show" animate="yes">
 <$reveal default={{{[{!!answer}split[||]count[]]}}} type="match" text="1" animate="yes">
