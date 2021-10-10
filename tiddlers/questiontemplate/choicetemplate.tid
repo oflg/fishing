@@ -46,5 +46,7 @@ title: ChoiceTemplate
 </$reveal>
 
 <$reveal default={{$:/temp/fishing!!fish}} type="nomatch" text=<<currentTiddler>> animate="yes">
+<div class="tc-tiddler-body">
 {{!!title}}
+</div>
 </$reveal>
