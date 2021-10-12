@@ -41,10 +41,9 @@ title: $:/plugins/oflg/fishing/fishrod
 </$list>
 </div>
 <$reveal state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishrod">> type="popup" position="belowleft" animate="yes">
-<div class="tc-popup-keep tc-drop-down" style="min-width:0;">
+<div class="tc-popup-keep tc-drop-down" style="min-width:0;padding:10px;">
 <$list filter="startingease intervalmodifier newinterval hardinterval easybonus graduatinginterval maximuminterval" variable="parameter">
-
-<div style="display:flex;justify-content:space-between;font-size:8pt;">
+<div style="display:flex;justify-content:space-between;font-size:8pt;padding:2px;">
 <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<parameter>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<parameter>]}}}/> <$edit-text tiddler={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]]}}} index=<<parameter>> placeholder={{{[all[current]get<parameter>]}}} tag="input" size="4"/>
 </div>
 </$list>
