@@ -12,15 +12,13 @@ title: Choice
 <$vars choiceid={{{[<titleitem>split[^^]rest[]]}}} choicecontent={{{[<titleitem>split[^^]first[]]}}}>
 <$vars answerid={{{[{!!title}split[__]search[^^]search['']count[]match[1]then[answerid]else<choiceid>]}}}>
 <$reveal state=<<folded-state>> type="nomatch" text="show" animate="yes">
-<$reveal default={{{[{!!title}split[__]search[^^]search['']count[]]}}} type="match" text="1">
 
+<$reveal default={{{[{!!title}split[__]search[^^]search['']count[]]}}} type="lteq" text="1">
 <$radio tiddler="$:/temp/fishing" index=<<answerid>> value=<<choiceid>> default="">
 <<choiceid>>. {{{[<choicecontent>search-replace:g:[''],[]]}}}
 </$radio>
 </$reveal>
-
 <$reveal default={{{[{!!title}split[__]search[^^]search['']count[]]}}} type="gt" text="1">
-
 <$checkbox tiddler="$:/temp/fishing" index=<<answerid>> checked=<<choiceid>> unchecked="" default="">
 <<choiceid>>. {{{[<choicecontent>search-replace:g:[''],[]]}}}
 </$checkbox>
