@@ -1,7 +1,8 @@
-title: QaTemplate
+tags: questiontemplate
+title: Qa
 
-<$reveal default={{$:/temp/fishing!!fish}} type="match" text=<<currentTiddler>> animate="yes">
 <div class="tc-tiddler-body">
+<$reveal default={{$:/temp/fishing!!fish}} type="match" text=<<currentTiddler>> animate="yes">
 {{!!title}}
 <br>
 <$edit tiddler="$:/temp/fishing" placeholder={{$:/language/EditTemplate/Body/Placeholder}} focus="true" minHeight="15px" class="tc-edit-texteditor tc-edit-texteditor-body"> 
@@ -23,10 +24,8 @@ title: QaTemplate
 <$diff-text source={{$:/temp/fishing}} dest={{!!text}}/>
 </$reveal>
 </$reveal>
-</div>
 </$reveal>
 <$reveal default={{$:/temp/fishing!!fish}} type="nomatch" text=<<currentTiddler>> animate="yes">
-<div class="tc-tiddler-body">
 {{!!title}}
-</div>
 </$reveal>
+</div>

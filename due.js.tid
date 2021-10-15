@@ -20,7 +20,7 @@ type: application/javascript
         if (tiddler && tiddler.hasField("interval")) {
             var lastinterval = tiddler.getFieldString("interval");
         } else {
-            var lastinterval = 0;
+            var lastinterval = 1;
         }
 
         var lastintervalTime = Number(lastinterval) * 86400000;
