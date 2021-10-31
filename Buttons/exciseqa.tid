@@ -1,7 +1,7 @@
 title: $:/plugins/oflg/fishing/Buttons/exciseqa
 tags: $:/tags/EditorToolbar
 icon: $:/core/images/excise
-caption: {{$:/plugins/oflg/fishing/icon}} <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseqa]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseqa]]}}}/>
+caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseqa]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseqa]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseqatip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseqatip]]}}}/>
 shortcuts: ((fishing-exciseqa))
 

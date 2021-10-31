@@ -1,7 +1,15 @@
 title: $:/plugins/oflg/fishing/Buttons/excisecloze
 tags: $:/tags/EditorToolbar
 icon: $:/core/images/excise
-caption: {{$:/plugins/oflg/fishing/icon}} <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisecloze]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisecloze]]}}}/>
+caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisecloze]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisecloze]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseclozetip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseclozetip]]}}}/>
 shortcuts: ((fishing-excisecloze))
 
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="excise"
+	title="AAA"
+	type="macro"
+	macro="?"
+	tagnew="yes"
+/>
