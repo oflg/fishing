@@ -1,6 +1,6 @@
 title: $:/plugins/oflg/fishing/Buttons/exciseqa
 tags: $:/tags/EditorToolbar
-icon: $:/core/images/excise
+icon: $:/plugins/oflg/fishing/icons/exciseqa-icon
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseqa]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseqa]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseqatip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseqatip]]}}}/>
 condition: [<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]] [<targetTiddler>type[text/x-markdown]]
