@@ -8,8 +8,9 @@ shortcuts: ((fishing-excisecloze))
 
 <$action-sendmessage
 	$message="tm-edit-text-operation"
-	$param="excisecloze"
-	type="macro"
+	$param="excisefishing"
+	fishingTag="?"
 	macro="?"
+	selectionAsAnswer="no"
 	tagnew="yes"
 />
