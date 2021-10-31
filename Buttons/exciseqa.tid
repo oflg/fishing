@@ -6,3 +6,10 @@ description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/
 condition: [<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]] [<targetTiddler>type[text/x-markdown]]
 shortcuts: ((fishing-exciseqa))
 
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="exciseqa"
+	type="macro"
+	macro="?"
+	tagnew="yes"
+/>
