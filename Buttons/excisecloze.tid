@@ -3,6 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/core/images/excise
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisecloze]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisecloze]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseclozetip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseclozetip]]}}}/>
+condition: [<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki text/x-markdown]]
 shortcuts: ((fishing-excisecloze))
 
 <$action-sendmessage
