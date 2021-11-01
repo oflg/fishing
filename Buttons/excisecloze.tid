@@ -13,4 +13,5 @@ shortcuts: ((fishing-excisecloze))
 	macro="?"
 	selectionAsAnswer="no"
 	tagnew="yes"
+	template="Cloze"
 />

@@ -13,4 +13,5 @@ shortcuts: ((fishing-exciseqa))
 	macro="?"
 	selectionAsAnswer="yes"
 	tagnew="yes"
+	template="Qa"
 />
