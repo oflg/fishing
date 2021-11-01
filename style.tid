@@ -1,0 +1,14 @@
+tags: $:/tags/Stylesheet
+title: $:/plugins/oflg/fishing/style.css
+type: text/vnd.tiddlywiki
+
+/** 
+ * If hidden, the attribute is hidden="true" , if shown, this attribute is not existed.
+ */
+.tc-reveal.fishing-question + .tc-tiddler-title {
+  display: none;
+}
+.tc-reveal.fishing-question[hidden="true"] + .tc-tiddler-title {
+  display: unset;
+}
+
