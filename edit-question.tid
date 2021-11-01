@@ -1,9 +1,9 @@
 title: $:/plugins/oflg/fishing/edit-question
-list-after: $:/core/ui/EditTemplate/title
+list-before: $:/core/ui/EditTemplate/title
 tags: $:/tags/EditTemplate
 
 <!-- Only fishing tiddler will have this title edit feature -->
-<$list filter="[all[current]tag[?]]" variable="null">
+<$list filter="[all[current]has[due]]" variable="null">
   <!-- Editing the draft title because we are in the draft state -->
   <$edit
     field="draft.title"
@@ -46,4 +46,5 @@ tags: $:/tags/EditTemplate
       </$list>
     </$set>
   </$edit>
+  <div class="fishing-edit-title" />
 </$list>
