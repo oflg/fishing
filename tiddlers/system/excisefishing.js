@@ -17,6 +17,8 @@ exports['excisefishing'] = function (event, operation) {
 
   const excisionQuestion = this.wiki.generateNewTitle(operation.selection);
   const excisionAnswer = event.paramObject.selectionAsAnswer === 'yes' ? operation.selection : '';
+  // add due, default due in one day
+  const due = new Date(new Date().getTime() + 1).toISOString().replace(/-|T|:|\.|Z/g, "");
   // add template
   const captionTemplate = event.paramObject.template ? `{{||${event.paramObject.template}}}` : '';
   this.wiki.addTiddler(
@@ -24,7 +26,8 @@ exports['excisefishing'] = function (event, operation) {
       title: excisionQuestion,
       text: excisionAnswer,
       tags: event.paramObject.tagnew === 'yes' ? [editTiddlerTitle, fishingTag] : [fishingTag],
-      caption: captionTemplate,
+      due: due,
+      caption: captionTemplate
     })
   );
   // "?" is the default fishing macro
