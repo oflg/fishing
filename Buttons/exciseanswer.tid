@@ -1,0 +1,17 @@
+title: $:/plugins/oflg/fishing/Buttons/exciseanswer
+tags: $:/tags/EditorToolbar
+icon: $:/plugins/oflg/fishing/icons/exciseanswer-icon
+caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseanswer]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseanswer]]}}}/>
+description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseanswertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseanswertip]]}}}/>
+condition: [<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]] [<targetTiddler>type[text/x-markdown]]
+shortcuts: ((fishing-exciseanswer))
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="excisefishing"
+	fishingTag="?"
+	macro="?"
+	selectionAsAnswer="yes"
+	tagnew="yes"
+	template="Answer"
+/>
