@@ -10,7 +10,7 @@ tags: $:/tags/EditTemplate
     class="tc-edit-texteditor tc-edit-texteditor-body"
     placeholder={{$:/language/EditTemplate/Body/Placeholder}}
     tabindex={{$:/config/EditTabIndex}}
-    focus={{{ [{$:/config/AutoFocus}match[text]then[true]] ~[[false]] }}}
+    focus="yes"
     cancelPopups="yes"
     fileDrop="no"
   >
@@ -20,7 +20,7 @@ tags: $:/tags/EditTemplate
       value=<<currentTiddler>>
     >
       <$list
-        filter="[all[shadows+tiddlers]tag[$:/tags/EditorToolbar]!has[draft.of]]"
+        filter="$:/core/ui/EditorToolbar/underline $:/core/ui/EditorToolbar/superscript $:/core/ui/EditorToolbar/bold"
       >
         <$reveal
           type="nomatch"
@@ -33,16 +33,6 @@ tags: $:/tags/EditTemplate
             mode="inline"
           />
         </$reveal>
-      </$list>
-      <$list
-        filter="[all[shadows+tiddlers]tag[$:/tags/EditorTools]!has[draft.of]]"
-      >
-        <$list
-          filter={{!!condition}}
-          variable="list-condition"
-        >
-          <$transclude/>
-        </$list>
       </$list>
     </$set>
   </$edit>

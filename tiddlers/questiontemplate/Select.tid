@@ -1,5 +1,5 @@
 tags: questiontemplate
-title: Choice
+title: Select
 
 <div class="tc-tiddler-body">
 <$reveal default={{$:/temp/fishing!!fish}} type="nomatch" text=<<currentTiddler>> animate="yes">

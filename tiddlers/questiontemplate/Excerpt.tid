@@ -1,0 +1,6 @@
+tags: questiontemplate
+title: Excerpt
+
+<div class="tc-tiddler-body">
+{{!!title}}
+</div>
