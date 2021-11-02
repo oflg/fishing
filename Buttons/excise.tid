@@ -13,4 +13,5 @@ shortcuts: ((fishing-excise))
 	macro="?"
 	selectionAsAnswer="yes"
 	tagnew="yes"
+	template="Excise"
 />
