@@ -5,7 +5,7 @@ tags: $:/tags/EditTemplate
 <!-- Only fishing tiddler will have this title edit feature -->
 <$list filter="[all[current]has[due]]" variable="null">
   <!-- Editing the draft title because we are in the draft state -->
-  <$edit-codemirror
+  <$edit
     field="draft.title"
     class="tc-edit-texteditor tc-edit-texteditor-body"
     placeholder={{$:/language/EditTemplate/Body/Placeholder}}
@@ -45,6 +45,6 @@ tags: $:/tags/EditTemplate
         </$list>
       </$list>
     </$set>
-  </$edit-codemirror>
+  </$edit>
   <div class="fishing-edit-title" />
 </$list>
