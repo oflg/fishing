@@ -4,16 +4,13 @@ title: Answer
 <div
 	class="tc-tiddler-body"
 >
-
 	<span
 		class="tc-tiddler-controls"
 	>
 		<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]] :filter[lookup[$:/config/ViewToolbarButtons/Visibility/]!match[hide]]" storyview="pop" variable="listItem"><$set name="tv-config-toolbar-class" filter="[<tv-config-toolbar-class>] [<listItem>encodeuricomponent[]addprefix[tc-btn-]]"><$transclude tiddler=<<listItem>>/></$set></$list>
 	</span>
-
+	{{!!title}}
 	<$reveal default={{$:/temp/fishing!!fish}} type="match" text=<<currentTiddler>> animate="yes">
-		{{!!title}}
-		<br>
 		<$edit
 			tiddler="$:/temp/fishing"
 			placeholder={{$:/language/EditTemplate/Body/Placeholder}}
@@ -57,8 +54,5 @@ title: Answer
 				/>
 			</$reveal>
 		</$reveal>
-	</$reveal>
-	<$reveal default={{$:/temp/fishing!!fish}} type="nomatch" text=<<currentTiddler>> animate="yes">
-		{{!!title}}
 	</$reveal>
 </div>

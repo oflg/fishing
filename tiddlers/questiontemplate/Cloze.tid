@@ -4,11 +4,9 @@ title: Cloze
 <div
 	class="tc-tiddler-body"
 >
-
 	<span class="tc-tiddler-controls">
 		<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]] :filter[lookup[$:/config/ViewToolbarButtons/Visibility/]!match[hide]]" storyview="pop" variable="listItem"><$set name="tv-config-toolbar-class" filter="[<tv-config-toolbar-class>] [<listItem>encodeuricomponent[]addprefix[tc-btn-]]"><$transclude tiddler=<<listItem>>/></$set></$list>
 	</span>
-
 	<$reveal
 		state=<<folded-state>>
 		type="nomatch"
