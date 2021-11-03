@@ -20,6 +20,9 @@ type: text/vnd.tiddlywiki
 .fishing-edit-title + input.tc-edit-texteditor {
   display: none;
 }
+.fishing-edit-title[hidden="true"] + input.tc-edit-texteditor {
+  display: unset;
+}
 /**
  * Add control buttons back to edit mode. Because we hide the title that contains the control buttons, in the above css.
  */
