@@ -12,14 +12,6 @@ type: text/vnd.tiddlywiki
 .tc-reveal.fishing-head[hidden="true"] + .tc-tiddler-title {
   display: unset;
 }
-.tc-reveal.fishing-head > h2.tc-title {
-  display: flex;
-  flex-direction: column;
-}
-.tc-reveal.fishing-head > h2.tc-title > .tc-tiddler-controls {
-  display: flex;
-  justify-content: flex-end;
-}
 
 
 /** 
@@ -27,4 +19,15 @@ type: text/vnd.tiddlywiki
  */
 .fishing-edit-title + input.tc-edit-texteditor {
   display: none;
+}
+/**
+ * Add control buttons back to edit mode. Because we hide the title that contains the control buttons, in the above css.
+ */
+.tc-reveal.fishing-head > h2.tc-title {
+  display: flex;
+  flex-direction: column;
+}
+.tc-reveal.fishing-head > h2.tc-title > .tc-tiddler-controls {
+  display: flex;
+  justify-content: flex-end;
 }
