@@ -15,7 +15,7 @@ exports['excisefishing'] = function (event, operation) {
   }
   const fishingTag = event.paramObject.fishingTag || '?';
   // add due, default due in one day
-  const due = new Date(new Date().getTime() + 1).toISOString().replace(/-|T|:|\.|Z/g, '');
+  const due = new Date(new Date().getTime() + 86400000).toISOString().replace(/-|T|:|\.|Z/g, '');
   // we add current time to legacy title, so won't collide with parent title
   const currentTime = new Date(new Date().getTime()).toISOString().replace(/-|T|:|\.|Z/g, '');
 
