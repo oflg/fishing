@@ -47,7 +47,7 @@ type: application/json
     "resettip": "Reset this tiddler's review schedule",
     "add7tip": "Review this tiddler next week",
     "add1tip": "Review this tiddler tomorrow",
-    "fishpondtip": "Review tiddlers of this group",
+    "fishingpondtip": "Review tiddlers of this group",
     "due": "due:",
     "new": "new:",
     "fillfiltertip": "Fill in this filter",

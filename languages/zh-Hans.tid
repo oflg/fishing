@@ -47,7 +47,7 @@ type: application/json
     "resettip": "重置此条目的复习进度",
     "add7tip": "下周复习此条目",
     "add1tip": "明天复习此条目",
-    "fishpondtip": "复习此组条目",
+    "fishingpondtip": "复习此组条目",
     "due": "已到期：",
     "new": "新添加：",
     "fillfiltertip": "填入此筛选器",

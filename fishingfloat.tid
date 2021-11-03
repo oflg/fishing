@@ -1,9 +1,9 @@
 caption: {{$:/plugins/oflg/fishing/icon}} <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishing]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishing]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[description]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[description]]}}}/>
 tags: $:/tags/PageControls
-title: $:/plugins/oflg/fishing/fishfloat
+title: $:/plugins/oflg/fishing/fishingfloat
 
-<!-- creat fishfloat -->
+<!-- creat fishingfloat -->
 <$button
 	popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/Buttons/fishingdeck">>
 	tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingbuttontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingbuttontip]]}}}
@@ -25,9 +25,9 @@ title: $:/plugins/oflg/fishing/fishfloat
 		class="tc-drop-down tc-popup-keep"
 		style="min-width:0;"
 	>
-		<!-- creat fishpond -->
-		{{$:/plugins/oflg/fishing/fishpond}}
-		<!-- creat fishrod -->
-		{{$:/plugins/oflg/fishing/fishrod}}
+		<!-- creat fishingpond -->
+		{{$:/plugins/oflg/fishing/fishingpond}}
+		<!-- creat fishingrod -->
+		{{$:/plugins/oflg/fishing/fishingrod}}
 	</div>
 </$reveal>

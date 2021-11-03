@@ -16,13 +16,13 @@ title: $:/plugins/oflg/fishing/fishing
 		<!-- set anki algorithm https://gist.github.com/oflg/6c9cc15bbe2172688a0b4bd817b12bd7 -->
 		<!-- set anki parameters https://docs.ankiweb.net/deck-options.html#advanced -->
 		<$vars
-			easybonus={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[easybonus]else{$:/plugins/oflg/fishing/fishrod!!easybonus}]}}}
-			graduatinginterval={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[graduatinginterval]else{$:/plugins/oflg/fishing/fishrod!!graduatinginterval}]}}}
-			hardinterval={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[hardinterval]else{$:/plugins/oflg/fishing/fishrod!!hardinterval}]}}}
-			intervalmodifier={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[intervalmodifier]else{$:/plugins/oflg/fishing/fishrod!!intervalmodifier}]}}}
-			maximuminterval={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[maximuminterval]else{$:/plugins/oflg/fishing/fishrod!!maximuminterval}]}}}
-			newinterval={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[newinterval]else{$:/plugins/oflg/fishing/fishrod!!newinterval}]}}}
-			startingease={{{[{$:/temp/fishing!!fishrod}addprefix[$:/plugins/oflg/fishing/fishrod/]getindex[startingease]else{$:/plugins/oflg/fishing/fishrod!!startingease}]}}}
+			easybonus={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[easybonus]else{$:/plugins/oflg/fishing/fishingrod!!easybonus}]}}}
+			graduatinginterval={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[graduatinginterval]else{$:/plugins/oflg/fishing/fishingrod!!graduatinginterval}]}}}
+			hardinterval={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[hardinterval]else{$:/plugins/oflg/fishing/fishingrod!!hardinterval}]}}}
+			intervalmodifier={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[intervalmodifier]else{$:/plugins/oflg/fishing/fishingrod!!intervalmodifier}]}}}
+			maximuminterval={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[maximuminterval]else{$:/plugins/oflg/fishing/fishingrod!!maximuminterval}]}}}
+			newinterval={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[newinterval]else{$:/plugins/oflg/fishing/fishingrod!!newinterval}]}}}
+			startingease={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[startingease]else{$:/plugins/oflg/fishing/fishingrod!!startingease}]}}}
 		>
 			<!-- get lastfactor and lastinterval -->
 			<$vars
@@ -44,9 +44,9 @@ title: $:/plugins/oflg/fishing/fishing
 								easyivl={{{[<goodivl>add[1]]=[<delayjs>add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>multiply<easybonus>]+[maxall[]min<maximuminterval>]}}}
 							>
 								<div style="display:flex;justify-content:space-between;">
-									<!-- creat fishpond -->
+									<!-- creat fishingpond -->
 									<div>
-										{{$:/plugins/oflg/fishing/fishpond}}
+										{{$:/plugins/oflg/fishing/fishingpond}}
 									</div>
 									<!-- creat ease button -->
 									<div>
@@ -79,7 +79,7 @@ title: $:/plugins/oflg/fishing/fishing
 															$tiddler="$:/temp/fishing"
 															text=""
 															type=""
-															fish={{{[subfilter{$:/temp/fishing!!fishrod}subfilter{$:/temp/fishing!!fishpond}first[]]}}}
+															fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}first[]]}}}
 														/>
 														<$action-setfield
 															$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
@@ -127,7 +127,7 @@ title: $:/plugins/oflg/fishing/fishing
 														<$action-setfield
 															$tiddler="$:/temp/fishing"
 															text=""
-															fish={{{[subfilter{$:/temp/fishing!!fishrod}subfilter{$:/temp/fishing!!fishpond}rest[]first[]]}}}
+															fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}rest[]first[]]}}}
 														/>
 														<$action-setfield
 															$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
@@ -148,7 +148,7 @@ title: $:/plugins/oflg/fishing/fishing
 														style="padding:3px 10px;"
 													>
 														<$action-deletefield
-															$tiddler={{{[subfilter{$:/temp/fishing!!fishrod}subfilter{$:/temp/fishing!!fishpond}first[]]}}}
+															$tiddler={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}first[]]}}}
 															due
 															factor
 															interval
@@ -156,7 +156,7 @@ title: $:/plugins/oflg/fishing/fishing
 														<$action-setfield
 															$tiddler="$:/temp/fishing"
 															text=""
-															fish={{{[subfilter{$:/temp/fishing!!fishrod}subfilter{$:/temp/fishing!!fishpond}first[]]}}}
+															fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}first[]]}}}
 														/>
 														<$action-setfield
 															$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
@@ -187,7 +187,7 @@ title: $:/plugins/oflg/fishing/fishing
 														<$action-setfield
 															$tiddler="$:/temp/fishing"
 															text=""
-															fish={{{[subfilter{$:/temp/fishing!!fishrod}subfilter{$:/temp/fishing!!fishpond}first[]]}}}
+															fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}first[]]}}}
 														/>
 														<$action-setfield
 															$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
@@ -218,7 +218,7 @@ title: $:/plugins/oflg/fishing/fishing
 														<$action-setfield
 															$tiddler="$:/temp/fishing"
 															text=""
-															fish={{{[subfilter{$:/temp/fishing!!fishrod}subfilter{$:/temp/fishing!!fishpond}first[]]}}}
+															fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}first[]]}}}
 														/>
 														<$action-setfield
 															$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
