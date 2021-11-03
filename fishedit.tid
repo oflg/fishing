@@ -26,19 +26,16 @@ tags: $:/tags/EditTemplate
       value=<<currentTiddler>>
     >
       <$list
-        filter="$:/core/ui/EditorToolbar/underline $:/core/ui/EditorToolbar/superscript $:/core/ui/EditorToolbar/bold"
+        filter="$:/plugins/oflg/fishing/Buttons/setselectoption $:/plugins/oflg/fishing/Buttons/markoptionid $:/plugins/oflg/fishing/Buttons/correctselect $:/plugins/oflg/fishing/Buttons/excisetoanswer $:/plugins/oflg/fishing/Buttons/excisetocloze $:/plugins/oflg/fishing/Buttons/excisetoselect"
       >
-        <$reveal
-          type="nomatch"
-          state=<<config-visibility-title>>
-          text="hide"
+        <span
           class="tc-text-editor-toolbar-item-wrapper"
         >
           <$transclude
             tiddler="$:/core/ui/EditTemplate/body/toolbar/button"
             mode="inline"
           />
-        </$reveal>
+        </span>
       </$list>
     </$set>
   </$edit>

@@ -1,0 +1,8 @@
+title: $:/plugins/oflg/fishing/Buttons/excisetoselect
+tags: $:/tags/EditorToolbar
+icon: $:/plugins/oflg/fishing/icons/excisetoselect
+caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisetoselect]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisetoselect]]}}}/>
+description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisetoselecttip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisetoselecttip]]}}}/>
+conditon: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>match{$:/temp/fishing!!fish}]
+
+<$action-setfield caption="{{||Select}}"/>

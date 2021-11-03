@@ -1,0 +1,14 @@
+title: $:/plugins/oflg/fishing/Buttons/correctselect
+tags: $:/tags/EditorToolbar
+icon: $:/core/images/bold
+caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[correctselect]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[correctselect]]}}}/>
+description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[correctselecttip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[correctselecttip]]}}}/>
+conditon: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>match{$:/temp/fishing!!fish}]
+shortcuts: ((bold))
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="wrap-selection"
+	prefix="''"
+	suffix="''"
+/>
