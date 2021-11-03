@@ -3,6 +3,6 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing/icons/excisetoanswer
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisetoanswer]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisetoanswer]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisetoanswertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisetoanswertip]]}}}/>
-conditon: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>match{$:/temp/fishing!!fish}]
+condition: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>match{$:/temp/fishing!!fish}]
 
 <$action-setfield caption="{{||Answer}}"/>
