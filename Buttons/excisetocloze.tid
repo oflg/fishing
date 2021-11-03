@@ -3,6 +3,6 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing/icons/excisetocloze
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisetocloze]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisetocloze]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisetoclozetip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisetoclozetip]]}}}/>
-conditon: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>match{$:/temp/fishing!!fish}]
+condition: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>match{$:/temp/fishing!!fish}]
 
 <$action-setfield caption="{{||Cloze}}"/>
