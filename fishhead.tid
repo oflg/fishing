@@ -19,7 +19,7 @@ list-before: $:/core/ui/ViewTemplate/title
     </span>
   </div>
   <div
-    class="tc-tiddler-body"
+    class="tc-tiddler-body fishing-head-title"
   >
     <<toc-caption>>
   </div>

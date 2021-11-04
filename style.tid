@@ -34,3 +34,10 @@ type: text/vnd.tiddlywiki
   display: flex;
   justify-content: flex-end;
 }
+
+/**
+ * Fix section editor hide title with body class
+ */
+div.tc-tiddler-body.fishing-head-title {
+  display: flex;
+}
