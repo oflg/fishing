@@ -6,4 +6,4 @@ description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/
 condition: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>match{$:/temp/fishing!!fish}]
 shortcuts: ((fishing-converttoanswer))
 
-<$action-setfield caption="{{||Answer}}" $tiddler=<<targetTiddler>> />
+<$action-setfield $tiddler=<<targetTiddler>> caption="{{||Answer}}"/>
