@@ -13,6 +13,8 @@ type: application/json
     "exciseexcerpttip": "Excise the selected text into a Excerpt Tiddler",
     "exciseselect": "Select",
     "exciseselecttip": "Excise the selected text into a Select Question",
+    "converttoexcerpt": "Convert to a Excerpt Tiddler",
+    "converttoexcerpttip": "Convert this tiddler to a Excerpt Tiddler",
     "converttoanswer": "Convert to Q&A",
     "converttoanswertip": "Convert this tiddler to a Q&A Question",
     "converttocloze": "Convert to a Cloze Question",
