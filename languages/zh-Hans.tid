@@ -22,7 +22,7 @@ type: application/json
     "setcloze": "设为填空题",
     "setclozetip": "设置此条目为填空题",
     "marktitle": "标为标题",
-    "marktitletip": "标记所选文本为摘抄条目的标题。例如：__标题^^?^^__",
+    "marktitletip": "标记所选文本为摘抄条目或问答题的标题。例如：__标题^^?^^__",
     "markclozeoption": "标为空或选项",
     "markclozeoptiontip": "标记所选文本为填空题的一个空或选择题的一个选项。例如： __空^^^^__ 或 __选项^^1^^__",
     "markcorrectoption": "标为正确选项",
