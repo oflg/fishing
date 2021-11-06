@@ -26,7 +26,7 @@ type: application/json
     "markclozeoption": "Mark cloze/option",
     "markclozeoptiontip": "Mark the selected text as a cloze of Cloze Question or an option of Select Question. For example: __cloze__ or __option__",
     "markcorrectoption": "Mark correct option",
-    "markcorrectoptiontip": "Mark the selected text as a correct answer of Select Question. For example: __''correct answer''^^B^^__",
+    "markcorrectoptiontip": "Mark the selected text as a correct option of Select Question. For example: __''correct option''^^B^^__",
     "easybonus": "Easy Parameter",
     "graduatinginterval": "Starting Interval (day)",
     "hardinterval": "Hard Parameter",
