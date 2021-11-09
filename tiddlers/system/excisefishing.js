@@ -36,7 +36,7 @@ exports['excisefishing'] = function (event, operation) {
     })
   );
 
-  operation.replacement = (event.paramObject.selectionAsAnswer === 'yes' && event.paramObject.template) ? '\n<<<.tc-big-quote\n{{' + title + '}}\n<<<[[' + title + ']]\n' : '\n<<<.tc-big-quote\n{{' + title + '||' + event.paramObject.template + '}}\n<<<[[' + title + ']]\n';
+  operation.replacement = '\n<<<.tc-big-quote\n{{' + title + '}}\n<<<[[' + title + ']]\n';
   operation.cutStart = operation.selStart;
   operation.cutEnd = operation.selEnd;
   operation.newSelStart = operation.selStart;
