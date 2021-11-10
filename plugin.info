@@ -2,7 +2,7 @@
     "author": "oflg",
     "core-version": ">=5.2.0",
     "description": "Flashcards integrated in TiddlyWiki, fishing with algorithm of Anki",
-    "list": "readme config",
+    "list": "readme license",
     "name": "Fishing",
     "plugin-type": "plugin",
     "source": "https://github.com/oflg/fishing",
