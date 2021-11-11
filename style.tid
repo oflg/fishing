@@ -12,3 +12,7 @@ type: text/vnd.tiddlywiki
 .tc-reveal.fishing-head[hidden="true"] + .tc-tiddler-title > .tc-titlebar {
   display: unset;
 }
+
+blockquote.tc-fish-quote {
+	border-left: 1px solid <<colour message-border>>;
+}
