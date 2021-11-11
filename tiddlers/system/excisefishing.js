@@ -36,7 +36,7 @@ exports['excisefishing'] = function (event, operation) {
     })
   );
 
-  operation.replacement = '· [[' + title + ']]\n\n<<<.tc-fish-quote\n{{' + title + '}}\n<<<\n\n';
+  operation.replacement = '\n· [[' + title + ']]\n\n<<<.tc-fish-quote\n{{' + title + '}}\n<<<\n\n';
   operation.cutStart = operation.selStart;
   operation.cutEnd = operation.selEnd;
   operation.newSelStart = operation.selStart;
