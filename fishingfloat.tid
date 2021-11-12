@@ -5,7 +5,7 @@ title: $:/plugins/oflg/fishing/fishingfloat
 
 <!-- creat fishingfloat -->
 <$button
-	popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/buttons/fishingdeck">>
+	popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
 	tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingbuttontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingbuttontip]]}}}
 	aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingbuttontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingbuttontip]]}}}
 	class=<<tv-config-toolbar-class>>
