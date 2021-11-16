@@ -52,7 +52,7 @@ Based on TW's core/modules/editor/operations/text/excise.js
       );
 
       if (editTiddler.type === 'text/x-markdown') {
-        operation.replacement = '[[' + title + ']]{{' + title + '}}';
+        operation.replacement = '· [[' + title + ']]{{' + title + '}}';
       } else {
         operation.replacement = '\n· [[' + title + ']]\n\n<<<.tc-fish-quote\n{{' + title + '}}\n<<<\n\n';
       }
