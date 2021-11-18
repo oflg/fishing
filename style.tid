@@ -18,3 +18,8 @@ blockquote.tc-fish-quote {
   margin-right: 0;
   margin-left: 1px;
 }
+
+span.tc-fish-indicator svg {
+	fill: <<colour primary>>;
+	color: <<colour primary>>;
+}

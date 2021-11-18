@@ -11,8 +11,8 @@ title: $:/plugins/oflg/fishing/fishingfloat
 	class=<<tv-config-toolbar-class>>
 	selectedClass="tc-selected"
 >
-	<span style="color:green;">
-		{{$:/plugins/oflg/fishing/icon}}<$text text={{{[tag[?]has[due]]-[tag[?]!days:due[1]]+[count[]compare:number:gt[0]then[•]else[]]}}}/>
+	<span class={{{[tag[?]has[due]]-[tag[?]!days:due[1]]+[count[]compare:number:gt[0]then[tc-fish-indicator]else[]]}}}>
+		{{$:/plugins/oflg/fishing/icon}}
 	</span>
 </$button>
 <!-- creat fishingdeck -->
