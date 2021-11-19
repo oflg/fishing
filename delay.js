@@ -1,7 +1,10 @@
+/*\
+
 module-type: macro
 title: $:/plugins/oflg/fishing/delay.js
 type: application/javascript
 
+\*/
 (function () {
     /*jslint node: true, browser: true */
     /*global $tw: false */
