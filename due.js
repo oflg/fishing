@@ -4,6 +4,8 @@ module-type: macro
 title: $:/plugins/oflg/fishing/due.js
 type: application/javascript
 
+Calculate the newdue of fish
+
 \*/
 (function () {
     /*jslint node: true, browser: true */

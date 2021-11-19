@@ -4,6 +4,8 @@ module-type: macro
 title: $:/plugins/oflg/fishing/delay.js
 type: application/javascript
 
+Calculate the delay of fish
+
 \*/
 (function () {
     /*jslint node: true, browser: true */
