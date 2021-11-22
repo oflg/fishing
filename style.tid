@@ -13,7 +13,8 @@ type: text/vnd.tiddlywiki
   display: unset;
 }
 
-span.tc-fish-indicator svg {
-	fill: <<colour primary>>;
-	color: <<colour primary>>;
+blockquote.tc-fish-quote {
+	border-left: 1px solid <<colour message-border>>;
+  margin-right: 0;
+  margin-left: 1px;
 }
