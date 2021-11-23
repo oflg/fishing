@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing/icons/exciseanswer
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseanswer]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseanswer]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseanswertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseanswertip]]}}}/>
-condition: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>match{$:/temp/fishing!!fish}]
+condition: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>get[draft.of]match{$:/temp/fishing!!fish}]
 shortcuts: ((fishing-exciseanswer))
 
 <$action-sendmessage
