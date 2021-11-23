@@ -21,7 +21,7 @@ Based on TW's core/modules/editor/operations/text/excise.js
     const currenttime = new Date(new Date().getTime()).toISOString().replace(/-|T|:|\.|Z/g, '');
     if (event.paramObject.exciseform === 'title<br>text') {
       var fishtitle = operation.selection.split('\n')[0];
-      var fishtext = operation.selection.replace(fishtitle + '\n', '');
+      var fishtext = operation.selection.replace(fishtitle, '');
     } else if (event.paramObject.exciseform === 'title<br>') {
       var fishtitle = operation.selection.split('\n')[0];
       var fishtext = '';
