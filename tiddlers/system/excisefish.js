@@ -15,8 +15,8 @@ Based on TW's core/modules/editor/operations/text/excise.js
   exports['excisefish'] = function (event, operation) {
     const editTiddler = this.wiki.getTiddler(this.editTitle);
     var editTiddlerTitle = this.editTitle;
-    if (editTiddler && editTiddler.fields['draft.of']) {
-      editTiddlerTitle = editTiddler.fields['draft.of'];
+    if (editTiddler && editTiddler.fields['draft.title']) {
+      editTiddlerTitle = editTiddler.fields['draft.title'];
     }
     const currenttime = new Date(new Date().getTime()).toISOString().replace(/-|T|:|\.|Z/g, '');
     if (event.paramObject.exciseform === 'title<br>text') {
