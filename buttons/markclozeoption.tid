@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing/icons/markclozeoption
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[markclozeoption]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[markclozeoption]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[markclozeoptiontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[markclozeoptiontip]]}}}/>
-condition: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>get[draft.of]match{$:/temp/fishing!!fish}]
+condition: [<targetTiddler>tag[?]]~[<targetTiddler>has[due]]~[<targetTiddler>get[draft.of]match{$:/temp/fishing!!fish}]
 shortcuts: ((fishing-markclozeoption))
 
 <$action-sendmessage

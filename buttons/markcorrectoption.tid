@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing/icons/markcorrectoption
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[markcorrectoption]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[markcorrectoption]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[markcorrectoptiontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[markcorrectoptiontip]]}}}/>
-condition: [<targetTiddler>tag[?]] [<targetTiddler>has[due]] [<targetTiddler>get[draft.of]match{$:/temp/fishing!!fish}]
+condition: [<targetTiddler>tag[?]]~[<targetTiddler>has[due]]~[<targetTiddler>get[draft.of]match{$:/temp/fishing!!fish}]
 shortcuts: ((fishing-markcorrectoption))
 
 <$action-sendmessage
