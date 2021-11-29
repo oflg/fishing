@@ -2,3 +2,30 @@ tags: $:/tags/Macro
 title: $:/plugins/oflg/fishing/macros
 
 \define priority() [get[caption]search-replace[{{||],[]search-replace[}}],[]tag[questiontemplate]count[]]=[backlinks[]count[]]=[links[]has[due]count[]negate[]]=[links[]has[due]!days:due[1]count[]]+[sum[]add{!!priority}multiply{!!factor}fixed[2]]
+
+\define fishbreadcrumbs()
+
+<$vars
+	currentTiddler={{{[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[first[]]}}}
+>
+	<$reveal
+		default=<<currentTiddler>>
+		type="nomatch"
+		text=""
+	>
+		<<fishbreadcrumbs>>
+	</$reveal>
+</$vars>
+<$vars
+	currentTiddler={{{ [<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]] }}}
+>
+	<$reveal
+		default=<<currentTiddler>>
+		type="nomatch"
+		text=""
+	>
+		<$link to=<<currentTiddler>> tooltip=<<currentTiddler>>><<toc-caption>></$link> >
+	</$reveal>
+</$vars>
+
+\end

@@ -7,7 +7,7 @@ title: Excerpt
 	animate="yes"
 >
 	<$text
-		text={{{[{!!text}split[]limit[36]join[]addsuffix[...]]}}}
+		text={{{[{!!text}split[]limit[13]join[]addsuffix[...]]}}}
 	/>
 </$reveal>
 <$reveal
