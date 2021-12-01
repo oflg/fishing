@@ -17,6 +17,7 @@ title: $:/plugins/oflg/fishing/macros
 	</$reveal>
 </$vars>
 <$vars
+	thisTiddler=<<currentTiddler>>
 	currentTiddler={{{ [<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]] }}}
 >
 	<$reveal
@@ -24,7 +25,7 @@ title: $:/plugins/oflg/fishing/macros
 		type="nomatch"
 		text=""
 	>
-		<$link to=<<currentTiddler>> tooltip=<<currentTiddler>>><<toc-caption>></$link> >
+		{{||$:/core/ui/TagTemplate}} >
 	</$reveal>
 </$vars>
 

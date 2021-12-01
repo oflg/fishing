@@ -17,16 +17,23 @@ list-before: $:/core/ui/ViewTemplate/title
     >
       <$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]] :filter[lookup[$:/config/ViewToolbarButtons/Visibility/]!match[hide]]" storyview="pop" variable="listItem"><$set name="tv-config-toolbar-class" filter="[<tv-config-toolbar-class>] [<listItem>encodeuricomponent[]addprefix[tc-btn-]]"><$transclude tiddler=<<listItem>>/></$set></$list>
     </span>
-    <h3
-      class="tc-title"
-      style="font-size:7px;"
-    >
-      <<fishbreadcrumbs>>
-    </h3>
   </div>
   <div
     class="tc-tiddler-body"
   >
+    <$reveal
+      state=<<folded-state>>
+      type="match"
+      text="hide"
+      animate="yes"
+    >
+      <span
+          style="font-size:7px;line-height:10px;"
+        >
+        <<fishbreadcrumbs>>
+      </span>
+      <br>
+    </$reveal>
     <<toc-caption>>
   </div>
 </$reveal>

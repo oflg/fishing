@@ -18,3 +18,7 @@ blockquote.tc-fish-quote {
   margin-right: 0;
   margin-left: 1px;
 }
+
+button.tc-tag-label, span.tc-tag-label {
+  white-space: normal;
+}
