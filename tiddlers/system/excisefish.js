@@ -46,8 +46,8 @@ Based on TW's core/modules/editor/operations/text/excise.js
           tags,
           due,
           caption,
-          factor: editTiddler.getFieldString("factor") || 2.50,
-          interval: editTiddler.getFieldString("interval") || 1
+          factor: editTiddler.getFieldString("factor") || "2.50",
+          interval: editTiddler.getFieldString("interval") || "1"
         })
       );
 
@@ -68,8 +68,8 @@ Based on TW's core/modules/editor/operations/text/excise.js
           tags: editTiddler.getFieldString("tags") + ' ?',
           due: editTiddler.getFieldString("due") || due,
           caption,
-          factor: editTiddler.getFieldString("factor") || 2.50,
-          interval: editTiddler.getFieldString("interval") || 1
+          factor: editTiddler.getFieldString("factor") || "2.50",
+          interval: editTiddler.getFieldString("interval") || "1"
         })
       );
     }

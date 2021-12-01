@@ -30,7 +30,7 @@ list-before: $:/core/ui/ViewTemplate/title
       <span
           style="font-size:7px;line-height:10px;"
         >
-        <<fishbreadcrumbs>>
+        <<fishbreadcrumbs>><span class="tc-tags-wrapper"><$list filter="[all[current]tags[]sort[title]]-[all[current]backlinks[]]" template="$:/core/ui/TagTemplate" storyview="pop"/></span>
       </span>
       <br>
     </$reveal>
