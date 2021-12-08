@@ -43,9 +43,10 @@ title: Cloze
 					type="nomatch"
 					text=""
 				>
-					<$vars
+					<$let
 						clozecontent={{{[<titleitem>split[^^]first[]]}}}
 						clozeid={{{[<titleitem>split[^^]rest[]]}}}
+						content={{{[[$:/temp/fishing]getindex<clozeid>match[show]then<clozecontent>else[`    `]]}}}
 					>
 						<$button
 							class="tc-btn-invisible tc-tiddlylink"
@@ -55,11 +56,9 @@ title: Cloze
 								$index=<<clozeid>>
 								$value={{{[[$:/temp/fishing]getindex<clozeid>match[show]then[]else[show]]}}}
 							/>
-							<$vars content={{{[[$:/temp/fishing]getindex<clozeid>match[show]then<clozecontent>else[`    `]]}}}>
 								<<content>>^^<<clozeid>>^^
-							</$vars>
 						</$button>
-					</$vars>
+					</$let>
 				</$reveal>
 			</$list>
 		</$reveal>
