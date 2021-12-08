@@ -3,7 +3,7 @@ type: application/json
 
 {
     "fishing": "钓鱼",
-    "description": "TiddlyWiki集成抽认卡，钓鱼使用Anki算法",
+    "description": "TiddlyWiki集成渐进阅读和抽认卡，钓鱼使用Anki算法",
     "fishingbuttontip": "复习条目",
     "exciseanswer": "剪切到问答题",
     "exciseanswertip": "剪切所选文本到一个问答题",

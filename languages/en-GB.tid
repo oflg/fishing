@@ -3,7 +3,7 @@ type: application/json
 
 {
     "fishing": "fishing",
-    "description": "Flashcards integrated in TiddlyWiki, fishing with algorithm of Anki",
+    "description": "Flashcards and Incremental Reading integrated in TiddlyWiki, fishing with algorithm of Anki",
     "fishingbuttontip": "Review tiddlers",
     "exciseexcerpt": "Excise to Excerpt Tiddler",
     "exciseexcerpttip": "Excise the selected text into an Excerpt Tiddler",
