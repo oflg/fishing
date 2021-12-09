@@ -1,5 +1,5 @@
 /*\
-title: $:/core/modules/editor/operations/text/excisefish.js
+title: $:/oflg/fishing/excisefish.js
 type: application/javascript
 module-type: texteditoroperation
 
