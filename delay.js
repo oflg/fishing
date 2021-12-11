@@ -1,42 +1,37 @@
 /*\
-
-module-type: macro
 title: $:/plugins/oflg/fishing/delay.js
 type: application/javascript
+module-type: filteroperator
 
 Calculate the delay of fish
 
 \*/
 (function () {
+
     /*jslint node: true, browser: true */
     /*global $tw: false */
     "use strict";
 
-    exports.name = "delayjs";
-    exports.params = [];
-
     /*
-    Run the macro to calculate delay.
+    Export our filter function
     */
-    exports.run = function () {
-        var title = this.getVariable("currentTiddler");
-        var tiddler = this.wiki.getTiddler(title);
+    exports.delay = function (source, operator, options) {
+        var results = [];
+        source(function (tiddler, title) {
+            var due = title;
 
-        if (tiddler && tiddler.hasField("due")) {
-            var lastdue = tiddler.getFieldString("due");
-
-            var Y = lastdue.slice(0, 4);
-            var M = lastdue.slice(4, 6);
-            var D = lastdue.slice(6, 8);
+            var Y = due.slice(0, 4);
+            var M = due.slice(4, 6);
+            var D = due.slice(6, 8);
             var dateDue = Y + "-" + M + "-" + D;
             var dateNow = new Date().toISOString().split("T")[0];
             var diffTime = new Date(dateNow) - new Date(dateDue);
 
-            var delay = Math.abs(diffTime / 86400000);
+            var delay = Math.abs(diffTime / 86400000) || 0;
 
-        } else {
-            var delay = 0;
-        }
-        return delay;
+            results.push(delay.toString());
+        });
+        return results;
     };
+
 })();

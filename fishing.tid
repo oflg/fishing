@@ -16,7 +16,6 @@ title: $:/plugins/oflg/fishing/fishing
 		<!-- set anki algorithm https://gist.github.com/oflg/6c9cc15bbe2172688a0b4bd817b12bd7 -->
 		<!-- set anki parameters https://docs.ankiweb.net/deck-options.html#advanced -->
 		<!-- get lastfactor and lastinterval -->
-		<!-- delay is in delay.js -->
 		<$let
 			easybonus={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[easybonus]else{$:/plugins/oflg/fishing/fishingrod!!easybonus}]}}}
 			graduatinginterval={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[graduatinginterval]else{$:/plugins/oflg/fishing/fishingrod!!graduatinginterval}]}}}
@@ -25,12 +24,12 @@ title: $:/plugins/oflg/fishing/fishing
 			maximuminterval={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[maximuminterval]else{$:/plugins/oflg/fishing/fishingrod!!maximuminterval}]}}}
 			newinterval={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[newinterval]else{$:/plugins/oflg/fishing/fishingrod!!newinterval}]}}}
 			startingease={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex[startingease]else{$:/plugins/oflg/fishing/fishingrod!!startingease}]}}}
-			lastfactor={{{[<currentTiddler>get[factor]else<startingease>]}}}
-			lastinterval={{{[<currentTiddler>get[interval]else<graduatinginterval>]}}}
+			lastfactor={{{[all[current]get[factor]else<startingease>]}}}
+			lastinterval={{{[all[current]get[interval]else<graduatinginterval>]}}}
 			againivl={{{[<newinterval>multiply<lastinterval>min<maximuminterval>]}}}
-			hardivl={{{[<lastinterval>add[1]]=[<delayjs>divide[4]floor[]add<lastinterval>multiply<intervalmodifier>multiply<hardinterval>]+[maxall[]min<maximuminterval>]}}}
-			goodivl={{{[<hardivl>add[1]]=[<delayjs>divide[2]floor[]add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>]+[maxall[]min<maximuminterval>]}}}
-			easyivl={{{[<goodivl>add[1]]=[<delayjs>add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>multiply<easybonus>]+[maxall[]min<maximuminterval>]}}}
+			hardivl={{{[<lastinterval>add[1]]=[all[current]get[due]delay[]divide[4]floor[]add<lastinterval>multiply<intervalmodifier>multiply<hardinterval>]+[maxall[]min<maximuminterval>]}}}
+			goodivl={{{[<hardivl>add[1]]=[all[current]get[due]delay[]divide[2]floor[]add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>]+[maxall[]min<maximuminterval>]}}}
+			easyivl={{{[<goodivl>add[1]]=[all[current]get[due]delay[]add<lastinterval>multiply<lastfactor>multiply<intervalmodifier>multiply<easybonus>]+[maxall[]min<maximuminterval>]}}}
 		>
 			<div
 				style="display:flex;justify-content:space-between;"
@@ -56,12 +55,9 @@ title: $:/plugins/oflg/fishing/fishing
 									style={{{[<ease>match[again]then[margin-left:10px;color:red;]]~[<ease>match[hard]then[margin-left:10px;color:black;]]~[<ease>match[good]then[margin-left:10px;color:green;]]~[<ease>match[easy]then[margin-left:10px;color:blue;]]}}}
 								>
 									<$action-setfield
-										factor={{{[<ease>match[again]then<lastfactor>subtract[0.2]max[1.3]]~[<ease>match[hard]then<lastfactor>subtract[0.15]max[1.3]]~[<ease>match[good]then<lastfactor>max[1.3]]~[<ease>match[easy]then<lastfactor>add[0.15]max[1.3]]+[fixed[2]]}}} interval={{{[<ease>match[again]then<againivl>]~[<ease>match[hard]then<hardivl>]~[<ease>match[good]then<goodivl>]~[<ease>match[easy]then<easyivl>]+[fixed[2]]}}}
-									/>
-									<!-- due must be saved after interval in due.js -->
-									<$action-setfield
-										$field="due"
-										$value=<<duejs>>
+										factor={{{[<ease>match[again]then<lastfactor>subtract[0.2]max[1.3]]~[<ease>match[hard]then<lastfactor>subtract[0.15]max[1.3]]~[<ease>match[good]then<lastfactor>max[1.3]]~[<ease>match[easy]then<lastfactor>add[0.15]max[1.3]]+[fixed[2]]}}}
+										interval={{{[<ease>match[again]then<againivl>]~[<ease>match[hard]then<hardivl>]~[<ease>match[good]then<goodivl>]~[<ease>match[easy]then<easyivl>]+[fixed[2]]}}}
+										due={{{[<ease>match[again]then<againivl>]~[<ease>match[hard]then<hardivl>]~[<ease>match[good]then<goodivl>]~[<ease>match[easy]then<easyivl>]+[fixed[2]due[]]}}}
 									/>
 									<$action-deletetiddler
 										$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
@@ -178,12 +174,8 @@ title: $:/plugins/oflg/fishing/fishing
 									style="padding:3px 10px;"
 								>
 									<$action-setfield
-										$field="interval"
-										$value="7"
-									/>
-									<$action-setfield
-										$field="due"
-										$value=<<duejs>>
+										interval="7"
+										due={{{[[7]due[]]}}}
 									/>
 									<$action-setfield
 										$tiddler="$:/temp/fishing"
@@ -209,12 +201,8 @@ title: $:/plugins/oflg/fishing/fishing
 									style="padding:3px 10px;"
 								>
 									<$action-setfield
-										$field="interval"
-										$value="1"
-									/>
-									<$action-setfield
-										$field="due"
-										$value=<<duejs>>
+										interval="1"
+										due={{{[[1]due[]]}}}
 									/>
 									<$action-setfield
 										$tiddler="$:/temp/fishing"

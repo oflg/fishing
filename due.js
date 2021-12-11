@@ -1,37 +1,31 @@
 /*\
-
-module-type: macro
 title: $:/plugins/oflg/fishing/due.js
 type: application/javascript
+module-type: filteroperator
 
-Calculate the newdue of fish
+Calculate the due of fish
 
 \*/
 (function () {
+
     /*jslint node: true, browser: true */
     /*global $tw: false */
     "use strict";
 
-    exports.name = "duejs";
-    exports.params = [];
-
     /*
-    Run the macro to calculate the newdue.
+    Export our filter function
     */
-    exports.run = function () {
-        var title = this.getVariable("currentTiddler");
-        var tiddler = this.wiki.getTiddler(title);
+    exports.due = function (source, operator, options) {
+        var results = [];
+        source(function (tiddler, title) {
+            var interval = Number(title) || 0;
 
-        if (tiddler && tiddler.hasField("interval")) {
-            var lastinterval = tiddler.getFieldString("interval");
-        } else {
-            var lastinterval = 1;
-        }
+            var dateTime = interval * 86400000 + new Date().getTime();
+            var due = new Date(dateTime).toISOString().replace(/-|T|:|\.|Z/g, "");
 
-        var lastintervalTime = Number(lastinterval) * 86400000;
-        var dateTime = new Date().getTime() + lastintervalTime;
-        var due = new Date(dateTime).toISOString().replace(/-|T|:|\.|Z/g, "");
-
-        return due;
+            results.push(due.toString());
+        });
+        return results;
     };
+
 })();
