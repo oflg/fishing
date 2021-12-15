@@ -15,6 +15,7 @@ title: $:/plugins/oflg/fishing/fishingrod
 		focus="true"
 		placeholder="[tag[?]]"
 		inputActions='<$action-setfield $tiddler="$:/temp/fishing" fish=""/>'
+		class="tc-search tc-advanced-search"
 	/>
 </div>
 <div
