@@ -41,7 +41,7 @@ title: $:/plugins/oflg/fishing/fishingpond
 						$state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
 						$coords=""
 					/>
-					<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<fishingpondname>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<fishingpondname>]}}}/><$text text={{{[subfilter<fishingrod>subfilter<fishingpond>count[]]}}}/>
+					<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<fishingpondname>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<fishingpondname>]}}}/><$count filter="[subfilter<fishingrod>subfilter<fishingpond>]"/>
 				</$button>
 			</$let>
 		</$list>

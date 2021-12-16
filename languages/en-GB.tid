@@ -53,8 +53,9 @@ type: application/json
     "due": "due: ",
     "undue": "undue: ",
     "new": "new: ",
+    "commonfiltertip": "Commonly used filter",
+    "pinfiltertip": "Add to commonly used filter: ",
+    "unpinfiltertip": "Delete this commonly used filter: ",
     "fillfiltertip": "Fill in this filter: ",
-    "pinfiltertip": "Pin this filter: ",
-    "unpinfiltertip": "Unpin this filter: ",
     "adjustscheduletip": "Adjust review schedule of this filter: "
 }
