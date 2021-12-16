@@ -46,7 +46,7 @@ title: $:/plugins/oflg/fishing/fishingrod
 	>
 		<div
 			class="tc-drop-down"
-			style="min-width:0;padding:0;"
+			style="min-width:0;"
 		>
 			<$list
 				filter="[all[tiddlers+shadows]removeprefix[$:/plugins/oflg/fishing/fishingrod/]sort[title]]"
