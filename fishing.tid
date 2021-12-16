@@ -174,7 +174,6 @@ title: $:/plugins/oflg/fishing/fishing
 									style="padding:3px 10px;"
 								>
 									<$action-setfield
-										interval="7"
 										due={{{[[7]due[]]}}}
 									/>
 									<$action-setfield
@@ -201,7 +200,6 @@ title: $:/plugins/oflg/fishing/fishing
 									style="padding:3px 10px;"
 								>
 									<$action-setfield
-										interval="1"
 										due={{{[[1]due[]]}}}
 									/>
 									<$action-setfield
