@@ -183,7 +183,7 @@ title: $:/plugins/oflg/fishing/fishing
 									/>
 									<$action-setfield
 										$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-										text="hide"
+										text={{{[{$:/temp/fishing!!fish}search:caption:literal[{{||Excerpt}}]then[show]else[hide]]}}}
 									/>
 									<$action-sendmessage
 										$message="tm-close-tiddler"
@@ -209,7 +209,7 @@ title: $:/plugins/oflg/fishing/fishing
 									/>
 									<$action-setfield
 										$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-										text="hide"
+										text={{{[{$:/temp/fishing!!fish}search:caption:literal[{{||Excerpt}}]then[show]else[hide]]}}}
 									/>
 									<$action-sendmessage
 										$message="tm-close-tiddler"
