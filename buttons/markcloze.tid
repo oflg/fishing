@@ -1,10 +1,10 @@
-title: $:/plugins/oflg/fishing/buttons/markclozeoption
+title: $:/plugins/oflg/fishing/buttons/markcloze
 tags: $:/tags/EditorToolbar
-icon: $:/plugins/oflg/fishing/icons/markclozeoption
-caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[markclozeoption]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[markclozeoption]]}}}/>
+icon: $:/plugins/oflg/fishing/icons/markcloze
+caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[markcloze]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[markcloze]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[markclozeoptiontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[markclozeoptiontip]]}}}/>
 condition: [<targetTiddler>tag[?]]~[<targetTiddler>has[due]]~[<targetTiddler>get[draft.of]match{$:/temp/fishing!!fish}]
-shortcuts: ((fishing-markclozeoption))
+shortcuts: ((fishing-markcloze))
 
 <$action-sendmessage
 	$message="tm-edit-text-operation"
