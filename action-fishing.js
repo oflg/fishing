@@ -63,7 +63,6 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
             increaseFactor = 60;
 
         var requestRecall = Number($tw.wiki.filterTiddlers("[{$:/plugins/oflg/fishing/data!!requestRecall}]")[0]),
-            requestInterval = Number($tw.wiki.filterTiddlers("[{$:/plugins/oflg/fishing/data!!requestInterval}]")[0]),
             data = JSON.parse($tw.wiki.filterTiddlers("[{$:/plugins/oflg/fishing/data}]")[0]);
 
         var totalCase = data.totalCase,
@@ -81,20 +80,18 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
             var addDay = Math.round(defaultStability * Math.log(requestRecall) / Math.log(0.9));
 
             due = new Date(addDay * (1000 * 60 * 60 * 24) + new Date().getTime()).toISOString().replace(/-|T|:|\.|Z/g, "");
-            interval = requestInterval;
+            interval = 0;
             difficulty = defaultDifficulty;
             stability = defaultStability;
-            recall = Math.exp(Math.log(0.9) * requestInterval / defaultStability);
+            recall = 1;
             reps = 1;
             lapses = 0;
             history = "[]";
         } else {// review card
             var lastFieldsData = $tw.wiki.getTiddler(title).fields;
 
-            var lastInterval = Number(lastFieldsData["interval"]),
-                lastDifficulty = Number(lastFieldsData["difficulty"]),
+            var lastDifficulty = Number(lastFieldsData["difficulty"]),
                 lastStability = Number(lastFieldsData["stability"]),
-                lastRecall = Number(lastFieldsData["recall"]),
                 lastLapses = Number(lastFieldsData["lapses"]),
                 lastReps = Number(lastFieldsData["reps"]),
                 lastReview = String(lastFieldsData["review"]),
@@ -103,22 +100,22 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
             var lastReviewDay = lastReview.slice(0, 4) + "-" + lastReview.slice(4, 6) + "-" + lastReview.slice(6, 8);
 
             interval = (new Date(new Date().toISOString().split("T")[0]) - new Date(lastReviewDay)) / (1000 * 60 * 60 * 24);
-            difficulty = Math.min(Math.max(lastDifficulty + lastRecall - grade + 0.2, 1), 10);
-            recall = Math.exp(Math.log(0.9) * lastInterval / lastStability);
+            difficulty = Math.min(Math.max(lastDifficulty + recall - grade + 0.2, 1), 10);
+            recall = Math.exp(Math.log(0.9) * interval / lastStability);
 
             if (grade === "0") {
                 stability = defaultStability * Math.exp(-0.3 * (lastLapses + 1));
 
                 if (lastReps > 1) {
-                    totalDiff = totalDiff - lastRecall;
+                    totalDiff = totalDiff - recall;
                 }
                 lapses = lastLapses + 1;
                 reps = 1;
             } else {//grade === "1" || grade === "2"
-                stability = lastStability * (1 + increaseFactor * Math.pow(difficulty, difficultyDecay) * Math.pow(lastStability, stabilityDecay) * (Math.exp(1 - lastRecall) - 1));
+                stability = lastStability * (1 + increaseFactor * Math.pow(difficulty, difficultyDecay) * Math.pow(lastStability, stabilityDecay) * (Math.exp(1 - recall) - 1));
 
                 if (lastReps > 1) {
-                    totalDiff = totalDiff + 1 - lastRecall;
+                    totalDiff = totalDiff + 1 - recall;
                 }
                 reps = lastReps + 1;
             }
@@ -154,7 +151,7 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
             // Adaptive defaultStability
             if (lastReps === 1 && lastLapses === 0) {
                 stabilityDataArry.push({
-                    interval: lastInterval,
+                    interval: interval,
                     recall: grade === "0" ? 0 : 1
                 });
 
