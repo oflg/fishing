@@ -1,0 +1,13 @@
+title: $:/plugins/oflg/fishing/data
+type: application/json
+requestRecall: 0.9
+requestInterval: 1
+
+{
+    "totalCase": 0,
+    "totalDiff": 0,
+    "totalReview": 0,
+    "defaultDifficulty": 5,
+    "defaultStability": 2,
+    "stabilityDataArry": []
+}
