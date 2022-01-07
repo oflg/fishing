@@ -2,9 +2,8 @@ title: $:/plugins/oflg/fishing/languages/en-GB
 type: application/json
 
 {
-    "fishing": "fishing",
-    "description": "A memory tool fishing in the sea of mind",
-    "fishingbuttontip": "Review tiddlers",
+    "fishing": "Fishing",
+    "fishingtip": "Incremental learning",
     "exciseexcerpt": "Excise to Excerpt Tiddler",
     "exciseexcerpttip": "Excise the selected text into an Excerpt Tiddler",
     "exciseanswer": "Excise to Q&A Question",
@@ -34,7 +33,7 @@ type: application/json
     "discardtip": "No more review of this tiddler",
     "add7tip": "Review this tiddler next week",
     "add1tip": "Review this tiddler tomorrow",
-    "fishingpondtip": "Review tiddlers of this group",
+    "fishingpondtip": "Memorize this group of tiddlers",
     "due": "due: ",
     "undue": "undue: ",
     "new": "new: ",
@@ -42,7 +41,7 @@ type: application/json
     "pinfiltertip": "Add to commonly used Filter Expression: ",
     "unpinfiltertip": "Delete this commonly used Filter Expression: ",
     "fillfiltertip": "Fill in this Filter Expression: ",
-    "adjustrecall": "The recall of tiddlers: ",
-    "adjustinterval": "The initial interval of Excerpt Tiddlers: ",
-    "adjustpriority": "The priority of this tiddler and subsequent tiddler it generates: "
+    "settings": "These settings let you customise the behaviour of Fishing.",
+    "setrecall": "Recall of tiddlers (Not less than 0.7 or more than 0.95)",
+    "setinterval": "Initial interval of Excerpt Tiddlers (must be an integer)"
 }

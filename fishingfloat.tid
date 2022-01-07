@@ -1,13 +1,13 @@
 caption: {{$:/plugins/oflg/fishing/icon}} <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishing]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishing]]}}}/>
-description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[description]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[description]]}}}/>
+description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}/>
 tags: $:/tags/PageControls
 title: $:/plugins/oflg/fishing/fishingfloat
 
 <!-- creat fishingfloat -->
 <$button
 	popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
-	tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingbuttontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingbuttontip]]}}}
-	aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingbuttontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingbuttontip]]}}}
+	tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}
+	aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}
 	class=<<tv-config-toolbar-class>>
 	selectedClass="tc-selected"
 >

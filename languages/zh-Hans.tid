@@ -3,8 +3,7 @@ type: application/json
 
 {
     "fishing": "钓鱼",
-    "description": "在脑海中钓鱼的记忆系统",
-    "fishingbuttontip": "复习条目",
+    "fishingtip": "渐进学习",
     "exciseanswer": "剪切到问答题",
     "exciseanswertip": "剪切所选文本到一个问答题条目",
     "excisecloze": "剪切到填空题",
@@ -34,7 +33,7 @@ type: application/json
     "discardtip": "不再复习此条目",
     "add7tip": "下周复习此条目",
     "add1tip": "明天复习此条目",
-    "fishingpondtip": "复习此组条目",
+    "fishingpondtip": "记忆此组条目",
     "due": "已到期：",
     "undue": "未到期：",
     "new": "新添加：",
@@ -42,7 +41,7 @@ type: application/json
     "pinfiltertip": "添加到常用筛选器表达式：",
     "unpinfiltertip": "删除此常用筛选器表达式：",
     "fillfiltertip": "填入此筛选器表达式：",
-    "adjustrecall": "条目的召回率：",
-    "adjustinterval": "摘抄条目的初始间隔：",
-    "adjustpriority": "此条目及其再产生条目的优先级："
+    "settings": "这些高级设置让您定制钓鱼的行为。",
+    "setrecall": "条目的召回率（不得小于 0.7 或大于 0.95）",
+    "setinterval": "摘抄条目的初始间隔（必须是整数）"
 }

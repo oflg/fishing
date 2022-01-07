@@ -1,7 +1,7 @@
 {
     "author": "oflg",
     "core-version": ">=5.2.1",
-    "description": "A memory tool fishing in the sea of mind",
+    "description": "Incremental Learning program based on TiddlyWiki",
     "list": "readme license",
     "name": "Fishing",
     "plugin-type": "plugin",
