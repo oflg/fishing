@@ -34,7 +34,7 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
     */
     FishingWidget.prototype.execute = function () {
         this.actionTiddler = this.getAttribute("$tiddler", this.getVariable("currentTiddler"));
-        this.actionGrade = String(this.getAttribute("$grade"));
+        this.actionGrade = this.getAttribute("$grade");
         this.actionTimestamp = this.getAttribute("$timestamp", "yes") === "yes";
     };
 
@@ -54,8 +54,8 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
     Invoke the action associated with this widget
     */
     FishingWidget.prototype.invokeAction = function (triggeringWidget, event) {
-        var title = this.actionTiddler,//The title of the tiddler is the id of the card.
-            grade = (this.actionGrade === "0" || this.actionGrade === "1" || this.actionGrade === "2") ? this.actionGrade : undefined;//Ratings for review have 0, 1, 2. Other ratings mean add new cards.
+        var title = this.actionTiddler,//The title of the tiddler is the id of the tiddler.
+            grade = (this.actionGrade == "0" || this.actionGrade == "1" || this.actionGrade == "2") ? this.actionGrade : "learn";//Ratings for review have 0, 1, 2. Other ratings mean learn new tiddler.
 
 
         var difficultyDecay = -0.7,
@@ -76,11 +76,10 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
 
         review = new Date().toISOString().replace(/-|T|:|\.|Z/g, "");
 
-        if (grade === undefined) {// new card
+        if (grade == "learn") {// learn new tiddler
             var addDay = Math.round(defaultStability * Math.log(requestRecall) / Math.log(0.9));
 
             due = $tw.wiki.filterTiddlers("[[" + addDay + "]due[]]")[0];
-            due = new Date(addDay * (1000 * 60 * 60 * 24) + new Date().getTime()).toISOString().replace(/-|T|:|\.|Z/g, "");
             interval = 0;
             difficulty = defaultDifficulty;
             stability = defaultStability;
@@ -88,7 +87,7 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
             reps = 1;
             lapses = 0;
             history = "[]";
-        } else {// review card
+        } else {// review tiddler
             var lastFieldsData = $tw.wiki.getTiddler(title).fields;
 
             var lastDifficulty = Number(lastFieldsData["difficulty"]),
@@ -101,10 +100,10 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
             var lastReviewDay = lastReview.slice(0, 4) + "-" + lastReview.slice(4, 6) + "-" + lastReview.slice(6, 8);
 
             interval = (new Date(new Date().toISOString().split("T")[0]) - new Date(lastReviewDay)) / (1000 * 60 * 60 * 24);
-            difficulty = Math.min(Math.max(lastDifficulty + recall - grade + 0.2, 1), 10);
             recall = Math.exp(Math.log(0.9) * interval / lastStability);
+            difficulty = Math.min(Math.max(lastDifficulty + recall - grade + 0.2, 1), 10);
 
-            if (grade === "0") {
+            if (grade == "0") {
                 stability = defaultStability * Math.exp(-0.3 * (lastLapses + 1));
 
                 if (lastReps > 1) {
@@ -112,12 +111,13 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
                 }
                 lapses = lastLapses + 1;
                 reps = 1;
-            } else {//grade === "1" || grade === "2"
+            } else {//grade == "1" || grade == "2"
                 stability = lastStability * (1 + increaseFactor * Math.pow(difficulty, difficultyDecay) * Math.pow(lastStability, stabilityDecay) * (Math.exp(1 - recall) - 1));
 
                 if (lastReps > 1) {
                     totalDiff = totalDiff + 1 - recall;
                 }
+                lapses = lastLapses;
                 reps = lastReps + 1;
             }
 
