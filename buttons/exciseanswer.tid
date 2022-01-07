@@ -9,7 +9,7 @@ shortcuts: ((fishing-exciseanswer))
 <$action-sendmessage
 	$message="tm-edit-text-operation"
 	$param="excisefish"
-	exciseto="newTiddler"
+	exciseto="newtiddler"
 	exciseform="__''title''__text"
 	caption="{{||Answer}}"
 />

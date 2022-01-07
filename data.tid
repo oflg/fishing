@@ -1,6 +1,7 @@
 title: $:/plugins/oflg/fishing/data
 type: application/json
 requestRecall: 0.9
+requestInterval: 1
 
 {
     "totalCase": 0,
