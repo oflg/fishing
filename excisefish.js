@@ -49,6 +49,7 @@ Based on TW's core/modules/editor/operations/text/excise.js
 
       var text = fishtext,
         tags = [editTiddlerTitle, "?"],
+        priority = editTiddler.fields["priority"] || 0,
         due = $tw.wiki.filterTiddlers("[[" + interval + "]due[]]")[0];
 
       this.wiki.addTiddler(
@@ -58,7 +59,8 @@ Based on TW's core/modules/editor/operations/text/excise.js
           tags,
           due,
           interval,
-          caption
+          caption,
+          priority
         })
       );
 
