@@ -1,4 +1,4 @@
-tags: questiontemplate
+tags: tiddlertemplate
 title: Cloze
 
 <$reveal
@@ -22,31 +22,32 @@ title: Cloze
 		animate="yes"
 	>
 		<$reveal
-			default={{{[{!!title}search:title[^^__]]}}}
-			type="nomatch"
-			text=""
+			default={{{[{!!title}split[__]count[]]}}}
+			type="gteq"
+			text="3"
 			animate="yes"
 		>
 			<$list
 				filter="[{!!title}split[__]]"
 				variable="titleitem"
+				counter="counter"
 			>
 				<$reveal
-					default={{{[<titleitem>search[^^]]}}}
-					type="match"
-					text=""
+					default={{{[<counter>remainder[2]]}}}
+					type="nomatch"
+					text="0"
 				>
 					<<titleitem>>
 				</$reveal>
 				<$reveal
-					default={{{[<titleitem>search[^^]]}}}
-					type="nomatch"
-					text=""
+					default={{{[<counter>remainder[2]]}}}
+					type="match"
+					text="0"
 				>
 					<$let
-						clozecontent={{{[<titleitem>split[^^]first[]]}}}
-						clozeid={{{[<titleitem>split[^^]rest[]]}}}
-						content={{{[[$:/temp/fishing]getindex<clozeid>match[show]then<clozecontent>else[`    `]]}}}
+						clozeid=<<counter>>
+						clozecontent=<<titleitem>>
+						clozecontent={{{[[$:/temp/fishing]getindex<clozeid>match[show]then<titleitem>else[`    `]]}}}
 					>
 						<$button
 							class="tc-btn-invisible tc-tiddlylink"
@@ -56,16 +57,16 @@ title: Cloze
 								$index=<<clozeid>>
 								$value={{{[[$:/temp/fishing]getindex<clozeid>match[show]then[]else[show]]}}}
 							/>
-								<<content>>^^<<clozeid>>^^
+								<<clozecontent>>
 						</$button>
 					</$let>
 				</$reveal>
 			</$list>
 		</$reveal>
 		<$reveal
-			default={{{[{!!title}search:title[^^__]]}}}
-			type="match"
-			text=""
+			default={{{[{!!title}split[__]count[]]}}}
+			type="lt"
+			text="3"
 			animate="yes"
 		>
 			{{!!title}}
