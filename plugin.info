@@ -1,7 +1,7 @@
 {
     "author": "oflg",
     "core-version": ">=5.2.1",
-    "description": "Flashcards and Incremental Reading integrated in TiddlyWiki, fishing with algorithm of Anki",
+    "description": "A memory tool fishing in the sea of mind",
     "list": "readme license",
     "name": "Fishing",
     "plugin-type": "plugin",
