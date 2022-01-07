@@ -77,8 +77,9 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
         review = new Date().toISOString().replace(/-|T|:|\.|Z/g, "");
 
         if (grade === undefined) {// new card
-            var addDay = Math.max(Math.round(defaultStability * Math.log(requestRecall) / Math.log(0.9)), 1);
+            var addDay = Math.round(defaultStability * Math.log(requestRecall) / Math.log(0.9));
 
+            due = $tw.wiki.filterTiddlers("[[" + addDay + "]due[]]")[0];
             due = new Date(addDay * (1000 * 60 * 60 * 24) + new Date().getTime()).toISOString().replace(/-|T|:|\.|Z/g, "");
             interval = 0;
             difficulty = defaultDifficulty;
@@ -123,9 +124,9 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
             totalCase = totalCase + 1;
             totalReview = totalReview + 1;
 
-            var addDay = Math.max(Math.round(stability * Math.log(requestRecall) / Math.log(0.9)), 1);
+            var addDay = Math.round(stability * Math.log(requestRecall) / Math.log(0.9));
 
-            due = new Date(addDay * (1000 * 60 * 60 * 24) + new Date().getTime()).toISOString().replace(/-|T|:|\.|Z/g, "");
+            due = $tw.wiki.filterTiddlers("[[" + addDay + "]due[]]")[0];
 
             lastHistory.push({
                 due,

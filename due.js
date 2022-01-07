@@ -18,9 +18,9 @@ Calculate the due of fish
     exports.due = function (source, operator, options) {
         var results = [];
         source(function (tiddler, title) {
-            var interval = Number(title) || 0;
+            var addDay = Number(title) >= 1 ? Number(title) : 1;
 
-            var dateTime = interval * 86400000 + new Date().getTime();
+            var dateTime = addDay * 86400000 + new Date().getTime();
             var due = new Date(dateTime).toISOString().replace(/-|T|:|\.|Z/g, "");
 
             results.push(due.toString());
