@@ -42,6 +42,6 @@ type: application/json
     "unpinfiltertip": "Delete this commonly used Filter Expression: ",
     "fillfiltertip": "Fill in this Filter Expression: ",
     "settings": "These settings let you customise the behaviour of Fishing.",
-    "setrecall": "Recall of tiddlers (Not less than 0.7 or more than 0.95)",
-    "setinterval": "Initial interval of Excerpt Tiddlers (must be an integer)"
+    "setrecall": "Retention (Not less than 0.7 or more than 0.95)",
+    "setinterval": "Initial interval day of Excerpt Tiddlers (must be an integer)"
 }
