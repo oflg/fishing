@@ -2,7 +2,7 @@
 title: $:/plugins/oflg/fishing/action-fishing.js
 type: application/javascript
 module-type: widget
-Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L-M-Sherlock， https://www.zhihu.com/people/L.M.Sherlock）and ported to TiddlyWiki by oflg.
+Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/free-spaced-repetition-scheduler.
 \*/
 (function () {
 
