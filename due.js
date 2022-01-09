@@ -3,7 +3,7 @@ title: $:/plugins/oflg/fishing/due.js
 type: application/javascript
 module-type: filteroperator
 
-Calculate the due of fish
+Calculate the due of tiddler
 
 \*/
 (function () {
@@ -23,7 +23,7 @@ Calculate the due of fish
             var dateTime = addDay * 86400000 + new Date().getTime();
             var due = new Date(dateTime).toISOString().replace(/-|T|:|\.|Z/g, "");
 
-            results.push(due.toString());
+            results.push(due);
         });
         return results;
     };

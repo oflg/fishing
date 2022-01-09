@@ -97,9 +97,7 @@ Run Free Spaced Repetition Algorithm created by 叶峻峣（https://github.com/L
                 lastReview = String(lastFieldsData["review"]),
                 lastHistory = JSON.parse(lastFieldsData["history"]);
 
-            var lastReviewDay = lastReview.slice(0, 4) + "-" + lastReview.slice(4, 6) + "-" + lastReview.slice(6, 8);
-
-            interval = (new Date(new Date().toISOString().split("T")[0]) - new Date(lastReviewDay)) / (1000 * 60 * 60 * 24);
+            interval = $tw.wiki.filterTiddlers("[[" + lastReview + "]interval[]]")[0];
             recall = Math.exp(Math.log(0.9) * interval / lastStability);
             difficulty = Math.min(Math.max(lastDifficulty + recall - grade + 0.2, 1), 10);
 

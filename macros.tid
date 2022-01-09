@@ -1,7 +1,7 @@
 tags: $:/tags/Macro
 title: $:/plugins/oflg/fishing/macros
 
-\define priority() [get[caption]search-replace::regexp[{{\|\|(.*)}}],[$1]tag[tiddlertemplate]count[]]=[get[due]delay[]]=[backlinks[]count[]]=[links[]has[due]count[]negate[]]=[links[]has[due]!days:due[1]count[]]+[sum[]add{!!priority}fixed[1]]
+\define priority() [get[caption]search-replace::regexp[{{\|\|(.*)}}],[$1]tag[tiddlertemplate]count[]]=[get[due]interval[]]=[backlinks[]count[]]=[links[]has[due]count[]negate[]]=[links[]has[due]!days:due[1]count[]]+[sum[]add{!!priority}fixed[1]]
 
 \define fishbreadcrumbs()
 
