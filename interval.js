@@ -20,7 +20,7 @@ Calculate the interval of tiddler
         source(function (tiddler, title) {
             var twTime = title;
 
-            var twTimeDay = $tw.wiki.filterTiddlers("[[" + twTime + "]format:date[YYYY-MM-DD]]")[0],
+            var twTimeDay = $tw.wiki.filterTiddlers("[[" + twTime + "]format:date[YYYY-0MM-0DD]]")[0],
                 nowDay = new Date().toISOString().split("T")[0];
 
             var diffTime = new Date(nowDay) - new Date(twTimeDay);
