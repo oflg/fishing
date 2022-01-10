@@ -5,9 +5,18 @@ type: text/vnd.tiddlywiki
 blockquote.tc-fish-quote {
 	border-left: 1px solid <<colour message-border>>;
   margin-right: 0;
-  margin-left: 1px;
+  margin-left: 5px;
 }
 
 button.tc-tag-label, span.tc-tag-label {
   white-space: normal;
 }
+
+<$list filter="[tag[?]]">
+
+.tc-tiddler-body a.tc-tiddlylink[href^="#{{{[<currentTiddler>encodeuri[]]}}}"]:before {
+  content: "▾";
+  display: inline-block;
+}
+
+</$list>
