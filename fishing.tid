@@ -40,7 +40,7 @@ title: $:/plugins/oflg/fishing/fishing
 									tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<easetip>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<easetip>]}}}
 									aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<easetip>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<easetip>]}}}
 									class="tc-btn-invisible tc-tiddlylink"
-									style={{{[<ease>match[learn]then[margin-left:10px;color:green;]]~[<ease>match[forget]then[margin-left:10px;color:black;]]~[<ease>match[remember]then[margin-left:10px;color:green;]]~[<ease>match[grasp]then[margin-left:10px;color:blue;]]}}}
+									style={{{[<ease>match[learn]then[margin-left:10px;color:green;]]~[<ease>match[forget]then[margin-left:10px;color:red;]]~[<ease>match[remember]then[margin-left:10px;color:green;]]~[<ease>match[grasp]then[margin-left:10px;color:blue;]]}}}
 								>
 									<$action-sendmessage
 										$message="tm-add-tag"
