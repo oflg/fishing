@@ -24,7 +24,7 @@ title: $:/plugins/oflg/fishing/fishing
 			<div>
 				<$fieldmangler>
 					<$list
-						filter="learn hard good easy"
+						filter="learn forget remember grasp"
 						variable="ease"
 					>
 						<$reveal
@@ -40,7 +40,7 @@ title: $:/plugins/oflg/fishing/fishing
 									tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<easetip>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<easetip>]}}}
 									aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<easetip>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<easetip>]}}}
 									class="tc-btn-invisible tc-tiddlylink"
-									style={{{[<ease>match[learn]then[margin-left:10px;color:green;]]~[<ease>match[hard]then[margin-left:10px;color:black;]]~[<ease>match[good]then[margin-left:10px;color:green;]]~[<ease>match[easy]then[margin-left:10px;color:blue;]]}}}
+									style={{{[<ease>match[learn]then[margin-left:10px;color:green;]]~[<ease>match[forget]then[margin-left:10px;color:black;]]~[<ease>match[remember]then[margin-left:10px;color:green;]]~[<ease>match[grasp]then[margin-left:10px;color:blue;]]}}}
 								>
 									<$action-sendmessage
 										$message="tm-add-tag"
@@ -53,7 +53,7 @@ title: $:/plugins/oflg/fishing/fishing
 										animate="yes"
 									>
 										<$action-fishing
-											$grade={{{[<ease>match[learn]then[learn]]~[<ease>match[hard]then[0]]~[<ease>match[good]then[1]]~[<ease>match[easy]then[2]]}}}
+											$grade={{{[<ease>match[learn]then[learn]]~[<ease>match[forget]then[0]]~[<ease>match[remember]then[1]]~[<ease>match[grasp]then[2]]}}}
 										/>
 										<$list
 											filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[{{||Excerpt}}]]"
@@ -62,7 +62,7 @@ title: $:/plugins/oflg/fishing/fishing
 											<$action-setfield
 												$tiddler=<<backexcerpt>>
 												$timestamp="no"
-												interval={{{[<ease>match[learn]then[0]]~[<ease>match[hard]then[1]]~[<ease>match[good]then[0]]~[<ease>match[easy]then[-1]][<backexcerpt>get[interval]]+[sum[]]}}}
+												interval={{{[<ease>match[learn]then[0]]~[<ease>match[forget]then[1]]~[<ease>match[remember]then[0]]~[<ease>match[grasp]then[-1]][<backexcerpt>get[interval]]+[sum[]]}}}
 											/>
 										</$list>
 									</$reveal>
