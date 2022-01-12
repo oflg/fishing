@@ -14,7 +14,7 @@ button.tc-tag-label, span.tc-tag-label {
 
 <$list filter="[tag[?]]">
 
-.tc-tiddler-body a.tc-tiddlylink[href^="#{{{[<currentTiddler>encodeuri[]]}}}"]:before {
+a.tc-tiddlylink[href^="#{{{[<currentTiddler>encodeuricomponent[]]}}}"]:before {
   content: "▾";
   display: inline-block;
 }
