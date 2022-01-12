@@ -156,8 +156,9 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
 
                 if (stabilityDataArry.length > 0 && stabilityDataArry.length % 50 === 0) {
                     var intervalSetArry = [];
-                    var sumRecallIntervalToStability = 0;
-                    var sumIntervalToStability = 0;
+
+                    var sumRecallIntervalToStability = 0,
+                        sumIntervalToStability = 0;
                     for (var s = 0; s < stabilityDataArry.length; s++) {
                         var ivl = stabilityDataArry[s].interval;
 
