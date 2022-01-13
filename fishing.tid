@@ -28,7 +28,7 @@ title: $:/plugins/oflg/fishing/fishing
 						variable="ease"
 					>
 						<$reveal
-							default={{{[<currentTiddler>has[recall]then[review]else[learnnew]]}}}
+							default={{{[<currentTiddler>has[retrievability]then[review]else[learnnew]]}}}
 							type="match"
 							text={{{[<ease>match[learn]then[learnnew]else[review]]}}}
 							animate="yes"
@@ -136,7 +136,7 @@ title: $:/plugins/oflg/fishing/fishing
 									interval
 									difficulty
 									stability
-									recall
+									retrievability
 									lapses
 									reps
 									review

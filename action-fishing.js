@@ -72,7 +72,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             defaultStability = data.defaultStability,
             stabilityDataArry = data.stabilityDataArry;
 
-        var due, interval, difficulty, stability, recall, lapses, reps, review, history;
+        var due, interval, difficulty, stability, retrievability, lapses, reps, review, history;
 
         review = new Date().toISOString().replace(/-|T|:|\.|Z/g, "");
 
@@ -83,7 +83,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             interval = 0;
             difficulty = defaultDifficulty;
             stability = defaultStability;
-            recall = 1;
+            retrievability = 1;
             reps = 1;
             lapses = 0;
             history = "[]";
@@ -98,22 +98,22 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
                 lastHistory = JSON.parse(lastFieldsData["history"]);
 
             interval = $tw.wiki.filterTiddlers("[[" + lastReview + "]interval[]]")[0];
-            recall = Math.exp(Math.log(0.9) * interval / lastStability);
-            difficulty = Math.min(Math.max(lastDifficulty + recall - grade + 0.2, 1), 10);
+            retrievability = Math.exp(Math.log(0.9) * interval / lastStability);
+            difficulty = Math.min(Math.max(lastDifficulty + retrievability - grade + 0.2, 1), 10);
 
             if (grade == "0") {
                 stability = defaultStability * Math.exp(-0.3 * (lastLapses + 1));
 
                 if (lastReps > 1) {
-                    totalDiff = totalDiff - recall;
+                    totalDiff = totalDiff - retrievability;
                 }
                 lapses = lastLapses + 1;
                 reps = 1;
             } else {//grade == "1" || grade == "2"
-                stability = lastStability * (1 + increaseFactor * Math.pow(difficulty, difficultyDecay) * Math.pow(lastStability, stabilityDecay) * (Math.exp(1 - recall) - 1));
+                stability = lastStability * (1 + increaseFactor * Math.pow(difficulty, difficultyDecay) * Math.pow(lastStability, stabilityDecay) * (Math.exp(1 - retrievability) - 1));
 
                 if (lastReps > 1) {
-                    totalDiff = totalDiff + 1 - recall;
+                    totalDiff = totalDiff + 1 - retrievability;
                 }
                 lapses = lastLapses;
                 reps = lastReps + 1;
@@ -131,7 +131,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
                 interval,
                 difficulty,
                 stability,
-                recall,
+                retrievability,
                 lapses,
                 reps,
                 review
@@ -151,14 +151,14 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             if (lastReps === 1 && lastLapses === 0) {
                 stabilityDataArry.push({
                     interval: interval,
-                    recall: grade === "0" ? 0 : 1
+                    retrievability: grade === "0" ? 0 : 1
                 });
 
                 if (stabilityDataArry.length > 0 && stabilityDataArry.length % 50 === 0) {
                     var intervalSetArry = [];
 
-                    var sumRecallIntervalToStability = 0,
-                        sumIntervalToStability = 0;
+                    var sumRI2S = 0,
+                        sumI2S = 0;
                     for (var s = 0; s < stabilityDataArry.length; s++) {
                         var ivl = stabilityDataArry[s].interval;
 
@@ -170,15 +170,15 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
                                 return fi.interval === ivl;
                             });
 
-                            var recallSum = filterArry.reduce((sum, e) => sum + e.recall, 0);
+                            var retrievabilitySum = filterArry.reduce((sum, e) => sum + e.retrievability, 0);
 
-                            if (recallSum > 0) {
-                                sumRecallIntervalToStability = sumRecallIntervalToStability + ivl * Math.log(recallSum / filterArry.length) * filterArry.length;
-                                sumIntervalToStability = sumIntervalToStability + ivl * ivl * filterArry.length;
+                            if (retrievabilitySum > 0) {
+                                sumRI2S = sumRI2S + ivl * Math.log(retrievabilitySum / filterArry.length) * filterArry.length;
+                                sumI2S = sumI2S + ivl * ivl * filterArry.length;
                             }
                         }
                     }
-                    defaultStability = (Math.max(Math.log(0.9) / (sumRecallIntervalToStability / sumIntervalToStability), 0.1) + defaultStability) / 2;
+                    defaultStability = (Math.max(Math.log(0.9) / (sumRI2S / sumI2S), 0.1) + defaultStability) / 2;
                 }
             }
         }
@@ -192,7 +192,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
                 interval,
                 difficulty,
                 stability,
-                recall,
+                retrievability,
                 lapses,
                 reps,
                 review,
