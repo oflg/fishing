@@ -2,4 +2,4 @@ list-before: $:/config/ViewTemplateTitleFilters/system
 tags: $:/tags/ViewTemplateTitleFilter
 title: $:/config/ViewTemplateTitleFilters/fish
 
-[tag[?]][{$:/temp/fishing!!fish}match<currentTiddler>]+[then[$:/core/ui/ViewTemplate/title/fish]]
+[tag[?]][has[due]][match{$:/temp/fishing!!fish}]+[then[$:/core/ui/ViewTemplate/title/fish]]

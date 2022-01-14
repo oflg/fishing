@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing/icons/exciseexcerpt
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseexcerpt]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseexcerpt]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseexcerpttip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseexcerpttip]]}}}/>
-condition: [<targetTiddler>tag[?]]~[<targetTiddler>has[due]]~[<targetTiddler>get[draft.of]match{$:/temp/fishing!!fish}]
+condition: [<targetTiddler>tag[?]]~[<targetTiddler>get[draft.of]match{$:/temp/fishing!!fish}]
 shortcuts: ((fishing-exciseexcerpt))
 
 <$action-sendmessage

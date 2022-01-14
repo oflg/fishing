@@ -4,7 +4,7 @@ list-after: $:/core/ui/ViewTemplate/title
 
 <$reveal
   class="fishing-head"
-  default={{{[all[current]tag[?]then[1]else[0]]=[all[current]has[due]then[1]else[0]]=[{$:/temp/fishing!!fish}match<currentTiddler>then[1]else[0]]+[match[1]]}}}
+  default={{{[<currentTiddler>tag[?]][<currentTiddler>has[due]][<currentTiddler>match{$:/temp/fishing!!fish}]}}}
   type="nomatch"
   text=""
   animate="yes"
