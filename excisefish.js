@@ -75,40 +75,7 @@ Based on TW's core/modules/editor/operations/text/excise.js
                 );
 
             } else {//learn tiddler
-                var requestRecall = Number($tw.wiki.filterTiddlers("[{$:/plugins/oflg/fishing/data!!requestRecall}]")[0]),
-                    data = $tw.wiki.getTiddlerData('$:/plugins/oflg/fishing/data');
-
-                var defaultDifficulty = data.defaultDifficulty,
-                    defaultStability = data.defaultStability;
-
-                var addDay = Math.round(defaultStability * Math.log(requestRecall) / Math.log(0.9));
-
-                var due = $tw.wiki.filterTiddlers("[[" + addDay + "]due[]]")[0],
-                    interval = 0,
-                    difficulty = defaultDifficulty,
-                    stability = defaultStability,
-                    retrievability = 1,
-                    reps = 1,
-                    lapses = 0,
-                    history = "[]";
-
-                $tw.wiki.addTiddler(
-                    new $tw.Tiddler($tw.wiki.getCreationFields(), $tw.wiki.getModificationFields(), {
-                        title,
-                        text,
-                        caption,
-                        tags,
-                        due,
-                        interval,
-                        difficulty,
-                        stability,
-                        retrievability,
-                        lapses,
-                        reps,
-                        review,
-                        history
-                    })
-                );
+                $tw.rootWidget.invokeActionString("<$action-fishing $tiddler=" + title + " $grade='learn'/>");
             }
 
             if (editTiddler.type === "text/x-markdown") {
