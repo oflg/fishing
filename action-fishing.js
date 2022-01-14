@@ -87,7 +87,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             reps = 1;
             lapses = 0;
             history = "[]";
-        } else {// review tiddler
+        } else {// review tiddler after learn
             var lastFieldsData = $tw.wiki.getTiddler(title).fields;
 
             var lastDifficulty = Number(lastFieldsData["difficulty"]),
