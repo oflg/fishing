@@ -47,9 +47,9 @@ title: $:/plugins/oflg/fishing/fishing
 										$param="?"
 									/>
 									<$reveal
-										default={{{[<currentTiddler>get[caption]]}}}
-										type="nomatch"
-										text="{{||Excerpt}}"
+										default={{{[<currentTiddler>search:caption:literal[{{||Excerpt}}]]}}}
+										type="match"
+										text=""
 										animate="yes"
 									>
 										<$action-fishing
@@ -67,9 +67,9 @@ title: $:/plugins/oflg/fishing/fishing
 										</$list>
 									</$reveal>
 									<$reveal
-										default={{{[<currentTiddler>get[caption]]}}}
-										type="match"
-										text="{{||Excerpt}}"
+										default={{{[<currentTiddler>search:caption:literal[{{||Excerpt}}]]}}}
+										type="nomatch"
+										text=""
 										animate="yes"
 									>
 										<$action-setfield
