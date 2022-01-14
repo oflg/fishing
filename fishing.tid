@@ -88,7 +88,7 @@ title: $:/plugins/oflg/fishing/fishing
 									/>
 									<$action-setfield
 										$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-										text={{{[{$:/temp/fishing!!fish}has[due]!search:caption:literal[{{||Excerpt}}]then[hide]else[show]]}}}
+										text={{{[{$:/temp/fishing!!fish}search:caption:literal[{{||Excerpt}}]then[show]else[hide]]}}}
 									/>
 									<$action-sendmessage
 										$message="tm-close-tiddler"
