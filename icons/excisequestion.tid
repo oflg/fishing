@@ -1,4 +1,4 @@
-title: $:/plugins/oflg/fishing/icons/exciseanswer
+title: $:/plugins/oflg/fishing/icons/excisequestion
 tags: $:/tags/Image
 
 <svg width="22pt" height="22pt" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ tags: $:/tags/Image
       stroke-width="0"
       id="svg_5"
     >
-      A
+      Q
     </text>
   </g>
 </svg>

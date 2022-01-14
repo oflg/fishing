@@ -9,7 +9,7 @@ shortcuts: ((fishing-setcloze))
 <$action-sendmessage
 	$message="tm-edit-text-operation"
 	$param="excisefish"
-	exciseto="currenttiddler"
-	exciseform="title<br>"
-	caption="{{||Cloze}}"
+	exciseTo="currenttiddler"
+	exciseForm="title<br>"
+	exciseCaption="{{||Cloze}}"
 />

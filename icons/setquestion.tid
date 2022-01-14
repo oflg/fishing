@@ -1,4 +1,4 @@
-title: $:/plugins/oflg/fishing/icons/setanswer
+title: $:/plugins/oflg/fishing/icons/setquestion
 tags: $:/tags/Image
 
 <svg
@@ -33,7 +33,7 @@ tags: $:/tags/Image
       stroke-width="0"
       id="svg_2"
     >
-      A
+      Q
     </text>
   </g>
 </svg>

@@ -1,0 +1,15 @@
+title: $:/plugins/oflg/fishing/buttons/setquestion
+tags: $:/tags/EditorToolbar
+icon: $:/plugins/oflg/fishing/icons/setquestion
+caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setquestion]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setquestion]]}}}/>
+description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setquestiontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setquestiontip]]}}}/>
+condition: [<targetTiddler>]
+shortcuts: ((fishing-setquestion))
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="excisefish"
+	exciseTo="currenttiddler"
+	exciseForm="title<br>"
+	exciseCaption="{{||Question}}"
+/>

@@ -13,10 +13,16 @@ Based on TW's core/modules/editor/operations/text/excise.js
     /*global $tw: false */
     "use strict";
     exports["excisefish"] = function (event, operation) {
-        var editTiddlerTitle = this.editTitle;
-        var editTiddler = this.wiki.getTiddler(editTiddlerTitle);
+        var selectionText = operation.selection,
+            exciseForm = event.paramObject.exciseForm,
+            exciseCaption = event.paramObject.exciseCaption,
+            exciseTo = event.paramObject.exciseTo;
 
-        if (editTiddler && editTiddler.fields["draft.title"]) {
+        var editTiddlerTitle = this.editTitle;
+
+        var editTiddler = $tw.wiki.getTiddler(editTiddlerTitle);
+
+        if (editTiddler && editTiddler.fields["draft.title"]) {//is draft tiddler
 
             editTiddlerTitle = editTiddler.fields["draft.title"];
 
@@ -24,46 +30,86 @@ Based on TW's core/modules/editor/operations/text/excise.js
 
         var currenttime = new Date(new Date().getTime()).toISOString().replace(/-|T|:|\.|Z/g, "");
 
-        if (event.paramObject.exciseform === "title<br>text") {
+        //excise form
+        if (exciseForm === "title<br>text") {
 
-            var fishtitle = operation.selection.split("\n")[0],
-                fishtext = operation.selection.replace(fishtitle, "");
+            var fishTitle = selectionText.split("\n")[0],
+                fishText = selectionText.replace(fishTitle, "");
 
-        } else if (event.paramObject.exciseform === "title<br>") {
+        } else if (exciseForm === "title<br>") {
 
-            var fishtitle = operation.selection.split("\n")[0],
-                fishtext = "";
+            var fishTitle = selectionText.split("\n")[0],
+                fishText = "";
 
         } else {
             // default to __''title''__text
-            var fishtitle = operation.selection.indexOf("''__") !== -1 ? operation.selection.split("''__")[0].replace("__''", "") : editTiddlerTitle + "/" + currenttime,
-                fishtext = operation.selection.indexOf("''__") !== -1 ? operation.selection.replace("__''" + fishtitle + "''__", "") : operation.selection;
+            var fishTitle = selectionText.indexOf("''__") !== -1 ? selectionText.split("''__")[0].replace("__''", "") : editTiddlerTitle + "/" + currenttime,
+                fishText = selectionText.indexOf("''__") !== -1 ? selectionText.replace("__''" + fishTitle + "''__", "") : operation.selection;
 
         }
 
-        var title = this.wiki.generateNewTitle(fishtitle.replace(/\||\{|\}|\[|\]/g, "")),
-            caption = event.paramObject.caption ? event.paramObject.caption : "{{||Excerpt}}";
+        var title = $tw.wiki.generateNewTitle(fishTitle.replace(/\||\{|\}|\[|\]/g, "")),
+            caption = exciseCaption ? exciseCaption : "{{||Excerpt}}";
 
-        if (event.paramObject.exciseto === "newtiddler") {
-            var interval = Number($tw.wiki.filterTiddlers("[{$:/plugins/oflg/fishing/data!!requestInterval}]")[0]);
-
-            var text = fishtext,
+        //excise to
+        if (exciseTo === "newtiddler") {
+            var text = fishText,
                 tags = [editTiddlerTitle, "?"],
-                priority = editTiddler.fields["priority"] || 0,
-                due = $tw.wiki.filterTiddlers("[[" + interval + "]due[]]")[0];
+                priority = editTiddler.fields["priority"] || 0;
 
-            this.wiki.addTiddler(
-                new $tw.Tiddler(this.wiki.getCreationFields(), this.wiki.getModificationFields(), {
-                    title,
-                    text,
-                    tags,
-                    due,
-                    interval,
-                    caption,
-                    priority
-                })
-            );
+            if (caption === "{{||Excerpt}}") {
 
+                var interval = Number($tw.wiki.filterTiddlers("[{$:/plugins/oflg/fishing/data!!requestInterval}]")[0]),
+                    due = $tw.wiki.filterTiddlers("[[" + interval + "]due[]]")[0];
+
+                $tw.wiki.addTiddler(
+                    new $tw.Tiddler($tw.wiki.getCreationFields(), $tw.wiki.getModificationFields(), {
+                        title,
+                        text,
+                        caption,
+                        tags,
+                        priority,
+                        due,
+                        interval
+                    })
+                );
+
+            } else {//learn tiddler
+                var requestRecall = Number($tw.wiki.filterTiddlers("[{$:/plugins/oflg/fishing/data!!requestRecall}]")[0]),
+                    data = $tw.wiki.getTiddlerData('$:/plugins/oflg/fishing/data');
+
+                var defaultDifficulty = data.defaultDifficulty,
+                    defaultStability = data.defaultStability;
+
+                var addDay = Math.round(defaultStability * Math.log(requestRecall) / Math.log(0.9));
+
+                var due = $tw.wiki.filterTiddlers("[[" + addDay + "]due[]]")[0],
+                    interval = 0,
+                    difficulty = defaultDifficulty,
+                    stability = defaultStability,
+                    retrievability = 1,
+                    reps = 1,
+                    lapses = 0,
+                    history = "[]";
+
+                $tw.wiki.addTiddler(
+                    new $tw.Tiddler($tw.wiki.getCreationFields(), $tw.wiki.getModificationFields(), {
+                        title,
+                        text,
+                        caption,
+                        tags,
+                        due,
+                        interval,
+                        difficulty,
+                        stability,
+                        retrievability,
+                        lapses,
+                        reps,
+                        review,
+                        history
+                    })
+                );
+            }
 
             if (editTiddler.type === "text/x-markdown") {
 
@@ -82,9 +128,11 @@ Based on TW's core/modules/editor/operations/text/excise.js
 
         } else {
             // default to current tiddler
-            this.wiki.addTiddler(
-                new $tw.Tiddler(this.wiki.getCreationFields(), editTiddler, this.wiki.getModificationFields(), {
-                    "draft.title": title || editTiddler.fields["draft.title"],
+            var draftTitle = title || editTiddler.fields["draft.title"];
+
+            $tw.wiki.addTiddler(
+                new $tw.Tiddler($tw.wiki.getCreationFields(), editTiddler, $tw.wiki.getModificationFields(), {
+                    "draft.title": draftTitle,
                     tags: editTiddler.getFieldString("tags") + " ?",
                     caption
                 })
