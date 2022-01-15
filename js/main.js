@@ -1,7 +1,7 @@
 //入口模块
 //检测是否有版本更新
 var version = $tw.wiki.filterTiddlers("[{$:/temp/fishing!!version}]")[0],
-    version = $tw.wiki.filterTiddlers("[{$:/temp/fishing!!language}]")[0];
+    language = $tw.wiki.filterTiddlers("[{$:/temp/fishing!!language}]")[0];
 
 var lastVersion = '2.0.3';
 if (version != lastVersion) {
