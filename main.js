@@ -1,8 +1,9 @@
 //入口模块
 //检测是否有版本更新
-console.log("version: " + version)
-console.log("language: " + language)
-var lastVersion = '2.0.3'
+var version = $tw.wiki.filterTiddlers("[{$:/temp/fishing!!version}]")[0],
+    version = $tw.wiki.filterTiddlers("[{$:/temp/fishing!!language}]")[0];
+
+var lastVersion = '2.0.3';
 if (version != lastVersion) {
     if (!document.querySelector(".version")) {
         var div = document.createElement('div')
