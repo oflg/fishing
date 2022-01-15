@@ -1,0 +1,112 @@
+.card {
+	font-family: arial;
+	font-size: 20px;
+	text-align: left;
+	color: black;
+	background-color: white;
+}
+/*背面过度动画*/
+.transition{
+	background-image: url('../img/transition.gif');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	min-height: 300px;
+	min-width: 300px;
+}
+.word{
+	font-weight: bold;
+	color:red;
+	text-align:center;
+}
+.front{
+	font-size:30px;
+	margin: 50px auto;
+}
+.back{
+	text-align:center;
+	font-size:25px;
+	color:black;
+}
+.phonetic{
+	font-weight:bold;
+	font-size:15px;
+	color: gray;
+	text-align:center;
+}
+.trans{
+	line-height: 20px;
+	background-color: blue;
+	border: 1px solid #F0EFF0;
+	border-radius:10px 4px;
+	padding: 6px 6px 6px 13px;
+	color: white;
+	margin-top:15px;
+	font-size:18px;
+}
+
+#spd{
+	height:10px;
+	cursor:pointer;
+}
+/*自动播放调节*/
+.adjuster *{
+	cursor:pointer;
+}
+.adjuster label{
+	font-size:12px;
+}
+.adjuster{
+	text-align:center;
+}
+/*定义自动播放控制按钮样式*/
+.adjuster .noautoplay,.adjuster .autoplay{
+	display: inline-block;
+	border-radius: 15px;
+	padding: 3px 6px;
+	font-size: 12px;
+	background-image: none;
+	font-weight: normal;
+  	line-height: 1.42857143;
+  	margin-bottom: 0px;
+  	text-decoration: none;
+  	color: #fff;
+  	background-color: #5bc0de;
+  	border-color: #46b8da;
+  	border-width: 2px;
+}
+/*自动播放非激活状态*/
+.adjuster .noautoplay{
+	border-style: outset;
+}
+/*自动播放激活状态*/
+.adjuster .autoplay{
+  	border-style: inset;
+  	background-color: #4cb0db;
+  	border-color: #43b5cb;
+}
+/*版本信息*/
+.version{
+	text-align:center;
+	font-size:10px;
+}
+
+/*移动端和PC端音频图标样式*/
+#playButton{
+	display:none;
+	width:35px;
+	height:35px;
+	margin:1px auto;
+}
+#playButton:hover{
+	cursor:pointer;
+}
+#playButton:active{
+	position:relative;
+	top:2px;
+}
