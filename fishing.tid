@@ -13,6 +13,9 @@ title: $:/plugins/oflg/fishing/fishing
 		text="hide"
 		animate="yes"
 	>
+            
+        ---
+
 		<div
 			style="display:flex;justify-content:space-between;"
 		>
