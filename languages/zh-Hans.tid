@@ -24,6 +24,7 @@ type: application/json
     "marktitletip": "标记所选文本为摘抄条目或问答题条目的标题。例如：__''标题''__",
     "markclozeoption": "标为挖空或选项",
     "markclozeoptiontip": "标记所选文本为填空题条目的一个挖空或选择题的一个选项。例如： __挖空__或__选项__",
+    "foldtip": "展开或折叠此条目",
     "learn": "下一个",
     "learntip": "已学习此条目再学习下一个",
     "forget": "忘记",

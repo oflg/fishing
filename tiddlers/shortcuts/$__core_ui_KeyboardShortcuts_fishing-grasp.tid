@@ -1,0 +1,55 @@
+key: ((fishing-grasp))
+tags: $:/tags/KeyboardShortcut
+title: $:/core/ui/KeyboardShortcuts/fishing-grasp
+
+<$reveal
+    default={{{[{$:/temp/fishing!!fish}match{$:/HistoryList!!current-tiddler}has[retrievability]]}}}
+    type="nomatch"
+    text=""
+    animate="yes"
+>
+    <$navigator story="$:/StoryList" history="$:/HistoryList" relinkOnRename="yes">
+        <$list
+            filter="[{$:/temp/fishing!!fish}]"
+        >
+            <$fieldmangler>
+                <$action-sendmessage
+                    $message="tm-add-tag"
+                    $param="?"
+                />
+                <$action-fishing
+                    $grade="2"
+                />
+                <$list
+                    filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[{{||Excerpt}}]]"
+                    variable="backexcerpt"
+                >
+                    <$action-setfield
+                        $tiddler=<<backexcerpt>>
+                        $timestamp="no"
+                        interval={{{[<backexcerpt>get[interval]add[-1]]}}}
+                    />
+                </$list>
+                <$action-deletetiddler
+                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+                />
+                <$action-setfield
+                    $tiddler="$:/temp/fishing"
+                    text=""
+                    type=""
+                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}first[]]}}}
+                />
+                <$action-setfield
+                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+                    text={{{[{$:/temp/fishing!!fish}search:caption:literal[{{||Excerpt}}]then[show]else[hide]]}}}
+                />
+                <$action-sendmessage
+                    $message="tm-close-tiddler"
+                />
+                <$action-navigate
+                    $to={{$:/temp/fishing!!fish}}
+                />
+            </$fieldmangler>
+        </$list>
+    </$navigator>
+</$reveal>
