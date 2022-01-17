@@ -55,7 +55,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
     */
     FishingWidget.prototype.invokeAction = function (triggeringWidget, event) {
         var title = this.actionTiddler,//The title of the tiddler is the id of the tiddler.
-            grade = (this.actionGrade == "0" || this.actionGrade == "1" || this.actionGrade == "2") ? this.actionGrade : "learn";//Ratings for review have 0, 1, 2. Other ratings mean learn new tiddler.
+            grade = (this.actionGrade == "0" || this.actionGrade == "1" || this.actionGrade == "2") ? this.actionGrade : "-1";//Ratings for review have 0, 1, 2. Other ratings mean learn new tiddler.
 
 
         var difficultyDecay = -0.7,
@@ -76,7 +76,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
 
         review = new Date().toISOString().replace(/-|T|:|\.|Z/g, "");
 
-        if (grade == "learn") {// learn new tiddler
+        if (grade == "-1") {// learn new tiddler
             var addDay = Math.round(defaultStability * Math.log(requestRecall) / Math.log(0.9));
 
             due = $tw.wiki.filterTiddlers("[[" + addDay + "]due[]]")[0];
@@ -84,6 +84,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             difficulty = defaultDifficulty;
             stability = defaultStability;
             retrievability = 1;
+            grade = "-1";
             reps = 1;
             lapses = 0;
             history = "[]";
@@ -132,6 +133,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
                 difficulty,
                 stability,
                 retrievability,
+                grade,
                 lapses,
                 reps,
                 review
@@ -195,6 +197,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
                 retrievability,
                 lapses,
                 reps,
+                grade,
                 review,
                 history
             })

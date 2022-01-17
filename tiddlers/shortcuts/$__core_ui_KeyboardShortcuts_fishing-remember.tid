@@ -18,7 +18,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-remember
                     $param="?"
                 />
                 <$action-fishing
-                    $grade="0"
+                    $grade="1"
                 />
                 <$list
                     filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[{{||Excerpt}}]]"
