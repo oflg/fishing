@@ -47,6 +47,8 @@ type: application/json
     "unpinfiltertip": "删除此常用筛选器表达式：",
     "fillfiltertip": "填入此筛选器表达式：",
     "settings": "这些高级设置让您定制钓鱼的行为。",
-    "setrecall": "目标保留率（不得小于 0.7 或大于 0.95）",
-    "setinterval": "摘抄条目的初始间隔天数（必须是整数）"
+    "setrecall": "目标保留率",
+    "setrecalltip": "必须在 0.7 和 0.95 之间",
+    "setinterval": "摘抄条目的初始间隔天数",
+    "setintervaltip": "必须是正整数"
 }
