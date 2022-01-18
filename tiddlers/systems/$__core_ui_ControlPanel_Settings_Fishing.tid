@@ -5,10 +5,14 @@ title: $:/core/ui/ControlPanel/Settings/Fishing
 
 <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[settings]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[settings]]}}}/><br>
 
-<div style="border-top:1px solid #eee;">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ControlPanel/Settings/Fishing]]">
 
-|<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setrecall]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setrecall]]}}}/> |<$edit-text tiddler="$:/plugins/oflg/fishing/data" field="requestRecall" placeholder="0.9" tag="input"/> |
-|<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setinterval]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setinterval]]}}}/> |<$edit-text tiddler="$:/plugins/oflg/fishing/data" field="requestInterval" placeholder="1" tag="input"/> |
+    <div style="border-top:1px solid #eee;">
 
-</div>
+        !! <$transclude field="caption"/>
 
+        <$transclude/>
+
+    </div>
+    
+</$list>
