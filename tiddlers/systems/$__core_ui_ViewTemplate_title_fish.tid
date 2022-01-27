@@ -1,7 +1,3 @@
 title: $:/core/ui/ViewTemplate/title/fish
 
-<!-- <span
-    class="tc-fish-title"
-> -->
-    <<toc-caption>>
-<!-- </span> -->
+<<toc-caption>>
