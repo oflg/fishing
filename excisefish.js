@@ -12,55 +12,35 @@ Based on TW's core/modules/editor/operations/text/excise.js
     /*jslint node: true, browser: true */
     /*global $tw: false */
     "use strict";
+
     exports["excisefish"] = function (event, operation) {
-        var selectionText = operation.selection,
-            exciseForm = event.paramObject.exciseForm,
-            exciseCaption = event.paramObject.exciseCaption,
-            exciseTo = event.paramObject.exciseTo;
+        if (operation.selection) {
 
-        var editTiddlerTitle = this.editTitle;
+            var selectionText = operation.selection,
+                exciseCaption = event.paramObject.exciseCaption;
 
-        var editTiddler = $tw.wiki.getTiddler(editTiddlerTitle);
+            var editTiddlerTitle = this.editTitle;
 
-        if (editTiddler && editTiddler.fields["draft.title"]) {//is draft tiddler
+            var editTiddler = $tw.wiki.getTiddler(editTiddlerTitle);
 
-            editTiddlerTitle = editTiddler.fields["draft.title"];
+            if (editTiddler && editTiddler.fields["draft.title"]) {//is draft tiddler
+                editTiddlerTitle = editTiddler.fields["draft.title"];
+            }
 
-        }
-
-        var currenttime = new Date(new Date().getTime()).toISOString().replace(/-|T|:|\.|Z/g, "");
-
-        //excise form
-        if (exciseForm === "title<br>text") {
-
-            var fishTitle = selectionText.split("\n")[0],
-                fishText = selectionText.replace(fishTitle, "");
-
-        } else if (exciseForm === "title<br>") {
-
-            var fishTitle = selectionText.split("\n")[0],
-                fishText = "";
-
-        } else {
-            // default to __''title''__text
-            var fishTitle = selectionText.indexOf("''__") !== -1 ? selectionText.split("''__")[0].replace("__''", "") : editTiddlerTitle + "/" + currenttime,
-                fishText = selectionText.indexOf("''__") !== -1 ? selectionText.replace("__''" + fishTitle + "''__", "") : operation.selection;
-
-        }
-
-        var title = $tw.wiki.generateNewTitle(fishTitle.replace(/\||\{|\}|\[|\]/g, "")),
-            caption = exciseCaption ? exciseCaption : "{{||Excerpt}}";
-
-        //excise to
-        if (exciseTo === "newtiddler") {
-            var text = fishText,
-                tags = [editTiddlerTitle, "?"],
+            var tags = [editTiddlerTitle, "?"],
                 priority = editTiddler.fields["priority"] || 0;
 
-            if (caption === "{{||Excerpt}}") {
+            var rTitle = editTiddlerTitle + "/" + new Date(new Date().getTime()).toISOString().replace(/-|T|:|\.|Z/g, "");
 
-                var interval = Number($tw.wiki.filterTiddlers("[{$:/plugins/oflg/fishing/data!!requestInterval}]")[0]),
+            if (exciseCaption === "{{||Excerpt}}") { //to excerpt tiddler
+
+                var title = selectionText.indexOf("''__") !== -1 ? selectionText.split("''__")[0].split("__''").slice(-1)[0] : rTitle,
+                    text = selectionText.indexOf("''__") !== -1 ? selectionText.replace(title + "''__", "").replace("__''", "") : operation.selection,
+                    caption = "{{||Excerpt}}",
+                    interval = Number($tw.wiki.filterTiddlers("[{$:/plugins/oflg/fishing/data!!requestInterval}]")[0]),
                     due = $tw.wiki.filterTiddlers("[[" + interval + "]due[]]")[0];
+
+                title = $tw.wiki.generateNewTitle(title.replace(/\||\{|\}|\[|\]|\'/g, ""));
 
                 $tw.wiki.addTiddler(
                     new $tw.Tiddler($tw.wiki.getCreationFields(), $tw.wiki.getModificationFields(), {
@@ -74,8 +54,44 @@ Based on TW's core/modules/editor/operations/text/excise.js
                     })
                 );
 
-            } else {//learn tiddler
-                $tw.rootWidget.invokeActionString("<$action-fishing $tiddler=" + title + " $grade='learn'/>");
+            } else {// default to question tiddler
+                var nTitle = selectionText.split("\n")[0];
+
+                if (nTitle.indexOf("''__") == -1 && nTitle.indexOf("__") !== -1) { //Select or Cloze question tiddler
+
+                    var title = nTitle,
+                        text = selectionText.replace(nTitle, "");
+
+                    if (/^[0-9A-I]+$/.test(nTitle.split("__").slice(-1)[0])) {
+
+                        var caption = "{{||Select}}";
+
+                    } else {
+
+                        var caption = "{{||Cloze}}";
+
+                    }
+
+                } else { //Q&A question tiddler
+
+                    var title = selectionText.indexOf("''__") !== -1 ? selectionText.split("''__")[0].split("__''").slice(-1)[0] : rTitle,
+                        text = selectionText.indexOf("''__") !== -1 ? selectionText.replace(title + "''__", "").replace("__''", "") : operation.selection,
+                        caption = "{{||Question}}";
+                }
+
+                title = $tw.wiki.generateNewTitle(title.replace(/\||\{|\}|\[|\]|\'/g, ""));
+
+                $tw.wiki.addTiddler(
+                    new $tw.Tiddler($tw.wiki.getCreationFields(), $tw.wiki.getModificationFields(), {
+                        title,
+                        text,
+                        caption,
+                        tags,
+                        priority
+                    })
+                );
+
+                $tw.rootWidget.invokeActionString("<$action-fishing $tiddler='" + title + "' $grade='learn'/>");
             }
 
             if (editTiddler.type === "text/x-markdown") {
@@ -92,19 +108,6 @@ Based on TW's core/modules/editor/operations/text/excise.js
             operation.cutEnd = operation.selEnd;
             operation.newSelStart = operation.selStart;
             operation.newSelEnd = operation.selStart + operation.replacement.length;
-
-        } else {
-            // default to current tiddler
-            var draftTitle = title || editTiddler.fields["draft.title"];
-
-            $tw.wiki.addTiddler(
-                new $tw.Tiddler($tw.wiki.getCreationFields(), editTiddler, $tw.wiki.getModificationFields(), {
-                    "draft.title": draftTitle,
-                    tags: editTiddler.getFieldString("tags") + " ?",
-                    caption
-                })
-            );
         }
-
-    };
+    }
 })();

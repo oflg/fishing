@@ -6,10 +6,27 @@ description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/
 condition: [<targetTiddler>]
 shortcuts: ((fishing-setquestion))
 
+\define tv-action-refresh-policy() always
+
 <$action-sendmessage
 	$message="tm-edit-text-operation"
-	$param="excisefish"
-	exciseTo="currenttiddler"
-	exciseForm="title<br>"
-	exciseCaption="{{||Question}}"
+	$param="save-selection"
+	tiddler="$:/temp/fishing"
+	field="save-selection"
 />
+
+<$list filter="[{$:/temp/fishing!!save-selection}!is[blank]then<targetTiddler>]">
+    <$navigator story="$:/StoryList" history="$:/HistoryList" relinkOnRename="yes">
+        <$fieldmangler>
+            <$action-sendmessage
+                $message="tm-add-tag"
+                $param="?"
+            />
+            <$action-setfield
+                $tiddler=<<targetTiddler>>
+                draft.title={{{[{$:/temp/fishing!!save-selection}]}}}
+                caption="{{||Question}}"
+            />
+        </$fieldmangler>
+    </$navigator>
+</$list>
