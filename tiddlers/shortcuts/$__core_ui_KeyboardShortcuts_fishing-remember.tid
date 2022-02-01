@@ -8,7 +8,11 @@ title: $:/core/ui/KeyboardShortcuts/fishing-remember
     text=""
     animate="yes"
 >
-    <$navigator story="$:/StoryList" history="$:/HistoryList" relinkOnRename="yes">
+    <$navigator
+        story="$:/StoryList"
+        history="$:/HistoryList"
+        relinkOnRename="yes"
+    >
         <$list
             filter="[{$:/temp/fishing!!fish}]"
         >

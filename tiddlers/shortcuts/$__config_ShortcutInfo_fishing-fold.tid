@@ -1,3 +1,5 @@
 title: $:/config/ShortcutInfo/fishing-fold
 
-<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[foldtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[foldtip]]}}}/>
+<$text
+    text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[foldtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[foldtip]]}}}
+/>

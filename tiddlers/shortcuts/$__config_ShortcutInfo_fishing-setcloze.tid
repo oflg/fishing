@@ -1,3 +1,5 @@
 title: $:/config/ShortcutInfo/fishing-setcloze
 
-<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setclozetip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setclozetip]]}}}/>
+<$text
+    text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setclozetip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setclozetip]]}}}
+/>

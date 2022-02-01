@@ -1,3 +1,5 @@
 title: $:/config/ShortcutInfo/fishing-learn
 
-<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[learntip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[learntip]]}}}/>
+<$text
+    text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[learntip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[learntip]]}}}
+/>
