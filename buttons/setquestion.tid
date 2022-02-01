@@ -15,8 +15,14 @@ shortcuts: ((fishing-setquestion))
 	field="save-selection"
 />
 
-<$list filter="[{$:/temp/fishing!!save-selection}!is[blank]then<targetTiddler>]">
-    <$navigator story="$:/StoryList" history="$:/HistoryList" relinkOnRename="yes">
+<$list
+    filter="[<targetTiddler>]"
+>
+    <$navigator
+        story="$:/StoryList"
+        history="$:/HistoryList"
+        relinkOnRename="yes"
+    >
         <$fieldmangler>
             <$action-sendmessage
                 $message="tm-add-tag"
@@ -24,7 +30,7 @@ shortcuts: ((fishing-setquestion))
             />
             <$action-setfield
                 $tiddler=<<targetTiddler>>
-                draft.title={{{[{$:/temp/fishing!!save-selection}]}}}
+                draft.title={{{[{$:/temp/fishing!!save-selection}!is[blank]]~[<targetTiddler>get[draft.title]]}}}
                 caption="{{||Question}}"
             />
         </$fieldmangler>
