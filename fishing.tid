@@ -66,8 +66,8 @@ title: $:/plugins/oflg/fishing/fishing
                                         animate="yes"
                                     >
                                         <$action-setfield
-                                            interval={{{[<currentTiddler>get[interval]]~[[0]]+[add[1]]}}}
-                                            due={{{[<currentTiddler>get[interval]]~[[0]]+[add[1]due[]]}}}
+                                            interval={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}subtract[1]]+[add[1]]}}}
+                                            due={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}subtract[1]]+[add[1]due[]]}}}
                                         />
                                     </$reveal>
                                     <$list
@@ -87,7 +87,7 @@ title: $:/plugins/oflg/fishing/fishing
                                         $tiddler="$:/temp/fishing"
                                         text=""
                                         type=""
-                                        fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}first[]]}}}
+                                        fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
                                     />
                                     <$action-setfield
                                         $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
@@ -148,7 +148,7 @@ title: $:/plugins/oflg/fishing/fishing
                                     $tiddler="$:/temp/fishing"
                                     text=""
                                     type=""
-                                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}first[]]}}}
+                                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
                                 />
                                 <$action-setfield
                                     $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
@@ -175,7 +175,7 @@ title: $:/plugins/oflg/fishing/fishing
                                     $tiddler="$:/temp/fishing"
                                     text=""
                                     type=""
-                                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}first[]]}}}
+                                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
                                 />
                                 <$action-setfield
                                     $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}

@@ -1,53 +1,56 @@
 title: $:/plugins/oflg/fishing/fishingpond
 
-<$set
-    name="fishingrod"
-    value={{$:/temp/fishing!!fishingrod}}
-    emptyValue="[tag[?]]"
+<$let
+    defaultgrod="[tag[?]]"
+    due="[has[due]]-[has[due]!days:due[1]]"
+    undue="[has[due]!days:due[1]]"
+    new="[!has[due]]"
+    autoorder="[sort[due]reverse[]sortsub:number<priority>reverse[]]"
+    dueorder="[sort[due]]"
+    createdorder="[sort[created]]"
 >
-    <$let
-        due="[has[due]]-[has[due]!days:due[1]]+[sort[due]reverse[]sortsub:number<priority>reverse[]]"
-        undue="[has[due]!days:due[1]sort[due]]"
-        new="[!has[due]sort[created]]"
+    <$list
+        filter="due undue new"
+        variable="pondname"
     >
-        <$list
-            filter="due undue new"
-            variable="fishingpondname"
+        <$let
+            pondordername={{{[<pondname>addsuffix[order]]}}}
+            fishingrod={{{[{$:/temp/fishing!!fishingrod}!is[blank]else<defaultgrod>]}}}
+            fishingpond={{{[<pondname>match[due]then<due>]~[<pondname>match[undue]then<undue>]~[<pondname>match[new]then<new>]}}}
+            fishingorder={{{[<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>]~[<pondname>match[due]then<autoorder>]~[<pondname>match[undue]then<dueorder>]~[<pondname>match[new]then<createdorder>]}}}
         >
-            <$let
-                fishingpond={{{[<fishingpondname>match[due]then<due>]~[<fishingpondname>match[undue]then<undue>]~[<fishingpondname>match[new]then<new>]}}}
+            <$button
+                tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingpondtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingpondtip]]}}}
+                aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingpondtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingpondtip]]}}}
+                class="tc-btn-invisible tc-tiddlylink"
+                style="padding-right:10px;"
             >
-                <$button
-                    tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingpondtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingpondtip]]}}}
-                    aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingpondtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingpondtip]]}}}
-                    class="tc-btn-invisible tc-tiddlylink"
-                    style="padding-right:10px;"
-                >
-                    <$action-setfield
-                        $tiddler="$:/temp/fishing"
-                        text=""
-                        fishingrod=<<fishingrod>>
-                        fishingpond=<<fishingpond>>
-                        fish={{{[subfilter<fishingrod>subfilter<fishingpond>first[]]}}}
-                    />
-                    <$action-setfield
-                        $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-                        text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
-                    />
-                    <$action-navigate
-                        $to={{$:/temp/fishing!!fish}}
-                    />
-                    <$action-popup
-                        $state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
-                        $coords=""
-                    />
-                    <$text
-                        text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<fishingpondname>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<fishingpondname>]}}}
-                    /><$count
-                        filter="[subfilter<fishingrod>subfilter<fishingpond>]"
-                    />
-                </$button>
-            </$let>
-        </$list>
-    </$let>
-</$set>
+                <$action-setfield
+                    $tiddler="$:/temp/fishing"
+                    text=""
+                    type=""
+                    fishingrod=<<fishingrod>>
+                    fishingpond=<<fishingpond>>
+                    fishingorder=<<fishingorder>>
+                    fish={{{[subfilter<fishingrod>subfilter<fishingpond>subfilter<fishingorder>first[]]}}}
+                />
+                <$action-setfield
+                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+                    text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+                />
+                <$action-navigate
+                    $to={{$:/temp/fishing!!fish}}
+                />
+                <$action-popup
+                    $state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
+                    $coords=""
+                />
+                <$text
+                    text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondname>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>]}}}
+                /><$count
+                    filter="[subfilter<fishingrod>subfilter<fishingpond>]"
+                />
+            </$button>
+        </$let>
+    </$list>
+</$let>
