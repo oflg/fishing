@@ -1,18 +1,17 @@
 tags: $:/tags/Stylesheet
 title: $:/plugins/oflg/fishing/styles.css
-type: text/vnd.tiddlywiki
 
 blockquote.tc-fish-quote {
-	border-left: 1px solid <<colour message-border>>;
+    border-left: 1px solid <<colour message-border>>;
     margin-right: 0;
     margin-left: 5px;
 }
 
 button.tc-tag-label, span.tc-tag-label {
-  white-space: normal;
+    white-space: normal;
 }
 
 .tc-fish-title{
     font-size: {{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}};
-	line-height: {{$:/themes/tiddlywiki/vanilla/metrics/bodylineheight}};
+    line-height: {{$:/themes/tiddlywiki/vanilla/metrics/bodylineheight}};
 }

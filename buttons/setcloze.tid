@@ -9,10 +9,10 @@ shortcuts: ((fishing-setcloze))
 \define tv-action-refresh-policy() always
 
 <$action-sendmessage
-	$message="tm-edit-text-operation"
-	$param="save-selection"
-	tiddler="$:/temp/fishing"
-	field="save-selection"
+    $message="tm-edit-text-operation"
+    $param="save-selection"
+    tiddler="$:/temp/fishing"
+    field="save-selection"
 />
 
 <$list

@@ -7,8 +7,8 @@ condition: [<targetTiddler>tag[?]]~[<targetTiddler>get[draft.of]match{$:/temp/fi
 shortcuts: ((fishing-marktitle))
 
 <$action-sendmessage
-	$message="tm-edit-text-operation"
-	$param="wrap-selection"
-	prefix="__''"
-	suffix="''__"
+    $message="tm-edit-text-operation"
+    $param="wrap-selection"
+    prefix="__''"
+    suffix="''__"
 />

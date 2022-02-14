@@ -5,30 +5,30 @@ title: $:/plugins/oflg/fishing/fishingfloat
 
 <!-- creat fishingfloat -->
 <$button
-	popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
-	tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}
-	aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}
-	class=<<tv-config-toolbar-class>>
-	selectedClass="tc-selected"
+    popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
+    tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}
+    aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}
+    class=<<tv-config-toolbar-class>>
+    selectedClass="tc-selected"
 >
-	<span class="tc-image-down-arrow tc-image-button">
-		{{$:/plugins/oflg/fishing/icon}}
-	</span>
+    <span class="tc-image-down-arrow tc-image-button">
+        {{$:/plugins/oflg/fishing/icon}}
+    </span>
 </$button>
 <!-- creat fishingdeck -->
 <$reveal
-	state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
-	type="popup"
-	position="below"
-	animate="yes"
+    state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
+    type="popup"
+    position="below"
+    animate="yes"
 >
-	<div
-		class="tc-drop-down tc-popup-keep"
-		style="min-width:0;"
-	>
-		<!-- creat fishingpond -->
-		{{$:/plugins/oflg/fishing/fishingpond}}
-		<!-- creat fishingrod -->
-		{{$:/plugins/oflg/fishing/fishingrod}}
-	</div>
+    <div
+        class="tc-drop-down tc-popup-keep"
+        style="min-width:0;"
+    >
+        <!-- creat fishingpond -->
+        {{$:/plugins/oflg/fishing/fishingpond}}
+        <!-- creat fishingrod -->
+        {{$:/plugins/oflg/fishing/fishingrod}}
+    </div>
 </$reveal>

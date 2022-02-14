@@ -7,7 +7,7 @@ condition: [<targetTiddler>tag[?]]~[<targetTiddler>get[draft.of]match{$:/temp/fi
 shortcuts: ((fishing-exciseexcerpt))
 
 <$action-sendmessage
-	$message="tm-edit-text-operation"
-	$param="excisefish"
-	exciseCaption="{{||Excerpt}}"
+    $message="tm-edit-text-operation"
+    $param="excisefish"
+    exciseCaption="{{||Excerpt}}"
 />

@@ -1,19 +1,19 @@
 title: $:/plugins/oflg/fishing/fishingrod
 
 <div
-	style="margin:5px 15px;"
+    style="margin:5px 15px;"
 >
-	<$edit-text
-		tiddler="$:/temp/fishing"
-		field="fishingrod"
-		tag="input"
-		focus="true"
-		placeholder="[tag[?]]"
-		inputActions='<$action-setfield $tiddler="$:/temp/fishing" fish=""/>'
-	/>
+    <$edit-text
+        tiddler="$:/temp/fishing"
+        field="fishingrod"
+        tag="input"
+        focus="true"
+        placeholder="[tag[?]]"
+        inputActions='<$action-setfield $tiddler="$:/temp/fishing" fish=""/>'
+    />
 </div>
 <div
-	style="display:flex;margin:0 15px;flex-flow:wrap;align-items:center;font-size:10pt;"
+    style="display:flex;margin:0 15px;flex-flow:wrap;align-items:center;font-size:10pt;"
 >
     <$list filter="[all[shadows+tiddlers]tag[$:/tags/fishingrod/Button]!has[draft.of]]">
         <$transclude/>
