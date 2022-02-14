@@ -16,10 +16,3 @@ button.tc-tag-label, span.tc-tag-label {
     font-size: {{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}};
 	line-height: {{$:/themes/tiddlywiki/vanilla/metrics/bodylineheight}};
 }
-
-<$list filter="[tag[?]]">
-a.tc-tiddlylink[href^="#{{{[<currentTiddler>encodeuricomponent[]]}}}"]:before {
-  content: "▾";
-  display: inline-block;
-}
-</$list>
