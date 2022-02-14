@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing/icons/setselect
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setselect]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setselect]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setselecttip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setselecttip]]}}}/>
-condition: [<targetTiddler>]
+condition: [<targetTiddler>!search:caption:literal[{{||Select}}]]
 shortcuts: ((fishing-setselect))
 
 \define tv-action-refresh-policy() always

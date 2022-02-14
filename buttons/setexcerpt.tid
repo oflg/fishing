@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing/icons/setexcerpt
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setexcerpt]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setexcerpt]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setexcerpttip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setexcerpttip]]}}}/>
-condition: [<targetTiddler>]
+condition: [<targetTiddler>!has[due]]
 shortcuts: ((fishing-setexcerpt))
 
 \define tv-action-refresh-policy() always
@@ -29,8 +29,9 @@ shortcuts: ((fishing-setexcerpt))
                 $param="?"
             />
             <$action-setfield
-                $tiddler=<<targetTiddler>>
                 draft.title={{{[{$:/temp/fishing!!save-selection}!is[blank]]~[<targetTiddler>get[draft.title]]}}}
+                interval={{$:/plugins/oflg/fishing/data!!requestInterval}}
+                due={{{[{$:/plugins/oflg/fishing/data!!requestInterval}due[]]}}}
                 caption="{{||Excerpt}}"
             />
         </$fieldmangler>
