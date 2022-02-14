@@ -31,7 +31,7 @@ title: $:/plugins/oflg/fishing/fishing
 						variable="ease"
 					>
 						<$reveal
-							default={{{[<currentTiddler>has[retrievability]then[review]else[learnnew]]}}}
+							default={{{[<currentTiddler>has[grade]then[review]else[learnnew]]}}}
 							type="match"
 							text={{{[<ease>match[learn]then[learnnew]else[review]]}}}
 							animate="yes"
@@ -91,7 +91,7 @@ title: $:/plugins/oflg/fishing/fishing
 									/>
 									<$action-setfield
 										$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-										text={{{[{$:/temp/fishing!!fish}search:caption:literal[{{||Excerpt}}]then[show]else[hide]]}}}
+										text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
 									/>
 									<$action-sendmessage
 										$message="tm-close-tiddler"
@@ -152,7 +152,7 @@ title: $:/plugins/oflg/fishing/fishing
 								/>
 								<$action-setfield
 									$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-									text={{{[{$:/temp/fishing!!fish}search:caption:literal[{{||Excerpt}}]then[show]else[hide]]}}}
+									text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
 								/>
 								<$action-sendmessage
 									$message="tm-close-tiddler"
@@ -179,7 +179,7 @@ title: $:/plugins/oflg/fishing/fishing
 								/>
 								<$action-setfield
 									$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-									text={{{[{$:/temp/fishing!!fish}search:caption:literal[{{||Excerpt}}]then[show]else[hide]]}}}
+									text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
 								/>
 								<$action-sendmessage
 									$message="tm-close-tiddler"
@@ -206,7 +206,7 @@ title: $:/plugins/oflg/fishing/fishing
 								/>
 								<$action-setfield
 									$tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-									text={{{[{$:/temp/fishing!!fish}search:caption:literal[{{||Excerpt}}]then[show]else[hide]]}}}
+									text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
 								/>
 								<$action-sendmessage
 									$message="tm-close-tiddler"
