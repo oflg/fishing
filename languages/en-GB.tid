@@ -34,7 +34,7 @@ type: application/json
     "discardtip": "No more learning this tiddler",
     "add7tip": "Learning this tiddler next week",
     "add1tip": "Learning this tiddler tomorrow",
-    "fishingpondtip": "Memorize this group of tiddlers",
+    "fishingpondtip": "Learn this group of tiddlers",
     "due": "due: ",
     "undue": "undue: ",
     "new": "new: ",

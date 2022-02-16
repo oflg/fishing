@@ -34,7 +34,7 @@ type: application/json
     "discardtip": "不再学习此条目",
     "add7tip": "下周学习此条目",
     "add1tip": "明天学习此条目",
-    "fishingpondtip": "记忆此组条目",
+    "fishingpondtip": "学习此组条目",
     "due": "已到期：",
     "undue": "未到期：",
     "new": "新添加：",
