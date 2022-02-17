@@ -1,10 +1,10 @@
-title: $:/plugins/oflg/fishing/buttons/setquestion
+title: $:/plugins/oflg/fishing/buttons/editortoolbar/setselect
 tags: $:/tags/EditorToolbar
-icon: $:/plugins/oflg/fishing/icons/setquestion
-caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setquestion]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setquestion]]}}}/>
-description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setquestiontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setquestiontip]]}}}/>
-condition: [<targetTiddler>!search:caption:literal[{{||Question}}]]
-shortcuts: ((fishing-setquestion))
+icon: $:/plugins/oflg/fishing/icons/setselect
+caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setselect]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setselect]]}}}/>
+description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setselecttip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setselecttip]]}}}/>
+condition: [<targetTiddler>!search:caption:literal[{{||Select}}]]
+shortcuts: ((fishing-setselect))
 
 \define tv-action-refresh-policy() always
 
@@ -31,7 +31,7 @@ shortcuts: ((fishing-setquestion))
             <$action-setfield
                 $tiddler=<<targetTiddler>>
                 draft.title={{{[{$:/temp/fishing!!save-selection}!is[blank]]~[<targetTiddler>get[draft.title]]}}}
-                caption="{{||Question}}"
+                caption="{{||Select}}"
             />
         </$fieldmangler>
     </$navigator>

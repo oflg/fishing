@@ -1,4 +1,4 @@
-title: $:/plugins/oflg/fishing/buttons/excisequestion
+title: $:/plugins/oflg/fishing/buttons/editortoolbar/excisequestion
 tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing/icons/excisequestion
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisequestion]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisequestion]]}}}/>
