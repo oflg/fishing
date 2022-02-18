@@ -41,7 +41,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-remember
                     $tiddler="$:/temp/fishing"
                     text=""
                     type=""
-                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}first[]]}}}
+                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
                 />
                 <$action-setfield
                     $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
