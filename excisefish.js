@@ -91,7 +91,7 @@ Based on TW's core/modules/editor/operations/text/excise.js
                     })
                 );
 
-                $tw.rootWidget.invokeActionString("<$action-fishing $tiddler='" + title + "' $grade='learn'/>");
+                $tw.rootWidget.invokeActionString('<$action-fishing $tiddler="""' + title + '""" $grade="learn"/>');
             }
 
             if (editTiddler.type === "text/x-markdown") {
