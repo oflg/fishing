@@ -1,5 +1,6 @@
 title: $:/plugins/oflg/fishing/buttons/fishingrod/addfilter
 tags: $:/tags/fishingrod/Button
+list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
 
 <$reveal
     default={{{[{$:/temp/fishing!!fishingrod}]}}}
