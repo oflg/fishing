@@ -16,7 +16,7 @@ autopriority: [get[caption]search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/
         pondordername={{{[<pondname>addsuffix[order]]}}}
         fishingrod={{{[{$:/temp/fishing!!fishingrod}!is[blank]else{$:/plugins/oflg/fishing/fishingpond!!rod}]}}}
         fishingpond={{{[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!duepond}]~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!unduepond}]~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!newpond}]}}}
-        fishingorder={{{[<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>]~[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorderr}]}}}
+        fishingorder={{{[<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>]~[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}]}}}
     >
         <$button
             tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingpondtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingpondtip]]}}}
