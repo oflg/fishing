@@ -57,8 +57,8 @@ title: $:/plugins/oflg/fishing/fishing
                                         variable="null"
                                     >
                                         <$action-setfield
-                                            interval={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}subtract[1]]+[add[1]]}}}
-                                            due={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}subtract[1]]+[add[1]due[]]}}}
+                                            interval={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}else[1]subtract[1]]+[add[1]]}}}
+                                            due={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}else[1]subtract[1]]+[add[1]due[]]}}}
                                         />
                                     </$list>
                                     <$list
@@ -101,7 +101,7 @@ title: $:/plugins/oflg/fishing/fishing
                         tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[moretip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[moretip]]}}}
                         aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[moretip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[moretip]]}}}
                         class="tc-btn-invisible tc-tiddlylink"
-                        style="margin-left:10px;"
+                        style="padding-left:10px;"
                     >
                         ⁝
                     </$button>

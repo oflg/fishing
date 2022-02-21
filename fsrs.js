@@ -29,7 +29,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             stabilityDecay = -0.2,
             increaseFactor = 60;
 
-        var requestRecall = Number($tw.wiki.getTiddler("$:/plugins/oflg/fishing/data").fields.requestRecall),
+        var requestRecall = Number($tw.wiki.getTiddler("$:/plugins/oflg/fishing/data").fields.requestRecall) || 0.9,
             fsrsData = $tw.wiki.getTiddlerData('$:/plugins/oflg/fishing/data');
 
         var totalCase = fsrsData.totalCase,
@@ -65,7 +65,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
                 lastReview = String(lastFieldsData.review),
                 lastHistory = JSON.parse(lastFieldsData.history);
 
-            interval = $tw.wiki.filterTiddlers("[[" + lastReview + "]interval[]]")[0];
+            interval = Number($tw.wiki.filterTiddlers("[[" + lastReview + "]interval[]]")[0]);
             retrievability = Math.exp(Math.log(0.9) * interval / lastStability);
             difficulty = Math.min(Math.max(lastDifficulty + retrievability - grade + 0.2, 1), 10);
 

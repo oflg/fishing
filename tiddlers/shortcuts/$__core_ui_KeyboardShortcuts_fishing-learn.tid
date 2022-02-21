@@ -28,8 +28,8 @@ title: $:/core/ui/KeyboardShortcuts/fishing-learn
                 variable="null"
             >
                 <$action-setfield
-                    interval={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}subtract[1]]+[add[1]]}}}
-                    due={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}subtract[1]]+[add[1]due[]]}}}
+                    interval={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}else[1]subtract[1]]+[add[1]]}}}
+                    due={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}else[1]subtract[1]]+[add[1]due[]]}}}
                 />
             </$list>
             <$action-deletetiddler
