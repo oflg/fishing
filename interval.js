@@ -25,7 +25,9 @@ Calculate the interval of tiddler
 
             var diffTime = new Date(nowDay) - new Date(twTimeDay);
 
-            var interval = String(diffTime / 86400000 || 0);
+            var diffDay = diffTime / 86400000 || 0;
+
+            var interval = String(diffDay > 0 ? diffDay : 0);
 
             results.push(interval);
         });

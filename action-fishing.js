@@ -64,12 +64,12 @@ Action widget to set fishing fields on tiddlers.
             modificationFields = this.actionTimestamp ? $tw.wiki.getModificationFields() : undefined;
 
         $tw.wiki.addTiddler(
-            new $tw.Tiddler(creationFields, $tw.wiki.getTiddler(title), modificationFields, data.fishData)
+            new $tw.Tiddler(creationFields, $tw.wiki.getTiddler(title), modificationFields, data.itemData)
         );
 
         $tw.wiki.addTiddler(
             new $tw.Tiddler(creationFields, $tw.wiki.getTiddler("$:/plugins/oflg/fishing/data"), modificationFields, {
-                text: JSON.stringify(data.fishingData)
+                text: JSON.stringify(data.fsrsData)
             })
         );
 

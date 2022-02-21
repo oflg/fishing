@@ -37,7 +37,7 @@ Based on TW's core/modules/editor/operations/text/excise.js
                 var title = selectionText.indexOf("''__") !== -1 ? selectionText.split("''__")[0].split("__''").slice(-1)[0] : rTitle,
                     text = selectionText.indexOf("''__") !== -1 ? selectionText.replace(title + "''__", "").replace("__''", "") : operation.selection,
                     caption = "{{||Excerpt}}",
-                    interval = Number($tw.wiki.filterTiddlers("[{$:/plugins/oflg/fishing/data!!requestInterval}]")[0]),
+                    interval = Number($tw.wiki.getTiddler("$:/plugins/oflg/fishing/data").fields.requestInterval),
                     due = $tw.wiki.filterTiddlers("[[" + interval + "]due[]]")[0];
 
                 title = $tw.wiki.generateNewTitle(title.replace(/\||\{|\}|\[|\]|\'/g, ""));

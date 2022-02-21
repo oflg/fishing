@@ -29,15 +29,15 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             stabilityDecay = -0.2,
             increaseFactor = 60;
 
-        var requestRecall = Number($tw.wiki.getTiddler("$:/plugins/oflg/fishing/data").fields.requestInterval),
-            fishingData = $tw.wiki.getTiddlerData('$:/plugins/oflg/fishing/data');
+        var requestRecall = Number($tw.wiki.getTiddler("$:/plugins/oflg/fishing/data").fields.requestRecall),
+            fsrsData = $tw.wiki.getTiddlerData('$:/plugins/oflg/fishing/data');
 
-        var totalCase = fishingData.totalCase,
-            totalDiff = fishingData.totalDiff,
-            totalReview = fishingData.totalReview,
-            defaultDifficulty = fishingData.defaultDifficulty,
-            defaultStability = fishingData.defaultStability,
-            stabilityDataArry = fishingData.stabilityDataArry;
+        var totalCase = fsrsData.totalCase,
+            totalDiff = fsrsData.totalDiff,
+            totalReview = fsrsData.totalReview,
+            defaultDifficulty = fsrsData.defaultDifficulty,
+            defaultStability = fsrsData.defaultStability,
+            stabilityDataArry = fsrsData.stabilityDataArry;
 
         var due, interval, difficulty, stability, retrievability, lapses, reps, review, history;
 
@@ -58,12 +58,12 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
         } else {// review tiddler after learn
             var lastFieldsData = $tw.wiki.getTiddler(title).fields;
 
-            var lastDifficulty = Number(lastFieldsData["difficulty"]),
-                lastStability = Number(lastFieldsData["stability"]),
-                lastLapses = Number(lastFieldsData["lapses"]),
-                lastReps = Number(lastFieldsData["reps"]),
-                lastReview = String(lastFieldsData["review"]),
-                lastHistory = JSON.parse(lastFieldsData["history"]);
+            var lastDifficulty = Number(lastFieldsData.difficulty),
+                lastStability = Number(lastFieldsData.stability),
+                lastLapses = Number(lastFieldsData.lapses),
+                lastReps = Number(lastFieldsData.reps),
+                lastReview = String(lastFieldsData.review),
+                lastHistory = JSON.parse(lastFieldsData.history);
 
             interval = $tw.wiki.filterTiddlers("[[" + lastReview + "]interval[]]")[0];
             retrievability = Math.exp(Math.log(0.9) * interval / lastStability);
@@ -110,7 +110,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
 
             // Adaptive defaultDifficulty
             if (totalCase > 100) {
-                defaultDifficulty = 1 / Math.pow(totalReview, 0.3) * Math.pow(Math.log(requestRecall) / Math.log(requestRecall + totalDiff / totalCase), 1 / difficultyDecay) * 5 + (1 - 1 / Math.pow(totalReview, 0.3)) * defaultDifficulty;
+                defaultDifficulty = 1 / Math.pow(totalReview, 0.3) * Math.pow(Math.log(requestRecall) / Math.max(Math.log(requestRecall + totalDiff / totalCase), 0), 1 / difficultyDecay) * 5 + (1 - 1 / Math.pow(totalReview, 0.3)) * defaultDifficulty;
 
                 totalDiff = 0
                 totalCase = 0
@@ -152,7 +152,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             }
         }
 
-        var fishData = {
+        var itemData = {
             due,
             interval,
             difficulty,
@@ -165,7 +165,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             history
         }
 
-        fishingData = {
+        fsrsData = {
             totalCase,
             totalDiff,
             totalReview,
@@ -174,7 +174,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             stabilityDataArry
         }
 
-        return { fishData, fishingData };// Action was invoked
+        return { itemData, fsrsData };// Action was invoked
     };
 
 })();
