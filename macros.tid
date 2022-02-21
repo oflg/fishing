@@ -1,8 +1,6 @@
 tags: $:/tags/Macro
 title: $:/plugins/oflg/fishing/macros
 
-\define priority() [get[caption]search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/QuestionTemplate]count[]]=[get[due]interval[]]=[backlinks[]count[]]=[links[]has[due]count[]negate[]]=[links[]has[due]!days:due[1]count[]]+[sum[]add{!!priority}]
-
 \define fishbreadcrumbs()
 <$let
     currentTiddler={{{[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[first[]]}}}

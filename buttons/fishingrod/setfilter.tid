@@ -41,45 +41,39 @@ list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
                     class="tc-popup-keep tc-drop-down"
                     style="min-width:0;padding:10px;"
                 >
-                        <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setalias]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setalias]]}}}/>
+                    <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setalias]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setalias]]}}}/>
+                    <div
+                        style="display:flex;justify-content:space-between;font-size:10pt;padding:2px 1px;"
+                    >
+                        <$edit-text tiddler={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]]}}} field="caption" placeholder={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[typealias]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[typealias]]}}} tag="input"/>
+                    </div>
+                    <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setorder]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setorder]]}}}/>
+                    <$list
+                        filter="due undue new"
+                        variable="pondname"
+                    >
                         <div
                             style="display:flex;justify-content:space-between;font-size:10pt;padding:2px 1px;"
                         >
-                            <$edit-text tiddler={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]]}}} field="caption" placeholder={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[typealias]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[typealias]]}}} tag="input"/>
-                        </div>
-                    <$let
-                        autoorder="[sort[due]reverse[]sortsub:number<priority>reverse[]]"
-                        dueorder="[sort[due]]"
-                        createdorder="[sort[created]]"
-                    >
-                            <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setorder]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setorder]]}}}/>
-                            <$list
-                                filter="due undue new"
-                                variable="pondname"
+                            <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondname>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>]}}}/>
+                            <$select 
+                                tiddler={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]]}}}
+                                index={{{[<pondname>addsuffix[order]]}}}
+                                default={{{[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}]}}}
                             >
-                                <div
-                                    style="display:flex;justify-content:space-between;font-size:10pt;padding:2px 1px;"
+                                <$list
+                                    filter="autoorder dueorder createdorder"
+                                    variable="pondorder"
                                 >
-                                    <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondname>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>]}}}/>
-                                    <$select 
-                                        tiddler={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]]}}}
-                                        index={{{[<pondname>addsuffix[order]]}}}
-                                        default={{{[<pondname>match[due]then<autoorder>]~[<pondname>match[undue]then<dueorder>]~[<pondname>match[new]then<createdorder>]}}}
+                                    <option
+                                        value={{{[<pondorder>match[autoorder]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondorder>match[dueorder]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]~[<pondorder>match[createdorder]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}]}}}
                                     >
-                                        <$list
-                                            filter="autoorder dueorder createdorder"
-                                            variable="pondorder"
-                                        >
-                                            <option
-                                                value={{{[<pondorder>match[autoorder]then<autoorder>]~[<pondorder>match[dueorder]then<dueorder>]~[<pondorder>match[createdorder]then<createdorder>]}}}
-                                            >
-                                                <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondorder>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondorder>]}}}>
-                                            </option>
-                                        </$list>
-                                    </$select>
-                                </div>
-                            </$list>
-                    </$let>
+                                        <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondorder>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondorder>]}}}>
+                                    </option>
+                                </$list>
+                            </$select>
+                        </div>
+                    </$list>
                 </div>
             </$reveal>
         </div>

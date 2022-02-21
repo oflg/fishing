@@ -2,14 +2,11 @@ key: ((fishing-fold))
 tags: $:/tags/KeyboardShortcut
 title: $:/core/ui/KeyboardShortcuts/fishing-fold
 
-<$reveal
-    default={{{[{$:/temp/fishing!!fish}match{$:/HistoryList!!current-tiddler}]}}}
-    type="nomatch"
-    text=""
-    animate="yes"
+<$list
+    filter="[{$:/temp/fishing!!fish}!is[blank]]"
 >
     <$action-setfield
         $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
         text={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]get[text]match[hide]then[show]else[hide]]}}}
     />
-</$reveal>
+</$list>
