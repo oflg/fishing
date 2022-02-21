@@ -135,9 +135,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
 
                             intervalSetArry.push(ivl);
 
-                            var filterArry = stabilityDataArry.filter(function (fi) {
-                                return fi.interval === ivl;
-                            });
+                            var filterArry = stabilityDataArry.filter(fi => fi.interval === ivl);
 
                             var retrievabilitySum = filterArry.reduce((sum, e) => sum + e.retrievability, 0);
 
