@@ -23,7 +23,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
     */
     exports.run = function (title, grade) {
         var title = title,//The title of the tiddler is the id of the tiddler.
-            grade = (grade == "0" || grade == "1" || grade == "2") ? grade : "-1";//Ratings for review have 0, 1, 2. Other ratings mean learn new tiddler.
+            grade = (grade == "0" || grade == "1" || grade == "2") ? Number(grade) : -1;//Ratings for review have 0, 1, 2. Other ratings mean learn new tiddler.
 
         var difficultyDecay = -0.7,
             stabilityDecay = -0.2,
@@ -43,7 +43,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
 
         review = new Date().toISOString().replace(/-|T|:|\.|Z/g, "");
 
-        if (grade == "-1") {// learn new tiddler
+        if (grade == -1) {// learn new tiddler
             var addDay = Math.round(defaultStability * Math.log(requestRecall) / Math.log(0.9));
 
             due = $tw.wiki.filterTiddlers("[[" + addDay + "]due[]]")[0];
@@ -69,7 +69,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             retrievability = Math.exp(Math.log(0.9) * interval / lastStability);
             difficulty = Math.min(Math.max(lastDifficulty + retrievability - grade + 0.2, 1), 10);
 
-            if (grade == "0") {
+            if (grade == 0) {
                 stability = defaultStability * Math.exp(-0.3 * (lastLapses + 1));
 
                 if (lastReps > 1) {
@@ -77,7 +77,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
                 }
                 lapses = lastLapses + 1;
                 reps = 1;
-            } else {//grade == "1" || grade == "2"
+            } else {//grade == 1 || grade == 2
                 stability = lastStability * (1 + increaseFactor * Math.pow(difficulty, difficultyDecay) * Math.pow(lastStability, stabilityDecay) * (Math.exp(1 - retrievability) - 1));
 
                 if (lastReps > 1) {
