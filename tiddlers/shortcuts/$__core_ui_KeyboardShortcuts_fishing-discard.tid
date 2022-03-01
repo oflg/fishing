@@ -1,0 +1,50 @@
+key: ((fishing-discard))
+tags: $:/tags/KeyboardShortcut
+title: $:/core/ui/KeyboardShortcuts/fishing-discard
+
+<$list
+    filter="[{$:/temp/fishing!!fish}!is[blank]]"
+>
+    <$navigator
+        story="$:/StoryList"
+        history="$:/HistoryList"
+        relinkOnRename="yes"
+    >
+        <$fieldmangler>
+            <$action-sendmessage
+                $message="tm-remove-tag"
+                $param="?"
+            />
+            <$action-deletefield
+                due
+                interval
+                grade
+                difficulty
+                stability
+                retrievability
+                lapses
+                reps
+                review
+            />
+            <$action-deletetiddler
+                $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+            />
+            <$action-setfield
+                $tiddler="$:/temp/fishing"
+                text=""
+                type=""
+                fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
+            />
+            <$action-setfield
+                $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+                text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+            />
+            <$action-sendmessage
+                $message="tm-close-tiddler"
+            />
+            <$action-navigate
+                $to={{$:/temp/fishing!!fish}}
+            />
+        </$fieldmangler>
+    </$navigator>
+</$list>

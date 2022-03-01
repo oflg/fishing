@@ -128,12 +128,16 @@ title: $:/plugins/oflg/fishing/fishing
                                 <$action-deletefield
                                     due
                                     interval
+                                    grade
                                     difficulty
                                     stability
                                     retrievability
                                     lapses
                                     reps
                                     review
+                                />
+                                <$action-deletetiddler
+                                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
                                 />
                                 <$action-setfield
                                     $tiddler="$:/temp/fishing"
