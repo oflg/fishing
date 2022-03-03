@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/oflg/fishing/excisefish.js
+title: $:/plugins/oflg/fishing/operations/excisefish.js
 type: application/javascript
 module-type: texteditoroperation
 
@@ -109,5 +109,5 @@ Based on TW's core/modules/editor/operations/text/excise.js
             operation.newSelStart = operation.selStart;
             operation.newSelEnd = operation.selStart + operation.replacement.length;
         }
-    }
+    };
 })();

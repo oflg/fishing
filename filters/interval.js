@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/oflg/fishing/interval.js
+title: $:/plugins/oflg/fishing/filters/interval.js
 type: application/javascript
 module-type: filteroperator
 

@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/oflg/fishing/due.js
+title: $:/plugins/oflg/fishing/filters/due.js
 type: application/javascript
 module-type: filteroperator
 

@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/oflg/fishing/fsrs.js
+title: $:/plugins/oflg/fishing/macros/fsrs.js
 type: application/javascript
 module-type: macro
 
