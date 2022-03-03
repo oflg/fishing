@@ -3,7 +3,7 @@ tags: $:/tags/EditorToolbar
 icon: $:/plugins/oflg/fishing/icons/setquestion
 caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setquestion]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setquestion]]}}}/>
 description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setquestiontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setquestiontip]]}}}/>
-condition: [<targetTiddler>!search:caption:literal[{{||Question}}]]
+condition: [<targetTiddler>!search:caption:literal[Question}}]]
 shortcuts: ((fishing-setquestion))
 
 \define tv-action-refresh-policy() always
