@@ -49,6 +49,8 @@ type: application/json
     "autoorder": "自动优先级",
     "dueorder": "到期时间",
     "createdorder": "创建时间",
+    "titleorder": "标题",
+    "randomorder": "随机",
     "settings": "这些高级设置让您定制钓鱼的行为。",
     "setrecall": "目标保留率",
     "setrecalltip": "必须在 0.7 和 0.95 之间",

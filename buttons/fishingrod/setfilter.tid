@@ -62,11 +62,11 @@ list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
                                 default={{{[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}]}}}
                             >
                                 <$list
-                                    filter="autoorder dueorder createdorder"
+                                    filter="autoorder dueorder createdorder titleorder randomorder"
                                     variable="pondorder"
                                 >
                                     <option
-                                        value={{{[<pondorder>match[autoorder]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondorder>match[dueorder]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]~[<pondorder>match[createdorder]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}]}}}
+                                        value={{{[<pondorder>match[autoorder]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondorder>match[dueorder]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]~[<pondorder>match[createdorder]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}]~[<pondorder>match[titleorder]then{$:/plugins/oflg/fishing/fishingpond!!titleorder}]~[<pondorder>match[randomorder]then{$:/plugins/oflg/fishing/fishingpond!!randomorder}]}}}
                                     >
                                         <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondorder>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondorder>]}}}>
                                     </option>

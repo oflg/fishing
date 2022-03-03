@@ -49,6 +49,8 @@ type: application/json
     "autoorder": "Auto priority",
     "dueorder": "Due date",
     "createdorder": "Created date",
+    "titleorder": "Title",
+    "randomorder": "Random",
     "settings": "These settings let you customise the behaviour of Fishing.",
     "setrecall": "Retention",
     "setrecalltip": "Must be between 0.7 and 0.95",
