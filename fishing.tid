@@ -45,7 +45,7 @@ title: $:/plugins/oflg/fishing/fishing
                                         $param="?"
                                     />
                                     <$list
-                                        filter="[<currentTiddler>!search:caption:literal[{{||Excerpt}}]]"
+                                        filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
                                         variable="null"
                                     >
                                         <$action-fishing
@@ -53,7 +53,7 @@ title: $:/plugins/oflg/fishing/fishing
                                         />
                                     </$list>
                                     <$list
-                                        filter="[<currentTiddler>search:caption:literal[{{||Excerpt}}]]"
+                                        filter="[<currentTiddler>search:caption:literal[Excerpt}}]]"
                                         variable="null"
                                     >
                                         <$action-setfield
@@ -62,7 +62,7 @@ title: $:/plugins/oflg/fishing/fishing
                                         />
                                     </$list>
                                     <$list
-                                        filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[{{||Excerpt}}]]"
+                                        filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[Excerpt}}]]"
                                         variable="backexcerpt"
                                     >
                                         <$action-setfield

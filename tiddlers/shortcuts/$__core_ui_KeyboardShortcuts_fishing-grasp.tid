@@ -19,7 +19,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-grasp
                 $grade="2"
             />
             <$list
-                filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[{{||Excerpt}}]]"
+                filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[Excerpt}}]]"
                 variable="backexcerpt"
             >
                 <$action-setfield

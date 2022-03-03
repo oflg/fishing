@@ -19,7 +19,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-forget
                 $grade="0"
             />
             <$list
-                filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[{{||Excerpt}}]]"
+                filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[Excerpt}}]]"
                 variable="backexcerpt"
             >
                 <$action-setfield

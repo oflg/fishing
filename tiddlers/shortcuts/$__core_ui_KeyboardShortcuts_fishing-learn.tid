@@ -16,7 +16,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-learn
                 $param="?"
             />
             <$list
-                filter="[<currentTiddler>!search:caption:literal[{{||Excerpt}}]]"
+                filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
                 variable="null"
             >
                 <$action-fishing
@@ -24,7 +24,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-learn
                 />
             </$list>
             <$list
-                filter="[<currentTiddler>search:caption:literal[{{||Excerpt}}]]"
+                filter="[<currentTiddler>search:caption:literal[Excerpt}}]]"
                 variable="null"
             >
                 <$action-setfield
