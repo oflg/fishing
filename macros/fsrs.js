@@ -22,44 +22,50 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
     Run the macro
     */
     exports.run = function (title, grade) {
-        var title = title,//The title of the tiddler is the id of the tiddler.
-            grade = (grade == "0" || grade == "1" || grade == "2") ? Number(grade) : -1;//Ratings for review have 0, 1, 2. Other ratings mean learn new tiddler.
+        grade = (grade == "0" || grade == "1" || grade == "2") ? Number(grade) : -1;//Ratings for review have 0, 1, 2. Other ratings mean learn new tiddler.
 
-        var difficultyDecay = -0.7,
-            stabilityDecay = -0.2,
-            increaseFactor = 60;
+        var fsrsData = $tw.wiki.getTiddlerData('$:/plugins/oflg/fishing/data');
 
-        var requestRecall = Number($tw.wiki.getTiddler("$:/plugins/oflg/fishing/data").fields.requestRecall) || 0.9,
-            fsrsData = $tw.wiki.getTiddlerData('$:/plugins/oflg/fishing/data');
+        function faultToleranceValue(value, defaultValue) {
+            return (typeof value === 'number' && !isNaN(value)) ? value : defaultValue;
+        }
 
-        var totalCase = fsrsData.totalCase,
-            totalDiff = fsrsData.totalDiff,
-            totalReview = fsrsData.totalReview,
-            defaultDifficulty = fsrsData.defaultDifficulty,
-            defaultStability = fsrsData.defaultStability,
-            stabilityDataArry = fsrsData.stabilityDataArry;
+        var requestRetention = faultToleranceValue(fsrsData.requestRetention, 0.9),
+            difficultyDecay = faultToleranceValue(fsrsData.difficultyDecay, 60),
+            stabilityDecay = faultToleranceValue(fsrsData.stabilityDecay, -0.7),
+            increaseFactor = faultToleranceValue(fsrsData.increaseFactor, 60),
+            totalCase = faultToleranceValue(fsrsData.totalCase, 0),
+            totalDiff = faultToleranceValue(fsrsData.totalDiff, 0),
+            totalReview = faultToleranceValue(fsrsData.totalReview, 0),
+            defaultDifficulty = faultToleranceValue(fsrsData.defaultDifficulty, 5),
+            defaultStability = faultToleranceValue(fsrsData.defaultStability, 2),
+            stabilityDataArry = fsrsData.stabilityDataArry || [];
 
         var due, interval, difficulty, stability, retrievability, lapses, reps, review, history;
 
         review = new Date().toISOString().replace(/-|T|:|\.|Z/g, "");
 
         if (grade == -1) {// learn new tiddler
-            var addDay = Math.round(defaultStability * Math.log(requestRecall) / Math.log(0.9));
+            var addDay = Math.round(defaultStability * Math.log(requestRetention) / Math.log(0.9));
 
             due = $tw.wiki.filterTiddlers("[[" + addDay + "]due[]]")[0];
             interval = 0;
             difficulty = defaultDifficulty;
             stability = defaultStability;
             retrievability = 1;
-            grade = "-1";
+            grade = -1;
             reps = 1;
             lapses = 0;
             history = "[]";
         } else {// review tiddler after learn
             var lastFieldsData = $tw.wiki.getTiddler(title).fields;
 
-            var lastDifficulty = Number(lastFieldsData.difficulty),
+            var lastDue = String(lastFieldsData.due),
+                lastInterval = Number(lastFieldsData.interval),
+                lastDifficulty = Number(lastFieldsData.difficulty),
                 lastStability = Number(lastFieldsData.stability),
+                lastRetrievability = Number(lastFieldsData.retrievability),
+                lastGrade = Number(lastFieldsData.grade),
                 lastLapses = Number(lastFieldsData.lapses),
                 lastReps = Number(lastFieldsData.reps),
                 lastReview = String(lastFieldsData.review),
@@ -90,30 +96,30 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             totalCase = totalCase + 1;
             totalReview = totalReview + 1;
 
-            var addDay = Math.round(stability * Math.log(requestRecall) / Math.log(0.9));
+            var addDay = Math.round(stability * Math.log(requestRetention) / Math.log(0.9));
 
             due = $tw.wiki.filterTiddlers("[[" + addDay + "]due[]]")[0];
 
             lastHistory.push({
-                due,
-                interval,
-                difficulty,
-                stability,
-                retrievability,
-                grade,
-                lapses,
-                reps,
-                review
+                due: lastDue,
+                interval: lastInterval,
+                difficulty: lastDifficulty,
+                stability: lastStability,
+                retrievability: lastRetrievability,
+                grade: lastGrade,
+                lapses: lastLapses,
+                reps: lastReps,
+                review: lastReview
             });
 
             history = JSON.stringify(lastHistory);
 
             // Adaptive defaultDifficulty
             if (totalCase > 100) {
-                defaultDifficulty = 1 / Math.pow(totalReview, 0.3) * Math.pow(Math.log(requestRecall) / Math.max(Math.log(requestRecall + totalDiff / totalCase), 0), 1 / difficultyDecay) * 5 + (1 - 1 / Math.pow(totalReview, 0.3)) * defaultDifficulty;
+                defaultDifficulty = 1 / Math.pow(totalReview, 0.3) * Math.pow(Math.log(requestRetention) / Math.max(Math.log(requestRetention + totalDiff / totalCase), 0), 1 / difficultyDecay) * 5 + (1 - 1 / Math.pow(totalReview, 0.3)) * defaultDifficulty;
 
-                totalDiff = 0
-                totalCase = 0
+                totalDiff = 0;
+                totalCase = 0;
             }
 
             // Adaptive defaultStability
@@ -135,9 +141,13 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
 
                             intervalSetArry.push(ivl);
 
-                            var filterArry = stabilityDataArry.filter(fi => fi.interval === ivl);
+                            var filterArry = stabilityDataArry.filter(function (fi) {
+                                return fi.interval === ivl;
+                            });
 
-                            var retrievabilitySum = filterArry.reduce((sum, e) => sum + e.retrievability, 0);
+                            var retrievabilitySum = filterArry.reduce(function (sum, e) {
+                                return sum + e.retrievability;
+                            }, 0);
 
                             if (retrievabilitySum > 0) {
                                 sumRI2S = sumRI2S + ivl * Math.log(retrievabilitySum / filterArry.length) * filterArry.length;
@@ -151,28 +161,33 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
         }
 
         var itemData = {
-            due,
-            interval,
-            difficulty,
-            stability,
-            retrievability,
-            lapses,
-            reps,
-            grade,
-            review,
-            history
-        }
+            due: due,
+            interval: interval,
+            difficulty: difficulty,
+            stability: stability,
+            retrievability: retrievability,
+            lapses: lapses,
+            reps: reps,
+            grade: grade,
+            review: review,
+            history: history
+        };
 
         fsrsData = {
-            totalCase,
-            totalDiff,
-            totalReview,
-            defaultDifficulty,
-            defaultStability,
-            stabilityDataArry
-        }
+            requestRetention: requestRetention,
+            increaseFactor: increaseFactor,
+            difficultyDecay: difficultyDecay,
+            stabilityDecay: stabilityDecay,
+            increaseFactor: increaseFactor,
+            totalCase: totalCase,
+            totalDiff: totalDiff,
+            totalReview: totalReview,
+            defaultDifficulty: defaultDifficulty,
+            defaultStability: defaultStability,
+            stabilityDataArry: stabilityDataArry
+        };
 
-        return { itemData, fsrsData };// Action was invoked
+        return { itemData: itemData, fsrsData: fsrsData };// Action was invoked
     };
 
 })();

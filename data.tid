@@ -1,9 +1,12 @@
 title: $:/plugins/oflg/fishing/data
 type: application/json
-requestRecall: 0.9
 requestInterval: 1
 
 {
+    "requestRetention": 0.9,
+    "difficultyDecay" : -0.7,
+    "stabilityDecay" : -0.2,
+    "increaseFactor" : 60,
     "totalCase": 0,
     "totalDiff": 0,
     "totalReview": 0,

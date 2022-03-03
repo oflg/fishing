@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/oflg/fishing/widgets/action-fishing.js
+title: $:/plugins/oflg/fishing/action-fishing.js
 type: application/javascript
 module-type: widget
 
@@ -58,7 +58,7 @@ Action widget to set fishing fields on tiddlers.
         var title = this.actionTiddler,
             grade = this.actionGrade;
 
-        var data = $tw.macros.fsrs.run(title, grade);//Use Free Spaced Repetition Scheduler in fsrs.js
+        var data = $tw.macros.fsrs.run(title, grade);//Use Free Spaced Repetition Scheduler in $:/plugins/oflg/fishing/macros/fsrs.js
 
         var creationFields = this.actionTimestamp ? $tw.wiki.getCreationFields() : undefined,
             modificationFields = this.actionTimestamp ? $tw.wiki.getModificationFields() : undefined;
