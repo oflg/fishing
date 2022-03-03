@@ -18,18 +18,15 @@ list-after: $:/core/ui/ViewTemplate/title
             animate="yes"
         >
             <span
-                    style="font-size:7px;line-height:10px;"
+                class="tc-tags-wrapper"
+                style="font-size:10px;line-height:12px;"
             >
                 <<fishbreadcrumbs>>
-                <span
-                    class="tc-tags-wrapper"
-                >
-                    <$list
-                        filter="[[?]][all[current]tags[]sort[title]]-[all[current]backlinks[]]"
-                        template="$:/core/ui/TagTemplate"
-                        storyview="pop"
-                    />
-                </span>
+                <$list
+                    filter="[[?]][all[current]tags[]sort[title]]-[all[current]backlinks[]]"
+                    template="$:/core/ui/TagTemplate"
+                    storyview="pop"
+                />
             </span>
         </$reveal>
     </div>

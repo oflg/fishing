@@ -17,7 +17,7 @@ title: $:/plugins/oflg/fishing/macros
         type="nomatch"
         text=""
     >
-        {{||$:/core/ui/TagTemplate}} >
+        {{||$:/core/ui/TagTemplate}}>
     </$reveal>
 </$let>
 \end
