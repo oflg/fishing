@@ -20,8 +20,13 @@ list-after:
             class="tc-btn-invisible"
             style="margin:0;padding:0 5px;"
         >
-            <$action-setfield $tiddler="$:/temp/advancedsearch" $value="[[$:/temp/fishing]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]][subfilter{$:/temp/fishing!!fishingrod}][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]plugintiddlers[]]"/>
-            <$action-setfield $tiddler="$:/temp/advancedsearch/input" $value="[[$:/temp/fishing]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]][subfilter{$:/temp/fishing!!fishingrod}][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]plugintiddlers[]]"/>
+            <$action-setfield
+                $tiddler="$:/temp/fishing"
+                text=""
+                fish=""
+            />
+            <$action-setfield $tiddler="$:/temp/advancedsearch" $value="[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]][subfilter{$:/temp/fishing!!fishingrod}is[tiddler]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]plugintiddlers[]is[tiddler]]"/>
+            <$action-setfield $tiddler="$:/temp/advancedsearch/input" $value="[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]][subfilter{$:/temp/fishing!!fishingrod}is[tiddler]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]plugintiddlers[]is[tiddler]]"/>
             <$action-setfield $tiddler="$:/temp/advancedsearch/refresh" text="yes"/>
             <$action-setfield $tiddler="$:/state/tab--1498284803" $value="$:/core/ui/AdvancedSearch/Filter"/>
             <$action-navigate $to="$:/AdvancedSearch"/>
