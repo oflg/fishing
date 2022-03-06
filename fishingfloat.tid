@@ -14,6 +14,9 @@ title: $:/plugins/oflg/fishing/fishingfloat
     <span class="tc-image-down-arrow tc-image-button">
         {{$:/plugins/oflg/fishing/icon}}
     </span>
+   	<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+       <span class="tc-btn-text"><$text text="Fishing"/></span>
+    </$list>
 </$button>
 <!-- creat fishingdeck -->
 <$reveal
