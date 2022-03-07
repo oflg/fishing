@@ -1,62 +1,60 @@
 title: $:/plugins/oflg/fishing/languages/zh-Hans
-type: application/json
+type: application/x-tiddler-dictionary
 
-{
-    "fishing": "钓鱼",
-    "fishingtip": "渐进学习",
-    "excisequestion": "剪切到问题条目",
-    "excisequestiontip": "剪切所选文本到一个问题条目",
-    "exciseexcerpt": "剪切到摘抄条目",
-    "exciseexcerpttip": "剪切所选文本到一个摘抄条目",
-    "setexcerpt": "设为摘抄条目",
-    "setexcerpttip": "设置此条目为摘抄条目及所选文本为其标题",
-    "setquestion": "设为问答题条目",
-    "setquestiontip": "设置此条目为问答题条目及所选文本为其标题",
-    "setcloze": "设为填空题条目",
-    "setclozetip": "设置此条目为填空题条目及所选文本为其标题",
-    "setselect": "设为选择题条目",
-    "setselecttip": "设置此条目为选择题条目及所选文本为其标题",
-    "marktitle": "标为标题",
-    "marktitletip": "标记所选文本为摘抄条目或问答题条目的标题。例如：__''标题''__",
-    "markclozeoption": "标为挖空或选项",
-    "markclozeoptiontip": "标记所选文本为填空题条目的一个挖空或选择题的一个选项。例如： __挖空__或__选项__",
-    "foldtip": "展开或折叠此条目",
-    "learn": "下一个",
-    "learntip": "已学习此条目再学习下一个",
-    "forget": "忘记",
-    "forgettip": "忘记答案",
-    "remember": "记得",
-    "remembertip": "记得答案",
-    "grasp": "掌握",
-    "grasptip": "掌握问题",
-    "moretip": "更多",
-    "discard": "舍弃",
-    "discardtip": "不再学习此条目",
-    "add7tip": "下周学习此条目",
-    "add1tip": "明天学习此条目",
-    "fishingpondtip": "学习此组条目",
-    "due": "已到期：",
-    "undue": "未到期：",
-    "new": "新添加：",
-    "commonfiltertip": "常用筛选器表达式",
-    "addfiltertip": "添加到常用筛选器表达式：",
-    "unaddfiltertip": "取消添加此常用筛选器表达式：",
-    "fillfiltertip": "填入此筛选器表达式：",
-    "customisefiltertip": "自定义此筛选器表达式的行为：",
-    "setalias": "别名",
-    "typealias": "输入别名",
-    "setorder": "学习顺序",
-    "autoorder": "自动优先级",
-    "dueorder": "到期时间",
-    "createdorder": "创建时间",
-    "azorder": "标题 A-Z",
-    "zaorder": "标题 Z-A",
-    "randomorder": "随机",
-    "viewfiltertip": "查看此筛选器表达式的相关条目：",
-    "settings": "这些高级设置让您定制钓鱼的行为。",
-    "globalsettings": "全局设置",
-    "setrecall": "目标保留率",
-    "setrecalltip": "必须在 0.7 和 0.95 之间",
-    "setinterval": "摘抄条目的初始间隔天数",
-    "setintervaltip": "必须是正整数"
-}
+fishing: 钓鱼
+fishingtip: 渐进学习
+excisequestion: 剪切到问题条目
+excisequestiontip: 剪切所选文本到一个问题条目
+exciseexcerpt: 剪切到摘抄条目
+exciseexcerpttip: 剪切所选文本到一个摘抄条目
+setexcerpt: 设为摘抄条目
+setexcerpttip: 设置此条目为摘抄条目及所选文本为其标题
+setquestion: 设为问答题条目
+setquestiontip: 设置此条目为问答题条目及所选文本为其标题
+setcloze: 设为填空题条目
+setclozetip: 设置此条目为填空题条目及所选文本为其标题
+setselect: 设为选择题条目
+setselecttip: 设置此条目为选择题条目及所选文本为其标题
+marktitle: 标为标题
+marktitletip: 标记所选文本为摘抄条目或问答题条目的标题。例如：__''标题''__
+markclozeoption: 标为挖空或选项
+markclozeoptiontip: 标记所选文本为填空题条目的一个挖空或选择题的一个选项。例如：__挖空__或__选项__
+foldtip: 展开或折叠此条目
+learn: 下一个
+learntip: 已学习此条目再学习下一个
+forget: 忘记
+forgettip: 忘记答案
+remember: 记得
+remembertip: 记得答案
+grasp: 掌握
+grasptip: 掌握问题
+moretip: 更多
+discard: 舍弃
+discardtip: 不再学习此条目
+add7tip: 下周学习此条目
+add1tip: 明天学习此条目
+fishingpondtip: 学习此组条目
+due: 已到期：
+undue: 未到期：
+new: 新添加：
+commonfiltertip: 常用筛选器表达式
+addfiltertip: 添加到常用筛选器表达式：
+unaddfiltertip: 取消添加此常用筛选器表达式：
+fillfiltertip: 填入此筛选器表达式：
+customisefiltertip: 自定义此筛选器表达式的行为：
+setalias: 别名
+typealias: 输入别名
+setorder: 学习顺序
+autoorder: 自动优先级
+dueorder: 到期时间
+createdorder: 创建时间
+azorder: 标题 A-Z
+zaorder: 标题 Z-A
+randomorder: 随机
+viewfiltertip: 查看此筛选器表达式的相关条目：
+settings: 这些高级设置让您定制钓鱼的行为。
+globalsettings: 全局设置
+setrecall: 目标保留率
+setrecalltip: 必须在 0.7 和 0.95 之间
+setinterval: 摘抄条目的初始间隔天数
+setintervaltip: 必须是正整数

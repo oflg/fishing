@@ -1,62 +1,60 @@
 title: $:/plugins/oflg/fishing/languages/en-GB
-type: application/json
+type: application/x-tiddler-dictionary
 
-{
-    "fishing": "Fishing",
-    "fishingtip": "Incremental learning",
-    "exciseexcerpt": "Excise to Excerpt Tiddler",
-    "exciseexcerpttip": "Excise the selected text into an Excerpt Tiddler",
-    "excisequestion": "Excise to Question Tiddler",
-    "excisequestiontip": "Excise the selected text into a Question Tiddler",
-    "setexcerpt": "Set as Excerpt Tiddler",
-    "setexcerpttip": "Set this tiddler as Excerpt Tiddler and the selected text as it's title",
-    "setquestion": "Set as Q&A Question Tiddler",
-    "setquestiontip": "Set this tiddler as Q&A Question Tiddler and the selected text as it's title",
-    "setcloze": "Set as Cloze Question Tiddler",
-    "setclozetip": "Set this tiddler as Cloze Question Tiddler and the selected text as it's title",
-    "setselect": "Set as Select Question Tiddler",
-    "setselecttip": "Set this tiddler as Select Question Tiddler and the selected text as it's title",
-    "marktitle": "Mark title",
-    "marktitletip": "Mark the selected text as title of Excerpt Tiddler or Q&A Question Tiddler. For example: __''title''__",
-    "markclozeoption": "Mark cloze or option",
-    "markclozeoptiontip": "Mark the selected text as a cloze of Cloze Question Tiddler or a option of Select Question Tiddler. For example: __cloze__ or __option__",
-    "foldtip": "Unfold or fold this tiddler",
-    "learn": "next",
-    "learntip": "Learn one more",
-    "forget": "forget",
-    "forgettip": "Forget the answer",
-    "remember": "remember",
-    "remembertip": "Remember the answer",
-    "grasp": "grasp",
-    "grasptip": "Grasp the question",
-    "moretip": "More",
-    "discard": "discard",
-    "discardtip": "No more learning this tiddler",
-    "add7tip": "Learning this tiddler next week",
-    "add1tip": "Learning this tiddler tomorrow",
-    "fishingpondtip": "Learn this group of tiddlers",
-    "due": "due: ",
-    "undue": "undue: ",
-    "new": "new: ",
-    "commonfiltertip": "Commonly used Filter Expression",
-    "addfiltertip": "Add to commonly used Filter Expression: ",
-    "unaddfiltertip": "Unadd this Filter Expression: ",
-    "fillfiltertip": "Fill in this Filter Expression: ",
-    "customisefiltertip": "Customise the behaviour of this Filter Expression: ",
-    "setalias": "Alias",
-    "typealias": "Type alias",
-    "setorder": "Learning order",
-    "autoorder": "Auto priority",
-    "dueorder": "Due date",
-    "createdorder": "Created date",
-    "azorder": "Title A-Z",
-    "zaorder": "Title Z-A",
-    "randomorder": "Random",
-    "viewfiltertip": "View tiddlers related to this Filter Expression: ",
-    "settings": "These settings let you customise the behaviour of Fishing.",
-    "globalsettings": "Global Settings",
-    "setrecall": "Retention",
-    "setrecalltip": "Must be between 0.7 and 0.95",
-    "setinterval": "Initial interval day of Excerpt Tiddlers ",
-    "setintervaltip": "Must be a positive integer"
-}
+fishing: Fishing
+fishingtip: Incremental learning
+exciseexcerpt: Excise to Excerpt Tiddler
+exciseexcerpttip: Excise the selected text into an Excerpt Tiddler
+excisequestion: Excise to Question Tiddler
+excisequestiontip: Excise the selected text into a Question Tiddler
+setexcerpt: Set as Excerpt Tiddler
+setexcerpttip: Set this tiddler as Excerpt Tiddler and the selected text as it's title
+setquestion: Set as Q&A Question Tiddler
+setquestiontip: Set this tiddler as Q&A Question Tiddler and the selected text as it's title
+setcloze: Set as Cloze Question Tiddler
+setclozetip: Set this tiddler as Cloze Question Tiddler and the selected text as it's title
+setselect: Set as Select Question Tiddler
+setselecttip: Set this tiddler as Select Question Tiddler and the selected text as it's title
+marktitle: Mark title
+marktitletip: Mark the selected text as title of Excerpt Tiddler or Q&A Question Tiddler. For example: __''title''__
+markclozeoption: Mark cloze or option
+markclozeoptiontip: Mark the selected text as a cloze of Cloze Question Tiddler or a option of Select Question Tiddler. For example: __cloze__ or __option__
+foldtip: Unfold or fold this tiddler
+learn: next
+learntip: Learn one more
+forget: forget
+forgettip: Forget the answer
+remember: remember
+remembertip: Remember the answer
+grasp: grasp
+grasptip: Grasp the question
+moretip: More
+discard: discard
+discardtip: No more learning this tiddler
+add7tip: Learning this tiddler next week
+add1tip: Learning this tiddler tomorrow
+fishingpondtip: Learn this group of tiddlers
+due: due:
+undue: undue:
+new: new:
+commonfiltertip: Commonly used Filter Expression
+addfiltertip: Add to commonly used Filter Expression:
+unaddfiltertip: Unadd this Filter Expression:
+fillfiltertip: Fill in this Filter Expression:
+customisefiltertip: Customise the behaviour of this Filter Expression:
+setalias: Alias
+typealias: Type alias
+setorder: Learning order
+autoorder: Auto priority
+dueorder: Due date
+createdorder: Created date
+azorder: Title A-Z
+zaorder: Title Z-A
+randomorder: Random
+viewfiltertip: View tiddlers related to this Filter Expression:
+settings: These settings let you customise the behaviour of Fishing.
+globalsettings: Global Settings
+setrecall: Retention
+setrecalltip: Must be between 0.7 and 0.95
+setinterval: Initial interval day of Excerpt Tiddlers
+setintervaltip: Must be a positive integer

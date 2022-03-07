@@ -49,7 +49,8 @@ autopriority: [get[caption]search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/
             />
             <$text
                 text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondname>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>]}}}
-            /><$count
+            />
+            <$count
                 filter="[subfilter<fishingrod>subfilter<fishingpond>]"
             />
         </$button>

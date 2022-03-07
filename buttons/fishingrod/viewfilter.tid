@@ -15,8 +15,8 @@ list-after:
         animate="yes"
     >
         <$button
-            tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[viewfiltertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[viewfiltertip]]+[addsuffix{$:/temp/fishing!!fishingrod}]}}}
-            aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[viewfiltertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[viewfiltertip]]+[addsuffix{$:/temp/fishing!!fishingrod}]}}}
+            tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[viewfiltertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[viewfiltertip]]+[addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
+            aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[viewfiltertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[viewfiltertip]]+[addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
             class="tc-btn-invisible"
             style="margin:0;padding:0 5px;"
         >
