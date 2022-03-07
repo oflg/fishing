@@ -1,0 +1,6 @@
+caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[pluginlibrary]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[pluginlibrary]]}}}/>
+tags: $:/tags/PluginLibrary
+title: $:/config/FishingPluginLibrary
+url: https://oflg.github.io/fishing/library/index.html
+
+<$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[pluginlibrarytip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[pluginlibrarytip]]}}}/>

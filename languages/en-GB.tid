@@ -58,3 +58,5 @@ setrecall: Retention
 setrecalltip: Must be between 0.7 and 0.95
 setinterval: Initial interval day of Excerpt Tiddlers
 setintervaltip: Must be a positive integer
+pluginlibrary: Fishing Plugin Library
+pluginlibrarytip: This plugin library can be used to install and update plugins and Learning Packs related to Fishing.

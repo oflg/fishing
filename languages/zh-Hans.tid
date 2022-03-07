@@ -58,3 +58,5 @@ setrecall: 目标保留率
 setrecalltip: 必须在 0.7 和 0.95 之间
 setinterval: 摘抄条目的初始间隔天数
 setintervaltip: 必须是正整数
+pluginlibrary: 钓鱼插件库
+pluginlibrarytip: 此插件库可用来安装和更新钓鱼插件的相关插件和学习包。
