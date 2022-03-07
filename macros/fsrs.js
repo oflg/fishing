@@ -30,10 +30,10 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             return (typeof value === 'number' && !isNaN(value)) ? value : defaultValue;
         }
 
-        var requestRetention = faultToleranceValue(fsrsData.requestRetention, 0.9),
-            difficultyDecay = faultToleranceValue(fsrsData.difficultyDecay, -0.7),
-            stabilityDecay = faultToleranceValue(fsrsData.stabilityDecay, -0.2),
-            increaseFactor = faultToleranceValue(fsrsData.increaseFactor, 60),
+        var increaseFactor = 60,
+            difficultyDecay = -0.7,
+            stabilityDecay = -0.2,
+            requestRetention = faultToleranceValue(fsrsData.requestRetention, 0.9),
             totalCase = faultToleranceValue(fsrsData.totalCase, 0),
             totalDiff = faultToleranceValue(fsrsData.totalDiff, 0),
             totalReview = faultToleranceValue(fsrsData.totalReview, 0),
@@ -41,9 +41,11 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             defaultStability = faultToleranceValue(fsrsData.defaultStability, 2),
             stabilityDataArry = fsrsData.stabilityDataArry || [];
 
+        requestRetention = requestRetention >= 0.75 && requestRetention <= 0.95 ? requestRetention : 0.9;
+
         var due, interval, difficulty, stability, retrievability, lapses, reps, review, history;
 
-        review = new Date().toISOString().replace(/-|T|:|\.|Z/g, "");
+        review = new Date().toISOString().replace(/\-|T|:|\.|Z/g, "");
 
         if (grade == -1) {// learn new tiddler
             var addDay = Math.round(defaultStability * Math.log(requestRetention) / Math.log(0.9));
@@ -97,8 +99,6 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             totalReview = totalReview + 1;
 
             var addDay = Math.round(stability * Math.log(requestRetention) / Math.log(0.9));
-
-            console.log(addDay);
 
             due = $tw.wiki.filterTiddlers("[[" + addDay + "]due[]]")[0];
 
