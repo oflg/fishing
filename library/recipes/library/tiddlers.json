@@ -8,7 +8,7 @@
         "plugin-type": "plugin",
         "source": "https://github.com/oflg/fishing",
         "title": "$:/plugins/oflg/fishing",
-        "version": "2.0.3",
+        "version": "2.0.5",
         "dependents": "",
         "type": "application/json",
         "readme": "Installation and usage tutorial is available at [[Fishing Manual|https://oflg.github.io/fishing/]].\n\n可在 [[钓鱼手册|https://oflg.github.io/fishing/]] 查看安装使用教程。",
@@ -25,7 +25,7 @@
         "plugin-type": "plugin",
         "source": "https://github.com/oflg/fishing-analysis",
         "title": "$:/plugins/oflg/fishing-analysis",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "type": "application/json",
         "readme": "Installation and usage tutorial is available at [[Fishing Manual|https://oflg.github.io/fishing/#Fishing%20Analysis%20sub-plugin]].\n\n可在 [[钓鱼手册|https://oflg.github.io/fishing/#钓鱼分析子插件]] 查看安装使用教程。\n",
         "requires-reload": "yes"
