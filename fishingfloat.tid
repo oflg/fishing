@@ -3,28 +3,23 @@ description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/
 tags: $:/tags/PageControls
 title: $:/plugins/oflg/fishing/fishingfloat
 
-<!-- creat fishingfloat -->
+\whitespace trim
 <$button
-    popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
+    popup=<<qualify "$:/state/popup/fishingdeck">>
     tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}
     aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}
     class=<<tv-config-toolbar-class>>
     selectedClass="tc-selected"
 >
-    <span class="tc-image-down-arrow tc-image-button">
+    <$list filter="[<tv-config-toolbar-icons>match[yes]]">
         {{$:/plugins/oflg/fishing/icon}}
-    </span>
-   	<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
-       <span class="tc-btn-text"><$text text="Fishing"/></span>
     </$list>
-</$button>
-<!-- creat fishingdeck -->
-<$reveal
-    state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
-    type="popup"
-    position="below"
-    animate="yes"
->
+    <$list filter="[<tv-config-toolbar-text>match[yes]]">
+        <span class="tc-btn-text">
+            <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}/>
+        </span>
+    </$list>
+</$button><$reveal state=<<qualify "$:/state/popup/fishingdeck">> type="popup" position="below" animate="yes">
     <div
         class="tc-drop-down tc-popup-keep"
         style="min-width:0;"
