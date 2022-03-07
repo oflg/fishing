@@ -1,0 +1,17 @@
+[
+    {
+        "title": "$:/plugins/oflg/fishing-cannedfish-BEC_2",
+        "author": "oflg",
+        "core-version": ">=5.2.1",
+        "dependents": "$:/plugins/oflg/fishing",
+        "description": "学习包",
+        "list": "readme",
+        "name": "商务英语词汇",
+        "plugin-type": "plugin",
+        "source": "https://github.com/oflg/fishing-cannedfish",
+        "version": "0.0.1",
+        "type": "application/json",
+        "readme": "可在 [[钓鱼手册|https://oflg.github.io/fishing/#鱼罐头子插件]] 查看安装使用教程。\n\n[img height=200 [https://nos.netease.com/ydschool-online/youdao_BEC_2.jpg]]\n\n此单词包共有 2753 个来源于有道词典的单词。精选商务英语初级、中级、高级考试及实际应用词汇。通过科学频率算法筛选高频核心词汇，专业团队把关，帮助用户节约时间、高效学习。精选例句和词组短语，帮助用户准确把握用词含义，快速掌握真实场景的运用。结合背单词科学记忆方法，有利于用户迅速掌握商务词汇，有效扩大词汇量，提高考试成绩。适用于备战考试，有意丰富自身商务英语词汇的用户。",
+        "requires-reload": "no"
+    }
+]

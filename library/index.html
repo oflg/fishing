@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="application-name" content="TiddlyWiki Plugin Library" />
+<meta name="application-version" content="v0.0.0" />
+<meta name="copyright" content="Copyright 2015 Jeremy Ruston" />
+<link id="faviconLink" rel="shortcut icon" href="favicon.ico">
+<title>Plugin Library</title>
+<script>
+var assetList = [
+    {
+        "title": "$:/plugins/oflg/fishing-cannedfish-BEC_2",
+        "author": "oflg",
+        "core-version": ">=5.2.1",
+        "dependents": "$:/plugins/oflg/fishing",
+        "description": "学习包",
+        "list": "readme",
+        "name": "商务英语词汇",
+        "plugin-type": "plugin",
+        "source": "https://github.com/oflg/fishing-cannedfish",
+        "version": "0.0.1",
+        "type": "application/json",
+        "readme": "可在 [[钓鱼手册|https://oflg.github.io/fishing/#鱼罐头子插件]] 查看安装使用教程。\n\n[img height=200 [https://nos.netease.com/ydschool-online/youdao_BEC_2.jpg]]\n\n此单词包共有 2753 个来源于有道词典的单词。精选商务英语初级、中级、高级考试及实际应用词汇。通过科学频率算法筛选高频核心词汇，专业团队把关，帮助用户节约时间、高效学习。精选例句和词组短语，帮助用户准确把握用词含义，快速掌握真实场景的运用。结合背单词科学记忆方法，有利于用户迅速掌握商务词汇，有效扩大词汇量，提高考试成绩。适用于备战考试，有意丰富自身商务英语词汇的用户。",
+        "requires-reload": "no"
+    }
+];
+
+/*\
+title: $:/plugins/tiddlywiki/pluginlibrary/libraryserver.js
+type: application/javascript
+module-type: library
+
+A simple HTTP-over-window.postMessage implementation of a standard TiddlyWeb-compatible server. It uses real HTTP to load the individual tiddler JSON files.
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+"use strict";
+
+// Listen for window messages
+window.addEventListener("message",function listener(event){
+	console.log("plugin library: Received message from",event.origin);
+	console.log("plugin library: Message content",event.data);
+	switch(event.data.verb) {
+		case "GET":
+			if(event.data.url === "recipes/library/tiddlers.json") {
+				// Route for recipes/library/tiddlers.json
+				event.source.postMessage({
+					verb: "GET-RESPONSE",
+					status: "200",
+					cookies: event.data.cookies,
+					url: event.data.url,
+					type: "application/json",
+					body: JSON.stringify(assetList,null,4)
+				},"*");
+			} else if(event.data.url.indexOf("recipes/library/tiddlers/") === 0) {
+				var url = "recipes/library/tiddlers/" + encodeURIComponent(removePrefix(event.data.url,"recipes/library/tiddlers/"));
+				// Route for recipes/library/tiddlers/<uri-encoded-tiddler-title>.json
+				httpGet(url,function(err,responseText) {
+					if(err) {
+						event.source.postMessage({
+							verb: "GET-RESPONSE",
+							status: "404",
+							cookies: event.data.cookies,
+							url: event.data.url,
+							type: "text/plain",
+							body: "Not found"
+						},"*");
+					} else {
+						event.source.postMessage({
+							verb: "GET-RESPONSE",
+							status: "200",
+							cookies: event.data.cookies,
+							url: event.data.url,
+							type: "application/json",
+							body: responseText
+						},"*");
+					}
+				});
+			} else {
+				event.source.postMessage({
+					verb: "GET-RESPONSE",
+					status: "404",
+					cookies: event.data.cookies,
+					url: event.data.url,
+					type: "text/plain",
+					body: "Not found"
+				},"*");
+			}
+			break;
+	}
+},false);
+
+// Helper to remove string prefixes
+function removePrefix(string,prefix) {
+	if(string.indexOf(prefix) === 0) {
+		return string.substr(prefix.length);
+	} else {
+		return string;
+	}
+}
+
+// Helper for HTTP GET
+function httpGet(url,callback) {
+	var http = new XMLHttpRequest();
+	http.open("GET",url,true);
+	http.onreadystatechange = function() {
+		if(http.readyState == 4 && http.status == 200) {
+			callback(null,http.responseText);
+		}
+	};
+	http.send();
+}
+
+})();
+
+</script>
+</head>
+<body><h1>HelloThere</h1><p>This is the TiddlyWiki plugin library. It is not intended to be opened directly in the browser.</p><p>See <a href="https://tiddlywiki.com/" target="_blank">https://tiddlywiki.com/</a> for details of how to install plugins.</p></body>
+</html>
