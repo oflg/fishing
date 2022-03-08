@@ -1,4 +1,4 @@
-caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishing]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishing]]}}}/>
+caption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[globalsettings]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[globalsettings]]}}}/>
 tags: $:/tags/ControlPanel/Settings/Fishing
 title: $:/core/ui/ControlPanel/Settings/Fishing/fishing
 
