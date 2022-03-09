@@ -1,0 +1,16 @@
+title: $:/config/shortcuts/
+
+fishing-discard: alt-D
+fishing-exciseexcerpt: alt-X
+fishing-excisequestion: alt-Q
+fishing-fold: alt-Enter
+fishing-forget: alt-0
+fishing-remember: alt-1
+fishing-grasp: alt-2
+fishing-learn: alt-L
+fishing-markclozeoption: alt-U
+fishing-marktitle: alt-B
+fishing-setcloze: alt-shift-C
+fishing-setexcerpt: alt-shift-X
+fishing-setquestion: alt-shift-Q
+fishing-setselect: alt-shift-S

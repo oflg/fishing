@@ -19,7 +19,7 @@ marktitle: Mark title
 marktitletip: Mark the selected text as title of Excerpt Tiddler or Q&A Question Tiddler. For example: __''title''__
 markclozeoption: Mark cloze or option
 markclozeoptiontip: Mark the selected text as a cloze of Cloze Question Tiddler or a option of Select Question Tiddler. For example: __cloze__ or __option__
-foldtip: Unfold or fold this tiddler
+fold: Unfold or fold this tiddler
 learn: next
 learntip: Learn one more
 forget: forget

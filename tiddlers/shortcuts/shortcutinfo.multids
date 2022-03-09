@@ -1,0 +1,16 @@
+title: $:/config/ShortcutInfo/
+
+fishing-discard: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[discardtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[discardtip]]}}}/>
+fishing-exciseexcerpt: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[exciseexcerpt]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[exciseexcerpt]]}}}/>
+fishing-excisequestion: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisequestion]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisequestion]]}}}/>
+fishing-fold: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fold]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fold]]}}}/>
+fishing-forget: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[forget]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[forget]]}}}/>
+fishing-remember: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[remember]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[remember]]}}}/>
+fishing-grasp: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[grasp]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[grasp]]}}}/>
+fishing-learn: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[learn]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[learn]]}}}/>
+fishing-markclozeoption: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[markclozeoption]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[markclozeoption]]}}}/>
+fishing-marktitle: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[marktitle]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[marktitle]]}}}/>
+fishing-setcloze: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setcloze]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setcloze]]}}}/>
+fishing-setexcerpt: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setexcerpt]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setexcerpt]]}}}/>
+fishing-setquestion: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setquestion]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setquestion]]}}}/>
+fishing-setselect: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[setselect]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[setselect]]}}}/>

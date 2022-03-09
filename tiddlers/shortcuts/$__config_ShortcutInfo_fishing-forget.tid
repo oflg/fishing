@@ -1,5 +1,0 @@
-title: $:/config/ShortcutInfo/fishing-forget
-
-<$text
-    text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[forgettip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[forgettip]]}}}
-/>

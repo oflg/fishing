@@ -1,5 +1,0 @@
-title: $:/config/ShortcutInfo/fishing-excisequestion
-
-<$text
-    text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[excisequestiontip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[excisequestiontip]]}}}
-/>
