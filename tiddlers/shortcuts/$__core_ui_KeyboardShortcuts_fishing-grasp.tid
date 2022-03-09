@@ -15,6 +15,10 @@ title: $:/core/ui/KeyboardShortcuts/fishing-grasp
                 $message="tm-add-tag"
                 $param="?"
             />
+            <$action-sendmessage
+                $message="tm-remove-tag"
+                $param="!"
+            />
             <$action-fishing
                 $grade="2"
             />

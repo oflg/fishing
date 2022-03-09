@@ -10,7 +10,7 @@ title: $:/plugins/oflg/fishing/fishing
         text="hide"
         animate="yes"
     >
-            
+
         ---
 
         <div
@@ -43,6 +43,10 @@ title: $:/plugins/oflg/fishing/fishing
                                     <$action-sendmessage
                                         $message="tm-add-tag"
                                         $param="?"
+                                    />
+                                    <$action-sendmessage
+                                        $message="tm-remove-tag"
+                                        $param="!"
                                     />
                                     <$list
                                         filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
@@ -125,6 +129,10 @@ title: $:/plugins/oflg/fishing/fishing
                                     $message="tm-remove-tag"
                                     $param="?"
                                 />
+                                <$action-sendmessage
+                                    $message="tm-add-tag"
+                                    $param="!"
+                                />
                                 <$action-deletefield
                                     due
                                     interval
@@ -163,6 +171,14 @@ title: $:/plugins/oflg/fishing/fishing
                                 class="tc-btn-invisible tc-tiddlylink"
                                 style="padding:3px 10px;"
                             >
+                                <$action-sendmessage
+                                    $message="tm-add-tag"
+                                    $param="?"
+                                />
+                                <$action-sendmessage
+                                    $message="tm-remove-tag"
+                                    $param="!"
+                                />
                                 <$action-setfield
                                     due={{{[[7]due[]]}}}
                                 />
@@ -190,6 +206,14 @@ title: $:/plugins/oflg/fishing/fishing
                                 class="tc-btn-invisible tc-tiddlylink"
                                 style="padding:3px 10px;"
                             >
+                                <$action-sendmessage
+                                    $message="tm-add-tag"
+                                    $param="?"
+                                />
+                                <$action-sendmessage
+                                    $message="tm-remove-tag"
+                                    $param="!"
+                                />
                                 <$action-setfield
                                     due={{{[[1]due[]]}}}
                                 />

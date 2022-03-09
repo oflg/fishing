@@ -15,6 +15,10 @@ title: $:/core/ui/KeyboardShortcuts/fishing-discard
                 $message="tm-remove-tag"
                 $param="?"
             />
+            <$action-sendmessage
+                $message="tm-add-tag"
+                $param="!"
+            />
             <$action-deletefield
                 due
                 interval
