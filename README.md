@@ -1,0 +1,1 @@
+# https://oflg.github.io/fishing-manual/
