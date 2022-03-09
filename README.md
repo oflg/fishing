@@ -1,1 +1,1 @@
-# https://oflg.github.io/fishing-manual/
+https://oflg.github.io/fishing-manual/
