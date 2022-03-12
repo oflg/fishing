@@ -1,5 +1,0 @@
-list-before: $:/config/ViewTemplateTitleFilters/system
-tags: $:/tags/ViewTemplateTitleFilter
-title: $:/config/ViewTemplateTitleFilters/fish
-
-[tag[?]][has[due]][match{$:/temp/fishing!!fish}]+[then[$:/core/ui/ViewTemplate/title/fish]]

@@ -1,0 +1,5 @@
+title: $:/config/ViewTemplateTitleFilters/fish
+tags: $:/tags/ViewTemplateTitleFilter
+list-before: $:/config/ViewTemplateTitleFilters/system
+
+[tag[?]][tag[!]][match{$:/temp/fishing!!fish}]+[limit[1]then[$:/core/ui/ViewTemplate/title/fish]]
