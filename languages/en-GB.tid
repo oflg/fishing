@@ -21,11 +21,11 @@ fishingpondtip: Learn this group of tiddlers
 due: due:
 undue: undue:
 new: new:
-commonfiltertip: Commonly used Filter Expression
-addfiltertip: Add to commonly used Filter Expression:
-unaddfiltertip: Unadd this Filter Expression:
-fillfiltertip: Fill in this Filter Expression:
-customisefiltertip: Customise the behaviour of this Filter Expression:
+commonfiltertip: Commonly used Filter
+addfiltertip: Add to commonly used Filter:
+unaddfiltertip: Unadd this Filter:
+fillfiltertip: Fill in this Filter:
+customisefiltertip: Customise the behaviour of this Filter:
 setalias: Alias
 typealias: Type alias
 setorder: Learning order
@@ -35,12 +35,12 @@ createdorder: Created date
 azorder: Title A-Z
 zaorder: Title Z-A
 randomorder: Random
-viewfiltertip: View tiddlers related to this Filter Expression:
+viewfiltertip: View tiddlers related to this Filter:
 settings: These settings let you customise the behaviour of Fishing.
-globalsettings: Global Settings
-setrecall: Retention
-setrecalltip: Must be between 0.7 and 0.95
-setinterval: Initial interval day of Excerpt Tiddlers
-setintervaltip: Must be a positive integer
+globalsettings: Global
+setparameter: Parameter
+setretention: Retention
+setretentiontip: Must be between 0.7 and 0.95
+setcascadetip: Dynamically choose the condition for learning a tiddler.
 pluginlibrary: Fishing Plugin Library
 pluginlibrarytip: This plugin library can be used to install and update plugins and Learning Packs related to Fishing.

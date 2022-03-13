@@ -9,7 +9,7 @@ createdorder: [sort[created]]
 azorder: [sort[]]
 zaorder: [!sort[]]
 randomorder: [sortrandom[]]
-autopriority: [get[caption]search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/QuestionTemplate]count[]]=[get[due]interval[]]=[get[priority]else[0]]=[backlinks[]count[]]=[links[]has[due]count[]negate[]]=[links[]has[due]!days:due[1]count[]]=[links[]has[due]!days:due[1]count[]]+[sum[]]
+autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/QuestionTemplate]count[]] =[{!!due}interval[]] =[{!!priority}else[0]] =[{!!title}listed[]count[]] =[list{!!title}has[due]count[]negate[]] =[list{!!title}has[due]!days:due[1]count[]] =[list{!!title}has[due]!days:due[1]count[]] +[sum[]]
 
 <$list
     filter="due undue new"
@@ -22,8 +22,8 @@ autopriority: [get[caption]search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/
         fishingorder={{{[<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>]~[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}]}}}
     >
         <$button
-            tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingpondtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingpondtip]]}}}
-            aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingpondtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingpondtip]]}}}
+            tooltip=<<lan "$:/plugins/oflg/fishing/languages" "fishingpondtip">>
+            aria-label=<<lan "$:/plugins/oflg/fishing/languages" "fishingpondtip">>
             class="tc-btn-invisible tc-tiddlylink"
             style="padding-right:10px;"
         >
@@ -48,7 +48,7 @@ autopriority: [get[caption]search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/
                 $coords=""
             />
             <$text
-                text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondname>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>]}}}
+                text={{{[<pondname>match[due]then<lan "$:/plugins/oflg/fishing/languages" "due">]~[<pondname>match[undue]then<lan "$:/plugins/oflg/fishing/languages" "undue">]~[<pondname>match[new]then<lan "$:/plugins/oflg/fishing/languages" "new">]}}}
             />
             <$count
                 filter="[subfilter<fishingrod>subfilter<fishingpond>]"

@@ -1,8 +1,8 @@
 title: $:/config/shortcuts/
 
-fishing-discard: alt-D
 fishing-fold: alt-Enter
+fishing-learn: alt-L
 fishing-forget: alt-0
 fishing-remember: alt-1
 fishing-grasp: alt-2
-fishing-learn: alt-L
+fishing-discard: alt-D

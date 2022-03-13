@@ -1,6 +1,6 @@
 title: $:/plugins/oflg/fishing/buttons/fishingrod/viewfilter
 tags: $:/tags/fishingrod/Button
-list-after: 
+list-after:
 
 <$reveal
     default={{{[{$:/temp/fishing!!fishingrod}]}}}
@@ -15,8 +15,8 @@ list-after:
         animate="yes"
     >
         <$button
-            tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[viewfiltertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[viewfiltertip]]+[addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
-            aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[viewfiltertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[viewfiltertip]]+[addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
+            tooltip={{{[<lan "$:/plugins/oflg/fishing/languages" "viewfiltertip">addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
+            aria-label={{{[<lan "$:/plugins/oflg/fishing/languages" "viewfiltertip">addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
             class="tc-btn-invisible"
             style="margin:0;padding:0 5px;"
         >

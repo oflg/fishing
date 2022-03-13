@@ -19,8 +19,8 @@ list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
         >
             <$button
                 popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingrod/fishingreel">>
-                tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[customisefiltertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[customisefiltertip]]+[addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
-                aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[customisefiltertip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[customisefiltertip]]+[addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
+                tooltip={{{[<lan "$:/plugins/oflg/fishing/languages" "customisefiltertip">addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
+                aria-label={{{[<lan "$:/plugins/oflg/fishing/languages" "customisefiltertip">addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
                 class="tc-btn-invisible"
                 style="margin:0;padding:0 5px;"
             >
@@ -56,7 +56,7 @@ list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
                             style="display:flex;justify-content:space-between;font-size:10pt;padding:2px 1px;"
                         >
                             <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondname>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>]}}}/>
-                            <$select 
+                            <$select
                                 tiddler={{{[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]]}}}
                                 index={{{[<pondname>addsuffix[order]]}}}
                                 default={{{[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}]}}}

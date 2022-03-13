@@ -1,8 +1,8 @@
 title: $:/config/ShortcutInfo/
 
-fishing-discard: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[discardtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[discardtip]]}}}/>
-fishing-fold: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fold]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fold]]}}}/>
-fishing-forget: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[forget]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[forget]]}}}/>
-fishing-remember: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[remember]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[remember]]}}}/>
-fishing-grasp: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[grasp]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[grasp]]}}}/>
-fishing-learn: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[learn]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[learn]]}}}/>
+fishing-fold: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "fold">>/>
+fishing-learn: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "learn">>/>
+fishing-forget: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "forget">>/>
+fishing-remember: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "remember">>/>
+fishing-grasp: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "grasp">>/>
+fishing-discard: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "discard">>/>
