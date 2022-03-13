@@ -1,8 +1,10 @@
-tags: $:/tags/ViewTemplate
 title: $:/plugins/oflg/fishing/fishing
+tags: $:/tags/ViewTemplate
+list-after: $:/core/ui/ViewTemplate/body
 
 <$list
-    filter="[<currentTiddler>match{$:/temp/fishing!!fish}]"
+    filter="[<currentTiddler>] :cascade[all[shadows+tiddlers]tag[$:/tags/FishingFilter]!is[draft]get[text]] +[!is[blank]limit[1]]"
+    variable="null"
 >
     <$reveal
         state=<<folded-state>>
@@ -31,79 +33,76 @@ title: $:/plugins/oflg/fishing/fishing
                             filter="[<currentTiddler>has[grade]then[review]else[learn]][<ease>match[learn]else[review]]+[count[]match[1]]"
                             variable="null"
                         >
-                            <$let
-                                easetip={{{[<ease>addsuffix[tip]]}}}
+                            <$button
+                                tooltip={{{[<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learntip">]~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forgettip">]~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remembertip">]~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasptip">]}}}
+                                aria-label={{{[<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learntip">]~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forgettip">]~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remembertip">]~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasptip">]}}}
+                                class="tc-btn-invisible tc-tiddlylink"
+                                style={{{[<ease>match[learn]then[margin-left:10px;color:green;]]~[<ease>match[forget]then[margin-left:10px;color:red;]]~[<ease>match[remember]then[margin-left:10px;color:green;]]~[<ease>match[grasp]then[margin-left:10px;color:blue;]]}}}
                             >
-                                <$button
-                                    tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<easetip>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<easetip>]}}}
-                                    aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<easetip>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<easetip>]}}}
-                                    class="tc-btn-invisible tc-tiddlylink"
-                                    style={{{[<ease>match[learn]then[margin-left:10px;color:green;]]~[<ease>match[forget]then[margin-left:10px;color:red;]]~[<ease>match[remember]then[margin-left:10px;color:green;]]~[<ease>match[grasp]then[margin-left:10px;color:blue;]]}}}
+                                <$action-sendmessage
+                                    $message="tm-add-tag"
+                                    $param="?"
+                                />
+                                <$action-sendmessage
+                                    $message="tm-remove-tag"
+                                    $param="!"
+                                />
+                                <$list
+                                    filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
+                                    variable="null"
                                 >
-                                    <$action-sendmessage
-                                        $message="tm-add-tag"
-                                        $param="?"
+                                    <$action-fishing
+                                        $grade={{{[<ease>match[learn]then[-1]]~[<ease>match[forget]then[0]]~[<ease>match[remember]then[1]]~[<ease>match[grasp]then[2]]}}}
                                     />
-                                    <$action-sendmessage
-                                        $message="tm-remove-tag"
-                                        $param="!"
-                                    />
-                                    <$list
-                                        filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
-                                        variable="null"
-                                    >
-                                        <$action-fishing
-                                            $grade={{{[<ease>match[learn]then[-1]]~[<ease>match[forget]then[0]]~[<ease>match[remember]then[1]]~[<ease>match[grasp]then[2]]}}}
-                                        />
-                                    </$list>
-                                    <$list
-                                        filter="[<currentTiddler>search:caption:literal[Excerpt}}]]"
-                                        variable="null"
-                                    >
-                                        <$action-setfield
-                                            interval={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}else[1]subtract[1]]+[add[1]]}}}
-                                            due={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}else[1]subtract[1]]+[add[1]due[]]}}}
-                                        />
-                                    </$list>
-                                    <$list
-                                        filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[Excerpt}}]]"
-                                        variable="backexcerpt"
-                                    >
-                                        <$action-setfield
-                                            $tiddler=<<backexcerpt>>
-                                            $timestamp="no"
-                                            interval={{{[<ease>match[learn]then[0]]~[<ease>match[forget]then[1]]~[<ease>match[remember]then[0]]~[<ease>match[grasp]then[-1]][<backexcerpt>get[interval]]+[sum[]]}}}
-                                        />
-                                    </$list>
-                                    <$action-deletetiddler
-                                        $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-                                    />
+                                </$list>
+                                <$list
+                                    filter="[<currentTiddler>search:caption:literal[Excerpt}}]]"
+                                    variable="null"
+                                >
                                     <$action-setfield
-                                        $tiddler="$:/temp/fishing"
-                                        text=""
-                                        type=""
-                                        fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
+                                        interval={{{[<currentTiddler>get[interval]!is[blank]else[0]add[1]]}}}
+                                        due={{{[<currentTiddler>get[interval]!is[blank]else[0]add[1]due[]]}}}
+                                        review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
                                     />
+                                </$list>
+                                <$list
+                                    filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[Excerpt}}]]"
+                                    variable="backexcerpt"
+                                >
                                     <$action-setfield
-                                        $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-                                        text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+                                        $tiddler=<<backexcerpt>>
+                                        $timestamp="no"
+                                        interval={{{[<ease>match[learn]then[0]]~[<ease>match[forget]then[1]]~[<ease>match[remember]then[0]]~[<ease>match[grasp]then[-1]][<backexcerpt>get[interval]!is[blank]else[0]]+[sum[]]}}}
                                     />
-                                    <$action-sendmessage
-                                        $message="tm-close-tiddler"
-                                    />
-                                    <$action-navigate
-                                        $to={{$:/temp/fishing!!fish}}
-                                    />
-                                    <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<ease>]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>]}}}/>
-                                </$button>
-                            </$let>
+                                </$list>
+                                <$action-deletetiddler
+                                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+                                />
+                                <$action-setfield
+                                    $tiddler="$:/temp/fishing"
+                                    text=""
+                                    type=""
+                                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
+                                />
+                                <$action-setfield
+                                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+                                    text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+                                />
+                                <$action-sendmessage
+                                    $message="tm-close-tiddler"
+                                />
+                                <$action-navigate
+                                    $to={{$:/temp/fishing!!fish}}
+                                />
+                                <$text text={{{[<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learn">]~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forget">]~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remember">]~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasp">]}}}/>
+                            </$button>
                         </$list>
                     </$list>
                     <!-- creat more button -->
                     <$button
                         popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishing/more">>
-                        tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[moretip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[moretip]]}}}
-                        aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[moretip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[moretip]]}}}
+                        tooltip=<<lan "$:/plugins/oflg/fishing/languages" "moretip">>
+                        aria-label=<<lan "$:/plugins/oflg/fishing/languages" "moretip">>
                         class="tc-btn-invisible tc-tiddlylink"
                         style="padding-left:10px;"
                     >
@@ -120,8 +119,8 @@ title: $:/plugins/oflg/fishing/fishing
                             style="min-width:0px;"
                         >
                             <$button
-                                tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[discardtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[discardtip]]}}}
-                                aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[discardtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[discardtip]]}}}
+                                tooltip=<<lan "$:/plugins/oflg/fishing/languages" "discardtip">>
+                                aria-label=<<lan "$:/plugins/oflg/fishing/languages" "discardtip">>
                                 class="tc-btn-invisible tc-tiddlylink"
                                 style="padding:3px 10px;"
                             >
@@ -163,11 +162,11 @@ title: $:/plugins/oflg/fishing/fishing
                                 <$action-navigate
                                     $to={{$:/temp/fishing!!fish}}
                                 />
-                                <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[discard]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[discard]]}}}/>
+                                <$text text=<<lan "$:/plugins/oflg/fishing/languages" "discard">>/>
                             </$button>
                             <$button
-                                tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[add7tip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[add7tip]]}}}
-                                aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[add7tip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[add7tip]]}}}
+                                tooltip=<<lan "$:/plugins/oflg/fishing/languages" "add7tip">>
+                                aria-label=<<lan "$:/plugins/oflg/fishing/languages" "add7tip">>
                                 class="tc-btn-invisible tc-tiddlylink"
                                 style="padding:3px 10px;"
                             >
@@ -201,8 +200,8 @@ title: $:/plugins/oflg/fishing/fishing
                                 + 7
                             </$button>
                             <$button
-                                tooltip={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[add1tip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[add1tip]]}}}
-                                aria-label={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[add1tip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[add1tip]]}}}
+                                tooltip=<<lan "$:/plugins/oflg/fishing/languages" "add1tip">>
+                                aria-label=<<lan "$:/plugins/oflg/fishing/languages" "add1tip">>
                                 class="tc-btn-invisible tc-tiddlylink"
                                 style="padding:3px 10px;"
                             >
