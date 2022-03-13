@@ -1,6 +1,6 @@
-key: ((fishing-remember))
+key: ((fishing-forget))
 tags: $:/tags/KeyboardShortcut
-title: $:/core/ui/KeyboardShortcuts/fishing-remember
+title: $:/core/ui/KeyboardShortcuts/fishing-forget
 
 <$list
     filter="[{$:/temp/fishing!!fish}!is[blank]has[grade]]"
@@ -20,7 +20,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-remember
                 $param="!"
             />
             <$action-fishing
-                $grade="1"
+                $grade="0"
             />
             <$list
                 filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[Excerpt}}]]"
@@ -29,7 +29,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-remember
                 <$action-setfield
                     $tiddler=<<backexcerpt>>
                     $timestamp="no"
-                    interval={{{[<backexcerpt>get[interval]add[0]]}}}
+                    interval={{{[<backexcerpt>get[interval]!is[blank]else[0]add[1]]}}}
                 />
             </$list>
             <$action-deletetiddler

@@ -1,9 +1,9 @@
-key: ((fishing-learn))
+key: ((fishing-grasp))
 tags: $:/tags/KeyboardShortcut
-title: $:/core/ui/KeyboardShortcuts/fishing-learn
+title: $:/core/ui/KeyboardShortcuts/fishing-grasp
 
 <$list
-    filter="[{$:/temp/fishing!!fish}!is[blank]!has[grade]]"
+    filter="[{$:/temp/fishing!!fish}!is[blank]has[grade]]"
 >
     <$navigator
         story="$:/StoryList"
@@ -19,21 +19,17 @@ title: $:/core/ui/KeyboardShortcuts/fishing-learn
                 $message="tm-remove-tag"
                 $param="!"
             />
+            <$action-fishing
+                $grade="2"
+            />
             <$list
-                filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
-                variable="null"
-            >
-                <$action-fishing
-                    $grade="-1"
-                />
-            </$list>
-            <$list
-                filter="[<currentTiddler>search:caption:literal[Excerpt}}]]"
-                variable="null"
+                filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[Excerpt}}]]"
+                variable="backexcerpt"
             >
                 <$action-setfield
-                    interval={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}else[1]subtract[1]]+[add[1]]}}}
-                    due={{{[<currentTiddler>get[interval]]~[{$:/plugins/oflg/fishing/data!!requestInterval}else[1]subtract[1]]+[add[1]due[]]}}}
+                    $tiddler=<<backexcerpt>>
+                    $timestamp="no"
+                    interval={{{[<backexcerpt>get[interval]!is[blank]else[2]add[-1]]}}}
                 />
             </$list>
             <$action-deletetiddler
@@ -45,7 +41,6 @@ title: $:/core/ui/KeyboardShortcuts/fishing-learn
                 type=""
                 fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
             />
-            <$action-log fishingrod={{$:/temp/fishing!!fishingrod}} fishingpond={{$:/temp/fishing!!fishingpond}} fishingorder={{$:/temp/fishing!!fishingorder}}/>
             <$action-setfield
                 $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
                 text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}

@@ -1,0 +1,12 @@
+caption: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "globalsettings">>/>
+tags: $:/tags/ControlPanel/Settings/Fishing
+title: $:/core/ui/ControlPanel/Settings/Fishing/fishing
+
+!!!<$text text=<<lan "$:/plugins/oflg/fishing/languages" "setparameter">>/>
+
+|<$text text=<<lan "$:/plugins/oflg/fishing/languages" "setretention">>/> |<$edit-text tiddler="$:/plugins/oflg/fishing/data" index="requestRetention" placeholder="0.9" tag="input"/><br/>@@color:red;font-size:10px;<$text text=<<lan "$:/plugins/oflg/fishing/languages" "setretentiontip">>/>@@ |
+
+!!!{{$:/language/ControlPanel/Cascades/Caption}}
+
+<$text text=<<lan "$:/plugins/oflg/fishing/languages" "setcascadetip">>/>
+{{$:/tags/FishingFilter||$:/snippets/ListTaggedCascade}}

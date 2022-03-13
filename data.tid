@@ -1,6 +1,5 @@
 title: $:/plugins/oflg/fishing/data
 type: application/json
-requestInterval: 1
 
 {
     "requestRetention": 0.9,
