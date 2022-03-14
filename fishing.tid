@@ -34,8 +34,8 @@ list-after: $:/core/ui/ViewTemplate/body
                             variable="null"
                         >
                             <$button
-                                tooltip={{{ [<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learntip">] ~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forgettip">] ~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remembertip">] ~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasptip">] }}}
-                                aria-label={{{ [<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learntip">] ~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forgettip">] ~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remembertip">] ~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasptip">] }}}
+                                tooltip={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<ease>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>] }}}
+                                aria-label={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<ease>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>] }}}
                                 class="tc-btn-invisible tc-tiddlylink"
                                 style={{{ [<ease>match[learn]then[margin-left:10px;color:green;]] ~[<ease>match[forget]then[margin-left:10px;color:red;]] ~[<ease>match[remember]then[margin-left:10px;color:green;]] ~[<ease>match[grasp]then[margin-left:10px;color:blue;]] }}}
                             >
@@ -84,7 +84,7 @@ list-after: $:/core/ui/ViewTemplate/body
                                 <$action-navigate
                                     $to={{$:/temp/fishing!!fish}}
                                 />
-                                <$text text={{{ [<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learn">] ~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forget">] ~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remember">] ~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasp">] }}}/>
+                                <$text text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<ease>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>] }}}/>
                             </$button>
                         </$list>
                     </$list>

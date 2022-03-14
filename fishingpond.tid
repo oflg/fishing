@@ -48,7 +48,7 @@ autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/Q
                 $coords=""
             />
             <$text
-                text={{{ [<pondname>match[due]then<lan "$:/plugins/oflg/fishing/languages" "due">] ~[<pondname>match[undue]then<lan "$:/plugins/oflg/fishing/languages" "undue">] ~[<pondname>match[new]then<lan "$:/plugins/oflg/fishing/languages" "new">] }}}
+                text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<pondname>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>] }}}
             />
             <$count
                 filter="[subfilter<fishingrod>subfilter<fishingpond>]"

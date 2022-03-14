@@ -55,7 +55,7 @@ list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
                         <div
                             style="display:flex;justify-content:space-between;font-size:10pt;padding:2px 1px;"
                         >
-                            <$text text={{{ [{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondname>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>] }}}/>
+                            <$text text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<pondname>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>] }}}/>
                             <$select
                                 tiddler={{{ [{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
                                 index={{{ [<pondname>addsuffix[order]] }}}
@@ -68,7 +68,7 @@ list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
                                     <option
                                         value={{{ [<pondorder>match[autoorder]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondorder>match[dueorder]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}] ~[<pondorder>match[createdorder]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}] ~[<pondorder>match[azorder]then{$:/plugins/oflg/fishing/fishingpond!!azorder}] ~[<pondorder>match[zaorder]then{$:/plugins/oflg/fishing/fishingpond!!zaorder}] ~[<pondorder>match[randomorder]then{$:/plugins/oflg/fishing/fishingpond!!randomorder}] }}}
                                     >
-                                        <$text text={{{ [{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex<pondorder>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondorder>] }}}>
+                                        <$text text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<pondorder>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondorder>] }}}>
                                     </option>
                                 </$list>
                             </$select>
