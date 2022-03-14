@@ -34,10 +34,10 @@ list-after: $:/core/ui/ViewTemplate/body
                             variable="null"
                         >
                             <$button
-                                tooltip={{{[<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learntip">]~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forgettip">]~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remembertip">]~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasptip">]}}}
-                                aria-label={{{[<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learntip">]~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forgettip">]~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remembertip">]~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasptip">]}}}
+                                tooltip={{{ [<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learntip">] ~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forgettip">] ~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remembertip">] ~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasptip">] }}}
+                                aria-label={{{ [<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learntip">] ~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forgettip">] ~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remembertip">] ~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasptip">] }}}
                                 class="tc-btn-invisible tc-tiddlylink"
-                                style={{{[<ease>match[learn]then[margin-left:10px;color:green;]]~[<ease>match[forget]then[margin-left:10px;color:red;]]~[<ease>match[remember]then[margin-left:10px;color:green;]]~[<ease>match[grasp]then[margin-left:10px;color:blue;]]}}}
+                                style={{{ [<ease>match[learn]then[margin-left:10px;color:green;]] ~[<ease>match[forget]then[margin-left:10px;color:red;]] ~[<ease>match[remember]then[margin-left:10px;color:green;]] ~[<ease>match[grasp]then[margin-left:10px;color:blue;]] }}}
                             >
                                 <$action-sendmessage
                                     $message="tm-add-tag"
@@ -52,7 +52,7 @@ list-after: $:/core/ui/ViewTemplate/body
                                     variable="null"
                                 >
                                     <$action-fishing
-                                        $grade={{{[<ease>match[learn]then[-1]]~[<ease>match[forget]then[0]]~[<ease>match[remember]then[1]]~[<ease>match[grasp]then[2]]}}}
+                                        $grade={{{ [<ease>match[learn]then[-1]]~[<ease>match[forget]then[0]]~[<ease>match[remember]then[1]]~[<ease>match[grasp]then[2]] }}}
                                     />
                                 </$list>
                                 <$list
@@ -60,8 +60,8 @@ list-after: $:/core/ui/ViewTemplate/body
                                     variable="null"
                                 >
                                     <$action-setfield
-                                        interval={{{[<currentTiddler>get[interval]!is[blank]else[0]add[1]]}}}
-                                        due={{{[<currentTiddler>get[interval]!is[blank]else[0]add[1]due[]]}}}
+                                        interval={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]] }}}
+                                        due={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]due[]] }}}
                                         review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
                                     />
                                 </$list>
@@ -72,21 +72,21 @@ list-after: $:/core/ui/ViewTemplate/body
                                     <$action-setfield
                                         $tiddler=<<backexcerpt>>
                                         $timestamp="no"
-                                        interval={{{[<ease>match[learn]then[0]]~[<ease>match[forget]then[1]]~[<ease>match[remember]then[0]]~[<ease>match[grasp]then[-1]][<backexcerpt>get[interval]!is[blank]else[0]]+[sum[]]}}}
+                                        interval={{{ [<ease>match[learn]then[0]] ~[<ease>match[forget]then[1]] ~[<ease>match[remember]then[0]]~[<ease>match[grasp]then[-1]] =[<backexcerpt>get[interval]!is[blank]else[1]] +[sum[]] }}}
                                     />
                                 </$list>
                                 <$action-deletetiddler
-                                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+                                    $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
                                 />
                                 <$action-setfield
                                     $tiddler="$:/temp/fishing"
                                     text=""
                                     type=""
-                                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
+                                    fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
                                 />
                                 <$action-setfield
-                                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-                                    text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+                                    $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
+                                    text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
                                 />
                                 <$action-sendmessage
                                     $message="tm-close-tiddler"
@@ -94,7 +94,7 @@ list-after: $:/core/ui/ViewTemplate/body
                                 <$action-navigate
                                     $to={{$:/temp/fishing!!fish}}
                                 />
-                                <$text text={{{[<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learn">]~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forget">]~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remember">]~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasp">]}}}/>
+                                <$text text={{{ [<ease>match[learn]then<lan "$:/plugins/oflg/fishing/languages" "learn">] ~[<ease>match[forget]then<lan "$:/plugins/oflg/fishing/languages" "forget">] ~[<ease>match[remember]then<lan "$:/plugins/oflg/fishing/languages" "remember">] ~[<ease>match[grasp]then<lan "$:/plugins/oflg/fishing/languages" "grasp">] }}}/>
                             </$button>
                         </$list>
                     </$list>
@@ -144,17 +144,17 @@ list-after: $:/core/ui/ViewTemplate/body
                                     review
                                 />
                                 <$action-deletetiddler
-                                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+                                    $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
                                 />
                                 <$action-setfield
                                     $tiddler="$:/temp/fishing"
                                     text=""
                                     type=""
-                                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
+                                    fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
                                 />
                                 <$action-setfield
-                                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-                                    text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+                                    $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
+                                    text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
                                 />
                                 <$action-sendmessage
                                     $message="tm-close-tiddler"
@@ -179,17 +179,17 @@ list-after: $:/core/ui/ViewTemplate/body
                                     $param="!"
                                 />
                                 <$action-setfield
-                                    due={{{[[7]due[]]}}}
+                                    due={{{ [[7]due[]] }}}
                                 />
                                 <$action-setfield
                                     $tiddler="$:/temp/fishing"
                                     text=""
                                     type=""
-                                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
+                                    fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
                                 />
                                 <$action-setfield
-                                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-                                    text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+                                    $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
+                                    text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
                                 />
                                 <$action-sendmessage
                                     $message="tm-close-tiddler"
@@ -214,17 +214,17 @@ list-after: $:/core/ui/ViewTemplate/body
                                     $param="!"
                                 />
                                 <$action-setfield
-                                    due={{{[[1]due[]]}}}
+                                    due={{{ [[1]due[]] }}}
                                 />
                                 <$action-setfield
                                     $tiddler="$:/temp/fishing"
                                     text=""
                                     type=""
-                                    fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
+                                    fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
                                 />
                                 <$action-setfield
-                                    $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-                                    text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+                                    $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
+                                    text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
                                 />
                                 <$action-sendmessage
                                     $message="tm-close-tiddler"

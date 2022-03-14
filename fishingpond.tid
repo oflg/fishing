@@ -16,10 +16,10 @@ autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/Q
     variable="pondname"
 >
     <$let
-        pondordername={{{[<pondname>addsuffix[order]]}}}
-        fishingrod={{{[{$:/temp/fishing!!fishingrod}!is[blank]else{$:/plugins/oflg/fishing/fishingpond!!rod}]}}}
-        fishingpond={{{[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!duepond}]~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!unduepond}]~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!newpond}]}}}
-        fishingorder={{{[<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>]~[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}]}}}
+        pondordername={{{ [<pondname>addsuffix[order]] }}}
+        fishingrod={{{ [{$:/temp/fishing!!fishingrod}!is[blank]else{$:/plugins/oflg/fishing/fishingpond!!rod}] }}}
+        fishingpond={{{ [<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!duepond}] ~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!unduepond}] ~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!newpond}] }}}
+        fishingorder={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>] ~[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}] ~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}] ~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}] }}}
     >
         <$button
             tooltip=<<lan "$:/plugins/oflg/fishing/languages" "fishingpondtip">>
@@ -34,11 +34,11 @@ autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/Q
                 fishingrod=<<fishingrod>>
                 fishingpond=<<fishingpond>>
                 fishingorder=<<fishingorder>>
-                fish={{{[subfilter<fishingrod>subfilter<fishingpond>subfilter<fishingorder>first[]]}}}
+                fish={{{ [subfilter<fishingrod>subfilter<fishingpond>subfilter<fishingorder>first[]] }}}
             />
             <$action-setfield
-                $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-                text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+                $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
+                text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
             />
             <$action-navigate
                 $to={{$:/temp/fishing!!fish}}
@@ -48,7 +48,7 @@ autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/Q
                 $coords=""
             />
             <$text
-                text={{{[<pondname>match[due]then<lan "$:/plugins/oflg/fishing/languages" "due">]~[<pondname>match[undue]then<lan "$:/plugins/oflg/fishing/languages" "undue">]~[<pondname>match[new]then<lan "$:/plugins/oflg/fishing/languages" "new">]}}}
+                text={{{ [<pondname>match[due]then<lan "$:/plugins/oflg/fishing/languages" "due">] ~[<pondname>match[undue]then<lan "$:/plugins/oflg/fishing/languages" "undue">] ~[<pondname>match[new]then<lan "$:/plugins/oflg/fishing/languages" "new">] }}}
             />
             <$count
                 filter="[subfilter<fishingrod>subfilter<fishingpond>]"

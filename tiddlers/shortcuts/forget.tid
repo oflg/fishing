@@ -29,21 +29,21 @@ title: $:/core/ui/KeyboardShortcuts/fishing-forget
                 <$action-setfield
                     $tiddler=<<backexcerpt>>
                     $timestamp="no"
-                    interval={{{[<backexcerpt>get[interval]!is[blank]else[0]add[1]]}}}
+                    interval={{{ [<backexcerpt>get[interval]!is[blank]else[0]add[1]] }}}
                 />
             </$list>
             <$action-deletetiddler
-                $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+                $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
             />
             <$action-setfield
                 $tiddler="$:/temp/fishing"
                 text=""
                 type=""
-                fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
+                fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
             />
             <$action-setfield
-                $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-                text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+                $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
+                text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
             />
             <$action-sendmessage
                 $message="tm-close-tiddler"

@@ -1,5 +1,5 @@
-caption: {{$:/plugins/oflg/fishing/icon}} <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishing]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishing]]}}}/>
-description: <$text text={{{[{$:/language}removeprefix[$:/]addprefix[$:/plugins/oflg/fishing/]getindex[fishingtip]]~[[$:/plugins/oflg/fishing/languages/en-GB]getindex[fishingtip]]}}}/>
+caption: {{$:/plugins/oflg/fishing/icon}} <$text text=<<lan "$:/plugins/oflg/fishing/languages" "fishing">>/>
+description: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "fishingtip">>/>
 tags: $:/tags/PageControls
 title: $:/plugins/oflg/fishing/fishingfloat
 

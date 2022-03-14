@@ -2,14 +2,14 @@ title: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
 tags: $:/tags/fishingrod/Button
 
 <$reveal
-    default={{{[all[tiddlers+shadows]removeprefix[$:/plugins/oflg/fishing/fishingrod/]count[]]}}}
+    default={{{ [all[tiddlers+shadows]removeprefix[$:/plugins/oflg/fishing/fishingrod/]count[]] }}}
     type="gt"
     text="0"
     animate="yes"
 >
     <$button
-        tooltip={{{[<lan "$:/plugins/oflg/fishing/languages" "commonfiltertip">addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
-        aria-label={{{[<lan "$:/plugins/oflg/fishing/languages" "commonfiltertip">addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
+        tooltip={{{ [<lan "$:/plugins/oflg/fishing/languages" "commonfiltertip">addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}] }}}
+        aria-label={{{ [<lan "$:/plugins/oflg/fishing/languages" "commonfiltertip">addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}] }}}
         popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingrod/fishingline">>
         class="tc-btn-invisible"
         style="margin:0;padding:0 5px;width:auto;height:auto;"
@@ -32,8 +32,8 @@ tags: $:/tags/fishingrod/Button
             variable="fishingrod"
         >
             <$button
-                tooltip={{{[<lan "$:/plugins/oflg/fishing/languages" "fillfiltertip">addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
-                aria-label={{{[<lan "$:/plugins/oflg/fishing/languages" "fillfiltertip">addsuffix[ ]addsuffix{$:/temp/fishing!!fishingrod}]}}}
+                tooltip={{{ [<lan "$:/plugins/oflg/fishing/languages" "fillfiltertip">addsuffix[ ]addsuffix<fishingrod>] }}}
+                aria-label={{{ [<lan "$:/plugins/oflg/fishing/languages" "fillfiltertip">addsuffix[ ]addsuffix<$:/temp/fishing!!fishingrod>] }}}
                 popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingrod/fishingline">>
                 class="tc-btn-invisible"
             >
@@ -41,7 +41,7 @@ tags: $:/tags/fishingrod/Button
                     $tiddler="$:/temp/fishing"
                     fishingrod=<<fishingrod>>
                 />
-                <$text text={{{[<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]get[caption]]~[<fishingrod>]}}}/>
+                <$text text={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]get[caption]]~[<fishingrod>] }}}/>
             </$button>
         </$list>
     </div>

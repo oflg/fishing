@@ -32,24 +32,24 @@ title: $:/core/ui/KeyboardShortcuts/fishing-learn
                 variable="null"
             >
                 <$action-setfield
-                    interval={{{[<currentTiddler>get[interval]!is[blank]else[0]add[1]]}}}
-                    due={{{[<currentTiddler>get[interval]!is[blank]else[0]add[1]due[]]}}}
+                    interval={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]] }}}
+                    due={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]due[]] }}}
                     review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
                 />
             </$list>
             <$action-deletetiddler
-                $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
+                $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
             />
             <$action-setfield
                 $tiddler="$:/temp/fishing"
                 text=""
                 type=""
-                fish={{{[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]]}}}
+                fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
             />
             <$action-log fishingrod={{$:/temp/fishing!!fishingrod}} fishingpond={{$:/temp/fishing!!fishingpond}} fishingorder={{$:/temp/fishing!!fishingorder}}/>
             <$action-setfield
-                $tiddler={{{[{$:/temp/fishing!!fish}addprefix[$:/state/folded/]]}}}
-                text={{{[{$:/temp/fishing!!fish}has[grade]then[hide]else[show]]}}}
+                $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
+                text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
             />
             <$action-sendmessage
                 $message="tm-close-tiddler"
