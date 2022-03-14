@@ -18,14 +18,14 @@ discardtip: 不再学习此条目
 add7tip: 下周学习此条目
 add1tip: 明天学习此条目
 fishingpondtip: 学习此组条目
-due: 已到期：
-undue: 未到期：
-new: 新添加：
+due: 已到期
+undue: 未到期
+new: 新添加
 commonfiltertip: 常用筛选器
-addfiltertip: 添加到常用筛选器：
-unaddfiltertip: 取消添加此常用筛选器：
-fillfiltertip: 填入此筛选器：
-customisefiltertip: 自定义此筛选器的行为：
+addfiltertip: 添加到常用筛选器
+unaddfiltertip: 取消添加此常用筛选器
+fillfiltertip: 填入此筛选器
+customisefiltertip: 自定义此筛选器的行为
 setalias: 别名
 typealias: 输入别名
 setorder: 学习顺序
@@ -35,7 +35,7 @@ createdorder: 创建时间
 azorder: 标题 A-Z
 zaorder: 标题 Z-A
 randomorder: 随机
-viewfiltertip: 查看此筛选器的相关条目：
+viewfiltertip: 查看此筛选器的相关条目
 settings: 这些高级设置让您定制钓鱼的行为。
 globalsettings: 全局
 setparameter: 参数

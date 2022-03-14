@@ -47,12 +47,7 @@ autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/Q
                 $state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
                 $coords=""
             />
-            <$text
-                text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<pondname>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>] }}}
-            />
-            <$count
-                filter="[subfilter<fishingrod>subfilter<fishingpond>]"
-            />
+                <$text text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<pondname>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>] }}}/> : <$count filter="[subfilter<fishingrod>subfilter<fishingpond>]"/>
         </$button>
     </$let>
 </$list>

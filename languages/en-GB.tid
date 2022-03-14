@@ -18,14 +18,14 @@ discardtip: No more learning this tiddler
 add7tip: Learning this tiddler next week
 add1tip: Learning this tiddler tomorrow
 fishingpondtip: Learn this group of tiddlers
-due: due:
-undue: undue:
-new: new:
+due: due
+undue: undue
+new: new
 commonfiltertip: Commonly used Filter
-addfiltertip: Add to commonly used Filter:
-unaddfiltertip: Unadd this Filter:
-fillfiltertip: Fill in this Filter:
-customisefiltertip: Customise the behaviour of this Filter:
+addfiltertip: Add to commonly used Filter
+unaddfiltertip: Unadd this Filter
+fillfiltertip: Fill in this Filter
+customisefiltertip: Customise the behaviour of this Filter
 setalias: Alias
 typealias: Type alias
 setorder: Learning order
@@ -35,7 +35,7 @@ createdorder: Created date
 azorder: Title A-Z
 zaorder: Title Z-A
 randomorder: Random
-viewfiltertip: View tiddlers related to this Filter:
+viewfiltertip: View tiddlers related to this Filter
 settings: These settings let you customise the behaviour of Fishing.
 globalsettings: Global
 setparameter: Parameter
