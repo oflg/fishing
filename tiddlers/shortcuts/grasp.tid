@@ -22,16 +22,6 @@ title: $:/core/ui/KeyboardShortcuts/fishing-grasp
             <$action-fishing
                 $grade="2"
             />
-            <$list
-                filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[Excerpt}}]]"
-                variable="backexcerpt"
-            >
-                <$action-setfield
-                    $tiddler=<<backexcerpt>>
-                    $timestamp="no"
-                    interval={{{ [<backexcerpt>get[interval]!is[blank]else[2]add[-1]] }}}
-                />
-            </$list>
             <$action-deletetiddler
                 $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
             />

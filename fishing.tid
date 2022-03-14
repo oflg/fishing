@@ -65,16 +65,6 @@ list-after: $:/core/ui/ViewTemplate/body
                                         review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
                                     />
                                 </$list>
-                                <$list
-                                    filter="[<currentTiddler>tags[]]:intersection[<currentTiddler>backlinks[]]+[search:caption:literal[Excerpt}}]]"
-                                    variable="backexcerpt"
-                                >
-                                    <$action-setfield
-                                        $tiddler=<<backexcerpt>>
-                                        $timestamp="no"
-                                        interval={{{ [<ease>match[learn]then[0]] ~[<ease>match[forget]then[1]] ~[<ease>match[remember]then[0]]~[<ease>match[grasp]then[-1]] =[<backexcerpt>get[interval]!is[blank]else[1]] +[sum[]] }}}
-                                    />
-                                </$list>
                                 <$action-deletetiddler
                                     $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
                                 />
