@@ -1,5 +1,5 @@
 title: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
-tags: $:/tags/fishingrod/Button
+tags: $:/tags/FishingGrod/Button
 
 <$reveal
     default={{{ [all[tiddlers+shadows]removeprefix[$:/plugins/oflg/fishing/fishingrod/]count[]] }}}

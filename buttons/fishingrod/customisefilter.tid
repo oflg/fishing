@@ -1,5 +1,5 @@
 title: $:/plugins/oflg/fishing/buttons/fishingrod/customisefilter
-tags: $:/tags/fishingrod/Button
+tags: $:/tags/FishingGrod/Button
 list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
 
 <$reveal
