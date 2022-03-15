@@ -1,0 +1,68 @@
+tags: $:/tags/Stylesheet
+title: $:/plugins/oflg/fishing/styles.css
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline
+
+.tc-fishing-learing {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.tc-fishing-learing-fishingpond{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size:8px;
+}
+
+.tc-fishing-learing-grade{
+    height:40px;
+}
+
+.tc-fishing-learing-grade .learn{
+    margin-left:10px;
+    color:green;
+}
+
+.learn svg{
+    fill:green;
+}
+
+.tc-fishing-learing-grade .forget{
+    margin-left:10px;
+    color:red;
+}
+
+.forget svg{
+    fill:red;
+}
+
+.tc-fishing-learing-grade .remember{
+    margin-left:10px;
+    color:green;
+}
+
+.remember svg{
+    fill:green;
+}
+
+.tc-fishing-learing-grade .grasp{
+    margin-left:10px;
+    color:blue;
+}
+
+.grasp svg{
+    fill:blue;
+}
+
+.tc-fishing-learing-grade .more{
+    padding-left:10px;
+}
+
+
+blockquote.tc-fish-quote {
+    border-left: 1px solid <<colour message-border>>;
+    margin-right: 0;
+    margin-left: 5px;
+}
