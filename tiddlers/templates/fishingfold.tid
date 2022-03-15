@@ -1,5 +1,5 @@
 tags: $:/tags/ViewTemplate
-title: $:/core/ui/ViewTemplate/fishing/unfold
+title: $:/core/ui/ViewTemplate/fishing/fold
 list-after: $:/core/ui/ViewTemplate/title
 
 <$list

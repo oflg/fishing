@@ -9,7 +9,7 @@ createdorder: [sort[created]]
 azorder: [sortan[]]
 zaorder: [!sortan[]]
 randomorder: [sortrandom[]]
-autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/QuestionTemplate]count[]] =[{!!due}interval[]] =[{!!priority}else[0]] =[{!!title}listed[]count[]] =[list{!!title}has[due]count[]negate[]] =[list{!!title}has[due]!days:due[1]count[]] =[list{!!title}has[due]!days:due[1]count[]] +[sum[]]
+autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/QuestionTemplate]count[]] =[{!!due}interval[]] =[{!!priority}else[0]] =[{!!title}tags[]count[]] =[{!!title}tagging[]has[due]count[]negate[]] =[{!!title}tagging[]has[due]!days:due[1]count[]] =[{!!title}tagging[]has[due]!days:due[1]count[]] +[sum[]]
 
 <$list
     filter="due undue new"
