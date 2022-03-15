@@ -1,0 +1,60 @@
+tags: $:/tags/ViewTemplate
+title: $:/core/ui/ViewTemplate/fishing/unfold
+list-after: $:/core/ui/ViewTemplate/title
+
+<$list
+    filter="[{!!title}] :cascade[all[shadows+tiddlers]tag[$:/tags/FishingFilter/learning]!is[draft]get[text]] +[!is[blank]limit[1]]"
+    variable="null"
+>
+    <$reveal
+        state="$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/fold-bar"
+        type="nomatch"
+        text="show"
+        animate="yes"
+    >
+            <$reveal
+                    tag="div"
+                    type="nomatch"
+                    stateTitle=<<folded-state>>
+                    text="hide"
+                    default="show"
+                    retain="yes"
+                    animate="yes"
+            >
+                    <$button
+                    tooltip={{$:/language/Buttons/Fold/Hint}}
+                    aria-label={{$:/language/Buttons/Fold/Caption}}
+                    class="tc-fold-banner"
+                    >
+                            <$action-sendmessage
+                                    $message="tm-fold-tiddler"
+                                    $param=<<currentTiddler>>
+                                    foldedState=<<folded-state>>
+                            />
+                            {{$:/core/images/chevron-up}}
+                    </$button>
+            </$reveal>
+            <$reveal
+                    tag="div"
+                    type="nomatch"
+                    stateTitle=<<folded-state>>
+                    text="show"
+                    default="show"
+                    retain="yes"
+                    animate="yes"
+            >
+                    <$button
+                    tooltip={{$:/language/Buttons/Unfold/Hint}}
+                    aria-label={{$:/language/Buttons/Unfold/Caption}}
+                    class="tc-unfold-banner"
+                    >
+                    <$action-sendmessage
+                            $message="tm-fold-tiddler"
+                            $param=<<currentTiddler>>
+                            foldedState=<<folded-state>>
+                    />
+                    {{$:/core/images/chevron-down}}
+                    </$button>
+            </$reveal>
+    </$reveal>
+</$list>

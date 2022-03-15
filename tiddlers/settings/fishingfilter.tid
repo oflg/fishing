@@ -1,4 +1,0 @@
-title: $:/config/FishingFilter/fishing
-tags: $:/tags/FishingFilter
-
-[{$:/temp/fishing!!fish}match{!!title}!is[blank]]

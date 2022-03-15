@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/oflg/fishing/action-fishing.js
+title: $:/plugins/oflg/fishing/widgets/action-fishing.js
 type: application/javascript
 module-type: widget
 

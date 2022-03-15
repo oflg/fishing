@@ -8,5 +8,8 @@ title: $:/core/ui/ControlPanel/Settings/Fishing/fishing
 
 !!!{{$:/language/ControlPanel/Cascades/Caption}}
 
-<$text text=<<lan "$:/plugins/oflg/fishing/languages" "setcascadetip">>/>
-{{$:/tags/FishingFilter||$:/snippets/ListTaggedCascade}}
+<$text text=<<lan "$:/plugins/oflg/fishing/languages" "settitletip">>/>
+{{$:/tags/FishingFilter/caption||$:/snippets/ListTaggedCascade}}
+
+<$text text=<<lan "$:/plugins/oflg/fishing/languages" "setlearntip">>/>
+{{$:/tags/FishingFilter/learning||$:/snippets/ListTaggedCascade}}
