@@ -20,9 +20,10 @@ list-after: $:/core/ui/ViewTemplate/body
         >
             <!-- creat fishingpond -->
             <div
-                class="tc-fishing-learing-fishingpond"
+                class="tc-fishing-learing-count"
             >
-                {{$:/plugins/oflg/fishing/fishingpond}}
+                <!-- {{$:/plugins/oflg/fishing/fishingpond}} -->
+                <$count filter="[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}]"/>
             </div>
             <!-- creat ease button -->
             <div
@@ -95,7 +96,7 @@ list-after: $:/core/ui/ViewTemplate/body
                                             $to={{$:/temp/fishing!!fish}}
                                         />
                                     </$list>
-                                   <$transclude tiddler={{{ [<ease>match[learn]then[$:/core/images/chevron-right]]~[<ease>match[forget]then[$:/core/images/close-button]]~[<ease>match[remember]then[$:/core/images/done-button]]~[<ease>match[grasp]then[$:/core/images/tip]] }}}/><br/>,,<$text text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<ease>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>] }}}/>,,
+                                    <$text text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<ease>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>] }}}/>
                                 </$button>
                             </$list>
                         </$let>
@@ -107,12 +108,12 @@ list-after: $:/core/ui/ViewTemplate/body
                         aria-label=<<lan "$:/plugins/oflg/fishing/languages" "moretip">>
                         class="tc-btn-invisible tc-tiddlylink more"
                     >
-                        {{$:/core/images/blank}}<br/>,,⁝,,
+                        ⁝
                     </$button>
                     <$reveal
                         state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishing/more">>
                         type="popup"
-                        position="above"
+                        position="aboveleft"
                         animate="yes"
                     >
                         <div

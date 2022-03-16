@@ -6,53 +6,35 @@ title: $:/plugins/oflg/fishing/styles.css
 .tc-fishing-learing {
     display:flex;
     justify-content:space-between;
-    align-items:flex-end;
+    align-items:center;
 }
 
-.tc-fishing-learing-fishingpond{
-    display:flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-size:8px;
-}
-
-
-.tc-fishing-learing-grade button svg {
-    height: 2em;
-	width: 2em;
-	margin: 0 1em;
+.tc-fishing-learing-count{
+    color:grey;
 }
 
 .tc-fishing-learing-grade .learn{
     color:green;
-}
-
-.learn svg{
-    fill:green;
+    margin-left:10px;
 }
 
 .tc-fishing-learing-grade .forget{
     color:red;
-}
-
-.forget svg{
-    fill:red;
+    margin-left:10px;
 }
 
 .tc-fishing-learing-grade .remember{
     color:green;
-}
-
-.remember svg{
-    fill:green;
+    margin-left:10px;
 }
 
 .tc-fishing-learing-grade .grasp{
     color:blue;
+    margin-left:10px;
 }
 
-.grasp svg{
-    fill:blue;
+.tc-fishing-learing-grade .more{
+    padding-left:10px;
 }
 
 
