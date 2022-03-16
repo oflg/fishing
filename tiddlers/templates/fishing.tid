@@ -87,10 +87,15 @@ list-after: $:/core/ui/ViewTemplate/body
                                     <$action-sendmessage
                                         $message="tm-close-tiddler"
                                     />
-                                    <$action-navigate
-                                        $to={{$:/temp/fishing!!fish}}
-                                    />
-                                   <$transclude tiddler={{{ [<ease>match[learn]then[$:/core/images/chevron-right]]~[<ease>match[forget]then[$:/core/images/close-button]]~[<ease>match[remember]then[$:/core/images/done-button]]~[<ease>match[grasp]then[$:/core/images/tip]] }}}/><br/><$text text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<ease>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>] }}}/>
+                                    <$list
+                                        filter="[{$:/temp/fishing!!fish}!is[blank]]"
+                                        variable="null"
+                                    >
+                                        <$action-navigate
+                                            $to={{$:/temp/fishing!!fish}}
+                                        />
+                                    </$list>
+                                   <$transclude tiddler={{{ [<ease>match[learn]then[$:/core/images/chevron-right]]~[<ease>match[forget]then[$:/core/images/close-button]]~[<ease>match[remember]then[$:/core/images/done-button]]~[<ease>match[grasp]then[$:/core/images/tip]] }}}/><br/>,,<$text text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<ease>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>] }}}/>,,
                                 </$button>
                             </$list>
                         </$let>
@@ -102,12 +107,12 @@ list-after: $:/core/ui/ViewTemplate/body
                         aria-label=<<lan "$:/plugins/oflg/fishing/languages" "moretip">>
                         class="tc-btn-invisible tc-tiddlylink more"
                     >
-                        {{$:/core/images/blank}}<br/>⁝
+                        {{$:/core/images/blank}}<br/>,,⁝,,
                     </$button>
                     <$reveal
                         state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishing/more">>
                         type="popup"
-                        position="aboveleft"
+                        position="above"
                         animate="yes"
                     >
                         <div

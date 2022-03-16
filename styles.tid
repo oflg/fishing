@@ -6,7 +6,7 @@ title: $:/plugins/oflg/fishing/styles.css
 .tc-fishing-learing {
     display:flex;
     justify-content:space-between;
-    align-items:center;
+    align-items:flex-end;
 }
 
 .tc-fishing-learing-fishingpond{
@@ -16,12 +16,14 @@ title: $:/plugins/oflg/fishing/styles.css
     font-size:8px;
 }
 
-.tc-fishing-learing-grade{
-    height:40px;
+
+.tc-fishing-learing-grade button svg {
+    height: 2em;
+	width: 2em;
+	margin: 0 1em;
 }
 
 .tc-fishing-learing-grade .learn{
-    margin-left:10px;
     color:green;
 }
 
@@ -30,7 +32,6 @@ title: $:/plugins/oflg/fishing/styles.css
 }
 
 .tc-fishing-learing-grade .forget{
-    margin-left:10px;
     color:red;
 }
 
@@ -39,7 +40,6 @@ title: $:/plugins/oflg/fishing/styles.css
 }
 
 .tc-fishing-learing-grade .remember{
-    margin-left:10px;
     color:green;
 }
 
@@ -48,16 +48,11 @@ title: $:/plugins/oflg/fishing/styles.css
 }
 
 .tc-fishing-learing-grade .grasp{
-    margin-left:10px;
     color:blue;
 }
 
 .grasp svg{
     fill:blue;
-}
-
-.tc-fishing-learing-grade .more{
-    padding-left:10px;
 }
 
 
