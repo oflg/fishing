@@ -24,7 +24,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
     exports.run = function (title, grade) {
         grade = (grade == "0" || grade == "1" || grade == "2") ? Number(grade) : -1;//Ratings for review have 0, 1, 2. Other ratings mean learn new tiddler.
 
-        var fsrsData = $tw.wiki.getTiddlerData('$:/plugins/oflg/fishing/data');
+        var globalData = $tw.wiki.getTiddlerData('$:/plugins/oflg/fishing/data');
 
         function faultToleranceValue(value, defaultValue) {
             return (typeof value === 'number' && !isNaN(value)) ? value : defaultValue;
@@ -33,13 +33,13 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
         var increaseFactor = 60,
             difficultyDecay = -0.7,
             stabilityDecay = -0.2,
-            requestRetention = faultToleranceValue(fsrsData.requestRetention, 0.9),
-            totalCase = faultToleranceValue(fsrsData.totalCase, 0),
-            totalDiff = faultToleranceValue(fsrsData.totalDiff, 0),
-            totalReview = faultToleranceValue(fsrsData.totalReview, 0),
-            defaultDifficulty = faultToleranceValue(fsrsData.defaultDifficulty, 5),
-            defaultStability = faultToleranceValue(fsrsData.defaultStability, 2),
-            stabilityDataArry = fsrsData.stabilityDataArry || [];
+            requestRetention = faultToleranceValue(globalData.requestRetention, 0.9),
+            totalCase = faultToleranceValue(globalData.totalCase, 0),
+            totalDiff = faultToleranceValue(globalData.totalDiff, 0),
+            totalReview = faultToleranceValue(globalData.totalReview, 0),
+            defaultDifficulty = faultToleranceValue(globalData.defaultDifficulty, 5),
+            defaultStability = faultToleranceValue(globalData.defaultStability, 2),
+            stabilityDataArry = globalData.stabilityDataArry || [];
 
         requestRetention = requestRetention >= 0.75 && requestRetention <= 0.95 ? requestRetention : 0.9;
 
@@ -162,7 +162,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             }
         }
 
-        var itemData = {
+        var tiddlerData = {
             due: due,
             interval: interval,
             difficulty: difficulty,
@@ -175,7 +175,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             history: history
         };
 
-        fsrsData = {
+        globalData = {
             requestRetention: requestRetention,
             increaseFactor: increaseFactor,
             difficultyDecay: difficultyDecay,
@@ -188,7 +188,7 @@ Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/
             stabilityDataArry: stabilityDataArry
         };
 
-        return { itemData: itemData, fsrsData: fsrsData };// Action was invoked
+        return { tiddlerData: tiddlerData, globalData: globalData };// Action was invoked
     };
 
 })();

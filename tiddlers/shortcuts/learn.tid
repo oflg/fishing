@@ -23,7 +23,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-learn
                 filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
                 variable="null"
             >
-                <$action-fishing
+                <$action-learn
                     $grade="-1"
                 />
             </$list>

@@ -58,7 +58,7 @@ list-after: $:/core/ui/ViewTemplate/body
                                         filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
                                         variable="null"
                                     >
-                                        <$action-fishing
+                                        <$action-learn
                                             $grade={{{ [<ease>match[learn]then[-1]]~[<ease>match[forget]then[0]]~[<ease>match[remember]then[1]]~[<ease>match[grasp]then[2]] }}}
                                         />
                                     </$list>

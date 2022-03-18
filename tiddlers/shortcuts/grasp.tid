@@ -19,7 +19,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-grasp
                 $message="tm-remove-tag"
                 $param="!"
             />
-            <$action-fishing
+            <$action-learn
                 $grade="2"
             />
             <$action-deletetiddler
