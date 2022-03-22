@@ -23,7 +23,7 @@ list-after:
             <$action-setfield
                 $tiddler="$:/temp/fishing"
                 text=""
-                fish=""
+                list=""
             />
             <$action-setfield $tiddler="$:/temp/advancedsearch" $value="[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]][subfilter{$:/temp/fishing!!fishingrod}is[tiddler]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]plugintiddlers[]is[tiddler]]"/>
             <$action-setfield $tiddler="$:/temp/advancedsearch/input" $value="[{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]][subfilter{$:/temp/fishing!!fishingrod}is[tiddler]][{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]shadowsource[]plugintiddlers[]is[tiddler]]"/>

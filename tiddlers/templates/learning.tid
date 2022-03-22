@@ -73,27 +73,27 @@ list-after: $:/core/ui/ViewTemplate/body
                                         />
                                     </$list>
                                     <$action-deletetiddler
-                                        $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
+                                        $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
                                     />
                                     <$action-setfield
                                         $tiddler="$:/temp/fishing"
                                         text=""
                                         type=""
-                                        fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
+                                        list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
                                     />
                                     <$action-setfield
-                                        $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
-                                        text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
+                                        $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+                                        text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
                                     />
                                     <$action-sendmessage
                                         $message="tm-close-tiddler"
                                     />
                                     <$list
-                                        filter="[{$:/temp/fishing!!fish}!is[blank]]"
+                                        filter="[list[$:/temp/fishing]first[]!is[blank]]"
                                         variable="null"
                                     >
                                         <$action-navigate
-                                            $to={{$:/temp/fishing!!fish}}
+                                            $to={{{ [list[$:/temp/fishing]first[]] }}}
                                         />
                                     </$list>
                                     <$text text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<ease>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<ease>] }}}/>
@@ -146,23 +146,23 @@ list-after: $:/core/ui/ViewTemplate/body
                                     review
                                 />
                                 <$action-deletetiddler
-                                    $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
+                                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
                                 />
                                 <$action-setfield
                                     $tiddler="$:/temp/fishing"
                                     text=""
                                     type=""
-                                    fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
+                                    list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
                                 />
                                 <$action-setfield
-                                    $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
-                                    text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
+                                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+                                    text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
                                 />
                                 <$action-sendmessage
                                     $message="tm-close-tiddler"
                                 />
                                 <$action-navigate
-                                    $to={{$:/temp/fishing!!fish}}
+                                    $to={{{ [list[$:/temp/fishing]first[]] }}}
                                 />
                                 <$text text=<<lan "$:/plugins/oflg/fishing/languages" "discard">>/>
                             </$button>
@@ -187,17 +187,17 @@ list-after: $:/core/ui/ViewTemplate/body
                                     $tiddler="$:/temp/fishing"
                                     text=""
                                     type=""
-                                    fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
+                                    list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
                                 />
                                 <$action-setfield
-                                    $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
-                                    text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
+                                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+                                    text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
                                 />
                                 <$action-sendmessage
                                     $message="tm-close-tiddler"
                                 />
                                 <$action-navigate
-                                    $to={{$:/temp/fishing!!fish}}
+                                    $to={{{ [list[$:/temp/fishing]first[]] }}}
                                 />
                                 + 7
                             </$button>
@@ -222,17 +222,17 @@ list-after: $:/core/ui/ViewTemplate/body
                                     $tiddler="$:/temp/fishing"
                                     text=""
                                     type=""
-                                    fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
+                                    list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
                                 />
                                 <$action-setfield
-                                    $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
-                                    text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
+                                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+                                    text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
                                 />
                                 <$action-sendmessage
                                     $message="tm-close-tiddler"
                                 />
                                 <$action-navigate
-                                    $to={{$:/temp/fishing!!fish}}
+                                    $to={{{ [list[$:/temp/fishing]first[]] }}}
                                 />
                                 + 1
                             </$button>

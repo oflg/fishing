@@ -1,4 +1,4 @@
 title: $:/config/FishingFilter/caption
 tags: $:/tags/FishingFilter/caption
 
-[{$:/temp/fishing!!fish}match{!!title}!is[blank]]
+[list[$:/temp/fishing]match{!!title}]

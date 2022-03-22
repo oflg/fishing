@@ -27,7 +27,7 @@ list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
                 <$action-setfield
                     $tiddler="$:/temp/fishing"
                     text=""
-                    fish=""
+                    list=""
                 />
                 {{$:/core/images/options-button}}
             </$button>

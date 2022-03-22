@@ -34,14 +34,14 @@ autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/Q
                 fishingrod=<<fishingrod>>
                 fishingpond=<<fishingpond>>
                 fishingorder=<<fishingorder>>
-                fish={{{ [subfilter<fishingrod>subfilter<fishingpond>subfilter<fishingorder>first[]] }}}
+                list={{{ [subfilter<fishingrod>subfilter<fishingpond>subfilter<fishingorder>first[]format:titlelist[]] }}}
             />
             <$action-setfield
-                $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
-                text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
+                $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+                text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
             />
             <$action-navigate
-                $to={{$:/temp/fishing!!fish}}
+                $to={{{ [list[$:/temp/fishing]first[]] }}}
             />
             <$action-popup
                 $state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>

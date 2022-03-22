@@ -3,7 +3,7 @@ tags: $:/tags/KeyboardShortcut
 title: $:/core/ui/KeyboardShortcuts/fishing-learn
 
 <$list
-    filter="[{$:/temp/fishing!!fish}!is[blank]!has[grade]]"
+    filter="[list[$:/temp/fishing]first[]!is[blank]!has[grade]]"
 >
     <$navigator
         story="$:/StoryList"
@@ -38,24 +38,24 @@ title: $:/core/ui/KeyboardShortcuts/fishing-learn
                 />
             </$list>
             <$action-deletetiddler
-                $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
+                $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
             />
             <$action-setfield
                 $tiddler="$:/temp/fishing"
                 text=""
                 type=""
-                fish={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]] }}}
+                list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
             />
             <$action-log fishingrod={{$:/temp/fishing!!fishingrod}} fishingpond={{$:/temp/fishing!!fishingpond}} fishingorder={{$:/temp/fishing!!fishingorder}}/>
             <$action-setfield
-                $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
-                text={{{ [{$:/temp/fishing!!fish}has[grade]then[hide]else[show]] }}}
+                $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+                text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
             />
             <$action-sendmessage
                 $message="tm-close-tiddler"
             />
             <$action-navigate
-                $to={{$:/temp/fishing!!fish}}
+                $to={{{ [list[$:/temp/fishing]first[]] }}}
             />
         </$fieldmangler>
     </$navigator>

@@ -9,7 +9,7 @@ title: $:/plugins/oflg/fishing/fishingrod
         tag="input"
         focus="true"
         placeholder="[tag[?]]"
-        inputActions='<$action-setfield $tiddler="$:/temp/fishing" fish=""/>'
+        inputActions='<$action-setfield $tiddler="$:/temp/fishing" list=""/>'
     />
 </div>
 <div

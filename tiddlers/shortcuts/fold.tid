@@ -3,10 +3,10 @@ tags: $:/tags/KeyboardShortcut
 title: $:/core/ui/KeyboardShortcuts/fishing-fold
 
 <$list
-    filter="[{$:/temp/fishing!!fish}!is[blank]]"
+    filter="[list[$:/temp/fishing]first[]!is[blank]]"
 >
     <$action-setfield
-        $tiddler={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]] }}}
-        text={{{ [{$:/temp/fishing!!fish}addprefix[$:/state/folded/]get[text]match[hide]then[show]else[hide]] }}}
+        $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+        text={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]get[text]match[hide]then[show]else[hide]] }}}
     />
 </$list>
