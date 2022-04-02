@@ -1,5 +1,4 @@
-title: $:/plugins/oflg/fishing/languages/en-GB
-type: application/x-tiddler-dictionary
+title: $:/language/fishing/
 
 fishing: Fishing
 fishingtip: Incremental learning

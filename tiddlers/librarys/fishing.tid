@@ -1,6 +1,6 @@
-caption: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "pluginlibrary">>/>
+caption: {{$:/language/fishing/pluginlibrary}}
 tags: $:/tags/PluginLibrary
 title: $:/config/FishingPluginLibrary
-url: https://oflg.github.io/fishing-manual/library/
+url: https://tiddlymemo.org/manual/library/
 
-<$text text=<<lan "$:/plugins/oflg/fishing/languages" "pluginlibrarytip">>/>
+{{$:/language/fishing/pluginlibrarytip}}

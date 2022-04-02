@@ -22,8 +22,8 @@ autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/Q
         fishingorder={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>] ~[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}] ~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}] ~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}] }}}
     >
         <$button
-            tooltip=<<lan "$:/plugins/oflg/fishing/languages" "fishingpondtip">>
-            aria-label=<<lan "$:/plugins/oflg/fishing/languages" "fishingpondtip">>
+            tooltip={{$:/language/fishing/fishingpondtip}}
+            aria-label={{$:/language/fishing/fishingpondtip}}
             class="tc-btn-invisible tc-tiddlylink"
             style="padding-right:10px;"
         >
@@ -47,7 +47,7 @@ autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/Q
                 $state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
                 $coords=""
             />
-                <$text text={{{ [{$:/language}removeprefix[$:/languages/]addprefix[$:/plugins/oflg/fishing/languages/]getindex<pondname>] ~[[$:/plugins/oflg/fishing/languages/en-GB]getindex<pondname>] }}}/> : <$count filter="[subfilter<fishingrod>subfilter<fishingpond>]"/>
+                <$text text={{{ [[$:/language/fishing/]addsuffix<pondname>get[text]] }}}/> : <$count filter="[subfilter<fishingrod>subfilter<fishingpond>]"/>
         </$button>
     </$let>
 </$list>

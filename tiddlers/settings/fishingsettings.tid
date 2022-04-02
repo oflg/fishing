@@ -1,9 +1,9 @@
-caption: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "fishing">>/>
+caption: {{$:/language/fishing/fishing}}
 list-after: $:/core/ui/ControlPanel/Settings/TiddlyWiki
 tags: $:/tags/ControlPanel/SettingsTab
 title: $:/core/ui/ControlPanel/Settings/Fishing
 
-<$text text=<<lan "$:/plugins/oflg/fishing/languages" "settings">>/><br>
+{{$:/language/fishing/settings}}<br>
 
 <$list filter="[all[shadows+tiddlers]tag[$:/tags/ControlPanel/Settings/Fishing]]">
 

@@ -1,13 +1,14 @@
-caption: {{$:/plugins/oflg/fishing/icon}} <$text text=<<lan "$:/plugins/oflg/fishing/languages" "fishing">>/>
-description: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "fishingtip">>/>
+caption: {{$:/plugins/oflg/fishing/icon}} {{$:/language/fishing/fishing}}
+description: {{$:/language/fishing/fishingtip}}
 tags: $:/tags/PageControls
 title: $:/plugins/oflg/fishing/fishingfloat
 
 \whitespace trim
+\define lingo-base() $:/language/fishing/fishingfloat/
 <$button
     popup=<<qualify "$:/state/popup/fishingdeck">>
-    tooltip=<<lan "$:/plugins/oflg/fishing/languages" "fishingtip">>
-    aria-label=<<lan "$:/plugins/oflg/fishing/languages" "fishingtip">>
+    tooltip={{$:/language/fishing/fishingtip}}
+    aria-label={{$:/language/fishing/fishingtip}}
     class=<<tv-config-toolbar-class>>
     selectedClass="tc-selected"
 >
@@ -16,7 +17,7 @@ title: $:/plugins/oflg/fishing/fishingfloat
     </$list>
     <$list filter="[<tv-config-toolbar-text>match[yes]]">
         <span class="tc-btn-text">
-            <$text text=<<lan "$:/plugins/oflg/fishing/languages" "fishingtip">>/>
+            {{$:/language/fishing/fishingtip}}
         </span>
     </$list>
 </$button><$reveal state=<<qualify "$:/state/popup/fishingdeck">> type="popup" position="below" animate="yes">

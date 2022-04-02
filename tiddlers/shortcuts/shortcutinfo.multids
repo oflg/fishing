@@ -1,8 +1,8 @@
 title: $:/config/ShortcutInfo/
 
-fishing-fold: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "fold">>/>
-fishing-learn: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "learn">>/>
-fishing-forget: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "forget">>/>
-fishing-remember: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "remember">>/>
-fishing-grasp: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "grasp">>/>
-fishing-discard: <$text text=<<lan "$:/plugins/oflg/fishing/languages" "discard">>/>
+fishing-fold: {{$:/language/fishing/fold}}
+fishing-learn: {{$:/language/fishing/learn}}
+fishing-forget: {{$:/language/fishing/forget}}
+fishing-remember: {{$:/language/fishing/remember}}
+fishing-grasp: {{$:/language/fishing/grasp}}
+fishing-discard: {{$:/language/fishing/discard}}
