@@ -104,7 +104,7 @@ list-after: $:/core/ui/ViewTemplate/body
                         aria-label={{$:/language/fishing/moretip}}
                         class="tc-btn-invisible tc-tiddlylink more"
                     >
-                        ⁝
+                        {{$:/language/fishing/more}}
                     </$button>
                     <$reveal
                         state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishing/more">>
