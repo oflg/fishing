@@ -86,7 +86,7 @@ list-after: $:/core/ui/ViewTemplate/body
                                     $message="tm-close-tiddler"
                                 />
                                 <$list
-                                    filter="[list[$:/temp/fishing]first[]!is[blank]]"
+                                    filter="[list[$:/temp/fishing]match<currentTiddler>]"
                                     variable="null"
                                 >
                                     <$action-navigate

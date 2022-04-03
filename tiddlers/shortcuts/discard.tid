@@ -46,9 +46,14 @@ title: $:/core/ui/KeyboardShortcuts/fishing-discard
             <$action-sendmessage
                 $message="tm-close-tiddler"
             />
-            <$action-navigate
-                $to={{{ [list[$:/temp/fishing]first[]] }}}
-            />
+            <$list
+                filter="[list[$:/temp/fishing]match<currentTiddler>]"
+                variable="null"
+            >
+                <$action-navigate
+                    $to={{{ [list[$:/temp/fishing]first[]] }}}
+                />
+            </$list>
         </$fieldmangler>
     </$navigator>
 </$list>
