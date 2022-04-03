@@ -20,7 +20,14 @@ title: $:/plugins/oflg/fishing/fishingfloat
             {{$:/language/fishing/fishingtip}}
         </span>
     </$list>
-</$button><$reveal state=<<qualify "$:/state/popup/fishingdeck">> type="popup" position="below" animate="yes">
+</$button>
+<$reveal
+    state=<<qualify "$:/state/popup/fishingdeck">>
+    type="popup"
+    position="below"
+    animate="yes"
+    positionAllowNegative="yes"
+>
     <div
         class="tc-drop-down tc-popup-keep"
         style="min-width:0;"

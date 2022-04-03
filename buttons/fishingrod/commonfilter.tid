@@ -1,5 +1,6 @@
 title: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
 tags: $:/tags/FishingGrod/Button
+list-before:
 
 <$reveal
     default={{{ [all[tiddlers+shadows]removeprefix[$:/plugins/oflg/fishing/fishingrod/]count[]] }}}
@@ -41,7 +42,10 @@ tags: $:/tags/FishingGrod/Button
                     $tiddler="$:/temp/fishing"
                     fishingrod=<<fishingrod>>
                 />
-                <$text text={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]get[caption]]~[<fishingrod>] }}}/>
+                <$text
+                    text={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]get[caption]]
+                            ~[<fishingrod>] }}}
+                />
             </$button>
         </$list>
     </div>

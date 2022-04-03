@@ -3,7 +3,9 @@ tags: $:/tags/ViewTemplate
 list-after: $:/core/ui/ViewTemplate/body
 
 <$list
-    filter="[{!!title}] :cascade[all[shadows+tiddlers]tag[$:/tags/FishingFilter/learning]!is[draft]get[text]] +[!is[blank]limit[1]]"
+    filter="[{!!title}]
+            :cascade[all[shadows+tiddlers]tag[$:/tags/FishingFilter/learning]!is[draft]get[text]]
+            +[!is[blank]limit[1]]"
     variable="null"
 >
     <$reveal
@@ -25,23 +27,23 @@ list-after: $:/core/ui/ViewTemplate/body
                 <!-- {{$:/plugins/oflg/fishing/fishingpond}} -->
                 <$count filter="[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}]"/>
             </div>
-            <!-- creat ease button -->
+            <!-- creat grade button -->
             <div
                 class="tc-fishing-learing-grade"
             >
                 <$fieldmangler>
                     <$list
                         filter="learn forget remember grasp"
-                        variable="ease"
+                        variable="grade"
                     >
                         <$list
-                            filter="[<currentTiddler>has[grade]then[review]else[learn]][<ease>match[learn]else[review]]+[count[]match[1]]"
+                            filter="[<currentTiddler>has[grade]then[review]else[learn]] [<grade>match[learn]else[review]] +[count[]match[1]]"
                             variable="null"
                         >
                             <$button
-                                tooltip={{{ [[$:/language/fishing/]addsuffix<ease>addsuffix[tip]get[text]] }}}
-                                aria-label={{{ [[$:/language/fishing/]addsuffix<ease>addsuffix[tip]get[text]] }}}
-                                class={{{ [[tc-btn-invisible tc-tiddlylink ]addsuffix<ease>] }}}
+                                tooltip={{{ [[$:/language/fishing/]addsuffix<grade>addsuffix[tip]get[text]] }}}
+                                aria-label={{{ [[$:/language/fishing/]addsuffix<grade>addsuffix[tip]get[text]] }}}
+                                class={{{ [[tc-btn-invisible tc-tiddlylink ]addsuffix<grade>] }}}
                             >
                                 <$action-sendmessage
                                     $message="tm-add-tag"
@@ -56,7 +58,10 @@ list-after: $:/core/ui/ViewTemplate/body
                                     variable="null"
                                 >
                                     <$action-learn
-                                        $grade={{{ [<ease>match[learn]then[-1]]~[<ease>match[forget]then[0]]~[<ease>match[remember]then[1]]~[<ease>match[grasp]then[2]] }}}
+                                        $grade={{{ [<grade>match[learn]then[-1]]
+                                                    ~[<grade>match[forget]then[0]]
+                                                    ~[<grade>match[remember]then[1]]
+                                                    ~[<grade>match[grasp]then[2]] }}}
                                     />
                                 </$list>
                                 <$list
@@ -93,7 +98,7 @@ list-after: $:/core/ui/ViewTemplate/body
                                         $to={{{ [list[$:/temp/fishing]first[]] }}}
                                     />
                                 </$list>
-                                <$text text={{{ [[$:/language/fishing/]addsuffix<ease>get[text]] }}}/>
+                                <$text text={{{ [[$:/language/fishing/]addsuffix<grade>get[text]] }}}/>
                             </$button>
                         </$list>
                     </$list>
@@ -116,122 +121,78 @@ list-after: $:/core/ui/ViewTemplate/body
                             class="tc-drop-down"
                             style="min-width:0px;"
                         >
-                            <$button
-                                tooltip={{$:/language/fishing/discardtip}}
-                                aria-label={{$:/language/fishing/discardtip}}
-                                class="tc-btn-invisible tc-tiddlylink"
-                                style="padding:3px 10px;"
+                            <$list
+                                filter="discard add7 add1"
+                                variable="more"
                             >
-                                <$action-sendmessage
-                                    $message="tm-remove-tag"
-                                    $param="?"
-                                />
-                                <$action-sendmessage
-                                    $message="tm-add-tag"
-                                    $param="!"
-                                />
-                                <$action-deletefield
-                                    due
-                                    interval
-                                    grade
-                                    difficulty
-                                    stability
-                                    retrievability
-                                    lapses
-                                    reps
-                                    review
-                                />
-                                <$action-deletetiddler
-                                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
-                                />
-                                <$action-setfield
-                                    $tiddler="$:/temp/fishing"
-                                    text=""
-                                    type=""
-                                    list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
-                                />
-                                <$action-setfield
-                                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
-                                    text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
-                                />
-                                <$action-sendmessage
-                                    $message="tm-close-tiddler"
-                                />
-                                <$action-navigate
-                                    $to={{{ [list[$:/temp/fishing]first[]] }}}
-                                />
-                                {{$:/language/fishing/discard}}
-                            </$button>
-                            <$button
-                                tooltip={{$:/language/fishing/add7tip}}
-                                aria-label={{$:/language/fishing/add7tip}}
-                                class="tc-btn-invisible tc-tiddlylink"
-                                style="padding:3px 10px;"
-                            >
-                                <$action-sendmessage
-                                    $message="tm-add-tag"
-                                    $param="?"
-                                />
-                                <$action-sendmessage
-                                    $message="tm-remove-tag"
-                                    $param="!"
-                                />
-                                <$action-setfield
-                                    due={{{ [[7]due[]] }}}
-                                />
-                                <$action-setfield
-                                    $tiddler="$:/temp/fishing"
-                                    text=""
-                                    type=""
-                                    list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
-                                />
-                                <$action-setfield
-                                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
-                                    text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
-                                />
-                                <$action-sendmessage
-                                    $message="tm-close-tiddler"
-                                />
-                                <$action-navigate
-                                    $to={{{ [list[$:/temp/fishing]first[]] }}}
-                                />
-                                + 7
-                            </$button>
-                            <$button
-                                tooltip={{$:/language/fishing/add1tip}}
-                                aria-label={{$:/language/fishing/add1tip}}
-                                class="tc-btn-invisible tc-tiddlylink"
-                                style="padding:3px 10px;"
-                            >
-                                <$action-sendmessage
-                                    $message="tm-add-tag"
-                                    $param="?"
-                                />
-                                <$action-sendmessage
-                                    $message="tm-remove-tag"
-                                    $param="!"
-                                />
-                                <$action-setfield
-                                    due={{{ [[1]due[]] }}}
-                                />
-                                <$action-setfield
-                                    $tiddler="$:/temp/fishing"
-                                    text=""
-                                    type=""
-                                    list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
-                                />
-                                <$action-setfield
-                                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
-                                    text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
-                                />
-                                <$action-sendmessage
-                                    $message="tm-close-tiddler"
-                                />
-                                <$action-navigate
-                                    $to={{{ [list[$:/temp/fishing]first[]] }}}
-                                />
-                                + 1
-                            </$button>
+                                <$button
+                                    tooltip={{{ [[$:/language/fishing/]addsuffix<more>addsuffix[tip]get[text]] }}}
+                                    aria-label={{{ [[$:/language/fishing/]addsuffix<more>addsuffix[tip]get[text]] }}}
+                                    class="tc-btn-invisible tc-tiddlylink"
+                                    style="padding:3px 10px;"
+                                >
+                                    <$list
+                                        filter="[<more>match[discard]]"
+                                        variable="null"
+                                    >
+                                        <$action-sendmessage
+                                            $message="tm-remove-tag"
+                                            $param="?"
+                                        />
+                                        <$action-sendmessage
+                                            $message="tm-add-tag"
+                                            $param="!"
+                                        />
+                                        <$action-deletefield
+                                            due
+                                            interval
+                                            grade
+                                            difficulty
+                                            stability
+                                            retrievability
+                                            lapses
+                                            reps
+                                            review
+                                        />
+                                    </$list>
+                                    <$list
+                                        filter="[<more>!match[discard]]"
+                                        variable="null"
+                                    >
+                                        <$action-sendmessage
+                                            $message="tm-add-tag"
+                                            $param="?"
+                                        />
+                                        <$action-sendmessage
+                                            $message="tm-remove-tag"
+                                            $param="!"
+                                        />
+                                        <$action-setfield
+                                            due={{{ [<more>match[add7]then[7]else[1]due[]] }}}
+                                        />
+                                    </$list>
+                                    <$action-deletetiddler
+                                        $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+                                    />
+                                    <$action-setfield
+                                        $tiddler="$:/temp/fishing"
+                                        text=""
+                                        type=""
+                                        list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
+                                    />
+                                    <$action-setfield
+                                        $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+                                        text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
+                                    />
+                                    <$action-sendmessage
+                                        $message="tm-close-tiddler"
+                                    />
+                                    <$action-navigate
+                                        $to={{{ [list[$:/temp/fishing]first[]] }}}
+                                    />
+                                    <$text text={{{ [[$:/language/fishing/]addsuffix<more>get[text]] }}}/>
+                                </$button>
+                            </$list>
                         </div>
                     </$reveal>
                 </$fieldmangler>
