@@ -1,6 +1,6 @@
 {
     "author": "oflg",
-    "core-version": ">=5.2.1",
+    "core-version": ">=5.2.2",
     "description": "Incremental Learning program based on TiddlyWiki",
     "list": "readme license",
     "name": "Fishing",
