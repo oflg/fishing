@@ -13,9 +13,14 @@ title: $:/plugins/oflg/fishing/fishingrod
     />
 </div>
 <div
-    style="display:flex;margin:0 15px;flex-flow:wrap;align-items:center;font-size:10pt;"
+    style="display:flex;margin:0 15px;justify-content:flex-start;align-items:center;font-size:10pt;"
 >
-    <$list filter="[all[shadows+tiddlers]tag[$:/tags/FishingGrod/Button]!is[draft]]">
-        <$transclude/>
+    <$list
+        filter="[all[shadows+tiddlers]tag[$:/tags/FishingGrod]!is[draft]]"
+    >
+        <$transclude
+            tiddler="$:/core/ui/ViewTemplate/fishing/button"
+            mode="inline"
+        />
     </$list>
 </div>

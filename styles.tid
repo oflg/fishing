@@ -3,6 +3,16 @@ title: $:/plugins/oflg/fishing/styles.css
 
 \rules only filteredtranscludeinline transcludeinline macrodef macrocallinline
 
+.fishingrod-button {
+    margin:0!important;
+    padding:0 5px!important;
+    width:auto!important;
+}
+
+.dropdown-more {
+    padding:3px 10px!important;
+}
+
 .tc-fishing-learing {
     display:flex;
     justify-content:space-between;

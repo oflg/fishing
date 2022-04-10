@@ -1,9 +1,15 @@
 key: ((fishing-discard))
-tags: $:/tags/KeyboardShortcut
-title: $:/core/ui/KeyboardShortcuts/fishing-discard
+tags: $:/tags/LearningMore $:/tags/KeyboardShortcut
+title: $:/plugins/oflg/fishing/buttons/learning/more/discard
+list-before:
+caption: {{$:/language/fishing/discard}}
+description: {{$:/language/fishing/discardtip}}
+condition: [<targetTiddler>]
+button-classes: dropdown-more
 
 <$list
-    filter="[list[$:/temp/fishing]first[]!is[blank]]"
+    filter="[<targetTiddler>!is[blank]]
+            ~[list[$:/temp/fishing]first[]!is[blank]]"
 >
     <$navigator
         story="$:/StoryList"

@@ -1,23 +1,12 @@
 title: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
-tags: $:/tags/FishingGrod/Button
+tags: $:/tags/FishingGrod
 list-before:
+popup: $:/plugins/oflg/fishing/buttons/fishingrod/popup/commonfilter
+icon: $:/core/images/down-arrow
+description: {{$:/language/fishing/commonfiltertip}}
+condition: [all[tiddlers+shadows]removeprefix[$:/plugins/oflg/fishing/fishingrod/]first[]]
+button-classes: fishingrod-button
 
-<$reveal
-    default={{{ [all[tiddlers+shadows]removeprefix[$:/plugins/oflg/fishing/fishingrod/]count[]] }}}
-    type="gt"
-    text="0"
-    animate="yes"
->
-    <$button
-        tooltip={{$:/language/fishing/commonfiltertip}}
-        aria-label={{$:/language/fishing/commonfiltertip}}
-        popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingrod/fishingline">>
-        class="tc-btn-invisible"
-        style="margin:0;padding:0 5px;width:auto;height:auto;"
-    >
-        {{$:/core/images/down-arrow}}
-    </$button>
-</$reveal>
 <$reveal
     state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingrod/fishingline">>
     type="popup"

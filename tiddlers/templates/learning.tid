@@ -6,7 +6,7 @@ list-after: $:/core/ui/ViewTemplate/body
     filter="[{!!title}]
             :cascade[all[shadows+tiddlers]tag[$:/tags/FishingFilter/learning]!is[draft]get[text]]
             +[!is[blank]limit[1]]"
-    variable="null"
+    variable="targetTiddler"
 >
     <$reveal
         state=<<folded-state>>
@@ -21,178 +21,20 @@ list-after: $:/core/ui/ViewTemplate/body
             <div
                 class="tc-fishing-learing-count"
             >
-                <!-- {{$:/plugins/oflg/fishing/fishingpond}} -->
                 <$count filter="[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}]"/>
             </div>
             <!-- creat grade button -->
             <div
                 class="tc-fishing-learing-grade"
             >
-                <$fieldmangler>
-                    <$list
-                        filter="learn forget remember grasp"
-                        variable="grade"
-                    >
-                        <$list
-                            filter="[<currentTiddler>has[grade]then[review]else[learn]] [<grade>match[learn]else[review]] +[count[]match[1]]"
-                            variable="null"
-                        >
-                            <$button
-                                tooltip={{{ [[$:/language/fishing/]addsuffix<grade>addsuffix[tip]get[text]] }}}
-                                aria-label={{{ [[$:/language/fishing/]addsuffix<grade>addsuffix[tip]get[text]] }}}
-                                class={{{ [[tc-btn-invisible tc-tiddlylink ]addsuffix<grade>] }}}
-                            >
-                                <$action-sendmessage
-                                    $message="tm-add-tag"
-                                    $param="?"
-                                />
-                                <$action-sendmessage
-                                    $message="tm-remove-tag"
-                                    $param="!"
-                                />
-                                <$list
-                                    filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
-                                    variable="null"
-                                >
-                                    <$action-learn
-                                        $grade={{{ [<grade>match[learn]then[-1]]
-                                                    ~[<grade>match[forget]then[0]]
-                                                    ~[<grade>match[remember]then[1]]
-                                                    ~[<grade>match[grasp]then[2]] }}}
-                                    />
-                                </$list>
-                                <$list
-                                    filter="[<currentTiddler>search:caption:literal[Excerpt}}]]"
-                                    variable="null"
-                                >
-                                    <$action-setfield
-                                        interval={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]] }}}
-                                        due={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]due[]] }}}
-                                        review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
-                                    />
-                                </$list>
-                                <$action-deletetiddler
-                                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
-                                />
-                                <$action-setfield
-                                    $tiddler="$:/temp/fishing"
-                                    text=""
-                                    type=""
-                                    list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
-                                />
-                                <$action-setfield
-                                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
-                                    text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
-                                />
-                                <$action-sendmessage
-                                    $message="tm-close-tiddler"
-                                />
-                                <$list
-                                    filter="[list[$:/temp/fishing]match<currentTiddler>]"
-                                    variable="null"
-                                >
-                                    <$action-navigate
-                                        $to={{{ [list[$:/temp/fishing]first[]] }}}
-                                    />
-                                </$list>
-                                <$text text={{{ [[$:/language/fishing/]addsuffix<grade>get[text]] }}}/>
-                            </$button>
-                        </$list>
-                    </$list>
-                    <!-- creat more button -->
-                    <$button
-                        popup=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishing/more">>
-                        tooltip={{$:/language/fishing/moretip}}
-                        aria-label={{$:/language/fishing/moretip}}
-                        class="tc-btn-invisible tc-tiddlylink more"
-                    >
-                        {{$:/language/fishing/more}}
-                    </$button>
-                    <$reveal
-                        state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishing/more">>
-                        type="popup"
-                        position="aboveleft"
-                        animate="yes"
-                    >
-                        <div
-                            class="tc-drop-down"
-                            style="min-width:0px;"
-                        >
-                            <$list
-                                filter="discard add7 add1"
-                                variable="more"
-                            >
-                                <$button
-                                    tooltip={{{ [[$:/language/fishing/]addsuffix<more>addsuffix[tip]get[text]] }}}
-                                    aria-label={{{ [[$:/language/fishing/]addsuffix<more>addsuffix[tip]get[text]] }}}
-                                    class="tc-btn-invisible tc-tiddlylink"
-                                    style="padding:3px 10px;"
-                                >
-                                    <$list
-                                        filter="[<more>match[discard]]"
-                                        variable="null"
-                                    >
-                                        <$action-sendmessage
-                                            $message="tm-remove-tag"
-                                            $param="?"
-                                        />
-                                        <$action-sendmessage
-                                            $message="tm-add-tag"
-                                            $param="!"
-                                        />
-                                        <$action-deletefield
-                                            due
-                                            interval
-                                            grade
-                                            difficulty
-                                            stability
-                                            retrievability
-                                            lapses
-                                            reps
-                                            review
-                                        />
-                                    </$list>
-                                    <$list
-                                        filter="[<more>!match[discard]]"
-                                        variable="null"
-                                    >
-                                        <$action-sendmessage
-                                            $message="tm-add-tag"
-                                            $param="?"
-                                        />
-                                        <$action-sendmessage
-                                            $message="tm-remove-tag"
-                                            $param="!"
-                                        />
-                                        <$action-setfield
-                                            due={{{ [<more>match[add7]then[7]else[1]due[]] }}}
-                                        />
-                                    </$list>
-                                    <$action-deletetiddler
-                                        $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
-                                    />
-                                    <$action-setfield
-                                        $tiddler="$:/temp/fishing"
-                                        text=""
-                                        type=""
-                                        list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
-                                    />
-                                    <$action-setfield
-                                        $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
-                                        text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
-                                    />
-                                    <$action-sendmessage
-                                        $message="tm-close-tiddler"
-                                    />
-                                    <$action-navigate
-                                        $to={{{ [list[$:/temp/fishing]first[]] }}}
-                                    />
-                                    <$text text={{{ [[$:/language/fishing/]addsuffix<more>get[text]] }}}/>
-                                </$button>
-                            </$list>
-                        </div>
-                    </$reveal>
-                </$fieldmangler>
+                <$list
+                    filter="[all[shadows+tiddlers]tag[$:/tags/Learning]!is[draft]]"
+                >
+                    <$transclude
+                        tiddler="$:/core/ui/ViewTemplate/fishing/button"
+                        mode="inline"
+                    />
+                </$list>
             </div>
         </div>
     </$reveal>

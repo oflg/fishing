@@ -1,0 +1,136 @@
+title: $:/core/ui/ViewTemplate/fishing/button
+
+\define fishing-button-icon()
+<$list
+    filter="[all[current]!has[custom-icon]]"
+    variable="no-custom-icon"
+>
+    <$transclude
+        tiddler={{!!icon}}
+    />
+</$list>
+\end
+
+\define fishing-button-caption()
+<$list
+    filter="[all[current]!has[custom-caption]]"
+    variable="no-custom-caption"
+>
+   <$wikify
+        name="caption-text"
+        text={{!!caption}}
+        mode="inline"
+        output="text"
+    >
+        <<caption-text>>
+   </$wikify>
+</$list>
+\end
+
+\define fishing-button-tooltip()
+{{!!description}} <$macrocall
+    $name="displayshortcuts"
+    $output="text/plain"
+    shortcuts={{!!key}}
+    prefix="` - ["
+    separator="] ["
+    suffix="]`"
+/>
+\end
+
+\define fishing-button()
+<$list
+    filter={{!!condition}}
+    variable="list-condition"
+>
+    <$wikify
+        name="tooltip-text"
+        text=<<fishing-button-tooltip>>
+        mode="inline"
+        output="text"
+    >
+        <$list
+            filter="[all[current]!has[popup]]"
+            variable="no-popup"
+        >
+            <$set
+                name=disabled
+                filter={{!!condition-disabled}}
+            >
+                <$button
+                    class="tc-btn-invisible $(buttonClasses)$"
+                    tooltip=<<tooltip-text>>
+                    aria-label=<<tooltip-text>>
+                    actions={{!!actions}}
+                    disabled=<<disabled>>
+                >
+                    <<fishing-button-icon>>
+                    <<fishing-button-caption>>
+                    <$transclude
+                        tiddler=<<currentTiddler>>
+                        field="text"
+                    />
+                </$button>
+            </$set>
+        </$list>
+        <$list
+            filter="[all[current]has[popup]]"
+            variable="popup"
+        >
+            <$set
+                name="popup-state"
+                value=<<qualify "$:/state/FishingButtonPopup">>
+            >
+                <$set
+                    name=disabled
+                    filter={{!!condition-disabled}}
+                >
+                    <$button
+                        popup=<<popup-state>>
+                        class="tc-popup-keep tc-btn-invisible $(buttonClasses)$"
+                        selectedClass="tc-selected"
+                        tooltip=<<tooltip-text>>
+                        actions={{!!actions}}
+                        disabled=<<disabled>>
+                    >
+                        <<fishing-button-icon>>
+                        <<fishing-button-caption>>
+                        <$transclude
+                            tiddler=<<currentTiddler>>
+                            field="text"
+                        />
+                    </$button>
+                </$set>
+                <$reveal
+                    state=<<popup-state>>
+                    type="popup"
+                    position={{{ [{!!position}] ~[[below]] }}}
+                    animate="yes"
+                    tag="span"
+                >
+                    <div
+                        class="tc-drop-down tc-popup-keep"
+                        style="min-width:0;"
+                    >
+                        <$transclude
+                            tiddler={{!!popup}}
+                            mode="inline"
+                        />
+                    </div>
+                </$reveal>
+            </$set>
+        </$list>
+    </$wikify>
+</$list>
+\end
+
+\define fishing-button-outer()
+<$set
+    name="buttonClasses"
+    value={{!!button-classes}}
+>
+    <<fishing-button>>
+</$set>
+\end
+
+<<fishing-button-outer>>

@@ -1,9 +1,15 @@
-key: ((fishing-learn))
-tags: $:/tags/KeyboardShortcut
-title: $:/core/ui/KeyboardShortcuts/fishing-learn
+key: ((fishing-grasp))
+tags: $:/tags/Learning $:/tags/KeyboardShortcut
+title: $:/plugins/oflg/fishing/buttons/learning/grasp
+button-classes: grasp
+list-after: $:/plugins/oflg/fishing/buttons/learning/remember
+caption: {{$:/language/fishing/grasp}}
+description: {{$:/language/fishing/grasptip}}
+condition: [<targetTiddler>has[grade]]
 
 <$list
-    filter="[list[$:/temp/fishing]first[]!is[blank]!has[grade]]"
+    filter="[<targetTiddler>!is[blank]]
+            ~[list[$:/temp/fishing]first[]!is[blank]has[grade]]"
 >
     <$navigator
         story="$:/StoryList"
@@ -19,24 +25,9 @@ title: $:/core/ui/KeyboardShortcuts/fishing-learn
                 $message="tm-remove-tag"
                 $param="!"
             />
-            <$list
-                filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
-                variable="null"
-            >
-                <$action-learn
-                    $grade="-1"
-                />
-            </$list>
-            <$list
-                filter="[<currentTiddler>search:caption:literal[Excerpt}}]]"
-                variable="null"
-            >
-                <$action-setfield
-                    interval={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]] }}}
-                    due={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]due[]] }}}
-                    review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
-                />
-            </$list>
+            <$action-learn
+                $grade="2"
+            />
             <$action-deletetiddler
                 $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
             />
@@ -46,7 +37,6 @@ title: $:/core/ui/KeyboardShortcuts/fishing-learn
                 type=""
                 list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
             />
-            <$action-log fishingrod={{$:/temp/fishing!!fishingrod}} fishingpond={{$:/temp/fishing!!fishingpond}} fishingorder={{$:/temp/fishing!!fishingorder}}/>
             <$action-setfield
                 $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
                 text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}

@@ -1,9 +1,15 @@
-key: ((fishing-grasp))
-tags: $:/tags/KeyboardShortcut
-title: $:/core/ui/KeyboardShortcuts/fishing-grasp
+key: ((fishing-forget))
+tags: $:/tags/Learning $:/tags/KeyboardShortcut
+title: $:/plugins/oflg/fishing/buttons/learning/forget
+button-classes: forget
+list-before:
+caption: {{$:/language/fishing/forget}}
+description: {{$:/language/fishing/forgettip}}
+condition: [<targetTiddler>has[grade]]
 
 <$list
-    filter="[list[$:/temp/fishing]first[]!is[blank]has[grade]]"
+    filter="[<targetTiddler>!is[blank]]
+            ~[list[$:/temp/fishing]first[]!is[blank]has[grade]]"
 >
     <$navigator
         story="$:/StoryList"
@@ -20,7 +26,7 @@ title: $:/core/ui/KeyboardShortcuts/fishing-grasp
                 $param="!"
             />
             <$action-learn
-                $grade="2"
+                $grade="0"
             />
             <$action-deletetiddler
                 $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}

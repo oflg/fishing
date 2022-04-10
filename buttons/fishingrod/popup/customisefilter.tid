@@ -1,0 +1,46 @@
+title: $:/plugins/oflg/fishing/buttons/fishingrod/popup/customisefilter
+
+<div
+    style="min-width:0;padding:0 10px;"
+>
+    {{$:/language/fishing/setalias}}
+    <div
+        style="display:flex;justify-content:space-between;font-size:10pt;padding:2px 1px;"
+    >
+        <$edit-text tiddler={{{ [{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}} field="caption" placeholder={{$:/language/fishing/typealias}} tag="input"/>
+    </div>
+    {{$:/language/fishing/setorder}}
+    <$list
+        filter="due undue new"
+        variable="pondname"
+    >
+        <div
+            style="display:flex;justify-content:space-between;font-size:10pt;padding:2px 1px;"
+        >
+            <$text text={{{ [[$:/language/fishing/]addsuffix<pondname>get[text]] }}}/>
+            <$select
+                tiddler={{{ [{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
+                index={{{ [<pondname>addsuffix[order]] }}}
+                default={{{ [<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]
+                            ~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]
+                            ~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}] }}}
+            >
+                <$list
+                    filter="autoorder dueorder createdorder azorder zaorder randomorder"
+                    variable="pondorder"
+                >
+                    <option
+                        value={{{ [<pondorder>match[autoorder]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]
+                                ~[<pondorder>match[dueorder]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]
+                                ~[<pondorder>match[createdorder]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}]
+                                ~[<pondorder>match[azorder]then{$:/plugins/oflg/fishing/fishingpond!!azorder}]
+                                ~[<pondorder>match[zaorder]then{$:/plugins/oflg/fishing/fishingpond!!zaorder}]
+                                ~[<pondorder>match[randomorder]then{$:/plugins/oflg/fishing/fishingpond!!randomorder}] }}}
+                    >
+                        <$text text={{{ [[$:/language/fishing/]addsuffix<pondorder>get[text]] }}}>
+                    </option>
+                </$list>
+            </$select>
+        </div>
+    </$list>
+</div>

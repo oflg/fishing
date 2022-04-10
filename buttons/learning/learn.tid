@@ -1,9 +1,15 @@
-key: ((fishing-forget))
-tags: $:/tags/KeyboardShortcut
-title: $:/core/ui/KeyboardShortcuts/fishing-forget
+key: ((fishing-learn))
+tags: $:/tags/Learning $:/tags/KeyboardShortcut
+title: $:/plugins/oflg/fishing/buttons/learning/learn
+button-classes: learn
+list-after: $:/plugins/oflg/fishing/buttons/learning/grasp
+caption: {{$:/language/fishing/learn}}
+description: {{$:/language/fishing/learntip}}
+condition: [<targetTiddler>!has[grade]]
 
 <$list
-    filter="[list[$:/temp/fishing]first[]!is[blank]has[grade]]"
+    filter="[<targetTiddler>!is[blank]]
+            ~[list[$:/temp/fishing]first[]!is[blank]!has[grade]]"
 >
     <$navigator
         story="$:/StoryList"
@@ -19,9 +25,24 @@ title: $:/core/ui/KeyboardShortcuts/fishing-forget
                 $message="tm-remove-tag"
                 $param="!"
             />
-            <$action-learn
-                $grade="0"
-            />
+            <$list
+                filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
+                variable="null"
+            >
+                <$action-learn
+                    $grade="-1"
+                />
+            </$list>
+            <$list
+                filter="[<currentTiddler>search:caption:literal[Excerpt}}]]"
+                variable="null"
+            >
+                <$action-setfield
+                    interval={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]] }}}
+                    due={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]due[]] }}}
+                    review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
+                />
+            </$list>
             <$action-deletetiddler
                 $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
             />

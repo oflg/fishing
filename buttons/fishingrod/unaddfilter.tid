@@ -1,33 +1,15 @@
 title: $:/plugins/oflg/fishing/buttons/fishingrod/unaddfilter
-tags: $:/tags/FishingGrod/Button
+tags: $:/tags/FishingGrod
 list-after: $:/plugins/oflg/fishing/buttons/fishingrod/commonfilter
+icon: $:/core/images/cancel-button
+description: {{{ [{$:/language/fishing/unaddfiltertip}addsuffix[ : ]addsuffix{$:/temp/fishing!!fishingrod}] }}}
+condition: [all[tiddlers+shadows]removeprefix[$:/plugins/oflg/fishing/fishingrod/]match{$:/temp/fishing!!fishingrod}]
+button-classes: fishingrod-button
 
-<$reveal
-    default={{$:/temp/fishing!!fishingrod}}
-    type="nomatch"
-    text=""
-    animate="yes"
->
-    <$reveal
-        default={{{ [all[tiddlers+shadows]removeprefix[$:/plugins/oflg/fishing/fishingrod/]match{$:/temp/fishing!!fishingrod}] }}}
-        type="nomatch"
-        text=""
-        animate="yes"
-    >
-        <$button
-            tooltip={{{ [{$:/language/fishing/unaddfiltertip}addsuffix[ : ]addsuffix{$:/temp/fishing!!fishingrod}] }}}
-            aria-label={{{ [{$:/language/fishing/unaddfiltertip}addsuffix[ : ]addsuffix{$:/temp/fishing!!fishingrod}] }}}
-            class="tc-btn-invisible"
-            style="margin:0;padding:0 5px;"
-        >
-            <$action-deletetiddler
-                $tiddler={{{ [{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
-            />
-            <$action-setfield
-                $tiddler="$:/temp/fishing"
-                fishingrod=""
-            />
-            {{$:/core/images/cancel-button}}
-        </$button>
-    </$reveal>
-</$reveal>
+
+<$action-deletetiddler
+    $tiddler={{{ [{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
+/>
+<$action-deletetiddler
+    $tiddler="$:/temp/fishing"
+/>
