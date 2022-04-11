@@ -38,6 +38,7 @@ azorder: Title A-Z
 zaorder: Title Z-A
 randomorder: Random
 viewfiltertip: View tiddlers related to this Filter
+exportdatatip: Exporting learning data to open source platforms to improve FSRS algorithms
 settings: These settings let you customise the behaviour of Fishing.
 globalsettings: Global
 setparameter: Parameter
