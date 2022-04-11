@@ -14,12 +14,12 @@ button-classes: fishingrod-button
     $message="tm-download-file"
     $param="$:/core/templates/exporters/TidFile"
     exportFilter="[[$:/temp/fishing/fsrsdata]]"
-    filename={{{ [<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">addprefix[.]addprefix{$:/status/UserName}addsuffix[.tid]] }}}
+    filename={{{ [<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">addprefix[.]addprefix{$:/status/UserName}addsuffix[.txt]] }}}
 />
 <$action-deletetiddler
     $tiddler="$:/temp/fishing/fsrsdata"
 />
 <$action-sendmessage
     $message="tm-open-external-window"
-    $param="https://github.com/open-spaced-repetition/fsrs.js/tree/data"
+    $param="https://github.com/open-spaced-repetition/fsrs.js/issues/new?assignees=&labels=data&template=upload-fsrs-algorithm-data-template.md&title=Upload+data"
 />
