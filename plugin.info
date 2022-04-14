@@ -1,7 +1,7 @@
 {
     "author": "oflg",
     "core-version": ">=5.2.2",
-    "description": "Integrate Spaced Repetition System into TiddlyWiki using FSRS algorithm",
+    "description": "Integrate Spaced Repetition System into TiddlyWiki",
     "list": "readme license",
     "name": "Fishing",
     "plugin-type": "plugin",
