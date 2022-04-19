@@ -33,6 +33,7 @@ typealias: Type alias
 setorder: Learning order
 autoorder: Auto priority
 dueorder: Due date
+modifiedorder: modified date
 createdorder: Created date
 azorder: Title A-Z
 zaorder: Title Z-A

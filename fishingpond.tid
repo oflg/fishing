@@ -6,6 +6,7 @@ newpond: [!has[due]]
 autoorder: [!sortsub:number{$:/plugins/oflg/fishing/fishingpond!!autopriority}]
 dueorder: [sort[due]]
 createdorder: [sort[created]]
+modifiedorder: [sort[modified]]
 azorder: [sortan[]]
 zaorder: [!sortan[]]
 randomorder: [sortrandom[]]
@@ -23,7 +24,7 @@ autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/Q
                         ~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!newpond}] }}}
         fishingorder={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>]
                         ~[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]
-                        ~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!dueorder}]
+                        ~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!modifiedorder}]
                         ~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}] }}}
     >
         <$button
