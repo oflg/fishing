@@ -1,4 +1,5 @@
 title: $:/core/ui/ViewTemplate/fishing/button
+code-body: yes
 
 \define fishing-button-icon()
 <$list

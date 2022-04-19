@@ -1,6 +1,7 @@
 tags: $:/tags/ViewTemplate
 title: $:/core/ui/ViewTemplate/fishing/fold
 list-after: $:/core/ui/ViewTemplate/title
+code-body: yes
 
 <$list
     filter="[{!!title}] :cascade[all[shadows+tiddlers]tag[$:/tags/FishingFilter/learning]!is[draft]get[text]] +[!is[blank]limit[1]]"
