@@ -16,17 +16,17 @@ code-body: yes
         animate="yes"
     >
         <div
-            class="tc-fishing-learing"
+            class="tc-fishing-learning"
         >
             <!-- creat count -->
             <div
-                class="tc-fishing-learing-count"
+                class="tc-fishing-learning-count"
             >
                 <$count filter="[subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}]"/>
             </div>
             <!-- creat grade button -->
             <div
-                class="tc-fishing-learing-grade"
+                class="tc-fishing-learning-grade"
             >
                 <$list
                     filter="[all[shadows+tiddlers]tag[$:/tags/Learning]!is[draft]]"

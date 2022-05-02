@@ -13,37 +13,37 @@ title: $:/plugins/oflg/fishing/styles.css
     padding:3px 10px!important;
 }
 
-.tc-fishing-learing {
+.tc-fishing-learning {
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-.tc-fishing-learing-count{
+.tc-fishing-learning-count{
     color:grey;
 }
 
-.tc-fishing-learing-grade .learn{
+.tc-fishing-learning-grade .learn{
     color:green;
     margin-left:10px;
 }
 
-.tc-fishing-learing-grade .forget{
+.tc-fishing-learning-grade .forget{
     color:red;
     margin-left:10px;
 }
 
-.tc-fishing-learing-grade .remember{
+.tc-fishing-learning-grade .remember{
     color:green;
     margin-left:10px;
 }
 
-.tc-fishing-learing-grade .grasp{
+.tc-fishing-learning-grade .grasp{
     color:blue;
     margin-left:10px;
 }
 
-.tc-fishing-learing-grade .more{
+.tc-fishing-learning-grade .more{
     padding-left:10px;
 }
 
