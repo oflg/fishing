@@ -17,7 +17,7 @@ button-classes: dropdown-more
         $param="!"
     />
     <$action-setfield
-        due={{{ [1]due[]] }}}
+        due={{{ [[1]due[]] }}}
     />
     <$action-deletetiddler
         $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
