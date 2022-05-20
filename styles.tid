@@ -26,30 +26,44 @@ title: $:/plugins/oflg/fishing/styles.css
 .tc-fishing-learning-grade .learn{
     color:green;
     margin-left:10px;
+    user-select: none;
 }
 
 .tc-fishing-learning-grade .forget{
     color:red;
     margin-left:10px;
+    user-select: none;
 }
 
 .tc-fishing-learning-grade .remember{
     color:green;
     margin-left:10px;
+    user-select: none;
 }
 
 .tc-fishing-learning-grade .grasp{
     color:blue;
     margin-left:10px;
+    user-select: none;
 }
 
 .tc-fishing-learning-grade .more{
     padding-left:10px;
+    user-select: none;
 }
 
+.learn:hover,
+.forget:hover,
+.remember:hover,
+.grasp:hover,
+.more:hover {
+    text-decoration: underline;
+}
 
 blockquote.tc-fish-quote {
     border-left: 1px solid <<colour message-border>>;
     margin-right: 0;
     margin-left: 5px;
 }
+
+
