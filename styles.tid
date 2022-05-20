@@ -53,3 +53,17 @@ blockquote.tc-fish-quote {
     margin-right: 0;
     margin-left: 5px;
 }
+
+.learn,
+.forget,
+.remember,
+.grasp {
+	user-select: none;
+}
+
+.remember:hover,
+.grasp:hover,
+.learn:hover,
+.forget:hover {
+    text-decoration: underline;
+}
