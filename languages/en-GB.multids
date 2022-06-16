@@ -47,5 +47,5 @@ setretention: Retention
 setretentiontip: Must be between 0.7 and 0.95
 settitletip: Condition for showing caption of a tiddler.
 setlearntip: Condition for showing learning of a tiddler.
-pluginlibrary: Fishing Plugin Library
-pluginlibrarytip: This plugin library can be used to install and update plugins and Learning Packs related to Fishing.
+pluginlibrary: TiddlyMemo Library
+pluginlibrarytip: This plugin library can be used to install and update plugins related to TiddlyMemo.
