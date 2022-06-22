@@ -3,7 +3,7 @@ title: $:/language/fishing/
 fishing: Fishing
 fishingtip: Incremental learning
 fold: Unfold or fold this tiddler
-learn: Next
+learn: Learn
 learntip: Learn one more
 forget: Forget
 forgettip: Forget the answer
@@ -11,14 +11,8 @@ remember: Remember
 remembertip: Remember the answer
 grasp: Grasp
 grasptip: Grasp the question
-more: ⁝
-moretip: More
 discard: Discard
 discardtip: No more learning this tiddler
-add7: + 7
-add7tip: Learning this tiddler next week
-add1: + 1
-add1tip: Learning this tiddler tomorrow
 fishingpondtip: Learn this group of tiddlers
 due: Due
 undue: Undue
