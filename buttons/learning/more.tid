@@ -1,9 +1,0 @@
-tags: $:/tags/Learning
-title: $:/plugins/oflg/fishing/buttons/learning/more
-button-classes: more
-list-after: $:/plugins/oflg/fishing/buttons/learning/learn
-popup: $:/plugins/oflg/fishing/buttons/learning/popup/more
-position: aboveleft
-caption: {{$:/language/fishing/more}}
-description: {{$:/language/fishing/moretip}}
-condition: [<targetTiddler>]

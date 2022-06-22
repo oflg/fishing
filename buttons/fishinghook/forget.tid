@@ -1,8 +1,7 @@
 key: ((fishing-forget))
-tags: $:/tags/Learning $:/tags/KeyboardShortcut
-title: $:/plugins/oflg/fishing/buttons/learning/forget
-button-classes: forget
-list-before:
+tags: $:/tags/FishingHook $:/tags/KeyboardShortcut
+title: $:/plugins/oflg/fishing/buttons/fishinghook/forget
+button-classes: forget tc-tiddlylink
 caption: {{$:/language/fishing/forget}}
 description: {{$:/language/fishing/forgettip}}
 condition: [<targetTiddler>has[grade]]
@@ -28,26 +27,26 @@ condition: [<targetTiddler>has[grade]]
             <$action-learn
                 $grade="0"
             />
-            <$action-deletetiddler
-                $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
-            />
-            <$action-setfield
-                $tiddler="$:/temp/fishing"
-                text=""
-                type=""
-                list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
-            />
-            <$action-setfield
-                $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
-                text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
-            />
-            <$action-sendmessage
-                $message="tm-close-tiddler"
-            />
             <$list
                 filter="[list[$:/temp/fishing]match<currentTiddler>]"
                 variable="null"
             >
+                <$action-deletetiddler
+                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+                />
+                <$action-setfield
+                    $tiddler="$:/temp/fishing"
+                    text=""
+                    type=""
+                    list={{{ [subfilter{$:/temp/fishing!!fishingrod}subfilter{$:/temp/fishing!!fishingpond}subfilter{$:/temp/fishing!!fishingorder}first[]format:titlelist[]] }}}
+                />
+                <$action-setfield
+                    $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
+                    text={{{ [list[$:/temp/fishing]first[]has[grade]then[hide]else[show]] }}}
+                />
+                <$action-sendmessage
+                    $message="tm-close-tiddler"
+                />
                 <$action-navigate
                     $to={{{ [list[$:/temp/fishing]first[]] }}}
                 />
