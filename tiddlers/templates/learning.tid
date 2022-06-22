@@ -29,7 +29,7 @@ code-body: yes
                 class="tc-fishing-learning-grade"
             >
                 <$list
-                    filter="[all[shadows+tiddlers]tag[$:/tags/Learning]!is[draft]]"
+                    filter="[all[shadows+tiddlers]tag[$:/tags/FishingHook]!is[draft]]"
                 >
                     <$transclude
                         tiddler="$:/core/ui/ViewTemplate/fishing/button"
