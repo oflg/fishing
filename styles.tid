@@ -10,7 +10,7 @@ title: $:/plugins/oflg/fishing/styles.css
 }
 
 .dropdown-more {
-    padding:3px 10px!important;
+    padding:3px 20px!important;
 }
 
 .tc-fishing-learning {
@@ -23,41 +23,33 @@ title: $:/plugins/oflg/fishing/styles.css
     color:grey;
 }
 
+.tc-fishing-learning-grade .discard{
+    color:black;
+    margin-left:20px;
+}
+
 .tc-fishing-learning-grade .learn{
     color:green;
-    margin-left:10px;
-    user-select: none;
+    margin-left:20px;
 }
 
 .tc-fishing-learning-grade .forget{
     color:red;
-    margin-left:10px;
-    user-select: none;
+    margin-left:20px;
 }
 
 .tc-fishing-learning-grade .remember{
     color:green;
-    margin-left:10px;
-    user-select: none;
+    margin-left:20px;
 }
 
 .tc-fishing-learning-grade .grasp{
     color:blue;
-    margin-left:10px;
-    user-select: none;
+    margin-left:20px;
 }
 
 .tc-fishing-learning-grade .more{
-    padding-left:10px;
-    user-select: none;
-}
-
-.learn:hover,
-.forget:hover,
-.remember:hover,
-.grasp:hover,
-.more:hover {
-    text-decoration: underline;
+    padding-left:20px;
 }
 
 blockquote.tc-fish-quote {
