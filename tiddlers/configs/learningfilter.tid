@@ -1,4 +1,4 @@
 title: $:/config/FishingFilter/learning
 tags: $:/tags/FishingFilter/learning
 
-[list[$:/temp/fishing]match{!!title}]
+[list[$:/temp/fishing]match<currentTiddler>]

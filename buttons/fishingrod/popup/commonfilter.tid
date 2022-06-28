@@ -20,8 +20,7 @@ title: $:/plugins/oflg/fishing/buttons/fishingrod/popup/commonfilter
                 $filter="[prefix[$:/state/FishingButtonPopup]]"
             />
             <$text
-                text={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]get[caption]]
-                        ~[<fishingrod>] }}}
+                text={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]get[caption]] ~[<fishingrod>] }}}
             />
         </$button>
     </$list>

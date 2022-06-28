@@ -1,6 +1,6 @@
 caption: {{$:/language/fishing/pluginlibrary}}
 tags: $:/tags/PluginLibrary
-title: $:/config/FishingPluginLibrary
+title: $:/config/TiddlyMemoPluginLibrary
 url: https://tiddlymemo.org/library/
 
 {{$:/language/fishing/pluginlibrarytip}}

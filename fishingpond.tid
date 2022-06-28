@@ -1,31 +1,14 @@
 title: $:/plugins/oflg/fishing/fishingpond
-rod: [tag[?]]
-duepond: [has[due]] -[has[due]!days:due[1]]
-unduepond: [has[due]!days:due[1]]
-newpond: [!has[due]]
-autoorder: [!sortsub:number{$:/plugins/oflg/fishing/fishingpond!!autopriority}]
-dueorder: [sort[due]]
-createdorder: [sort[created]]
-modifiedorder: [sort[modified]]
-azorder: [sortan[]]
-zaorder: [!sortan[]]
-randomorder: [sortrandom[]]
-autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/QuestionTemplate]count[]] =[{!!due}interval[]] =[{!!priority}else[0]] =[{!!title}tags[]count[]] =[{!!title}tagging[]has[due]count[]negate[]] =[{!!title}tagging[]has[due]!days:due[1]count[]] =[{!!title}tagging[]has[due]!days:due[1]count[]] +[sum[]]
 
 <$list
-    filter="due undue new"
+    filter="due undue"
     variable="pondname"
 >
     <$let
         pondordername={{{ [<pondname>addsuffix[order]] }}}
-        fishingrod={{{ [{$:/temp/fishing!!fishingrod}!is[blank]else{$:/plugins/oflg/fishing/fishingpond!!rod}] }}}
-        fishingpond={{{ [<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!duepond}]
-                        ~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!unduepond}]
-                        ~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!newpond}] }}}
-        fishingorder={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>]
-                        ~[<pondname>match[due]then{$:/plugins/oflg/fishing/fishingpond!!autoorder}]
-                        ~[<pondname>match[undue]then{$:/plugins/oflg/fishing/fishingpond!!modifiedorder}]
-                        ~[<pondname>match[new]then{$:/plugins/oflg/fishing/fishingpond!!createdorder}] }}}
+        fishingrod={{{ [{$:/temp/fishing!!fishingrod}!is[blank]else{$:/config/fishingpond/rod}] }}}
+        fishingpond={{{ [<pondname>match[due]then{$:/config/fishingpond/duepond}] ~[<pondname>match[undue]then{$:/config/fishingpond/unduepond}] }}}
+        fishingorder={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>] ~[<pondname>match[due]then{$:/config/fishingpond/autoorder}] ~[<pondname>match[undue]then{$:/config/fishingpond/modifiedorder}] }}}
     >
         <$button
             tooltip={{$:/language/fishing/fishingpondtip}}

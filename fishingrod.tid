@@ -8,7 +8,7 @@ title: $:/plugins/oflg/fishing/fishingrod
         field="fishingrod"
         tag="input"
         focus="true"
-        placeholder="[tag[?]]"
+        placeholder="[tag[?]!tag[!]]"
         inputActions='<$action-setfield $tiddler="$:/temp/fishing" list=""/>'
     />
 </div>

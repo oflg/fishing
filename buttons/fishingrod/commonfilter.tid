@@ -32,8 +32,7 @@ button-classes: fishingrod-button
                     fishingrod=<<fishingrod>>
                 />
                 <$text
-                    text={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]get[caption]]
-                            ~[<fishingrod>] }}}
+                    text={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]get[caption]] ~[<fishingrod>] }}}
                 />
             </$button>
         </$list>

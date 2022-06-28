@@ -8,8 +8,7 @@ description: {{$:/language/fishing/remembertip}}
 condition: [<targetTiddler>has[grade]]
 
 <$list
-    filter="[<targetTiddler>!is[blank]]
-            ~[list[$:/temp/fishing]first[]!is[blank]has[grade]]"
+    filter="[<targetTiddler>!is[blank]] ~[list[$:/temp/fishing]first[]!is[blank]has[grade]]"
 >
     <$navigator
         story="$:/StoryList"

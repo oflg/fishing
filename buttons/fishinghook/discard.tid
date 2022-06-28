@@ -8,8 +8,7 @@ description: {{$:/language/fishing/discardtip}}
 condition: [<targetTiddler>]
 
 <$list
-    filter="[<targetTiddler>!is[blank]]
-            ~[list[$:/temp/fishing]first[]!is[blank]]"
+    filter="[<targetTiddler>!is[blank]] ~[list[$:/temp/fishing]first[]!is[blank]]"
 >
     <$navigator
         story="$:/StoryList"

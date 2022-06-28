@@ -1,0 +1,13 @@
+title: $:/config/fishingpond/
+
+rod: [tag[?]!tag[!]]
+duepond: [!is[blank]] -[has[due]!days:due[1]]
+unduepond: [has[due]!days:due[1]]
+autoorder: [!sortsub:number{$:/config/fishingpond/autopriority}]
+dueorder: [sort[due]]
+createdorder: [sort[created]]
+modifiedorder: [sort[modified]]
+azorder: [sortan[]]
+zaorder: [!sortan[]]
+randomorder: [sortrandom[]]
+autopriority: [{!!caption}search-replace::regexp[{{\|\|(.*)}}],[$1]tag[$:/tags/QuestionTemplate]count[]] =[{!!due}interval[]] =[{!!priority}else[0]] =[<currentTiddler>tags[]count[]] =[<currentTiddler>tagging[]has[due]count[]negate[]] =[<currentTiddler>tagging[]has[due]!days:due[1]count[]] =[<currentTiddler>tagging[]has[due]!days:due[1]count[]] +[sum[]]
