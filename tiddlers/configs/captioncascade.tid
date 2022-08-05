@@ -4,4 +4,4 @@ list-before: $:/config/ViewTemplateTitleFilters/system
 
 [<currentTiddler>]
 :cascade[all[shadows+tiddlers]tag[$:/tags/FishingFilter/caption]!is[draft]get[text]]
-+[!is[blank]limit[1]then[$:/core/ui/ViewTemplate/fishing/caption]]
++[!is[blank]limit[1]then[$:/plugins/oflg/fishing/ui/ViewTemplate/fishing/caption]]

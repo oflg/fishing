@@ -1,4 +1,4 @@
-title: $:/core/ui/ViewTemplate/fishing/learning
+title: $:/plugins/oflg/fishing/ui/ViewTemplate/fishing/learning
 tags: $:/tags/ViewTemplate
 list-after: $:/core/ui/ViewTemplate/body
 code-body: yes
@@ -30,7 +30,7 @@ code-body: yes
                     filter="[all[shadows+tiddlers]tag[$:/tags/FishingHook]!is[draft]]"
                 >
                     <$transclude
-                        tiddler="$:/core/ui/ViewTemplate/fishing/button"
+                        tiddler="$:/plugins/oflg/fishing/ui/ViewTemplate/fishing/button"
                         mode="inline"
                     />
                 </$list>

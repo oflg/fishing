@@ -1,4 +1,4 @@
-title: $:/core/ui/ViewTemplate/fishing/button
+title: $:/plugins/oflg/fishing/ui/ViewTemplate/fishing/button
 code-body: yes
 
 \define fishing-button-icon()

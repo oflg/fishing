@@ -17,6 +17,7 @@ title: $:/plugins/oflg/fishing/styles.css
     display:flex;
     justify-content:space-between;
     align-items:center;
+    user-select:none;
 }
 
 .tc-fishing-learning-count{
