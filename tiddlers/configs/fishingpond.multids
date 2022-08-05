@@ -1,12 +1,15 @@
 title: $:/config/fishingpond/
 
 rod: [tag[?]!tag[!]]
-duepond: [!is[blank]] -[has[due]!days:due[1]]
-unduepond: [has[due]!days:due[1]]
+duepond: [!is[blank]] -[has[due]!days:due[1]] -[sameday:review<now YYYY0MM0DD>]
+unduepond: [has[due]!days:due[1]] -[sameday:review<now YYYY0MM0DD>]
 autoorder: [!sortsub:number{$:/config/fishingpond/autopriority}]
 dueorder: [sort[due]]
+undueorder: [!sort[due]]
 createdorder: [sort[created]]
+uncreatedorder: [!sort[created]]
 modifiedorder: [sort[modified]]
+unmodifiedorder: [!sort[modified]]
 azorder: [sortan[]]
 zaorder: [!sortan[]]
 randomorder: [sortrandom[]]
