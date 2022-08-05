@@ -1,0 +1,10 @@
+tags: $:/tags/ViewTemplate/Subtitle
+title: $:/plugins/oflg/fishing/ui/ViewTemplate/subtitle/reps
+list-after: $:/plugins/oflg/fishing/ui/ViewTemplate/subtitle/due
+code-body: yes
+
+<$list
+    filter="[<currentTiddler>has[reps]]"
+>
+    {{$:/language/fishing/reps}}: <$view field="reps" format="text"/>
+</$list>

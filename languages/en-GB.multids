@@ -5,6 +5,9 @@ fishingtip: Incremental learning
 fold: Unfold or fold this tiddler
 learn: Learn
 learntip: Learn this tiddler
+review: Review
+reps: Reps
+lapses: Lapses
 forget: Forget
 forgettip: Forget the answer
 remember: Remember
@@ -26,9 +29,12 @@ setalias: Alias
 typealias: Type alias
 setorder: Learning order
 autoorder: Auto priority
-dueorder: Due date
-modifiedorder: modified date
-createdorder: Created date
+dueorder: Due date first-last
+undueorder: Due date last-first
+modifiedorder: modified date first-last
+unmodifiedorder: modified date last-first
+createdorder: Created date first-last
+uncreatedorder: Created date last-first
 azorder: Title A-Z
 zaorder: Title Z-A
 randomorder: Random
