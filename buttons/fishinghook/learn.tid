@@ -26,7 +26,7 @@ condition: [<targetTiddler>!has[grade]]
             />
             <$list
                 filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
-                variable="null"
+                variable="ignore"
             >
                 <$action-learn
                     $grade="-1"
@@ -34,7 +34,7 @@ condition: [<targetTiddler>!has[grade]]
             </$list>
             <$list
                 filter="[<currentTiddler>search:caption:literal[Excerpt}}]]"
-                variable="null"
+                variable="ignore"
             >
                 <$action-setfield
                     interval={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]] }}}
@@ -44,7 +44,7 @@ condition: [<targetTiddler>!has[grade]]
             </$list>
             <$list
                 filter="[list[$:/temp/fishing]match<currentTiddler>]"
-                variable="null"
+                variable="ignore"
             >
                 <$action-deletetiddler
                     $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}

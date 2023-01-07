@@ -29,7 +29,7 @@ condition: [<targetTiddler>has[grade]]
             />
             <$list
                 filter="[list[$:/temp/fishing]match<currentTiddler>]"
-                variable="null"
+                variable="ignore"
             >
                  <$action-deletetiddler
                     $tiddler={{{ [list[$:/temp/fishing]first[]addprefix[$:/state/folded/]] }}}
