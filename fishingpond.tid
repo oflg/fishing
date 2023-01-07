@@ -1,14 +1,14 @@
 title: $:/plugins/oflg/fishing/fishingpond
 
 <$list
-    filter="due undue"
+    filter="new due"
     variable="pondname"
 >
     <$let
         pondordername={{{ [<pondname>addsuffix[order]] }}}
         fishingrod={{{ [{$:/temp/fishing!!fishingrod}!is[blank]else{$:/config/fishingpond/rod}] }}}
-        fishingpond={{{ [<pondname>match[due]then{$:/config/fishingpond/duepond}] ~[<pondname>match[undue]then{$:/config/fishingpond/unduepond}] }}}
-        fishingorder={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>] ~[<pondname>match[due]then{$:/config/fishingpond/autoorder}] ~[<pondname>match[undue]then{$:/config/fishingpond/modifiedorder}] }}}
+        fishingpond={{{ [<pondname>match[new]then{$:/config/fishingpond/newpond}] ~[<pondname>match[due]then{$:/config/fishingpond/duepond}] }}}
+        fishingorder={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]getindex<pondordername>] ~[<pondname>match[new]then{$:/config/fishingpond/createdorder}] ~[<pondname>match[due]then{$:/config/fishingpond/autoorder}] }}}
     >
         <$button
             tooltip={{$:/language/fishing/fishingpondtip}}

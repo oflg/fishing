@@ -11,7 +11,7 @@ title: $:/plugins/oflg/fishing/buttons/fishingrod/popup/customisefilter
     </div>
     {{$:/language/fishing/setorder}}
     <$list
-        filter="due undue"
+        filter="new due"
         variable="pondname"
     >
         <div
@@ -21,7 +21,7 @@ title: $:/plugins/oflg/fishing/buttons/fishingrod/popup/customisefilter
             <$select
                 tiddler={{{ [{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
                 index={{{ [<pondname>addsuffix[order]] }}}
-                default={{{ [<pondname>match[due]then{$:/config/fishingpond/autoorder}] ~[<pondname>match[undue]then{$:/config/fishingpond/modifiedorder}] }}}
+                default={{{ [<pondname>match[new]then{$:/config/fishingpond/createdorder}] ~[<pondname>match[due]then{$:/config/fishingpond/autoorder}] }}}
             >
                 <$list
                     filter="[all[tiddlers+shadows]removeprefix[$:/config/fishingpond/]suffix[order]]"
