@@ -1,7 +1,7 @@
 title: $:/language/fishing/
 
 fishing: Fishing
-fishingtip: Incremental learning
+fishingtip: Incremental Learning
 fold: Unfold or fold this tiddler
 learn: Learn
 learntip: Learn this tiddler
@@ -17,9 +17,9 @@ grasptip: Grasp the question
 discard: Discard
 discardtip: No more learning this tiddler
 fishingpondtip: Learn this group of tiddlers
+new: New
 due: Due
 undue: Undue
-new: New
 commonfiltertip: Commonly used Filter
 addfiltertip: Add to commonly used Filter
 unaddfiltertip: Unadd this Filter
@@ -38,13 +38,13 @@ uncreatedorder: Created date last-first
 azorder: Title A-Z
 zaorder: Title Z-A
 randomorder: Random
-viewfiltertip: View tiddlers related to this Filter
+viewfiltertip: Export or delete tiddlers related to this Filter
 exportdatatip: Export learning data and upload it to open source platform to improve FSRS algorithm
 settings: These settings let you customise the behaviour of Fishing.
 globalsettings: Global
 setparameter: Parameter
 setretention: Retention
-setretentiontip: Must be between 0.7 and 0.95
+setretentiontip: Default 0.9 and must be between 0.7 and 0.95
 settitletip: Condition for showing caption of a tiddler.
 setlearntip: Condition for showing learning of a tiddler.
 pluginlibrary: TiddlyMemo Plugin Library
