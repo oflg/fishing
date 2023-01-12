@@ -1,3 +1,4 @@
+title: $:/core/ui/ControlPanel/Settings/Fishing
 caption: {{$:/language/fishing/fishing}}
 list-after: $:/core/ui/ControlPanel/Settings/TiddlyWiki
 tags: $:/tags/ControlPanel/SettingsTab
