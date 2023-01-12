@@ -1,7 +1,4 @@
 /*\
-title: $:/plugins/oflg/fishing/filters/sortrandom.js
-type: application/javascript
-module-type: filteroperator
 Filter operator for return a random title in the list.
 \*/
 (function () {

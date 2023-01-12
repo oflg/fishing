@@ -1,8 +1,4 @@
 /*\
-title: $:/plugins/oflg/fishing/widgets/action-exportdata.js
-type: application/javascript
-module-type: widget
-
 Action widget to export fsrs data.
 \*/
 (function () {

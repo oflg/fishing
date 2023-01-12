@@ -1,8 +1,4 @@
 /*\
-title: $:/plugins/oflg/fishing/widgets/action-learn.js
-type: application/javascript
-module-type: widget
-
 Action widget to set fishing fields on tiddlers.
 \*/
 (function () {

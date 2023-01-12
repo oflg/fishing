@@ -1,10 +1,5 @@
 /*\
-title: $:/plugins/oflg/fishing/filters/interval.js
-type: application/javascript
-module-type: filteroperator
-
 Calculate the interval of tiddler
-
 \*/
 (function () {
 

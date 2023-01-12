@@ -1,8 +1,4 @@
 /*\
-title: $:/plugins/oflg/fishing/macros/fsrs.js
-type: application/javascript
-module-type: macro
-
 Use Free Spaced Repetition Scheduler: https://github.com/open-spaced-repetition/free-spaced-repetition-scheduler
 \*/
 (function () {

@@ -1,10 +1,5 @@
 /*\
-title: $:/plugins/oflg/fishing/filters/due.js
-type: application/javascript
-module-type: filteroperator
-
 Calculate the due of tiddler
-
 \*/
 (function () {
 
