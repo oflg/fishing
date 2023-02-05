@@ -1,0 +1,47 @@
+tags: $:/tags/Macro
+title: $:/plugins/oflg/fishing/macros/questions/cloze
+
+\whitespace trim
+
+\define ?c(show,hide:"...",id:"1")
+<$reveal
+    state=<<folded-state>>
+    type="nomatch"
+    text="show"
+    animate="yes"
+>
+    <$button
+        class="tc-btn-invisible"
+    >
+        <$action-setfield
+            $tiddler="$:/temp/fishing"
+            $index=<<__id__>>
+            $value={{{ [[$:/temp/fishing]getindex<__id__>match[show]then[]else[show]] }}}
+        />
+        <$reveal
+            default={{{ [[$:/temp/fishing]getindex<__id__>] }}}
+            type="match"
+            text="show"
+            animate="yes"
+        >
+            __$show$__
+        </$reveal>
+        <$reveal
+            default={{{ [[$:/temp/fishing]getindex<__id__>] }}}
+            type="nomatch"
+            text="show"
+            animate="yes"
+        >
+            `[$hide$]`
+        </$reveal>
+    </$button>
+</$reveal>
+<$reveal
+    state=<<folded-state>>
+    type="match"
+    text="show"
+    animate="yes"
+>
+    __$show$__
+</$reveal>
+\end
