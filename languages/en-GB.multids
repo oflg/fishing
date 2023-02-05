@@ -16,10 +16,10 @@ grasp: Grasp
 grasptip: Grasp the question
 discard: Discard
 discardtip: No more learning this tiddler
-fishingpondtip: Learn this group of tiddlers
-new: New
-due: Due
-undue: Undue
+fishingpondtip: Start
+new: Learn new
+due: Review due
+undue: Review Undue
 commonfiltertip: Commonly used Filter
 addfiltertip: Add to commonly used Filter
 unaddfiltertip: Unadd this Filter
@@ -49,3 +49,4 @@ settitletip: Condition for showing caption of a tiddler.
 setlearntip: Condition for showing learning of a tiddler.
 pluginlibrary: TiddlyMemo Plugin Library
 pluginlibrarytip: This plugin library can be used to install and update plugins related to TiddlyMemo.
+captionplaceholder: Type the caption for this tiddler

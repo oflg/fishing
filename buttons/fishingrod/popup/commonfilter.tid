@@ -9,7 +9,7 @@ title: $:/plugins/oflg/fishing/buttons/fishingrod/popup/commonfilter
     >
         <$button
             tooltip={{{ [{$:/language/fishing/fillfiltertip}addsuffix[ : ]addsuffix<fishingrod>] }}}
-            aria-label={{{ [{$:/language/fishing/fillfiltertip}addsuffix[ : ]addsuffix<$:/temp/fishing!!fishingrod>] }}}
+            aria-label={{{ [{$:/language/fishing/fillfiltertip}addsuffix[ : ]addsuffix<fishingrod>] }}}
             class="tc-btn-invisible"
         >
             <$action-setfield
@@ -19,9 +19,24 @@ title: $:/plugins/oflg/fishing/buttons/fishingrod/popup/commonfilter
             <$action-deletetiddler
                 $filter="[prefix[$:/state/FishingButtonPopup]]"
             />
-            <$text
-                text={{{ [<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]get[caption]] ~[<fishingrod>] }}}
-            />
+            <$list filter="[<fishingrod>addprefix[$:/plugins/oflg/fishing/fishingrod/]]">
+                    <$reveal
+                        default={{{ [<currentTiddler>get[caption]] }}}
+                        type="match"
+                        text=""
+                    >
+                        <$text
+                            text=<<fishingrod>>
+                        />
+                    </$reveal>
+                    <$reveal
+                        default={{{ [<currentTiddler>get[caption]] }}}
+                        type="nomatch"
+                        text=""
+                    >
+                        <<toc-caption>>
+                    </$reveal>
+            </$list>
         </$button>
     </$list>
 </div>

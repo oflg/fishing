@@ -1,5 +1,5 @@
 tags: $:/tags/ViewTemplate
-title: $:/plugins/oflg/fishing/ui/ViewTemplate/fishing/fold
+title: $:/plugins/oflg/fishing/ui/ViewTemplate/fold
 list-after: $:/core/ui/ViewTemplate/title
 code-body: yes
 

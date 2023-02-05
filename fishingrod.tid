@@ -8,7 +8,7 @@ title: $:/plugins/oflg/fishing/fishingrod
         field="fishingrod"
         tag="input"
         focus="true"
-        placeholder="[tag[?]!tag[!]]"
+        placeholder="[tag[?]]"
         inputActions='<$action-setfield $tiddler="$:/temp/fishing" list=""/>'
     />
 </div>
@@ -19,7 +19,7 @@ title: $:/plugins/oflg/fishing/fishingrod
         filter="[all[shadows+tiddlers]tag[$:/tags/FishingGrod]!is[draft]]"
     >
         <$transclude
-            tiddler="$:/plugins/oflg/fishing/ui/ViewTemplate/fishing/button"
+            tiddler="$:/plugins/oflg/fishing/ui/ViewTemplate/button"
             mode="inline"
         />
     </$list>

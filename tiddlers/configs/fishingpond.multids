@@ -1,8 +1,8 @@
 title: $:/config/fishingpond/
 
 rod: [tag[?]]
-newpond: [!tag[!]!has[due]]
-duepond: [!tag[!]has[due]] -[has[due]!days:due[1]] -[sameday:review<now YYYY0MM0DD>]
+newpond: [!has[due]]
+duepond: [has[due]] -[has[due]!days:due[1]] -[sameday:review<now YYYY0MM0DD>]
 autoorder: [!sortsub:number{$:/config/fishingpond/autopriority}]
 dueorder: [sort[due]]
 undueorder: [sort[due]]

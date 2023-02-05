@@ -1,0 +1,28 @@
+tags: $:/tags/ViewTemplate
+title: $:/plugins/oflg/fishing/ui/ViewTemplate/caption
+list-after: $:/core/ui/ViewTemplate/title
+code-body: yes
+
+\whitespace trim
+
+<$list
+    filter={{$:/config/FishingCascade/caption}}
+>
+    <$reveal
+        default={{{ [<currentTiddler>get[caption]trim[]] }}}
+        type="match"
+        text=""
+    >
+        <$text
+            text=<<currentTiddler>>
+        />
+    </$reveal>
+    <$reveal
+        default={{{ [<currentTiddler>get[caption]trim[]] }}}
+        type="nomatch"
+        text=""
+    >
+        <<toc-caption>>
+    </$reveal>
+    <br><br>
+</$list>

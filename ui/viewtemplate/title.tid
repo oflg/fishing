@@ -1,0 +1,13 @@
+title: $:/plugins/oflg/fishing/ui/ViewTemplate/title
+code-body: yes
+
+\whitespace trim
+
+<h2 class="tc-title">
+    <$button
+        class="tc-btn-invisible"
+        tooltip=<<currentTiddler>>
+    >
+        {{$:/core/images/blank}}
+    </$button>
+</h2>

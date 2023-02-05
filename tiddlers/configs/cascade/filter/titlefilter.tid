@@ -1,0 +1,5 @@
+title: $:/config/ViewTemplateTitleFilters/fishing/title
+tags: $:/tags/ViewTemplateTitleFilter
+list-before: $:/config/ViewTemplateTitleFilters/system
+
+[<currentTiddler>] :cascade[all[shadows+tiddlers]tag[$:/tags/FishingFilter/caption]!is[draft]get[text]] +[!is[blank]then[$:/plugins/oflg/fishing/ui/ViewTemplate/title]]

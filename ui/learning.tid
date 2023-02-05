@@ -1,15 +1,17 @@
-title: $:/plugins/oflg/fishing/ui/ViewTemplate/fishing/learning
+title: $:/plugins/oflg/fishing/ui/ViewTemplate/learning
 tags: $:/tags/ViewTemplate
 list-after: $:/core/ui/ViewTemplate/body
 code-body: yes
 
+\whitespace trim
+
 <$list
-    filter="[{!!title}] :cascade[all[shadows+tiddlers]tag[$:/tags/FishingFilter/learning]!is[draft]get[text]] +[!is[blank]limit[1]]"
+    filter={{$:/config/FishingCascade/learning}}
     variable="targetTiddler"
 >
     <$reveal
         state=<<folded-state>>
-        type="nomatch"
+        type="match"
         text="hide"
         animate="yes"
     >
@@ -30,7 +32,7 @@ code-body: yes
                     filter="[all[shadows+tiddlers]tag[$:/tags/FishingHook]!is[draft]]"
                 >
                     <$transclude
-                        tiddler="$:/plugins/oflg/fishing/ui/ViewTemplate/fishing/button"
+                        tiddler="$:/plugins/oflg/fishing/ui/ViewTemplate/button"
                         mode="inline"
                     />
                 </$list>
