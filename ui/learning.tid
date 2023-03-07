@@ -11,7 +11,7 @@ code-body: yes
 >
     <$reveal
         state=<<folded-state>>
-        type="match"
+        type="nomatch"
         text="hide"
         animate="yes"
     >

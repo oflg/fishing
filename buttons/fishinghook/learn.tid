@@ -20,12 +20,8 @@ condition: [<targetTiddler>!has[grade]]
                 $message="tm-add-tag"
                 $param="?"
             />
-            <$action-sendmessage
-                $message="tm-remove-tag"
-                $param="!"
-            />
             <$list
-                filter="[<currentTiddler>!search:caption:literal[Excerpt}}]]"
+                filter="[<currentTiddler>!tag[.]]"
                 variable="ignore"
             >
                 <$action-learn
@@ -33,7 +29,7 @@ condition: [<targetTiddler>!has[grade]]
                 />
             </$list>
             <$list
-                filter="[<currentTiddler>search:caption:literal[Excerpt}}]]"
+                filter="[<currentTiddler>tag[.]]"
                 variable="ignore"
             >
                 <$action-setfield

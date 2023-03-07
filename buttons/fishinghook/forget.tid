@@ -19,10 +19,6 @@ condition: [<targetTiddler>has[grade]]
                 $message="tm-add-tag"
                 $param="?"
             />
-            <$action-sendmessage
-                $message="tm-remove-tag"
-                $param="!"
-            />
             <$action-learn
                 $grade="0"
             />

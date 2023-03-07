@@ -17,10 +17,6 @@ condition: [<targetTiddler>]
     >
         <$fieldmangler>
             <$action-sendmessage
-                $message="tm-remove-tag"
-                $param="?"
-            />
-            <$action-sendmessage
                 $message="tm-add-tag"
                 $param="!"
             />
