@@ -2,6 +2,8 @@ title: $:/config/ShortcutInfo/
 
 fishing-fold: {{$:/language/fishing/fold}}
 fishing-learn: {{$:/language/fishing/learn}}
+fishing-learnquestion: {{$:/language/fishing/learnquestion}}
+fishing-learnexcerpt: {{$:/language/fishing/learnexcerpt}}
 fishing-forget: {{$:/language/fishing/forget}}
 fishing-remember: {{$:/language/fishing/remember}}
 fishing-grasp: {{$:/language/fishing/grasp}}
