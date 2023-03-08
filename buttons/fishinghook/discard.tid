@@ -20,17 +20,6 @@ condition: [<targetTiddler>]
                 $message="tm-add-tag"
                 $param="!"
             />
-            <$action-deletefield
-                due
-                interval
-                grade
-                difficulty
-                stability
-                retrievability
-                lapses
-                reps
-                review
-            />
             <$list
                 filter="[list[$:/temp/fishing]match<currentTiddler>]"
                 variable="ignore"

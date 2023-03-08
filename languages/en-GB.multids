@@ -5,6 +5,10 @@ fishingtip: Incremental Learning
 fold: Unfold or fold this tiddler
 learn: Learn
 learntip: Learn this tiddler
+learnquestion: Learn as Question Tiddler
+learnquestiontip: Learn this tiddler and set it as Question Tiddler
+learnexcerpt: Learn as Excerpt Tiddler
+learnexcerpttip: Learn this tiddler and set it as Excerpt Tiddler
 review: Review
 reps: Reps
 lapses: Lapses

@@ -2,6 +2,8 @@ title: $:/config/shortcuts/
 
 fishing-fold: ctrl-Enter
 fishing-learn: ctrl-L
+fishing-learnquestion: ctrl-Q
+fishing-learnexcerpt: ctrl-E
 fishing-forget: ctrl-0
 fishing-remember: ctrl-1
 fishing-grasp: ctrl-2

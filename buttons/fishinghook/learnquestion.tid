@@ -1,11 +1,11 @@
-key: ((fishing-learn))
+key: ((fishing-learnquestion))
 tags: $:/tags/FishingHook $:/tags/KeyboardShortcut
-title: $:/plugins/oflg/fishing/buttons/fishinghook/learn
+title: $:/plugins/oflg/fishing/buttons/fishinghook/learnquestion
 button-classes: learn tc-tiddlylink
 list-before:
-caption: {{$:/language/fishing/learn}}
-description: {{$:/language/fishing/learntip}}
-condition: [<targetTiddler>!has[grade]tag[?]] [<targetTiddler>!has[grade]tag[.]]
+caption: {{$:/language/fishing/learnquestion}}
+description: {{$:/language/fishing/learnquestiontip}}
+condition: [<targetTiddler>!tag[.]!tag[?]!has[grade]]
 
 <$list
     filter="[<targetTiddler>!is[blank]] ~[list[$:/temp/fishing]first[]!is[blank]!has[grade]]"
@@ -20,24 +20,9 @@ condition: [<targetTiddler>!has[grade]tag[?]] [<targetTiddler>!has[grade]tag[.]]
                 $message="tm-add-tag"
                 $param="?"
             />
-            <$list
-                filter="[<currentTiddler>!tag[.]]"
-                variable="ignore"
-            >
-                <$action-learn
-                    $grade="-1"
-                />
-            </$list>
-            <$list
-                filter="[<currentTiddler>tag[.]]"
-                variable="ignore"
-            >
-                <$action-setfield
-                    interval={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]] }}}
-                    due={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]due[]] }}}
-                    review=<<now "[UTC]YYYY0MM0DD0hh0mm0ssXXX">>
-                />
-            </$list>
+            <$action-learn
+                $grade="-1"
+            />
             <$list
                 filter="[list[$:/temp/fishing]match<currentTiddler>]"
                 variable="ignore"

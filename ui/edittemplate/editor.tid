@@ -6,6 +6,7 @@ code-body: yes
 <$edit
     field="caption"
     tag="textarea"
+    minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}}
     class="tc-edit-texteditor tc-edit-texteditor-body"
     placeholder={{$:/language/fishing/captionplaceholder}}
     tabindex={{$:/config/EditTabIndex}}
