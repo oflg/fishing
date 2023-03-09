@@ -24,6 +24,10 @@ fishingpondtip: Start
 new: Learn new
 due: Review due
 undue: Review Undue
+cloze: Cloze Question
+clozetip: Set the selected text as cloze of Cloze Question(see manual for usage)
+select: Select Question
+selecttip: Set the selected text as options of Select Question(see manual for usage)
 commonfiltertip: Commonly used Filter
 addfiltertip: Add to commonly used Filter
 unaddfiltertip: Unadd this Filter

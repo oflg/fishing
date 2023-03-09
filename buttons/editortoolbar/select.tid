@@ -1,0 +1,17 @@
+caption: {{$:/language/fishing/select}}
+condition: [<targetTiddler>tag[?]]
+description: {{$:/language/fishing/selecttip}}
+icon: $:/plugins/oflg/fishing/icons/select
+list-after: $:/plugins/oflg/fishing/buttons/editortoolbar/cloze
+shortcuts: ((fishing-select))
+tags: $:/tags/EditorToolbar
+title: $:/plugins/oflg/fishing/buttons/editortoolbar/select
+
+<$action-sendmessage
+    $message="tm-edit-text-operation"
+    $param="wrap-selection"
+    prefix='<<?s """
+'
+    suffix='
+""">>'
+/>

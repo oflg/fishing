@@ -8,3 +8,5 @@ fishing-forget: {{$:/language/fishing/forget}}
 fishing-remember: {{$:/language/fishing/remember}}
 fishing-grasp: {{$:/language/fishing/grasp}}
 fishing-discard: {{$:/language/fishing/discard}}
+fishing-cloze: {{$:/language/fishing/cloze}}
+fishing-select: {{$:/language/fishing/select}}

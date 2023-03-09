@@ -1,0 +1,14 @@
+caption: {{$:/language/fishing/cloze}}
+condition: [<targetTiddler>tag[?]]
+description: {{$:/language/fishing/clozetip}}
+icon: $:/plugins/oflg/fishing/icons/cloze
+shortcuts: ((fishing-cloze))
+tags: $:/tags/EditorToolbar
+title: $:/plugins/oflg/fishing/buttons/editortoolbar/cloze
+
+<$action-sendmessage
+    $message="tm-edit-text-operation"
+    $param="wrap-selection"
+    prefix="<<?c "
+    suffix=">>"
+/>

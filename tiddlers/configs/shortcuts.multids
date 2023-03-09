@@ -8,3 +8,5 @@ fishing-forget: ctrl-0
 fishing-remember: ctrl-1
 fishing-grasp: ctrl-2
 fishing-discard: ctrl-D
+fishing-cloze: alt-shift-C
+fishing-select: alt-shift-S
