@@ -1,6 +1,6 @@
 tags: $:/tags/ViewTemplate
 title: $:/plugins/oflg/fishing/ui/ViewTemplate/fold
-list-after: $:/core/ui/ViewTemplate/title
+list-after: $:/core/ui/ViewTemplate/unfold
 code-body: yes
 
 <$list
