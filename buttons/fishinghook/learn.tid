@@ -5,8 +5,9 @@ button-classes: learn tc-tiddlylink
 list-before:
 caption: {{$:/language/fishing/learn}}
 description: {{$:/language/fishing/learntip}}
-condition: [<targetTiddler>!has[grade]tag[?]] [<targetTiddler>!has[grade]tag[.]]
+condition: [<targetTiddler>tag[?]!has[review]] [<targetTiddler>tag[.]] [<targetTiddler>tag[?]has[review]!has[grade]]
 
+<!-- [<targetTiddler>tag[?]has[review]!has[grade]] Compatible with older versions: excerpt entries without tags -->
 <$list
     filter="[<targetTiddler>!is[blank]] ~[list[$:/temp/fishing]first[]!is[blank]!has[grade]]"
 >
@@ -21,7 +22,7 @@ condition: [<targetTiddler>!has[grade]tag[?]] [<targetTiddler>!has[grade]tag[.]]
                 $param="?"
             />
             <$list
-                filter="[<currentTiddler>!tag[.]]"
+                filter="[tag[?]!has[review]]"
                 variable="ignore"
             >
                 <$action-learn
@@ -29,9 +30,13 @@ condition: [<targetTiddler>!has[grade]tag[?]] [<targetTiddler>!has[grade]tag[.]]
                 />
             </$list>
             <$list
-                filter="[<currentTiddler>tag[.]]"
+                filter="[<currentTiddler>tag[.]] [<currentTiddler>tag[?]has[review]!has[grade]]"
                 variable="ignore"
             >
+                <$action-sendmessage
+                    $message="tm-add-tag"
+                    $param="."
+                />
                 <$action-setfield
                     interval={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]] }}}
                     due={{{ [<currentTiddler>get[interval]!is[blank]else[0]add[1]due[]] }}}
