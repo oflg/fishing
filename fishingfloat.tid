@@ -6,7 +6,7 @@ title: $:/plugins/oflg/fishing/fishingfloat
 \whitespace trim
 \define lingo-base() $:/language/fishing/fishingfloat/
 <$button
-    popup=<<qualify "$:/state/popup/fishingdeck">>
+    popup={{{ [{$:/config/Fishing/setfishingdeck}match[navigation]else<qualify "$:/state/popup/fishingdeck">] }}}
     tooltip={{$:/language/fishing/fishingtip}}
     aria-label={{$:/language/fishing/fishingtip}}
     class=<<tv-config-toolbar-class>>
@@ -19,6 +19,11 @@ title: $:/plugins/oflg/fishing/fishingfloat
         <span class="tc-btn-text">
             {{$:/language/fishing/fishingtip}}
         </span>
+    </$list>
+    <$list filter="[{$:/config/Fishing/setfishingdeck}match[navigation]]">
+        <$action-navigate
+            $to="$:/FishingDeck"
+        />
     </$list>
 </$button>
 <$reveal

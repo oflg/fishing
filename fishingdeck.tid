@@ -1,0 +1,15 @@
+icon: $:/plugins/oflg/fishing/icon
+title: $:/FishingDeck
+caption: {{$:/language/fishing/fishingtip}}
+
+\whitespace trim
+
+<div
+    class="tc-drop-down"
+    style="min-width:0;"
+>
+    <!-- creat fishingpond -->
+    {{$:/plugins/oflg/fishing/fishingpond}}
+    <!-- creat fishingrod -->
+    {{$:/plugins/oflg/fishing/fishingrod}}
+</div>

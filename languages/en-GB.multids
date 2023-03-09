@@ -50,6 +50,12 @@ viewfiltertip: Export or delete tiddlers related to this Filter
 exportdatatip: Export learning data and upload it to open source platform to improve FSRS algorithm
 settings: These settings let you customise the behaviour of Fishing.
 globalsettings: Global
+setbehavior: Behavior
+setfishingdeck: Fishing Deck
+setfishingdecktip: Behaviour of Fishing Deck when Fishing Float is clicked
+setclosealltip: Behaviour of close all tiddlers when Learning Groups is clicked
+popup: Popup
+navigation: Navigation
 setparameter: Parameter
 setretention: Retention
 setretentiontip: Default 0.9 and must be between 0.7 and 0.95

@@ -16,6 +16,11 @@ title: $:/plugins/oflg/fishing/fishingpond
             class="tc-btn-invisible tc-tiddlylink"
             style="padding-right:10px;"
         >
+            <$list filter="[{$:/config/Fishing/setcloseall}match[yes]]">
+                <$action-sendmessage
+                    $message="tm-close-all-tiddlers"
+                />
+            </$list>
             <$action-setfield
                 $tiddler="$:/temp/fishing"
                 text=""
