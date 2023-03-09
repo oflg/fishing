@@ -22,7 +22,9 @@ code-body: yes
         type="nomatch"
         text=""
     >
-        <<toc-caption>>
+        <span class="tc-toc-caption">
+            <$transclude field="caption"/>
+        </span>
     </$reveal>
     <br><br>
 </$list>

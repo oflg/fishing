@@ -1,5 +1,6 @@
 tags: $:/tags/Macro
 title: $:/plugins/oflg/fishing/macros/questions/type
+code-body: yes
 
 \whitespace trim
 
