@@ -5,9 +5,9 @@ button-classes: learn tc-tiddlylink
 list-before:
 caption: {{$:/language/fishing/learn}}
 description: {{$:/language/fishing/learntip}}
-condition: [<targetTiddler>tag[?]!has[review]] [<targetTiddler>tag[.]] [<targetTiddler>tag[?]has[review]!has[grade]]
+condition: [<targetTiddler>tag[?]!tag[.]!has[review]] [<targetTiddler>tag[.]] [<targetTiddler>tag[?]has[review]!has[grade]]
 
-<!-- [<targetTiddler>tag[?]has[review]!has[grade]] Compatible with older versions: excerpt entries without tags -->
+<!-- [<targetTiddler>tag[?]has[review]!has[grade]] Compatible with older versions: excerpt tiddlers without tags . -->
 <$list
     filter="[<targetTiddler>!is[blank]] ~[list[$:/temp/fishing]first[]!is[blank]!has[grade]]"
 >
@@ -22,7 +22,7 @@ condition: [<targetTiddler>tag[?]!has[review]] [<targetTiddler>tag[.]] [<targetT
                 $param="?"
             />
             <$list
-                filter="[tag[?]!has[review]]"
+                filter="[tag[?]!tag[.]!has[review]]"
                 variable="ignore"
             >
                 <$action-learn
