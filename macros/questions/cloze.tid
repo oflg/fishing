@@ -4,7 +4,7 @@ code-body: yes
 
 \whitespace trim
 
-\define ?c(show,hide:"...",id:"1")
+\define ?c(hide,show:"...",id:"1")
 <$reveal
     state=<<folded-state>>
     type="nomatch"
@@ -25,7 +25,7 @@ code-body: yes
             text="show"
             animate="yes"
         >
-            __$show$__
+            __$hide$__
         </$reveal>
         <$reveal
             default={{{ [[$:/temp/fishing]getindex<__id__>] }}}
@@ -33,7 +33,7 @@ code-body: yes
             text="show"
             animate="yes"
         >
-            `[$hide$]`
+            `[$show$]`
         </$reveal>
     </$button>
 </$reveal>
@@ -43,6 +43,6 @@ code-body: yes
     text="show"
     animate="yes"
 >
-    __$show$__
+    __$hide$__
 </$reveal>
 \end
