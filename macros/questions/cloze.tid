@@ -4,7 +4,7 @@ code-body: yes
 
 \whitespace trim
 
-\define ?c(hide,show:"...",id:"1")
+\define ?c(hide,show:"...",id:"default")
 <$reveal
     state=<<folded-state>>
     type="nomatch"
