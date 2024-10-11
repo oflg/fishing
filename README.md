@@ -1,1 +1,1 @@
-# URL: [https://tiddlymemo.org/](https://tiddlymemo.org/)
+# URL: [https://oflg.github.io/Tidme](https://oflg.github.io/Tidme)
